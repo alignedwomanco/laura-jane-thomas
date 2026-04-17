@@ -12,7 +12,7 @@ import Speaking from './pages/Speaking';
 import ResetRoom from './pages/ResetRoom';
 import Contact from './pages/Contact';
 import Questionnaire from './pages/Questionnaire';
-import StrategyReport from './pages/StrategyReport';
+import StrategyReport from './pages/StrategyReport.jsx';
 
 // Redirect unauthenticated users away from all pages except /questionnaire and /strategy-report
 const PublicOnlyRoute = ({ children }) => {

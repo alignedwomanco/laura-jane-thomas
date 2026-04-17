@@ -12,48 +12,84 @@ export default function StrategyReport() {
   const { id } = useParams();
   const [report, setReport] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [generating, setGenerating] = useState(false);
   const [error, setError] = useState(null);
+  const [debug, setDebug] = useState(null);
 
   useEffect(() => {
     if (!id) { setError("No report ID in URL."); setLoading(false); return; }
-    load();
+    loadReport();
   }, [id]);
 
-  async function load() {
+  async function loadReport() {
+    setLoading(true);
+    setError(null);
     try {
-      setLoading(true);
-      setError(null);
-      // Fetch by record ID using the SDK's list with a filter on id
-      const records = await base44.entities.BrandStrategySubmission.list();
-      const found = records.find(r => r.id === id);
+      // Fetch the specific record by ID
+      const all = await base44.entities.BrandStrategySubmission.list();
+      const found = all.find(r => r.id === id);
+
       if (!found) {
         setError("Record not found for ID: " + id);
-      } else {
-        setReport(found);
+        setLoading(false);
+        return;
       }
-    } catch (e) {
-      setError("Failed to load report: " + e.message);
-    } finally {
+
+      setDebug({
+        recordId: found.id,
+        status: found.status,
+        hasBusinessFoundation: Object.keys(found.businessFoundation || {}).length > 0,
+        hasGeneratedReport: !!found.generatedReport,
+        reportLength: found.generatedReport?.length || 0,
+        hasEmailSummary: !!found.emailSummary,
+        summaryLength: found.emailSummary?.length || 0,
+      });
+
+      // If report already exists, show it
+      if (found.generatedReport) {
+        setReport(found);
+        setLoading(false);
+        return;
+      }
+
+      // No report yet — trigger generation from the existing saved answers
       setLoading(false);
+      setGenerating(true);
+      const res = await base44.functions.invoke("generateReportFromExisting", { recordId: found.id });
+      const genDebug = res.data?.debug;
+      if (genDebug) setDebug(prev => ({ ...prev, ...genDebug }));
+
+      // Re-fetch the record now that it should have the report
+      const all2 = await base44.entities.BrandStrategySubmission.list();
+      const updated = all2.find(r => r.id === found.id);
+      if (updated?.generatedReport) {
+        setReport(updated);
+      } else {
+        setError("Report generation ran but generatedReport is still empty. The questionnaire data in this record may be missing — please submit the questionnaire again.");
+      }
+      setGenerating(false);
+    } catch (e) {
+      setError("Failed: " + e.message);
+      setLoading(false);
+      setGenerating(false);
     }
   }
 
   const handlePrint = () => window.print();
 
   // ── Loading ────────────────────────────────────────────────────────
-  if (loading) {
+  if (loading || generating) {
     return (
       <div className="min-h-screen bg-white flex flex-col">
         <NavbarMinimal />
         <div className="flex-1 flex items-center justify-center px-6 py-32">
           <div className="text-center max-w-lg">
             <div className="w-12 h-12 border-2 border-[#ece8e3] rounded-full mx-auto mb-8" style={{ borderTopColor: ACCENT, animation: "spin 1.2s linear infinite" }} />
-            <p className="text-[11px] tracking-editorial uppercase font-sans mb-4" style={{ color: ACCENT, letterSpacing: "0.2em" }}>Brand Strategy Diagnostic</p>
+            <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-4" style={{ color: ACCENT }}>Brand Strategy Diagnostic</p>
             <h2 className="font-serif text-3xl md:text-4xl text-[#141414] leading-tight mb-3">
-              We are analyzing your responses<br />
-              <span className="italic font-normal">and building your strategy.</span>
+              {generating ? "Generating your strategy report…" : "Loading your report…"}<br />
+              <span className="italic font-normal">This takes about 30 seconds.</span>
             </h2>
-            <p className="text-[#141414]/45 text-sm font-sans">This takes about 30 seconds.</p>
           </div>
         </div>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
@@ -61,61 +97,35 @@ export default function StrategyReport() {
     );
   }
 
-  // ── Error / Not found ──────────────────────────────────────────────
+  // ── Error ──────────────────────────────────────────────────────────
   if (error || !report) {
     return (
       <div className="min-h-screen bg-white flex flex-col">
         <NavbarMinimal />
         <div className="flex-1 flex items-center justify-center px-6">
           <div className="text-center max-w-md">
-            <p className="font-serif text-2xl text-[#141414] mb-3">Your report is still processing.</p>
-            <p className="text-sm font-sans text-[#141414]/55 mb-6">Please refresh in a moment.</p>
+            <p className="font-serif text-2xl text-[#141414] mb-3">Something went wrong.</p>
+            <p className="text-sm font-sans text-[#141414]/55 mb-6">{error}</p>
             <button
-              onClick={load}
-              className="px-6 py-3 text-[11px] tracking-editorial uppercase font-sans text-white mr-4"
+              onClick={loadReport}
+              className="px-6 py-3 text-[11px] tracking-[0.2em] uppercase font-sans text-white mr-4"
               style={{ backgroundColor: ACCENT }}
             >
-              Refresh
+              Try Again
             </button>
             <Link to="/" className="text-sm font-sans underline" style={{ color: ACCENT }}>Return home</Link>
-            {/* Debug info */}
-            <div className="mt-8 p-4 bg-[#faf8f5] text-left text-xs font-mono text-[#141414]/50 space-y-1">
-              <p>Record ID: {id}</p>
-              <p>Error: {error || "none"}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
-  // ── Report with empty generatedReport (still processing) ──────────
-  if (!report.generatedReport) {
-    return (
-      <div className="min-h-screen bg-white flex flex-col">
-        <NavbarMinimal />
-        <div className="flex-1 flex items-center justify-center px-6 py-32">
-          <div className="text-center max-w-md">
-            <div className="w-12 h-12 border-2 border-[#ece8e3] rounded-full mx-auto mb-8" style={{ borderTopColor: ACCENT, animation: "spin 1.2s linear infinite" }} />
-            <p className="font-serif text-2xl text-[#141414] mb-3">Your report is still processing.</p>
-            <p className="text-sm font-sans text-[#141414]/55 mb-6">Please refresh in a moment.</p>
-            <button
-              onClick={load}
-              className="px-6 py-3 text-[11px] tracking-editorial uppercase font-sans text-white"
-              style={{ backgroundColor: ACCENT }}
-            >
-              Refresh
-            </button>
-            {/* Debug info */}
-            <div className="mt-8 p-4 bg-[#faf8f5] text-left text-xs font-mono text-[#141414]/50 space-y-1">
-              <p>Record ID: {report.id}</p>
-              <p>Status: {report.status}</p>
-              <p>generatedReport: {report.generatedReport ? `✓ (${report.generatedReport.length} chars)` : "empty"}</p>
-              <p>emailSummary: {report.emailSummary ? `✓ (${report.emailSummary.length} chars)` : "empty"}</p>
-            </div>
+            {debug && (
+              <div className="mt-8 p-4 bg-[#faf8f5] text-left text-xs font-mono text-[#141414]/50 space-y-1">
+                <p>Record ID: {debug.recordId || id}</p>
+                <p>Status: {debug.status}</p>
+                <p>businessFoundation has data: {String(debug.hasBusinessFoundation)}</p>
+                <p>generatedReport: {debug.hasGeneratedReport ? `✓ (${debug.reportLength} chars)` : "❌ empty"}</p>
+                <p>emailSummary: {debug.hasEmailSummary ? `✓ (${debug.summaryLength} chars)` : "❌ empty"}</p>
+              </div>
+            )}
           </div>
         </div>
-        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
       </div>
     );
   }
@@ -127,7 +137,6 @@ export default function StrategyReport() {
         <NavbarMinimal />
       </div>
 
-      {/* Print header */}
       <div className="hidden print:block pt-8 pb-4 px-12 border-b border-[#ece8e3]">
         <p className="font-serif text-2xl text-[#141414]">laurajane<span className="italic">thomas</span></p>
         <p className="text-[10px] tracking-widest uppercase text-[#141414]/50 mt-1">Brand Strategy Report</p>
@@ -137,16 +146,18 @@ export default function StrategyReport() {
         <div className="max-w-3xl mx-auto">
 
           {/* Debug banner */}
-          <div className="mb-6 p-3 bg-[#ece8e3] text-xs font-mono text-[#141414]/60 space-y-1 print:hidden">
-            <p>Record ID: {report.id}</p>
-            <p>Status: {report.status}</p>
-            <p>generatedReport: {report.generatedReport ? `✓ ${report.generatedReport.length} chars` : "❌ empty"}</p>
-            <p>emailSummary: {report.emailSummary ? `✓ ${report.emailSummary.length} chars` : "❌ empty"}</p>
-          </div>
+          {debug && (
+            <div className="mb-6 p-3 bg-[#ece8e3] text-xs font-mono text-[#141414]/60 space-y-1 print:hidden">
+              <p>Record ID: {debug.recordId}</p>
+              <p>businessFoundation has data: {String(debug.hasBusinessFoundation)}</p>
+              <p>generatedReport: {debug.hasGeneratedReport ? `✓ ${debug.reportLength} chars` : "❌ empty"}</p>
+              <p>emailSummary: {debug.hasEmailSummary ? `✓ ${debug.summaryLength} chars` : "❌ empty"}</p>
+            </div>
+          )}
 
           {/* Page header */}
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }} className="mb-14 print:mb-8">
-            <p className="text-[11px] tracking-editorial uppercase font-sans mb-4 print:hidden" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
+            <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-4 print:hidden" style={{ color: ACCENT }}>
               Brand Strategy Diagnostic
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#141414] leading-[0.95] tracking-tight mb-4">
@@ -167,7 +178,7 @@ export default function StrategyReport() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1 }}
               className="mb-14 p-8 bg-[#141414] print:border print:border-[#ece8e3] print:bg-white"
             >
-              <p className="text-[11px] tracking-editorial uppercase font-sans mb-5" style={{ color: "#d0cac4" }}>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-5" style={{ color: "#d0cac4" }}>
                 Key Strategic Insights
               </p>
               <div className="space-y-3">
@@ -196,7 +207,7 @@ export default function StrategyReport() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-editorial uppercase font-sans text-white transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans text-white transition-all duration-300"
                 style={{ backgroundColor: ACCENT }}
                 onMouseEnter={e => { e.currentTarget.style.opacity = "0.85"; }}
                 onMouseLeave={e => { e.currentTarget.style.opacity = "1"; }}
@@ -205,7 +216,7 @@ export default function StrategyReport() {
               </Link>
               <button
                 onClick={handlePrint}
-                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-editorial uppercase font-sans border border-[#d0cac4] text-[#141414] hover:border-[#141414] transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans border border-[#d0cac4] text-[#141414] hover:border-[#141414] transition-all duration-300"
               >
                 Download Report
               </button>

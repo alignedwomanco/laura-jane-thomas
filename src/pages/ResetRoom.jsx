@@ -69,14 +69,30 @@ export default function ResetRoom() {
 
       {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
       <section
-        className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-36 pb-28"
+        className="relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 pt-36 pb-28"
         style={{ backgroundColor: BRAND }}
       >
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/e590e0115_Screenshot2026-04-17at130951.png"
+            alt=""
+            className="w-full h-full object-cover object-center"
+            style={{ opacity: 0.35 }}
+          />
+          {/* Strong overlay to hide image text and blend with brand color */}
+          <div className="absolute inset-0" style={{ background: `rgba(135,45,91,0.72)` }} />
+          {/* Grainy texture */}
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='heroNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23heroNoise)' opacity='0.09'/%3E%3C/svg%3E")`,
+            opacity: 0.8,
+          }} />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-5xl mx-auto"
+          className="relative z-10 max-w-5xl mx-auto"
         >
           <h1
             className="text-white leading-[1.0] tracking-tight mb-12"

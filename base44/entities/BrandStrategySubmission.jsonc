@@ -30,43 +30,39 @@
       "type": "string",
       "description": "Submission timestamp"
     },
-    "sectionContactDetails": {
-      "type": "object",
-      "description": "Section 0 - Contact Details"
-    },
-    "sectionBusinessFoundation": {
+    "businessFoundation": {
       "type": "object",
       "description": "Section 1 - Business Foundation"
     },
-    "sectionOperations": {
+    "operationsBudget": {
       "type": "object",
       "description": "Section 2 - Operations, Budget & Delivery"
     },
-    "sectionMarketingAssets": {
+    "marketingAssets": {
       "type": "object",
       "description": "Section 3 - Current Marketing Assets"
     },
-    "sectionAudienceInsight": {
+    "audienceInsight": {
       "type": "object",
       "description": "Section 4 - Audience Insight"
     },
-    "sectionPositioning": {
+    "positioning": {
       "type": "object",
       "description": "Section 5 - Positioning & Differentiation"
     },
-    "sectionBrandTruth": {
+    "brandTruth": {
       "type": "object",
       "description": "Section 6 - Brand Truth"
     },
-    "sectionBrandEssence": {
+    "brandEssence": {
       "type": "object",
       "description": "Section 7 - Brand Essence"
     },
-    "sectionVisionGrowth": {
+    "visionGrowth": {
       "type": "object",
       "description": "Section 8 - Vision & Growth"
     },
-    "sectionLegacyValues": {
+    "legacyValues": {
       "type": "object",
       "description": "Section 9 - Legacy & Values"
     },

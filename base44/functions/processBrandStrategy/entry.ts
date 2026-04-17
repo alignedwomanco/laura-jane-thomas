@@ -77,15 +77,15 @@ function buildPrompt(record) {
   context += `Analyze their questionnaire responses and produce a structured Brand Strategy Report. Be commercially grounded, direct, and specific to their answers. Do not repeat questions verbatim — interpret, synthesize, and provide strategic insight. Avoid generic motivational language.\n\n`;
   context += `=== QUESTIONNAIRE RESPONSES ===\n`;
 
-  context += buildQABlock("Business Foundation", BUSINESS_QUESTIONS, record.sectionBusinessFoundation);
-  context += buildQABlock("Audience Insight", AUDIENCE_QUESTIONS, record.sectionAudienceInsight);
-  context += buildQABlock("Positioning & Differentiation", POSITIONING_QUESTIONS, record.sectionPositioning);
-  context += buildQABlock("Brand Truth", BRAND_TRUTH_QUESTIONS, record.sectionBrandTruth);
-  context += buildQABlock("Brand Essence", BRAND_ESSENCE_QUESTIONS, record.sectionBrandEssence);
-  context += buildQABlock("Vision & Growth", VISION_QUESTIONS, record.sectionVisionGrowth);
-  context += buildQABlock("Legacy & Values", LEGACY_QUESTIONS, record.sectionLegacyValues);
+  context += buildQABlock("Business Foundation", BUSINESS_QUESTIONS, record.businessFoundation);
+  context += buildQABlock("Audience Insight", AUDIENCE_QUESTIONS, record.audienceInsight);
+  context += buildQABlock("Positioning & Differentiation", POSITIONING_QUESTIONS, record.positioning);
+  context += buildQABlock("Brand Truth", BRAND_TRUTH_QUESTIONS, record.brandTruth);
+  context += buildQABlock("Brand Essence", BRAND_ESSENCE_QUESTIONS, record.brandEssence);
+  context += buildQABlock("Vision & Growth", VISION_QUESTIONS, record.visionGrowth);
+  context += buildQABlock("Legacy & Values", LEGACY_QUESTIONS, record.legacyValues);
 
-  const ops = record.sectionOperations || {};
+  const ops = record.operationsBudget || {};
   if (ops.budget || ops.support || ops.workingModel) {
     context += `\n## Operations & Budget\n`;
     if (ops.budget) context += `Budget: ${ops.budget}\n`;
@@ -95,7 +95,7 @@ function buildPrompt(record) {
     if (ops.different) context += `What needs to be different: ${ops.different}\n`;
   }
 
-  const legacy = record.sectionLegacyValues || {};
+  const legacy = record.legacyValues || {};
   if (legacy.values && legacy.values.length > 0) {
     context += `\nCore Values selected: ${legacy.values.join(", ")}\n`;
   }
@@ -131,16 +131,15 @@ Deno.serve(async (req) => {
       company: contact.company || "",
       phone: contact.phone || "",
       submittedAt: new Date().toISOString(),
-      sectionContactDetails: formData[0] || {},
-      sectionBusinessFoundation: formData[1] || {},
-      sectionOperations: formData[2] || {},
-      sectionMarketingAssets: formData[3] || {},
-      sectionAudienceInsight: formData[4] || {},
-      sectionPositioning: formData[5] || {},
-      sectionBrandTruth: formData[6] || {},
-      sectionBrandEssence: formData[7] || {},
-      sectionVisionGrowth: formData[8] || {},
-      sectionLegacyValues: formData[9] || {},
+      businessFoundation: formData[1] || {},
+      operationsBudget: formData[2] || {},
+      marketingAssets: formData[3] || {},
+      audienceInsight: formData[4] || {},
+      positioning: formData[5] || {},
+      brandTruth: formData[6] || {},
+      brandEssence: formData[7] || {},
+      visionGrowth: formData[8] || {},
+      legacyValues: formData[9] || {},
       status: "processing",
     };
 

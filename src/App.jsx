@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
@@ -13,6 +13,17 @@ import ResetRoom from './pages/ResetRoom';
 import Contact from './pages/Contact';
 import Questionnaire from './pages/Questionnaire';
 import StrategyReport from './pages/StrategyReport';
+
+// Redirect unauthenticated users away from all pages except /questionnaire and /strategy-report
+const PublicOnlyRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+  const location = useLocation();
+  const isPublicPath = location.pathname === '/questionnaire' || location.pathname.startsWith('/strategy-report');
+  if (!isAuthenticated && !isPublicPath) {
+    return <Navigate to="/questionnaire" replace />;
+  }
+  return children;
+};
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -40,14 +51,14 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/consulting" element={<Consulting />} />
-      <Route path="/speaking" element={<Speaking />} />
-      <Route path="/reset-room" element={<ResetRoom />} />
-      <Route path="/contact" element={<Contact />} />
       <Route path="/questionnaire" element={<Questionnaire />} />
       <Route path="/strategy-report/:id" element={<StrategyReport />} />
+      <Route path="/" element={<PublicOnlyRoute><Home /></PublicOnlyRoute>} />
+      <Route path="/about" element={<PublicOnlyRoute><About /></PublicOnlyRoute>} />
+      <Route path="/consulting" element={<PublicOnlyRoute><Consulting /></PublicOnlyRoute>} />
+      <Route path="/speaking" element={<PublicOnlyRoute><Speaking /></PublicOnlyRoute>} />
+      <Route path="/reset-room" element={<PublicOnlyRoute><ResetRoom /></PublicOnlyRoute>} />
+      <Route path="/contact" element={<PublicOnlyRoute><Contact /></PublicOnlyRoute>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

@@ -5,6 +5,7 @@ import { base44 } from "@/api/base44Client";
 import NavbarMinimal from "@/components/site/NavbarMinimal";
 import FooterMinimal from "@/components/site/FooterMinimal";
 import ReportContent from "@/components/report/ReportContent";
+import { generateBrandStrategyPDF } from "@/lib/generatePDF";
 
 const ACCENT = "#4A3728";
 
@@ -76,6 +77,7 @@ export default function StrategyReport() {
   }
 
   const handlePrint = () => window.print();
+  const handleDownloadPDF = () => generateBrandStrategyPDF(report);
 
   // ── Loading ────────────────────────────────────────────────────────
   if (loading || generating) {
@@ -215,10 +217,10 @@ export default function StrategyReport() {
                 Book a Strategy Session →
               </Link>
               <button
-                onClick={handlePrint}
+                onClick={handleDownloadPDF}
                 className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans border border-[#d0cac4] text-[#141414] hover:border-[#141414] transition-all duration-300"
               >
-                Download Report
+                Download PDF
               </button>
             </div>
           </motion.div>

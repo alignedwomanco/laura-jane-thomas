@@ -12,6 +12,7 @@ import Speaking from './pages/Speaking';
 import ResetRoom from './pages/ResetRoom';
 import Contact from './pages/Contact';
 import Questionnaire from './pages/Questionnaire';
+import StrategyReport from './pages/StrategyReport';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -46,6 +47,7 @@ const AuthenticatedApp = () => {
       <Route path="/reset-room" element={<ResetRoom />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/questionnaire" element={<Questionnaire />} />
+      <Route path="/strategy-report/:id" element={<StrategyReport />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

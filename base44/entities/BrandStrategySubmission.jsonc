@@ -1,0 +1,95 @@
+{
+  "name": "BrandStrategySubmission",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "Submitter first name"
+    },
+    "fullName": {
+      "type": "string",
+      "description": "Submitter full name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Submitter email"
+    },
+    "position": {
+      "type": "string",
+      "description": "Position or title"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company or brand name"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact number"
+    },
+    "submittedAt": {
+      "type": "string",
+      "description": "Submission timestamp"
+    },
+    "sectionContactDetails": {
+      "type": "object",
+      "description": "Section 0 - Contact Details"
+    },
+    "sectionBusinessFoundation": {
+      "type": "object",
+      "description": "Section 1 - Business Foundation"
+    },
+    "sectionOperations": {
+      "type": "object",
+      "description": "Section 2 - Operations, Budget & Delivery"
+    },
+    "sectionMarketingAssets": {
+      "type": "object",
+      "description": "Section 3 - Current Marketing Assets"
+    },
+    "sectionAudienceInsight": {
+      "type": "object",
+      "description": "Section 4 - Audience Insight"
+    },
+    "sectionPositioning": {
+      "type": "object",
+      "description": "Section 5 - Positioning & Differentiation"
+    },
+    "sectionBrandTruth": {
+      "type": "object",
+      "description": "Section 6 - Brand Truth"
+    },
+    "sectionBrandEssence": {
+      "type": "object",
+      "description": "Section 7 - Brand Essence"
+    },
+    "sectionVisionGrowth": {
+      "type": "object",
+      "description": "Section 8 - Vision & Growth"
+    },
+    "sectionLegacyValues": {
+      "type": "object",
+      "description": "Section 9 - Legacy & Values"
+    },
+    "generatedReport": {
+      "type": "string",
+      "description": "Full AI-generated brand strategy report"
+    },
+    "emailSummary": {
+      "type": "string",
+      "description": "Short email summary bullet points"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "processing",
+        "complete",
+        "error"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "email"
+  ]
+}

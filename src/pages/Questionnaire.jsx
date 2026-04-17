@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft, Check, Plus, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { base44 } from "@/api/base44Client";
 import Navbar from "@/components/site/NavbarMinimal";
 import Footer from "@/components/site/FooterMinimal";
 
@@ -524,6 +526,7 @@ const SECTION_COMPONENTS = [Section0, Section1, Section2, Section3, Section4, Se
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function Questionnaire() {
+  const navigate = useNavigate();
   const [current, setCurrent] = useState(0); // 0-indexed
   const [formData, setFormData] = useState(() => {
     try {
@@ -531,7 +534,7 @@ export default function Questionnaire() {
       return saved ? JSON.parse(saved) : Array(10).fill({});
     } catch { return Array(10).fill({}); }
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [processing, setProcessing] = useState(false);
 
   // Auto-save
   useEffect(() => {
@@ -548,33 +551,43 @@ export default function Questionnaire() {
   const SectionComp = SECTION_COMPONENTS[current];
   const section = SECTIONS[current];
 
-  const handleSubmit = () => {
-    setSubmitted(true);
-    try { localStorage.removeItem("bsd_form"); } catch {}
+  const handleSubmit = async () => {
+    setProcessing(true);
+    try {
+      const response = await base44.functions.invoke("processBrandStrategy", { formData });
+      try { localStorage.removeItem("bsd_form"); } catch {}
+      navigate(`/strategy-report/${response.data.id}`);
+    } catch (err) {
+      setProcessing(false);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
-  if (submitted) {
+  if (processing) {
     return (
       <div className="min-h-screen bg-white flex flex-col">
         <Navbar />
         <div className="flex-1 flex items-center justify-center px-6 py-32">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-center max-w-xl"
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-lg"
           >
-            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-8" style={{ backgroundColor: ACCENT }}>
-              <Check className="w-6 h-6 text-white" />
+            <div className="flex justify-center mb-10">
+              <div className="w-12 h-12 border-2 border-[#ece8e3] rounded-full" style={{ borderTopColor: ACCENT, animation: "spin 1.2s linear infinite" }} />
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#141414] mb-6 leading-tight">
-              Thank you.<br /><span className="italic font-normal">We'll be in touch.</span>
-            </h2>
-            <p className="text-[#141414]/60 text-base leading-relaxed font-sans">
-              Your strategy questionnaire has been submitted. Laura will review your responses and reach out within 2–3 business days with next steps.
+            <p className="text-[11px] tracking-editorial uppercase font-sans mb-5" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
+              Brand Strategy Diagnostic
             </p>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#141414] leading-tight mb-4">
+              We are analyzing your responses<br />
+              <span className="italic font-normal">and building your strategy.</span>
+            </h2>
+            <p className="text-[#141414]/45 text-sm font-sans">This takes about 30 seconds.</p>
           </motion.div>
         </div>
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
         <Footer />
       </div>
     );

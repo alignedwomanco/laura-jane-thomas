@@ -75,7 +75,7 @@ export default function MeetLaura() {
             </div>
 
             <Link
-              to="/"
+              to="/contact"
               className="mt-12 inline-flex items-center gap-3 bg-foreground text-ivory px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group"
             >
               Apply To Work With Me

@@ -56,7 +56,7 @@ export default function Hero() {
           </div>
 
           <Link
-            to="/"
+            to="/contact"
             className="justify-self-start md:justify-self-center inline-flex items-center gap-3 bg-ivory text-oxblood px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-ivory/90 transition-all duration-300 group"
           >
             Apply To Work With Me

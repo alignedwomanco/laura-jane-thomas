@@ -4,12 +4,11 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { label: "Home", to: "/" },
-  { label: "About", to: "/" },
-  { label: "Consulting", to: "/" },
-  { label: "Speaking", to: "/" },
-  { label: "The Reset Room", to: "/" },
-  { label: "Blog", to: "/" },
-  { label: "Contact", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Consulting", to: "/consulting" },
+  { label: "Speaking", to: "/speaking" },
+  { label: "The Reset Room", to: "/reset-room" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export default function Navbar() {
@@ -52,7 +51,8 @@ export default function Navbar() {
 
         <Link
           to="/"
-          className="hidden lg:inline-flex text-[11px] tracking-editorial uppercase border border-foreground/80 px-5 py-2.5 hover:bg-foreground hover:text-ivory transition-all duration-300"
+          to="/contact"
+        className="hidden lg:inline-flex text-[11px] tracking-editorial uppercase border border-foreground/80 px-5 py-2.5 hover:bg-foreground hover:text-ivory transition-all duration-300"
         >
           Work With Me
         </Link>

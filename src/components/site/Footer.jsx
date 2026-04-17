@@ -20,11 +20,11 @@ export default function Footer() {
               Explore
             </p>
             <ul className="space-y-3 font-serif text-lg">
-              <li><Link to="/" className="hover:italic transition-all">About</Link></li>
-              <li><Link to="/" className="hover:italic transition-all">Consulting</Link></li>
-              <li><Link to="/" className="hover:italic transition-all">Speaking</Link></li>
-              <li><Link to="/" className="hover:italic transition-all">The Reset Room</Link></li>
-              <li><Link to="/" className="hover:italic transition-all">Blog</Link></li>
+              <li><Link to="/about" className="hover:italic transition-all">About</Link></li>
+              <li><Link to="/consulting" className="hover:italic transition-all">Consulting</Link></li>
+              <li><Link to="/speaking" className="hover:italic transition-all">Speaking</Link></li>
+              <li><Link to="/reset-room" className="hover:italic transition-all">The Reset Room</Link></li>
+              <li><Link to="/contact" className="hover:italic transition-all">Contact</Link></li>
             </ul>
           </div>
 
@@ -33,7 +33,7 @@ export default function Footer() {
               Connect
             </p>
             <Link
-              to="/"
+              to="/contact"
               className="inline-block border border-ivory/40 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood-deep transition-all duration-300"
             >
               Apply To Work With Me

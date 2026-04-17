@@ -50,7 +50,7 @@ export default function AboutIntro() {
             </p>
 
             <Link
-              to="/"
+              to="/about"
               className="inline-flex items-center gap-3 border border-foreground/80 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-foreground hover:text-ivory transition-all duration-300 group"
             >
               Learn More About Me

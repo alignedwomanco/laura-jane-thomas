@@ -88,7 +88,7 @@ export default function Services() {
                 </p>
 
                 <Link
-                  to="/"
+                  to={s.href}
                   className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all duration-300 group"
                 >
                   Learn More

@@ -164,7 +164,7 @@ export default function About() {
             </div>
             <div className="aspect-[4/5] overflow-hidden">
               <img
-                src="https://laurajanethomas.biz/wp-content/uploads/2025/11/why-work-img.png"
+                src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/44ad00c70_LJT_17-04-2026-21-30-39.jpg"
                 alt="Why work with Laura"
                 className="w-full h-full object-cover"
               />

@@ -26,7 +26,7 @@ const services = [
   {
     num: "03.",
     title: "",
-    italic: "coaching, courses",
+    italic: "Coaching, courses",
     suffix: "& community",
     lead: "For ambitious women ready to rewrite the rules.",
     body:

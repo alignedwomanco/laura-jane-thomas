@@ -186,7 +186,7 @@ Deno.serve(async (req) => {
     });
     console.log("[processBrandStrategy] Record updated with report.");
 
-    // ── Step 5: Send email (non-blocking — don't fail on email error) ─
+    // ── Step 5: Send email via Gmail (non-blocking — don't fail on email error) ─
     if (record.email) {
       try {
         const origin = req.headers.get("origin") || "https://laurajanethomas.biz";
@@ -220,13 +220,34 @@ Laura.
 www.laurajanethomas.biz
 hello@laurajanethomas.biz
 +27 677302030`;
-        await base44.asServiceRole.integrations.Core.SendEmail({
-          to: record.email,
-          subject: "Your Brand Strategy Diagnostic is Ready",
-          body: emailBody,
-          from_name: "Laura Jane Thomas",
+
+        // Build MIME message for Gmail
+        const mimeMessage = `From: hello@laurajanethomas.biz
+To: ${record.email}
+Subject: Your Brand Strategy Diagnostic is Ready
+Content-Type: text/plain; charset="UTF-8"
+
+${emailBody}`;
+
+        const base64Message = btoa(mimeMessage).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+        
+        const { accessToken } = await base44.asServiceRole.connectors.getConnection('gmail');
+        
+        const gmailRes = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ raw: base64Message }),
         });
-        console.log("[processBrandStrategy] Email sent to:", record.email);
+
+        if (!gmailRes.ok) {
+          const err = await gmailRes.text();
+          throw new Error(`Gmail API error: ${err}`);
+        }
+
+        console.log("[processBrandStrategy] Email sent via Gmail to:", record.email);
       } catch (emailError) {
         // Log but do not fail — report is already saved
         console.warn("[processBrandStrategy] Email send failed (non-fatal):", emailError.message);

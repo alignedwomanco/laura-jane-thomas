@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft, Check, Plus, X } from "lucide-react";
-import Navbar from "@/components/site/Navbar";
-import Footer from "@/components/site/Footer";
+import Navbar from "@/components/site/NavbarMinimal";
+import Footer from "@/components/site/FooterMinimal";
 
 // ─── Design tokens ───────────────────────────────────────────────────────────
 const ACCENT = "#4A3728"; // deep warm brown — consistent with brand

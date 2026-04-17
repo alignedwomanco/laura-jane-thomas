@@ -94,7 +94,7 @@ export default function About() {
         {/* Hero image strip */}
         <div className="relative h-[50vw] max-h-[500px] overflow-hidden">
           <img
-            src="https://laurajanethomas.biz/wp-content/uploads/2025/11/Laura-1.png"
+            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/a70bbb6f9_DSC08995.jpg"
             alt="Laura Jane Thomas"
             className="w-full h-full object-cover object-top opacity-70"
           />

@@ -189,6 +189,7 @@ Deno.serve(async (req) => {
     console.log("[generateReportFromExisting] Prompt length:", prompt.length);
 
     // ── Step 4: Call LLM ──────────────────────────────────────────────
+    console.log("[generateReportFromExisting] Calling LLM...");
     const llmResult = await base44.asServiceRole.integrations.Core.InvokeLLM({
       prompt,
       response_json_schema: {
@@ -199,12 +200,12 @@ Deno.serve(async (req) => {
         },
         required: ["fullReport", "emailSummary"],
       },
-      model: "claude_sonnet_4_6",
     });
 
-    const fullReport = llmResult.fullReport || "";
-    const emailSummary = llmResult.emailSummary || "";
-    console.log("[generateReportFromExisting] LLM done. Report length:", fullReport.length);
+    console.log("[generateReportFromExisting] LLM raw keys:", JSON.stringify(Object.keys(llmResult || {})));
+    const fullReport = llmResult?.fullReport || llmResult?.full_report || "";
+    const emailSummary = llmResult?.emailSummary || llmResult?.email_summary || "";
+    console.log("[generateReportFromExisting] LLM done. Report length:", fullReport.length, "Summary length:", emailSummary.length);
 
     // ── Step 5: Save back into the SAME record ────────────────────────
     await base44.asServiceRole.entities.BrandStrategySubmission.update(record.id, {

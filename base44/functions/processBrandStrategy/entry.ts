@@ -155,6 +155,7 @@ Deno.serve(async (req) => {
     let fullReport = "";
     let emailSummary = "";
     try {
+      console.log("[processBrandStrategy] Calling LLM...");
       const llmResult = await base44.asServiceRole.integrations.Core.InvokeLLM({
         prompt,
         response_json_schema: {
@@ -165,10 +166,11 @@ Deno.serve(async (req) => {
           },
           required: ["fullReport", "emailSummary"],
         },
-        model: "claude_sonnet_4_6",
       });
-      fullReport = llmResult.fullReport || "";
-      emailSummary = llmResult.emailSummary || "";
+      console.log("[processBrandStrategy] LLM raw result keys:", JSON.stringify(Object.keys(llmResult || {})));
+      console.log("[processBrandStrategy] LLM fullReport type:", typeof llmResult?.fullReport, "length:", String(llmResult?.fullReport || "").length);
+      fullReport = llmResult?.fullReport || llmResult?.full_report || "";
+      emailSummary = llmResult?.emailSummary || llmResult?.email_summary || "";
       console.log("[processBrandStrategy] LLM returned fullReport length:", fullReport.length, "emailSummary length:", emailSummary.length);
     } catch (llmError) {
       console.error("[processBrandStrategy] LLM error:", llmError.message);

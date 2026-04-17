@@ -5,126 +5,106 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+const BRAND = "#872D5B";
 
 const aliveMethod = [
-  {
-    letter: "A",
-    word: "Awareness",
-    desc: "See the patterns, behaviours, and decisions shaping your reality",
-  },
-  {
-    letter: "L",
-    word: "Liberation",
-    desc: "Release what's no longer serving you",
-  },
-  {
-    letter: "I",
-    word: "Intention",
-    desc: "Get clear on what you actually want",
-  },
-  {
-    letter: "V",
-    word: "Vision",
-    desc: "Build a business and life aligned to your next level",
-  },
-  {
-    letter: "E",
-    word: "Embodiment",
-    desc: "Become the woman who can hold it",
-  },
+  { letter: "A", word: "Awareness",   desc: "See the patterns shaping your reality" },
+  { letter: "L", word: "Liberation",  desc: "Release what is no longer serving you" },
+  { letter: "I", word: "Intention",   desc: "Get clear on what you actually want" },
+  { letter: "V", word: "Vision",      desc: "Build your next level" },
+  { letter: "E", word: "Embodiment",  desc: "Become the woman who can hold it" },
 ];
 
 const offers = [
   {
     title: "The Alignment Audit™",
-    body: [
-      "Most women are operating from patterns they haven't learned to see yet.",
-      "This session is designed to identify exactly where you are being drained and what needs to shift.",
-      "You'll leave with clarity, direction, and immediate next steps you can actually trust.",
+    lines: [
+      "You don't need another program.",
+      "You need to see what is actually going on.",
+      "This session identifies exactly where you are being drained and what needs to shift.",
+      "You leave with clarity, direction, and next steps you can trust.",
     ],
     cta: "Book Your Alignment Audit",
-    href: "/contact",
     image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/LauraJThomas24-11-2025-09-52-50-1.png",
     reverse: false,
-    bg: "bg-[#F5F1EC]",
+    bg: "#F5F1EC",
   },
   {
     title: "1:1 Private Mentorship",
-    body: [
+    lines: [
       "This is where we go deeper.",
-      "We work through the patterns shaping your decisions, refine your offers and messaging, and build a business that supports your life, not drains it.",
-      "This is high-level, personalised work for women ready to operate differently.",
+      "We work through the patterns shaping your decisions, refine your offers and messaging, and build a business that supports your life.",
+      "High level. Personalised. Transformational.",
     ],
     cta: "Apply for Private Mentorship",
-    href: "/contact",
     image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/Group-48095914.png",
     reverse: true,
-    bg: "bg-white",
+    bg: "#FFFFFF",
   },
   {
-    title: "The Reset Room",
-    body: [
-      "A space for high-performing women to recalibrate.",
-      "To rebuild their energy, identity, and direction without burning out in the process.",
-      "Less noise.\nMore clarity.\nReal alignment.",
+    title: "Recalibration Day",
+    lines: [
+      "Some decisions are too important to figure out slowly.",
+      "This is a private intensive focused entirely on your business, your direction, and your next level.",
+      "We identify what is not working, what needs to shift, and what actually matters.",
     ],
-    cta: "Enter The Reset Room",
-    href: "/contact",
+    cta: "Book Your Re-Calibration Day",
     image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/room2.png",
     reverse: false,
-    bg: "bg-[#EDEAE4]",
+    bg: "#EAE4DC",
   },
 ];
 
-const truthLines = [
-  "Most women aren't stuck.",
-  "They're being drained.",
-  "",
-  "Drained of energy.",
-  "Drained of money.",
-  "Drained of power.",
-  "",
-  "And most of the time",
-  "they don't even realise where it's coming from.",
-];
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 28 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 1.0, delay, ease: [0.22, 1, 0.36, 1] },
+});
 
 export default function ResetRoom() {
   return (
-    <div className="bg-white">
+    <div style={{ fontFamily: "var(--font-sans)" }}>
       <Navbar />
 
-      {/* ── SECTION 1: HERO ─────────────────────────────────────────────── */}
+      {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
       <section
-        className="min-h-screen flex flex-col items-center justify-center text-center pt-32 pb-24 md:pt-40 md:pb-36 px-6"
-        style={{ backgroundColor: "#872D5B" }}
+        className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-36 pb-28"
+        style={{ backgroundColor: BRAND }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-4xl mx-auto"
+          transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-5xl mx-auto"
         >
-          <h1 className="font-serif text-[13vw] md:text-[8vw] lg:text-[7vw] leading-[1.0] tracking-tight text-white mb-10">
+          <h1
+            className="text-white leading-[1.0] tracking-tight mb-12"
+            style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3.5rem, 9vw, 8rem)" }}
+          >
             <span className="block">Wildly successful.</span>
-            <span className="block italic font-normal">Deeply aligned.</span>
+            <span className="block italic font-normal" style={{ opacity: 0.85 }}>Deeply aligned.</span>
             <span className="block">Finally.</span>
           </h1>
 
-          <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-14 font-sans">
-            I work with ambitious women ready to become wildly successful and deeply aligned
-            by working with the mind, body, and soul.
-            <br /><br />
-            Through my signature ALIVE Method™, I've helped hundreds of women globally
-            move through internal blocks, refine their offers and messaging,
-            and build businesses their higher self would be proud of.
-          </p>
+          <div className="max-w-xl mx-auto mb-14 space-y-4">
+            <p className="text-white/80 text-lg leading-relaxed">
+              I work with ambitious women ready to become wildly successful and deeply aligned
+              by working with the mind, body, and soul.
+            </p>
+            <p className="text-white/70 text-base leading-relaxed">
+              Through my signature ALIVE Method™, I've helped hundreds of women globally
+              move through internal blocks, refine their offers and messaging,
+              and build businesses their higher self would be proud of.
+            </p>
+          </div>
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 border border-white/70 text-white px-10 py-4 text-[11px] tracking-editorial uppercase hover:bg-white hover:text-[#872D5B] transition-all duration-300 group"
+            className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-4 text-[11px] tracking-editorial uppercase hover:bg-white transition-all duration-400 group"
+            style={{ "--hover-color": BRAND }}
+            onMouseEnter={e => { e.currentTarget.style.color = BRAND; }}
+            onMouseLeave={e => { e.currentTarget.style.color = "white"; }}
           >
             Work With Me
             <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
@@ -132,38 +112,61 @@ export default function ResetRoom() {
         </motion.div>
       </section>
 
-      {/* ── SECTION 2: THE TRUTH ─────────────────────────────────────────── */}
-      <section className="bg-[#111111] text-white py-28 md:py-44 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          {truthLines.map((line, i) =>
-            line === "" ? (
-              <div key={i} className="h-6" />
-            ) : (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.7, delay: i * 0.08 }}
-                className="font-serif text-2xl md:text-3xl lg:text-4xl leading-[1.4] tracking-tight"
-              >
+      {/* ── 2. DARK INTEGRATED ──────────────────────────────────────────── */}
+      <section className="py-28 md:py-44 px-6" style={{ backgroundColor: "#1A1A1A" }}>
+        <div className="max-w-3xl mx-auto">
+          <motion.p
+            {...fadeUp(0)}
+            className="text-white leading-[1.2] tracking-tight mb-10"
+            style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+          >
+            Most women aren't stuck.{" "}
+            <span className="italic" style={{ color: "rgba(255,255,255,0.6)" }}>They're being drained.</span>
+          </motion.p>
+
+          <motion.p {...fadeUp(0.1)} className="text-white/60 text-lg leading-relaxed mb-8">
+            Drained of energy, money and power without even knowing it.
+          </motion.p>
+
+          <motion.div {...fadeUp(0.15)} className="border-l-2 pl-8 mb-10 space-y-3" style={{ borderColor: BRAND }}>
+            {[
+              "Overthinking every decision.",
+              "Second guessing your pricing.",
+              "Saying yes when you should be setting boundaries.",
+              "Building a business that technically works but exhausts you.",
+            ].map((line) => (
+              <p key={line} className="text-white/70 text-lg" style={{ fontFamily: "var(--font-serif)" }}>
                 {line}
-              </motion.p>
-            )
-          )}
+              </p>
+            ))}
+          </motion.div>
+
+          <motion.div {...fadeUp(0.2)} className="space-y-5">
+            <p className="text-white text-xl leading-relaxed" style={{ fontFamily: "var(--font-serif)" }}>
+              I help women see what is actually costing them energy, money, and power.
+            </p>
+            <p className="text-white/60 text-base leading-relaxed">
+              The patterns, behaviours and decisions that are holding everything back.
+              <br />
+              We uncover it, shift it and rebuild properly.
+            </p>
+            <p className="text-white/50 text-sm leading-relaxed pt-2">
+              Through my signature ALIVE Method™, I combine NLP techniques, Human Design,
+              and 15+ years of leading global brands to create results that are both strategic and deeply aligned.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* ── SECTION 3: EDITORIAL SPLIT ───────────────────────────────────── */}
-      <section className="bg-[#F5F1EC] py-24 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left: portrait */}
+      {/* ── 3. IMAGE + TEXT ─────────────────────────────────────────────── */}
+      <section className="py-24 md:py-36" style={{ backgroundColor: "#F5F1EC" }}>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="aspect-[4/5] overflow-hidden"
+            transition={{ duration: 1.1 }}
+            className="aspect-[3/4] overflow-hidden"
           >
             <img
               src="https://laurajanethomas.biz/wp-content/uploads/2025/11/LauraJThomas24-11-2025-09-52-50-1.png"
@@ -172,152 +175,136 @@ export default function ResetRoom() {
             />
           </motion.div>
 
-          {/* Right: text */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.15 }}
+            transition={{ duration: 1.1, delay: 0.15 }}
           >
-            <div className="hairline w-12 mb-10 bg-foreground/40" style={{ height: 1, backgroundColor: "#1a1a1a", opacity: 0.3 }} />
-            <p className="font-serif text-2xl md:text-3xl lg:text-4xl leading-[1.35] tracking-tight text-foreground">
-              It doesn't look obvious.
+            <div className="mb-10" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
+            <p
+              className="leading-[1.2] tracking-tight mb-8"
+              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem, 3.5vw, 3rem)", color: "#1A1A1A" }}
+            >
+              This is not about doing more.
             </p>
-            <p className="font-serif italic text-xl md:text-2xl leading-relaxed text-foreground/70 mt-8">
-              It looks like overthinking every decision.<br />
-              Second guessing your pricing.<br />
-              Saying yes when you should be setting boundaries.<br />
-              Building a business that technically works<br />
-              but quietly exhausts you.
+            <p
+              className="italic leading-relaxed mb-8"
+              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", color: "rgba(26,26,26,0.65)" }}
+            >
+              It is about understanding what is actually driving your results.
             </p>
-            <p className="font-serif text-2xl md:text-3xl leading-[1.3] tracking-tight text-foreground mt-10">
-              You don't need more strategy.
-            </p>
-            <p className="font-serif italic text-xl md:text-2xl text-foreground/70 mt-4">
-              You need to see what's actually driving it.
+            <p
+              className="leading-relaxed"
+              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)", color: "rgba(26,26,26,0.75)" }}
+            >
+              When you shift that
+              <br />
+              everything else becomes clearer, simpler, and more powerful.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── SECTION 4: POSITIONING ───────────────────────────────────────── */}
-      <section className="bg-white py-24 md:py-36 px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <p className="font-serif text-xl md:text-2xl leading-[1.7] text-foreground/80">
-            I help women identify where they are losing energy, money, and power —
-            often without even realising it.
-          </p>
-          <p className="font-serif text-xl md:text-2xl leading-[1.7] text-foreground/80 mt-8">
-            We uncover what's really holding you back
-            and rebuild your business and life in a way that actually supports you.
-          </p>
-          <p className="font-serif text-xl md:text-2xl leading-[1.7] text-foreground/80 mt-8">
-            Through my signature ALIVE Method™, I combine NLP techniques, Human Design,
-            and 15+ years of leading global brands
-          </p>
-          <p className="font-serif italic text-2xl md:text-3xl text-foreground mt-6">
-            to create results that are both strategic and deeply aligned.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* ── SECTION 5: ALIVE METHOD™ ─────────────────────────────────────── */}
-      <section className="bg-[#F5F1EC] py-24 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            className="text-center mb-16"
-          >
-            <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-4">— The Method</p>
-            <h2 className="font-serif text-5xl md:text-7xl leading-[0.95] tracking-tight">
+      {/* ── 4. ALIVE METHOD ─────────────────────────────────────────────── */}
+      <section className="py-24 md:py-36 px-6" style={{ backgroundColor: "#1A1A1A" }}>
+        <div className="max-w-[1200px] mx-auto">
+          <motion.div {...fadeUp(0)} className="mb-20">
+            <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>
+              The Signature Framework
+            </p>
+            <h2
+              className="text-white leading-[0.95] tracking-tight mb-6"
+              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3rem, 6vw, 6rem)" }}
+            >
               The ALIVE Method™
             </h2>
+            <p className="text-white/50 text-base leading-relaxed max-w-xl">
+              A proven method that helps women break through limiting beliefs, become deeply aware of what is holding them back,
+              and create results that are both sustainable and aligned.
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-5 gap-px" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
             {aliveMethod.map((item, i) => (
               <motion.div
                 key={item.letter}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="bg-white p-8 md:p-10 group hover:bg-[#872D5B] hover:text-white transition-colors duration-500"
+                {...fadeUp(i * 0.08)}
+                className="group p-8 md:p-10 transition-colors duration-500"
+                style={{ backgroundColor: "#1A1A1A" }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = BRAND; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#1A1A1A"; }}
               >
-                <span className="block font-serif text-7xl md:text-8xl leading-none italic text-[#872D5B] group-hover:text-white/30 transition-colors duration-500 mb-4">
+                <span
+                  className="block leading-none italic mb-5 transition-colors duration-500"
+                  style={{ fontFamily: "var(--font-serif)", fontSize: "5rem", color: BRAND }}
+                >
                   {item.letter}
                 </span>
-                <h3 className="font-serif text-2xl md:text-3xl mb-3 tracking-tight">{item.word}</h3>
-                <p className="text-sm md:text-base text-foreground/60 group-hover:text-white/70 leading-relaxed transition-colors duration-500">
-                  {item.desc}
-                </p>
+                <p className="text-white text-lg font-serif mb-3">{item.word}</p>
+                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
-
-            {/* Closing statement card */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="md:col-span-2 lg:col-span-1 bg-[#111111] text-white p-8 md:p-10 flex items-center justify-center"
-            >
-              <p className="font-serif italic text-xl md:text-2xl text-center leading-relaxed">
-                This is where everything starts to make sense.
-              </p>
-            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── SECTION 6: OFFERS ────────────────────────────────────────────── */}
+      {/* ── 5. OFFERS ───────────────────────────────────────────────────── */}
       {offers.map((offer, i) => (
-        <section key={offer.title} className={`${offer.bg} py-24 md:py-36`}>
+        <section key={offer.title} className="py-24 md:py-36" style={{ backgroundColor: offer.bg }}>
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-            <div className={`grid lg:grid-cols-2 gap-16 lg:gap-24 items-center ${offer.reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
-              {/* Image */}
+            <div className={`grid lg:grid-cols-2 gap-16 lg:gap-28 items-center ${offer.reverse ? "direction-rtl" : ""}`}
+              style={{ direction: offer.reverse ? "rtl" : "ltr" }}
+            >
               <motion.div
-                initial={{ opacity: 0, x: offer.reverse ? 30 : -30 }}
+                initial={{ opacity: 0, x: offer.reverse ? 40 : -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                className="aspect-[4/5] overflow-hidden"
+                transition={{ duration: 1.1 }}
+                className="aspect-[3/4] overflow-hidden"
+                style={{ direction: "ltr" }}
               >
                 <img
                   src={offer.image}
                   alt={offer.title}
-                  className="w-full h-full object-cover transition-transform duration-[1.2s] hover:scale-[1.03]"
+                  className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[1.4s]"
                 />
               </motion.div>
 
-              {/* Text */}
               <motion.div
-                initial={{ opacity: 0, x: offer.reverse ? -30 : 30 }}
+                initial={{ opacity: 0, x: offer.reverse ? -40 : 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.15 }}
+                transition={{ duration: 1.1, delay: 0.15 }}
+                style={{ direction: "ltr" }}
               >
-                <div style={{ height: 1, backgroundColor: "#1a1a1a", opacity: 0.2, width: 48, marginBottom: 32 }} />
-                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-8">
+                <div className="mb-8" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
+                <h2
+                  className="leading-[0.95] tracking-tight mb-8"
+                  style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 4vw, 4rem)", color: "#1A1A1A" }}
+                >
                   {offer.title}
                 </h2>
-                {offer.body.map((para, j) => (
-                  <p key={j} className={`leading-relaxed mb-5 ${j === 0 ? "font-serif italic text-xl md:text-2xl text-foreground/80" : "text-[15px] text-muted-foreground whitespace-pre-line"}`}>
-                    {para}
-                  </p>
-                ))}
+                <div className="space-y-4 mb-10">
+                  {offer.lines.map((line, j) => (
+                    <p
+                      key={j}
+                      className={j === 0 ? "text-xl italic" : "text-base leading-relaxed"}
+                      style={{
+                        fontFamily: j === 0 ? "var(--font-serif)" : "var(--font-sans)",
+                        color: j === 0 ? "#1A1A1A" : "rgba(26,26,26,0.60)",
+                      }}
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
                 <Link
-                  to={offer.href}
-                  className="mt-6 inline-flex items-center gap-3 border border-foreground/80 px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-foreground hover:text-white transition-all duration-300 group"
+                  to="/contact"
+                  className="inline-flex items-center gap-3 border px-8 py-4 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
+                  style={{ borderColor: "#1A1A1A", color: "#1A1A1A" }}
+                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#1A1A1A"; e.currentTarget.style.color = "white"; }}
+                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#1A1A1A"; }}
                 >
                   {offer.cta}
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
@@ -328,35 +315,41 @@ export default function ResetRoom() {
         </section>
       ))}
 
-      {/* ── SECTION 7: FINAL CLOSE ───────────────────────────────────────── */}
+      {/* ── 6. FINAL CLOSE ──────────────────────────────────────────────── */}
       <section
-        className="py-28 md:py-44 px-6 text-center"
-        style={{ backgroundColor: "#872D5B" }}
+        className="py-32 md:py-52 px-6 text-center"
+        style={{ backgroundColor: BRAND }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.1 }}
+          transition={{ duration: 1.2 }}
           className="max-w-3xl mx-auto"
         >
-          <p className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.3] text-white mb-6">
+          <p
+            className="text-white leading-[1.1] tracking-tight mb-6"
+            style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.5rem, 5vw, 5rem)" }}
+          >
             You already know something needs to change.
           </p>
-          <p className="font-serif italic text-2xl md:text-3xl text-white/80 mb-10">
+          <p
+            className="italic text-white/75 mb-10"
+            style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.4rem, 2.5vw, 2.2rem)" }}
+          >
             You can feel it.
           </p>
-          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-6">
-            The version of you that got you here
-            is not the version that will take you where you want to go.
-          </p>
-          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-16">
-            The question is
-            how much longer you stay where you are.
-          </p>
+          <div className="space-y-3 mb-16 text-white/65 text-base md:text-lg leading-relaxed">
+            <p>The version of you that built this life</p>
+            <p>is not the version that will take you further.</p>
+            <p className="mt-5">The question is</p>
+            <p>how much longer you stay where you are.</p>
+          </div>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 border border-white/70 text-white px-12 py-5 text-[11px] tracking-editorial uppercase hover:bg-white hover:text-[#872D5B] transition-all duration-300 group"
+            className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-5 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
+            onMouseEnter={e => { e.currentTarget.style.backgroundColor = "white"; e.currentTarget.style.color = BRAND; }}
+            onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "white"; }}
           >
             I'm Ready To Do This Differently
             <span className="inline-block transition-transform group-hover:translate-x-1">→</span>

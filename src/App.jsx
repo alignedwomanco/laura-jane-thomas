@@ -13,6 +13,7 @@ import ResetRoom from './pages/ResetRoom';
 import Contact from './pages/Contact';
 import Questionnaire from './pages/Questionnaire';
 import StrategyReport from './pages/StrategyReport.jsx';
+import Submissions from './pages/Submissions.jsx';
 
 // Redirect unauthenticated users away from all pages except /questionnaire and /strategy-report
 const PublicOnlyRoute = ({ children }) => {
@@ -59,6 +60,7 @@ const AuthenticatedApp = () => {
       <Route path="/speaking" element={<PublicOnlyRoute><Speaking /></PublicOnlyRoute>} />
       <Route path="/reset-room" element={<PublicOnlyRoute><ResetRoom /></PublicOnlyRoute>} />
       <Route path="/contact" element={<PublicOnlyRoute><Contact /></PublicOnlyRoute>} />
+      <Route path="/submissions" element={<PublicOnlyRoute><Submissions /></PublicOnlyRoute>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

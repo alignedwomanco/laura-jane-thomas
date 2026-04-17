@@ -270,11 +270,7 @@ function Section2({ data, set }) {
     <div>
       <FieldBlock>
         <Question number={1}>What is your budget for this project?</Question>
-        <RadioGroup
-          options={["Under $5k", "$5k – $15k", "$15k – $30k", "$30k – $60k", "$60k+"]}
-          value={data.budget}
-          onChange={v => set({ ...data, budget: v })}
-        />
+        <ShortText value={data.budget || ""} onChange={v => set({ ...data, budget: v })} placeholder="e.g. $10,000 – $20,000" />
       </FieldBlock>
       <FieldBlock>
         <Question number={2}>What is your target timeframe or deadline?</Question>

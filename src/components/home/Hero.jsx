@@ -65,7 +65,7 @@ export default function Hero() {
 
           <div className="md:justify-self-end md:text-right">
             <span className="text-[10px] tracking-editorial uppercase text-ivory/70">
-              London · New York · Global
+              London · Cape Town
             </span>
           </div>
         </motion.div>

@@ -8,7 +8,7 @@ import Services from "@/components/home/Services";
 import MeetLaura from "@/components/home/MeetLaura";
 import ChooseExperience from "@/components/home/ChooseExperience";
 import ClientsMarquee from "@/components/home/ClientsMarquee";
-import BlogPreview from "@/components/home/BlogPreview";
+
 import Testimonials from "@/components/home/Testimonials";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
         <MeetLaura />
         <ChooseExperience />
         <ClientsMarquee />
-        <BlogPreview />
+
         <Testimonials />
       </main>
       <Footer />

@@ -69,66 +69,47 @@ export default function ResetRoom() {
 
       {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
       <section
-        className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+        className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-36 pb-28"
         style={{ backgroundColor: BRAND }}
       >
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/2287c0313_Screenshot2026-04-17at131145.png"
-            alt=""
-            className="w-full h-full object-cover object-center"
-            style={{ opacity: 0.35 }}
-          />
-          {/* Gradient: transparent left → brand red right, so text on right stays readable */}
-          <div className="absolute inset-0" style={{ background: `linear-gradient(to right, rgba(135,45,91,0.1) 0%, rgba(135,45,91,0.75) 52%, rgba(135,45,91,0.97) 100%)` }} />
-          {/* Grainy texture */}
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`,
-            opacity: 0.55,
-          }} />
-        </div>
-
-        {/* Content pushed to right */}
-        <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 lg:px-12 pt-36 pb-28 flex justify-end">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full lg:w-1/2"
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-5xl mx-auto"
+        >
+          <h1
+            className="text-white leading-[1.0] tracking-tight mb-12"
+            style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3.5rem, 9vw, 8rem)" }}
           >
-            <h1
-              className="text-white leading-[1.0] tracking-tight mb-12"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3rem, 7vw, 7rem)" }}
-            >
-              <span className="block">Wildly successful.</span>
-              <span className="block italic font-normal" style={{ opacity: 0.85 }}>Deeply aligned.</span>
-              <span className="block">Finally.</span>
-            </h1>
+            <span className="block">Wildly successful.</span>
+            <span className="block italic font-normal" style={{ opacity: 0.85 }}>Deeply aligned.</span>
+            <span className="block">Finally.</span>
+          </h1>
 
-            <div className="mb-14 space-y-4 max-w-lg">
-              <p className="text-white/80 text-lg leading-relaxed">
-                I work with ambitious women ready to become wildly successful and deeply aligned
-                by working with the mind, body, and soul.
-              </p>
-              <p className="text-white/70 text-base leading-relaxed">
-                Through my signature ALIVE Method™, I've helped hundreds of women globally
-                move through internal blocks, refine their offers and messaging,
-                and build businesses their higher self would be proud of.
-              </p>
-            </div>
+          <div className="max-w-xl mx-auto mb-14 space-y-4">
+            <p className="text-white/80 text-lg leading-relaxed">
+              I work with ambitious women ready to become wildly successful and deeply aligned
+              by working with the mind, body, and soul.
+            </p>
+            <p className="text-white/70 text-base leading-relaxed">
+              Through my signature ALIVE Method™, I've helped hundreds of women globally
+              move through internal blocks, refine their offers and messaging,
+              and build businesses their higher self would be proud of.
+            </p>
+          </div>
 
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-4 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = "white"; e.currentTarget.style.color = BRAND; }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "white"; }}
-            >
-              Work With Me
-              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-          </motion.div>
-        </div>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-4 text-[11px] tracking-editorial uppercase hover:bg-white transition-all duration-400 group"
+            style={{ "--hover-color": BRAND }}
+            onMouseEnter={e => { e.currentTarget.style.color = BRAND; }}
+            onMouseLeave={e => { e.currentTarget.style.color = "white"; }}
+          >
+            Work With Me
+            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+          </Link>
+        </motion.div>
       </section>
 
       {/* ── 2. DARK INTEGRATED ──────────────────────────────────────────── */}

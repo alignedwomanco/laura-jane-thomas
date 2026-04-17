@@ -25,7 +25,7 @@ const services = [
   },
   {
     num: "03.",
-    title: "The reset room",
+    title: "",
     italic: "coaching, courses",
     suffix: "& community",
     lead: "For ambitious women ready to rewrite the rules.",

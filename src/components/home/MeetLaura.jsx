@@ -30,7 +30,7 @@ export default function MeetLaura() {
             <div className="relative">
               <div className="aspect-[4/5] overflow-hidden">
                 <img
-                  src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/0ac2985c5_Work_with_LauraJaneThomas.jpg"
+                  src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/e48554bf4_LJT_17-04-2026-21-30-39.jpg"
                   alt="Laura Jane Thomas"
                   className="w-full h-full object-cover"
                 />

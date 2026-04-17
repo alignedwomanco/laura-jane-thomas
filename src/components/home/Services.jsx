@@ -11,7 +11,7 @@ const services = [
     lead: "Senior-level strategy without the full-time overhead.",
     body:
       "From boardrooms to brand positioning, I help companies grow with clarity and creative edge.",
-    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/61a51e44c_09d6406628841f576d2d27f8b1e4c78c-1.jpg",
+    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/953937053_c8a5c449f76180ff39af1e8a255f498b.jpg",
   },
   {
     num: "02.",

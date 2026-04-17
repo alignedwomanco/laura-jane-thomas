@@ -179,8 +179,22 @@ export default function ResetRoom() {
       </section>
 
       {/* ── 3. IMAGE + TEXT ─────────────────────────────────────────────── */}
-      <section className="py-24 md:py-36" style={{ backgroundColor: "#F5F1EC" }}>
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
+      <section className="relative overflow-hidden py-24 md:py-36" style={{ backgroundColor: "#F5F1EC" }}>
+        {/* Full-width background image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/2287c0313_Screenshot2026-04-17at131145.png"
+            alt=""
+            className="w-full h-full object-cover object-center"
+            style={{ opacity: 0.18 }}
+          />
+          {/* Grainy texture overlay */}
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise2)' opacity='0.07'/%3E%3C/svg%3E")`,
+            opacity: 0.7,
+          }} />
+        </div>
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}

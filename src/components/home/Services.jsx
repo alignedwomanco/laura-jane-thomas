@@ -21,7 +21,7 @@ const services = [
     lead: "From global summits to intimate panels,",
     body:
       "I bring raw honesty, strategy & soul to conversations on branding, burnout & bold leadership.",
-    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/d32bde10f_generated_b024250a.png",
+    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/61a51e44c_09d6406628841f576d2d27f8b1e4c78c-1.jpg",
   },
   {
     num: "03.",

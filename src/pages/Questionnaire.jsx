@@ -9,6 +9,7 @@ const ACCENT = "#4A3728"; // deep warm brown — consistent with brand
 
 // ─── Section definitions ─────────────────────────────────────────────────────
 const SECTIONS = [
+  { id: 0, title: "Your Details", subtitle: "Let's start with who you are." },
   { id: 1, title: "Business Foundation", subtitle: "Start with what's real." },
   { id: 2, title: "Operations, Budget & Delivery", subtitle: "How we'll work together." },
   { id: 3, title: "Current Marketing Assets", subtitle: "What exists today." },
@@ -243,6 +244,45 @@ function FieldBlock({ children }) {
 }
 
 // ─── Section renderers ────────────────────────────────────────────────────────
+function Section0({ data, set }) {
+  return (
+    <div>
+      <FieldBlock>
+        <Question>Full Name</Question>
+        <ShortText value={data.fullName || ""} onChange={v => set({ ...data, fullName: v })} placeholder="Your full name" />
+      </FieldBlock>
+      <FieldBlock>
+        <Question>Position / Title</Question>
+        <ShortText value={data.position || ""} onChange={v => set({ ...data, position: v })} placeholder="e.g. Founder, CEO, Marketing Director" />
+      </FieldBlock>
+      <FieldBlock>
+        <Question>Company Name</Question>
+        <ShortText value={data.company || ""} onChange={v => set({ ...data, company: v })} placeholder="Your company or brand name" />
+      </FieldBlock>
+      <FieldBlock>
+        <Question>Email Address</Question>
+        <input
+          type="email"
+          value={data.email || ""}
+          onChange={e => set({ ...data, email: e.target.value })}
+          placeholder="your@email.com"
+          className="w-full bg-transparent border-b border-[#d0cac4] focus:border-[#141414] outline-none text-base text-[#141414] placeholder:text-[#141414]/30 py-3 transition-colors duration-300 font-sans"
+        />
+      </FieldBlock>
+      <FieldBlock>
+        <Question>Contact Number</Question>
+        <input
+          type="tel"
+          value={data.phone || ""}
+          onChange={e => set({ ...data, phone: e.target.value })}
+          placeholder="+1 000 000 0000"
+          className="w-full bg-transparent border-b border-[#d0cac4] focus:border-[#141414] outline-none text-base text-[#141414] placeholder:text-[#141414]/30 py-3 transition-colors duration-300 font-sans"
+        />
+      </FieldBlock>
+    </div>
+  );
+}
+
 function Section1({ data, set }) {
   const q = [
     "What are you actually selling — not the category, but the outcome?",
@@ -480,7 +520,7 @@ function Section9({ data, set }) {
   );
 }
 
-const SECTION_COMPONENTS = [Section1, Section2, Section3, Section4, Section5, Section6, Section7, Section8, Section9];
+const SECTION_COMPONENTS = [Section0, Section1, Section2, Section3, Section4, Section5, Section6, Section7, Section8, Section9];
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function Questionnaire() {
@@ -488,8 +528,8 @@ export default function Questionnaire() {
   const [formData, setFormData] = useState(() => {
     try {
       const saved = localStorage.getItem("bsd_form");
-      return saved ? JSON.parse(saved) : Array(9).fill({});
-    } catch { return Array(9).fill({}); }
+      return saved ? JSON.parse(saved) : Array(10).fill({});
+    } catch { return Array(10).fill({}); }
   });
   const [submitted, setSubmitted] = useState(false);
 

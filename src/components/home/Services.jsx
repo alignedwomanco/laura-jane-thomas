@@ -1,0 +1,104 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+const services = [
+  {
+    num: "01.",
+    title: "Consulting",
+    italic: "fractional cmo",
+    suffix: "& brand strategy",
+    lead: "Senior-level strategy without the full-time overhead.",
+    body:
+      "From boardrooms to brand positioning, I help companies grow with clarity and creative edge.",
+    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/f482ebf73_generated_76bb4010.png",
+  },
+  {
+    num: "02.",
+    title: "Talks that",
+    italic: "spark change",
+    suffix: "",
+    lead: "From global summits to intimate panels,",
+    body:
+      "I bring raw honesty, strategy & soul to conversations on branding, burnout & bold leadership.",
+    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/d32bde10f_generated_b024250a.png",
+  },
+  {
+    num: "03.",
+    title: "The reset room",
+    italic: "coaching, courses",
+    suffix: "& community",
+    lead: "For ambitious women ready to rewrite the rules.",
+    body:
+      "A space for coaching, masterclasses & programs designed to help you thrive without burning out.",
+    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/9458af42e_generated_aa35b40d.png",
+  },
+];
+
+export default function Services() {
+  return (
+    <section className="bg-oxblood text-ivory py-24 md:py-36">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-16 md:mb-24">
+          — 02 / What I Do
+        </p>
+
+        <div className="space-y-24 md:space-y-32">
+          {services.map((s, i) => (
+            <motion.article
+              key={s.num}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${
+                i % 2 === 1 ? "lg:[&>.img]:order-2" : ""
+              }`}
+            >
+              <div className="img lg:col-span-5 relative">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                  />
+                </div>
+                <span className="absolute -top-6 -left-2 font-serif text-8xl md:text-9xl italic text-ivory/25 pointer-events-none">
+                  {s.num}
+                </span>
+              </div>
+
+              <div className="lg:col-span-7 lg:pl-8">
+                <span className="block text-[11px] tracking-editorial uppercase text-ivory/50 mb-6">
+                  {s.num}
+                </span>
+                <h3 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-8">
+                  <span className="block">{s.title}</span>
+                  <span className="block italic">{s.italic}</span>
+                  {s.suffix && <span className="block">{s.suffix}</span>}
+                </h3>
+
+                <div className="hairline w-16 mb-6 bg-ivory" />
+
+                <p className="font-serif italic text-xl md:text-2xl text-ivory/90 mb-4">
+                  {s.lead}
+                </p>
+                <p className="text-sm md:text-base text-ivory/70 leading-relaxed max-w-lg mb-8">
+                  {s.body}
+                </p>
+
+                <Link
+                  to="/"
+                  className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all duration-300 group"
+                >
+                  Learn More
+                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

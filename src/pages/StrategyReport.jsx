@@ -149,15 +149,7 @@ export default function StrategyReport() {
       <main className="flex-1 pt-32 pb-24 px-6 print:pt-8">
         <div className="max-w-3xl mx-auto">
 
-          {/* Debug banner */}
-          {debug && (
-            <div className="mb-6 p-3 bg-[#ece8e3] text-xs font-mono text-[#141414]/60 space-y-1 print:hidden">
-              <p>Record ID: {debug.recordId}</p>
-              <p>businessFoundation has data: {String(debug.hasBusinessFoundation)}</p>
-              <p>generatedReport: {debug.hasGeneratedReport ? `✓ ${debug.reportLength} chars` : "❌ empty"}</p>
-              <p>emailSummary: {debug.hasEmailSummary ? `✓ ${debug.summaryLength} chars` : "❌ empty"}</p>
-            </div>
-          )}
+
 
           {/* Page header */}
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }} className="mb-14 print:mb-8">

@@ -1,14 +1,30 @@
 import React from "react";
 
 const outlets = [
-  "FORBES",
-  "VOGUE BUSINESS",
-  "THE TIMES",
-  "ENTREPRENEUR",
-  "FAST COMPANY",
-  "HARPER'S BAZAAR",
-  "BLOOMBERG",
-  "MARIE CLAIRE",
+  {
+    name: "The Times",
+    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+  },
+  {
+    name: "Forbes",
+    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+  },
+  {
+    name: "Women's Health",
+    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+  },
+  {
+    name: "Glamour",
+    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+  },
+  {
+    name: "TechCrunch",
+    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+  },
+  {
+    name: "Business Day",
+    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+  },
 ];
 
 export default function PressMarquee() {
@@ -22,12 +38,12 @@ export default function PressMarquee() {
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex items-center gap-16 md:gap-24 pr-16 md:pr-24">
               {outlets.map((o, j) => (
-                <span
+                <img
                   key={`${i}-${j}`}
-                  className="font-serif text-2xl md:text-3xl tracking-[0.15em] text-foreground/70"
-                >
-                  {o}
-                </span>
+                  src={o.logo}
+                  alt={o.name}
+                  className="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                />
               ))}
             </div>
           ))}

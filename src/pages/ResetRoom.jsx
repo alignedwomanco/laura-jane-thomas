@@ -113,48 +113,68 @@ export default function ResetRoom() {
       </section>
 
       {/* ── 2. DARK INTEGRATED ──────────────────────────────────────────── */}
-      <section className="py-28 md:py-44 px-6" style={{ backgroundColor: "#1A1A1A" }}>
-        <div className="max-w-3xl mx-auto">
-          <motion.p
-            {...fadeUp(0)}
-            className="text-white leading-[1.2] tracking-tight mb-10"
-            style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
-          >
-            Most women aren't stuck.{" "}
-            <span className="italic" style={{ color: "rgba(255,255,255,0.6)" }}>They're being drained.</span>
-          </motion.p>
+      <section className="relative overflow-hidden" style={{ backgroundColor: "#1A1A1A", minHeight: "80vh" }}>
+        {/* Full-width background image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/4d61a4013_Extend_the_existing_image_hori_Nano_Banana_2_79564.jpg"
+            alt=""
+            className="w-full h-full object-cover object-center"
+            style={{ opacity: 0.45 }}
+          />
+          {/* Dark gradient overlay — heavier on right so text is readable */}
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(26,26,26,0.15) 0%, rgba(26,26,26,0.82) 55%, rgba(26,26,26,0.97) 100%)" }} />
+          {/* Grainy texture overlay */}
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`,
+            opacity: 0.6,
+          }} />
+        </div>
 
-          <motion.p {...fadeUp(0.1)} className="text-white/60 text-lg leading-relaxed mb-8">
-            Drained of energy, money and power without even knowing it.
-          </motion.p>
+        {/* Content — pushed to right half */}
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-28 md:py-44 flex justify-end">
+          <div className="w-full lg:w-1/2">
+            <motion.p
+              {...fadeUp(0)}
+              className="text-white leading-[1.2] tracking-tight mb-10"
+              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+            >
+              Most women aren't stuck.{" "}
+              <span className="italic" style={{ color: "rgba(255,255,255,0.6)" }}>They're being drained.</span>
+            </motion.p>
 
-          <motion.div {...fadeUp(0.15)} className="border-l-2 pl-8 mb-10 space-y-3" style={{ borderColor: BRAND }}>
-            {[
-              "Overthinking every decision.",
-              "Second guessing your pricing.",
-              "Saying yes when you should be setting boundaries.",
-              "Building a business that technically works but exhausts you.",
-            ].map((line) => (
-              <p key={line} className="text-white/70 text-lg" style={{ fontFamily: "var(--font-serif)" }}>
-                {line}
+            <motion.p {...fadeUp(0.1)} className="text-white/60 text-lg leading-relaxed mb-8">
+              Drained of energy, money and power without even knowing it.
+            </motion.p>
+
+            <motion.div {...fadeUp(0.15)} className="border-l-2 pl-8 mb-10 space-y-3" style={{ borderColor: BRAND }}>
+              {[
+                "Overthinking every decision.",
+                "Second guessing your pricing.",
+                "Saying yes when you should be setting boundaries.",
+                "Building a business that technically works but exhausts you.",
+              ].map((line) => (
+                <p key={line} className="text-white/70 text-lg" style={{ fontFamily: "var(--font-serif)" }}>
+                  {line}
+                </p>
+              ))}
+            </motion.div>
+
+            <motion.div {...fadeUp(0.2)} className="space-y-5">
+              <p className="text-white text-xl leading-relaxed" style={{ fontFamily: "var(--font-serif)" }}>
+                I help women see what is actually costing them energy, money, and power.
               </p>
-            ))}
-          </motion.div>
-
-          <motion.div {...fadeUp(0.2)} className="space-y-5">
-            <p className="text-white text-xl leading-relaxed" style={{ fontFamily: "var(--font-serif)" }}>
-              I help women see what is actually costing them energy, money, and power.
-            </p>
-            <p className="text-white/60 text-base leading-relaxed">
-              The patterns, behaviours and decisions that are holding everything back.
-              <br />
-              We uncover it, shift it and rebuild properly.
-            </p>
-            <p className="text-white/50 text-sm leading-relaxed pt-2">
-              Through my signature ALIVE Method™, I combine NLP techniques, Human Design,
-              and 15+ years of leading global brands to create results that are both strategic and deeply aligned.
-            </p>
-          </motion.div>
+              <p className="text-white/60 text-base leading-relaxed">
+                The patterns, behaviours and decisions that are holding everything back.
+                <br />
+                We uncover it, shift it and rebuild properly.
+              </p>
+              <p className="text-white/50 text-sm leading-relaxed pt-2">
+                Through my signature ALIVE Method™, I combine NLP techniques, Human Design,
+                and 15+ years of leading global brands to create results that are both strategic and deeply aligned.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 

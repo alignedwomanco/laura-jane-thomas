@@ -31,7 +31,7 @@ const services = [
     lead: "For ambitious women ready to rewrite the rules.",
     body:
       "A space for coaching, masterclasses & programs designed to help you thrive without burning out.",
-    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/9458af42e_generated_aa35b40d.png",
+    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/afc6226c6_89a312eb131a146172728691bff76edc.jpg",
   },
 ];
 

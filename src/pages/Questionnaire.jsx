@@ -1,24 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft, Check, Plus, X } from "lucide-react";
-import { Link } from "react-router-dom";
-
-function MinimalNav() {
-  return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#ece8e3]">
-      <div className="max-w-3xl mx-auto px-6 h-20 flex items-center">
-        <Link to="/" className="flex flex-col leading-none">
-          <span className="font-serif text-xl tracking-tight text-[#141414]">
-            laura<span className="italic">jane</span>thomas
-          </span>
-          <span className="text-[10px] tracking-[0.2em] uppercase text-[#141414]/40 mt-0.5">
-            Brand Strategy Diagnostic
-          </span>
-        </Link>
-      </div>
-    </header>
-  );
-}
+import Navbar from "@/components/site/Navbar";
+import Footer from "@/components/site/Footer";
 
 // ─── Design tokens ───────────────────────────────────────────────────────────
 const ACCENT = "#4A3728"; // deep warm brown — consistent with brand
@@ -572,7 +556,7 @@ export default function Questionnaire() {
   if (submitted) {
     return (
       <div className="min-h-screen bg-white flex flex-col">
-        <MinimalNav />
+        <Navbar />
         <div className="flex-1 flex items-center justify-center px-6 py-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -591,13 +575,14 @@ export default function Questionnaire() {
             </p>
           </motion.div>
         </div>
+        <Footer />
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <MinimalNav />
+      <Navbar />
 
       {/* Progress bar — fixed below navbar */}
       <div className="fixed top-20 inset-x-0 z-40 h-px bg-[#ece8e3]">
@@ -729,6 +714,7 @@ export default function Questionnaire() {
         </div>
       </main>
 
+      <Footer />
     </div>
   );
 }

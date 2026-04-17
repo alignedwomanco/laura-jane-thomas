@@ -183,24 +183,38 @@ export default function ResetRoom() {
           >
             <div className="mb-10" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
             <p
-              className="leading-[1.2] tracking-tight mb-8"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem, 3.5vw, 3rem)", color: "#1A1A1A" }}
+              className="leading-[1.15] tracking-tight mb-8"
+              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)", color: "#1A1A1A" }}
             >
-              This is not about doing more.
-            </p>
-            <p
-              className="italic leading-relaxed mb-8"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", color: "rgba(26,26,26,0.65)" }}
-            >
-              It is about understanding what is actually driving your results.
-            </p>
-            <p
-              className="leading-relaxed"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)", color: "rgba(26,26,26,0.75)" }}
-            >
-              When you shift that
+              I've built the 7-figure businesses and hit the milestones.
               <br />
-              everything else becomes clearer, simpler, and more powerful.
+              <span className="italic" style={{ color: "rgba(26,26,26,0.65)" }}>I've created the success most people are chasing, and then I burnt out.</span>
+            </p>
+            <p
+              className="leading-relaxed mb-6"
+              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)", color: "rgba(26,26,26,0.70)" }}
+            >
+              Not slowly. Completely.
+            </p>
+            <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(26,26,26,0.60)" }}>
+              The kind that forces you to stop and question everything. To rebuild from the ground up.
+              <br /><br />
+              What came next was the most painful and most defining chapter of my life. It forced me to redefine what success actually means.
+              To understand what it looks like to build something that is not just successful but sustainable, aligned, and real.
+            </p>
+            <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(26,26,26,0.60)" }}>
+              Now I do things differently. I build businesses that are powerful.
+              Aligned. Profitable, but also grounded, joyful and actually enjoyable to live inside. And that is what I want for you. The kind of success that feels truly yours.
+            </p>
+            <p
+              className="italic leading-relaxed mb-6"
+              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)", color: "#1A1A1A" }}
+            >
+              I want you to become dangerously competent. Clear in your decisions,
+              confident in your direction and deeply aligned in the way you build your life and business.
+            </p>
+            <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
+              You do not have to learn this the hard way. I did that for you already.
             </p>
           </motion.div>
         </div>

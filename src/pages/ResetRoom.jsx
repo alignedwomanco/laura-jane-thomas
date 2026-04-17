@@ -1,334 +1,370 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Plus, Minus } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
-import CtaBanner from "@/components/shared/CtaBanner";
 
-const coachingTiers = [
+// ─── Data ────────────────────────────────────────────────────────────────────
+
+const aliveMethod = [
   {
-    name: "Power Hour",
-    tag: "Your Reset Button",
-    headline: "Rapid Recalibration. Deep Clarity. Tangible Next Steps.",
-    details: ["1 x 60-minute deep-dive call", "3 days of Telegram support after your session"],
-    description: "You're not lost. You're just tangled in outdated stories, messy strategies, or mixed messaging. A fast-track session to cut through the noise and find your next clear move. Think of it as a laser-focused reboot: one hour, one problem, one powerful solution.",
-    bestFor: ["New pivots or projects", "Breaking through a stuck pattern", "Clarifying next steps or direction", "Quick hit of clarity, without the commitment"],
+    letter: "A",
+    word: "Awareness",
+    desc: "See the patterns, behaviours, and decisions shaping your reality",
   },
   {
-    name: "Rule-Burner™ Momentum Container",
-    tag: "Strategy + Support You Can Actually Sustain",
-    headline: "This is where consistency meets clarity and things start moving.",
-    details: ["2 x 60-minute calls per month", "Custom follow-up strategy docs", "Weekday Telegram access (Mon–Fri, voice notes + texts)"],
-    description: "You've got big goals and real growth ahead, but you're tired of trying to do it all alone. You want grounded strategy and emotional regulation. Tactical next steps and space to process the identity shifts that come with growth. We'll design strategy that fits your season of life, not someone else's hustle fantasy.",
-    inside: ["Your signature offer and niche", "Messaging that's clear, magnetic + true", "Nervous system-safe strategy", "Cyclical planning based on your capacity + design", "Daily tools for visibility, embodiment + leadership"],
-    bestFor: ["Entrepreneurs wanting regular strategic + emotional support", "Founders in transition or pivot mode", "Women craving accountability that honours their nervous system"],
+    letter: "L",
+    word: "Liberation",
+    desc: "Release what's no longer serving you",
   },
   {
-    name: "Rule-Burner™ Expansion Mentorship",
-    tag: "High-Touch Coaching for Deep Expansion",
-    headline: "This is for the woman who's not playing anymore.",
-    details: ["3 x 60-minute calls per month", "Daily Telegram access (Mon–Fri)", "Weekly voice check-ins + priority support"],
-    description: "You've already built something — a brand, a business, a reputation. But what got you here isn't what will take you where you're meant to go next. In this container, we integrate business mentorship, identity work, nervous system support, and soulful strategy to unlock your most powerful expression in life, leadership, and legacy.",
-    inside: ["Strategic offer + business model evolution", "Identity recalibration + shadow work", "Nervous system capacity building", "Leadership embodiment + emotional mastery", "Messaging + marketing that lands because it's true"],
-    bestFor: ["Women scaling into a new level of visibility, income or impact", "Creators, coaches, and consultants who want support and space", "Founders tired of white-knuckling growth"],
+    letter: "I",
+    word: "Intention",
+    desc: "Get clear on what you actually want",
+  },
+  {
+    letter: "V",
+    word: "Vision",
+    desc: "Build a business and life aligned to your next level",
+  },
+  {
+    letter: "E",
+    word: "Embodiment",
+    desc: "Become the woman who can hold it",
   },
 ];
 
-const resources = [
+const offers = [
   {
-    title: "Take the Quiz",
-    body: "Is Your Agency Built to Burn You Out or Light You Up?",
-    href: "https://ebook.laurajanethomas.biz/5tools",
-    cta: "Get It Now",
-    image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/Mask-group-2.png",
+    title: "The Alignment Audit™",
+    body: [
+      "Most women are operating from patterns they haven't learned to see yet.",
+      "This session is designed to identify exactly where you are being drained and what needs to shift.",
+      "You'll leave with clarity, direction, and immediate next steps you can actually trust.",
+    ],
+    cta: "Book Your Alignment Audit",
+    href: "/contact",
+    image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/LauraJThomas24-11-2025-09-52-50-1.png",
+    reverse: false,
+    bg: "bg-[#F5F1EC]",
   },
   {
-    title: "Get the Burnout Prevention E-Book",
-    body: "For every successful woman quietly unraveling, here are the 5 tools that saved me, and a path back to a life that feels as good as it looks!",
-    href: "https://laurajanethomas.biz/wp-content/uploads/2026/01/The-5-Tools-That-Saved-Me-eBook-LJT-1.pdf",
-    cta: "Download Now",
-    image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/Mask-group-1.png",
+    title: "1:1 Private Mentorship",
+    body: [
+      "This is where we go deeper.",
+      "We work through the patterns shaping your decisions, refine your offers and messaging, and build a business that supports your life, not drains it.",
+      "This is high-level, personalised work for women ready to operate differently.",
+    ],
+    cta: "Apply for Private Mentorship",
+    href: "/contact",
+    image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/Group-48095914.png",
+    reverse: true,
+    bg: "bg-white",
   },
   {
-    title: "Sign Up to The Reset Room",
-    body: "Reserve your spot early and join a circle of ambitious women ready to reset, realign, and rise together.",
-    href: "https://theresetroom.laurajanethomas.biz/theresetroom",
-    cta: "Get It Now",
-    image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/white-wall-with-red-opened-door-closed-door-white-wooden-floor-chrome-vase-dry-plant-realistic-3d-rendering-2.png",
-  },
-  {
-    title: "Nervous System Reset",
-    body: "Rebuild your energy, focus and sense of safety from the inside out.",
-    href: "https://laurajanethomas.biz/wp-content/uploads/2026/01/LJT-Nervous-System-Doc.pdf",
-    cta: "Download Now",
-    image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/image-25-1.png",
+    title: "The Reset Room",
+    body: [
+      "A space for high-performing women to recalibrate.",
+      "To rebuild their energy, identity, and direction without burning out in the process.",
+      "Less noise.\nMore clarity.\nReal alignment.",
+    ],
+    cta: "Enter The Reset Room",
+    href: "/contact",
+    image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/room2.png",
+    reverse: false,
+    bg: "bg-[#EDEAE4]",
   },
 ];
 
-function CoachingCard({ tier, i }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: i * 0.1 }}
-      className="border border-ivory/20 p-8 md:p-10"
-    >
-      <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-4">{tier.tag}</p>
-      <h3 className="font-serif text-3xl md:text-4xl mb-6">{tier.name}</h3>
-      <p className="font-serif italic text-xl text-ivory/85 mb-5">{tier.headline}</p>
-      <ul className="space-y-2 mb-6">
-        {tier.details.map((d) => (
-          <li key={d} className="flex items-start gap-3 text-[14px] text-ivory/70">
-            <span className="text-oxblood mt-1 text-xs">●</span>{d}
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => setOpen(!open)} className="flex items-center gap-2 text-[11px] tracking-editorial uppercase text-ivory/60 hover:text-ivory transition-colors mb-4">
-        {open ? <Minus className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
-        {open ? "Hide details" : "See details"}
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35 }} className="overflow-hidden">
-            <p className="text-[14px] text-ivory/70 leading-relaxed mb-5">{tier.description}</p>
-            {tier.inside && (
-              <>
-                <p className="text-[11px] tracking-editorial uppercase text-ivory/50 mb-3">Inside, we'll work on:</p>
-                <ul className="space-y-2 mb-5">
-                  {tier.inside.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-[14px] text-ivory/70"><span className="text-oxblood mt-1 text-xs">✧</span>{item}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-            <p className="text-[11px] tracking-editorial uppercase text-ivory/50 mb-3">Best for:</p>
-            <ul className="space-y-2">
-              {tier.bestFor.map((b) => (
-                <li key={b} className="flex items-start gap-3 text-[14px] text-ivory/70"><span className="text-oxblood mt-1 text-xs">✓</span>{b}</li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-}
+const truthLines = [
+  "Most women aren't stuck.",
+  "They're being drained.",
+  "",
+  "Drained of energy.",
+  "Drained of money.",
+  "Drained of power.",
+  "",
+  "And most of the time",
+  "they don't even realise where it's coming from.",
+];
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ResetRoom() {
   return (
-    <div className="bg-ivory">
+    <div className="bg-white">
       <Navbar />
 
-      {/* Hero */}
-      <section className="bg-oxblood text-ivory pt-40 pb-24 md:pt-48 md:pb-32">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">
-            — The Reset Room
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif leading-[0.92] tracking-tight"
+      {/* ── SECTION 1: HERO ─────────────────────────────────────────────── */}
+      <section
+        className="min-h-screen flex flex-col items-center justify-center text-center pt-32 pb-24 md:pt-40 md:pb-36 px-6"
+        style={{ backgroundColor: "#872D5B" }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-4xl mx-auto"
+        >
+          <h1 className="font-serif text-[13vw] md:text-[8vw] lg:text-[7vw] leading-[1.0] tracking-tight text-white mb-10">
+            <span className="block">Wildly successful.</span>
+            <span className="block italic font-normal">Deeply aligned.</span>
+            <span className="block">Finally.</span>
+          </h1>
+
+          <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-14 font-sans">
+            I work with ambitious women ready to become wildly successful and deeply aligned
+            by working with the mind, body, and soul.
+            <br /><br />
+            Through my signature ALIVE Method™, I've helped hundreds of women globally
+            move through internal blocks, refine their offers and messaging,
+            and build businesses their higher self would be proud of.
+          </p>
+
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-3 border border-white/70 text-white px-10 py-4 text-[11px] tracking-editorial uppercase hover:bg-white hover:text-[#872D5B] transition-all duration-300 group"
           >
-            <span className="block text-[15vw] md:text-[10vw] lg:text-[8.5vw] font-medium">The Reset</span>
-            <span className="block text-[15vw] md:text-[10vw] lg:text-[8.5vw] italic font-normal">Room</span>
-          </motion.h1>
-        </div>
+            Work With Me
+            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+          </Link>
+        </motion.div>
       </section>
 
-      {/* Welcome */}
-      <section className="bg-ivory py-24 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Welcome</p>
-            <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8">
-              Welcome to <span className="italic block">The Reset Room</span>
-            </h2>
-            <p className="font-serif italic text-xl text-foreground mb-6 leading-relaxed">
-              If you're looking for a place that truly gets you, where you can be guided, held, and unapologetically seen, you're in the right room.
-            </p>
-            <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
-              For far too long, women have been working against themselves instead of for themselves. We've been handed playbooks written by systems that were never designed with us in mind, and it shows. Burnout is at an all-time high globally, and I know that story firsthand.
-            </p>
-            <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
-              I built the shiny life. The business, the clients, the travel, the success. And I also built myself into the ground. That breakdown became my reset, and now, The Reset Room exists so women like you don't have to hit the same wall.
-            </p>
-            <p className="text-[15px] text-muted-foreground leading-relaxed">
-              Here, we burn the old playbook and rebuild something honest, powerful, and wildly aligned. Through 1:1 coaching, masterclasses, speaking events, and courses, I'll help you create a business and a life that doesn't just look good on paper — it actually feels good to live.
-            </p>
-          </div>
-          <div className="aspect-[4/5] overflow-hidden">
-            <img src="https://laurajanethomas.biz/wp-content/uploads/2025/11/LauraJThomas24-11-2025-09-52-50-1.png" alt="The Reset Room" className="w-full h-full object-cover" />
-          </div>
-        </div>
-      </section>
-
-      {/* Meet Your Coach */}
-      <section className="bg-foreground text-ivory py-24 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
-          <div className="aspect-[4/5] overflow-hidden">
-            <img src="https://laurajanethomas.biz/wp-content/uploads/2025/11/Group-48095914.png" alt="Laura Jane Thomas coach" className="w-full h-full object-cover" />
-          </div>
-          <div>
-            <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-8" id="your-coach">— Meet Your Coach</p>
-            <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8">
-              meet your <span className="italic block">coach</span>
-            </h2>
-            <p className="text-ivory/80 text-lg leading-relaxed mb-5">
-              If you've landed here, I'm glad you did — and I don't believe it's by coincidence. I believe you're here for a reason. My highest values are honesty and transparency, so here's what you should know: I've walked the walk.
-            </p>
-            <p className="text-ivory/70 text-[15px] leading-relaxed mb-5">
-              I've built businesses from the ground up, scaled a global agency, and earned international recognition — but I've also hit epic burnout that left me bedridden and blown up my life more than once.
-            </p>
-            <p className="text-ivory/70 text-[15px] leading-relaxed">
-              I know what it feels like to start over from scratch. That's why this space exists — a soft landing for ambitious women ready to reset, rebuild, and rise again. My greatest joy is helping ambitious women unlock their potential.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Ways to work together nav */}
-      <section className="bg-ivory border-t border-foreground/10 py-20">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
-          <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-10">— Ways We Can Work Together</p>
-          <div className="grid md:grid-cols-3 gap-px bg-foreground/15">
-            {[
-              { label: "1 on 1 Coaching", anchor: "#coaching" },
-              { label: "Take My Aligned Woman Masterclass", anchor: "#masterclass" },
-              { label: "Hire Me as a Speaker or Panelist", anchor: "#speaker" },
-            ].map((item) => (
-              <a key={item.label} href={item.anchor} className="bg-ivory p-8 md:p-10 hover:bg-oxblood hover:text-ivory transition-colors duration-500 group">
-                <span className="font-serif text-2xl md:text-3xl group-hover:italic transition-all">{item.label}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 1:1 Coaching */}
-      <section id="coaching" className="bg-oxblood text-ivory py-24 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">— 1:1 Coaching</p>
-          <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-16">
-            let's work <span className="italic">one on one</span>
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {coachingTiers.map((tier, i) => (
-              <CoachingCard key={tier.name} tier={tier} i={i} />
-            ))}
-          </div>
-          <div className="mt-14 text-center">
-            <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/70 px-10 py-4 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all group">
-              Apply To Work With Me
-              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Masterclass */}
-      <section id="masterclass" className="bg-ivory py-24 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— The Aligned Woman Masterclass</p>
-            <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8">
-              the aligned <span className="italic block">woman masterclass</span>
-            </h2>
-            <p className="font-serif italic text-xl text-foreground mb-6 leading-relaxed">
-              A high-impact training designed for ambitious women who look successful on the outside but feel exhausted on the inside.
-            </p>
-            <p className="text-[15px] text-muted-foreground leading-relaxed mb-10">
-              In just one session, you'll learn how to make money without guilt, regulate your nervous system so you stop working from stress, speak and sell with authority, and align your values so success finally feels like you. This isn't another fluffy mindset class. It is a grounded, science-backed reset for women who want to grow their career or business without burning themselves out in the process.
-            </p>
-            <a href="https://masterclass.laurajanethomas.biz/masterclass-164184" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-foreground text-ivory px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all group">
-              I Want To Know More!
-              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-            </a>
-          </div>
-          <div className="aspect-[4/5] overflow-hidden">
-            <img src="https://laurajanethomas.biz/wp-content/uploads/2025/11/room2.png" alt="Aligned Woman Masterclass" className="w-full h-full object-cover" />
-          </div>
-        </div>
-      </section>
-
-      {/* Helpful Resources */}
-      <section className="bg-foreground text-ivory py-24 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">— Helpful Resources</p>
-          <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-16">
-            helpful <span className="italic">resources</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {resources.map((r, i) => (
-              <motion.div
-                key={r.title}
-                initial={{ opacity: 0, y: 20 }}
+      {/* ── SECTION 2: THE TRUTH ─────────────────────────────────────────── */}
+      <section className="bg-[#111111] text-white py-28 md:py-44 px-6">
+        <div className="max-w-2xl mx-auto text-center">
+          {truthLines.map((line, i) =>
+            line === "" ? (
+              <div key={i} className="h-6" />
+            ) : (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="group"
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.7, delay: i * 0.08 }}
+                className="font-serif text-2xl md:text-3xl lg:text-4xl leading-[1.4] tracking-tight"
               >
-                <a href={r.href} target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="aspect-[16/9] overflow-hidden mb-5">
-                    <img src={r.image} alt={r.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-                  </div>
-                  <h3 className="font-serif text-2xl mb-3 group-hover:italic transition-all">{r.title}</h3>
-                  <p className="text-[14px] text-ivory/70 leading-relaxed mb-4">{r.body}</p>
-                  <span className="text-[11px] tracking-editorial uppercase border-b border-ivory/40 pb-1 group-hover:border-ivory transition-colors">{r.cta} →</span>
-                </a>
+                {line}
+              </motion.p>
+            )
+          )}
+        </div>
+      </section>
+
+      {/* ── SECTION 3: EDITORIAL SPLIT ───────────────────────────────────── */}
+      <section className="bg-[#F5F1EC] py-24 md:py-36">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Left: portrait */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="aspect-[4/5] overflow-hidden"
+          >
+            <img
+              src="https://laurajanethomas.biz/wp-content/uploads/2025/11/LauraJThomas24-11-2025-09-52-50-1.png"
+              alt="Laura Jane Thomas"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          {/* Right: text */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.15 }}
+          >
+            <div className="hairline w-12 mb-10 bg-foreground/40" style={{ height: 1, backgroundColor: "#1a1a1a", opacity: 0.3 }} />
+            <p className="font-serif text-2xl md:text-3xl lg:text-4xl leading-[1.35] tracking-tight text-foreground">
+              It doesn't look obvious.
+            </p>
+            <p className="font-serif italic text-xl md:text-2xl leading-relaxed text-foreground/70 mt-8">
+              It looks like overthinking every decision.<br />
+              Second guessing your pricing.<br />
+              Saying yes when you should be setting boundaries.<br />
+              Building a business that technically works<br />
+              but quietly exhausts you.
+            </p>
+            <p className="font-serif text-2xl md:text-3xl leading-[1.3] tracking-tight text-foreground mt-10">
+              You don't need more strategy.
+            </p>
+            <p className="font-serif italic text-xl md:text-2xl text-foreground/70 mt-4">
+              You need to see what's actually driving it.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── SECTION 4: POSITIONING ───────────────────────────────────────── */}
+      <section className="bg-white py-24 md:py-36 px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="max-w-2xl mx-auto text-center"
+        >
+          <p className="font-serif text-xl md:text-2xl leading-[1.7] text-foreground/80">
+            I help women identify where they are losing energy, money, and power —
+            often without even realising it.
+          </p>
+          <p className="font-serif text-xl md:text-2xl leading-[1.7] text-foreground/80 mt-8">
+            We uncover what's really holding you back
+            and rebuild your business and life in a way that actually supports you.
+          </p>
+          <p className="font-serif text-xl md:text-2xl leading-[1.7] text-foreground/80 mt-8">
+            Through my signature ALIVE Method™, I combine NLP techniques, Human Design,
+            and 15+ years of leading global brands
+          </p>
+          <p className="font-serif italic text-2xl md:text-3xl text-foreground mt-6">
+            to create results that are both strategic and deeply aligned.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* ── SECTION 5: ALIVE METHOD™ ─────────────────────────────────────── */}
+      <section className="bg-[#F5F1EC] py-24 md:py-36">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9 }}
+            className="text-center mb-16"
+          >
+            <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-4">— The Method</p>
+            <h2 className="font-serif text-5xl md:text-7xl leading-[0.95] tracking-tight">
+              The ALIVE Method™
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {aliveMethod.map((item, i) => (
+              <motion.div
+                key={item.letter}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.8, delay: i * 0.1 }}
+                className="bg-white p-8 md:p-10 group hover:bg-[#872D5B] hover:text-white transition-colors duration-500"
+              >
+                <span className="block font-serif text-7xl md:text-8xl leading-none italic text-[#872D5B] group-hover:text-white/30 transition-colors duration-500 mb-4">
+                  {item.letter}
+                </span>
+                <h3 className="font-serif text-2xl md:text-3xl mb-3 tracking-tight">{item.word}</h3>
+                <p className="text-sm md:text-base text-foreground/60 group-hover:text-white/70 leading-relaxed transition-colors duration-500">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
+
+            {/* Closing statement card */}
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="md:col-span-2 lg:col-span-1 bg-[#111111] text-white p-8 md:p-10 flex items-center justify-center"
+            >
+              <p className="font-serif italic text-xl md:text-2xl text-center leading-relaxed">
+                This is where everything starts to make sense.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Book me as a speaker */}
-      <section id="speaker" className="bg-ivory py-24 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
-          <div className="aspect-[4/5] overflow-hidden">
-            <img src="https://laurajanethomas.biz/wp-content/uploads/2025/11/newimg.png" alt="Laura speaking" className="w-full h-full object-cover" />
+      {/* ── SECTION 6: OFFERS ────────────────────────────────────────────── */}
+      {offers.map((offer, i) => (
+        <section key={offer.title} className={`${offer.bg} py-24 md:py-36`}>
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div className={`grid lg:grid-cols-2 gap-16 lg:gap-24 items-center ${offer.reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
+              {/* Image */}
+              <motion.div
+                initial={{ opacity: 0, x: offer.reverse ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
+                className="aspect-[4/5] overflow-hidden"
+              >
+                <img
+                  src={offer.image}
+                  alt={offer.title}
+                  className="w-full h-full object-cover transition-transform duration-[1.2s] hover:scale-[1.03]"
+                />
+              </motion.div>
+
+              {/* Text */}
+              <motion.div
+                initial={{ opacity: 0, x: offer.reverse ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.15 }}
+              >
+                <div style={{ height: 1, backgroundColor: "#1a1a1a", opacity: 0.2, width: 48, marginBottom: 32 }} />
+                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-8">
+                  {offer.title}
+                </h2>
+                {offer.body.map((para, j) => (
+                  <p key={j} className={`leading-relaxed mb-5 ${j === 0 ? "font-serif italic text-xl md:text-2xl text-foreground/80" : "text-[15px] text-muted-foreground whitespace-pre-line"}`}>
+                    {para}
+                  </p>
+                ))}
+                <Link
+                  to={offer.href}
+                  className="mt-6 inline-flex items-center gap-3 border border-foreground/80 px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-foreground hover:text-white transition-all duration-300 group"
+                >
+                  {offer.cta}
+                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+              </motion.div>
+            </div>
           </div>
-          <div>
-            <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Speaking</p>
-            <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8">
-              book me as <span className="italic block">a speaker</span>
-            </h2>
-            <p className="font-serif italic text-xl text-foreground mb-6 leading-relaxed">
-              I don't do polished soundbites or sugar-coated strategies.
-            </p>
-            <p className="text-[15px] text-muted-foreground leading-relaxed mb-6">
-              I speak the truths women in business are craving to hear. The ones that spark uncomfortable laughter, knowing nods, and real change.
-            </p>
-            <p className="text-[11px] tracking-editorial uppercase text-muted-foreground mb-4">Topics I love to dive into:</p>
-            <ul className="space-y-3 mb-8">
-              {[
-                "The Future of Business for Women — why the old hustle playbook is broken and how we're rewriting it.",
-                "The Real Cause of Burnout — the hidden patterns beneath the exhaustion, and how to break free.",
-                "The Hidden Price of Success — what it really costs to 'have it all' and how to build a business (and life) that actually feels good.",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-3 text-[14px] text-muted-foreground">
-                  <span className="text-oxblood mt-1 text-xs">—</span>{t}
-                </li>
-              ))}
-            </ul>
-            <p className="font-serif italic text-lg text-foreground mb-8">
-              If you want your panel or stage to leave women feeling seen, challenged, and inspired to rewrite the rules of success, I'm your speaker.
-            </p>
-            <a href="https://masterclass.laurajanethomas.biz/masterclass-164184" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-foreground text-ivory px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all group">
-              Book Me To Speak
-              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-            </a>
-          </div>
-        </div>
+        </section>
+      ))}
+
+      {/* ── SECTION 7: FINAL CLOSE ───────────────────────────────────────── */}
+      <section
+        className="py-28 md:py-44 px-6 text-center"
+        style={{ backgroundColor: "#872D5B" }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.1 }}
+          className="max-w-3xl mx-auto"
+        >
+          <p className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.3] text-white mb-6">
+            You already know something needs to change.
+          </p>
+          <p className="font-serif italic text-2xl md:text-3xl text-white/80 mb-10">
+            You can feel it.
+          </p>
+          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-6">
+            The version of you that got you here
+            is not the version that will take you where you want to go.
+          </p>
+          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-16">
+            The question is
+            how much longer you stay where you are.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-3 border border-white/70 text-white px-12 py-5 text-[11px] tracking-editorial uppercase hover:bg-white hover:text-[#872D5B] transition-all duration-300 group"
+          >
+            I'm Ready To Do This Differently
+            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+          </Link>
+        </motion.div>
       </section>
 
       <TestimonialsSection />
-      <CtaBanner headline={<>Ready to<br /><span className="italic">reset?</span></>} href="/contact" />
       <Footer />
     </div>
   );

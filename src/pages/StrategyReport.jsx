@@ -209,15 +209,17 @@ export default function StrategyReport() {
               Book a strategy session with Laura to walk through these findings and map your next move.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link
-                to="/contact"
+              <a
+                href="https://laurajanethomas.biz/contact-us/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans text-white transition-all duration-300"
                 style={{ backgroundColor: ACCENT }}
                 onMouseEnter={e => { e.currentTarget.style.opacity = "0.85"; }}
                 onMouseLeave={e => { e.currentTarget.style.opacity = "1"; }}
               >
                 Book a Strategy Session →
-              </Link>
+              </a>
               <button
                 onClick={handleDownloadPDF}
                 className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans border border-[#d0cac4] text-[#141414] hover:border-[#141414] transition-all duration-300"

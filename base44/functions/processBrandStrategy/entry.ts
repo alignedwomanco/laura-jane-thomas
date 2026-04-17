@@ -191,10 +191,10 @@ Deno.serve(async (req) => {
       try {
         const origin = req.headers.get("origin") || "https://laurajanethomas.biz";
         const reportUrl = `${origin}/strategy-report/${savedId}`;
-        const emailBody = `Hi ${record.firstName || record.fullName || "there"},\n\nThank you for completing the Brand Strategy Diagnostic. Your personalized report is ready.\n\nKey strategic insights:\n\n${emailSummary}\n\nView your full report:\n${reportUrl}\n\nWith clarity,\nLaura Jane Thomas`;
+        const emailBody = `Hi ${record.firstName},\n\nThank you for completing the Brand Strategy Diagnostic. Your honesty and clarity throughout the questionnaire have given us everything we need to create a meaningful strategy for ${record.company}.\n\nWhat's attached:\n\nYour Brand Strategy Report: A comprehensive analysis of your business, positioning, audience, and the strategic priorities that will move the needle. This is the strategic roadmap.\n\nYour Questionnaire Answers: A complete record of everything you shared. Reference this as you review the strategy, and share it with your team.\n\nBoth are yours to keep, review, and act on at your own pace.\n\nWhat's next?\n\nThis report is most valuable when we walk through it together. Book a strategy session to:\n- Dive deep into the key findings\n- Clarify any recommendations\n- Map out your first 90 days of execution\n\nDownload both PDFs here:\n${reportUrl}\n\nThe clarity is already here. Now comes the action.\n\nLook forward to hearing from you,\nLaura.\n\nwww.laurajanethomas.biz\nhello@laurajanethomas.biz\n+27 677302030`;
         await base44.asServiceRole.integrations.Core.SendEmail({
           to: record.email,
-          subject: "Your Brand Strategy Report",
+          subject: "Your Brand Strategy Diagnostic is Ready",
           body: emailBody,
           from_name: "Laura Jane Thomas",
         });

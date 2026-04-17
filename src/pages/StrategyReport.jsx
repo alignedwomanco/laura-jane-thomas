@@ -6,6 +6,7 @@ import NavbarMinimal from "@/components/site/NavbarMinimal";
 import FooterMinimal from "@/components/site/FooterMinimal";
 import ReportContent from "@/components/report/ReportContent";
 import { generateBrandStrategyPDF } from "@/lib/generatePDF";
+import { generateAnswersPDF } from "@/lib/generateAnswersPDF";
 
 const ACCENT = "#4A3728";
 
@@ -78,6 +79,7 @@ export default function StrategyReport() {
 
   const handlePrint = () => window.print();
   const handleDownloadPDF = () => generateBrandStrategyPDF(report);
+  const handleDownloadAnswers = () => generateAnswersPDF(report);
 
   // ── Loading ────────────────────────────────────────────────────────
   if (loading || generating) {
@@ -220,7 +222,13 @@ export default function StrategyReport() {
                 onClick={handleDownloadPDF}
                 className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans border border-[#d0cac4] text-[#141414] hover:border-[#141414] transition-all duration-300"
               >
-                Download PDF
+                Download Report PDF
+              </button>
+              <button
+                onClick={handleDownloadAnswers}
+                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans border border-[#d0cac4] text-[#141414] hover:border-[#141414] transition-all duration-300"
+              >
+                Download All Answers
               </button>
             </div>
           </motion.div>

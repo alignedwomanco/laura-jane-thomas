@@ -152,34 +152,34 @@ export default function StrategyReport() {
 
 
           {/* Page header */}
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }} className="mb-14 print:mb-8">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }} className="mb-14 print:mb-8" data-print-header>
             <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-4 print:hidden" style={{ color: ACCENT }}>
               Brand Strategy Diagnostic
             </p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#141414] leading-[0.95] tracking-tight mb-4">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#141414] leading-[0.95] tracking-tight mb-4 print:text-3xl print:mb-2">
               {report.firstName ? `${report.firstName}'s` : "Your"}{" "}
               <span className="italic font-normal">Brand Strategy Report</span>
             </h1>
-            {report.company && <p className="text-[#141414]/50 text-sm font-sans">{report.company}</p>}
+            {report.company && <p className="text-[#141414]/50 text-sm font-sans print:text-xs print:mb-1">{report.company}</p>}
             {report.submittedAt && (
-              <p className="text-[#141414]/35 text-xs font-sans mt-2">
+              <p className="text-[#141414]/35 text-xs font-sans mt-2 print:mt-1">
                 {new Date(report.submittedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
               </p>
             )}
-            <div className="mt-8 h-px bg-[#ece8e3]" />
+            <div className="mt-8 h-px bg-[#ece8e3] print:mt-4" />
           </motion.div>
 
           {/* Key insights summary */}
           {report.emailSummary && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1 }}
-              className="mb-14 p-8 bg-[#141414] print:border print:border-[#ece8e3] print:bg-white"
+              className="mb-14 p-8 bg-[#141414] print:border print:border-[#ece8e3] print:bg-white print:p-6 print:mb-8" data-insights
             >
-              <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-5" style={{ color: "#d0cac4" }}>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-5 print:text-[10px] print:mb-3" style={{ color: "#d0cac4" }}>
                 Key Strategic Insights
               </p>
-              <div className="space-y-3">
+              <div className="space-y-3 print:space-y-2">
                 {report.emailSummary.split("\n").filter(l => l.trim()).map((line, i) => (
-                  <p key={i} className="text-white print:text-[#141414] text-sm font-sans leading-relaxed">
+                  <p key={i} className="text-white print:text-[#141414] text-sm font-sans leading-relaxed print:text-xs print:leading-snug">
                     {line.startsWith("•") ? line : `• ${line}`}
                   </p>
                 ))}
@@ -234,9 +234,104 @@ export default function StrategyReport() {
           body { background: white !important; }
           .print\\:hidden { display: none !important; }
           .print\\:block { display: block !important; }
-          @page { margin: 1.5cm 2cm; orphans: 3; widows: 3; }
-          * { page-break-inside: auto; }
-          main { padding-top: 0 !important; padding-bottom: 0 !important; }
+          @page { 
+            size: A4; 
+            margin: 1.5cm 2cm; 
+            orphans: 3; 
+            widows: 3; 
+          }
+          
+          html, body { 
+            height: auto !important; 
+            background: white !important;
+          }
+          
+          main { 
+            padding-top: 0 !important; 
+            padding-bottom: 0 !important; 
+            max-width: 100% !important;
+            padding-left: 0.5cm !important;
+            padding-right: 0.5cm !important;
+          }
+          
+          .max-w-3xl {
+            max-width: 100% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+          
+          /* Section spacing optimization */
+          [data-report-section] {
+            page-break-inside: avoid;
+            break-inside: avoid;
+            margin-bottom: 0.6cm !important;
+          }
+          
+          /* Keep insights box compact */
+          [data-insights] {
+            margin-bottom: 0.8cm !important;
+            padding: 0.8cm !important;
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+          
+          [data-insights] p {
+            margin-bottom: 0.3cm !important;
+          }
+          
+          /* Prevent orphaned headings */
+          h1, h2, h3 {
+            page-break-after: avoid;
+            orphans: 3;
+          }
+          
+          /* Paragraph spacing */
+          p {
+            margin-bottom: 0.3cm !important;
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+          
+          /* Allow lists to flow naturally */
+          ul, ol {
+            margin-bottom: 0.4cm !important;
+            page-break-inside: auto;
+            break-inside: auto;
+          }
+          
+          li {
+            margin-bottom: 0.2cm !important;
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+          
+          /* Prevent excessive spacing around motion elements */
+          [class*="motion"] {
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+          
+          /* Remove animations and transitions in print */
+          * {
+            animation: none !important;
+            transition: none !important;
+          }
+          
+          /* Header/footer optimization */
+          [data-print-header] {
+            margin-bottom: 0.8cm !important;
+            padding-bottom: 0.6cm !important;
+            border-bottom: 0.5pt solid #ece8e3 !important;
+          }
+          
+          /* Divider spacing */
+          .mt-8 { margin-top: 0.4cm !important; }
+          .mb-4 { margin-bottom: 0.2cm !important; }
+          .mb-6 { margin-bottom: 0.4cm !important; }
+          .mb-8 { margin-bottom: 0.5cm !important; }
+          .mb-14 { margin-bottom: 0.8cm !important; }
+          .space-y-3 > * + * { margin-top: 0.2cm !important; }
+          .space-y-6 > * + * { margin-top: 0.4cm !important; }
         }
       `}</style>
 

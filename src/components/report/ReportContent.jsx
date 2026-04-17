@@ -66,13 +66,15 @@ export default function ReportContent({ content }) {
         return (
           <div
             key={idx}
-            className="p-8 md:p-10 print:p-6 print:page-break-inside-avoid"
+            className="p-8 md:p-10 print:p-6"
             style={{ 
               backgroundColor: dark ? "#141414" : bg,
               pageBreakInside: "avoid",
+              breakInside: "avoid",
             }}
+            data-report-section
           >
-            <div className="flex items-start gap-5 mb-6 print:mb-4">
+            <div className="flex items-start gap-5 mb-6 print:mb-3 print:gap-3">
               <span
                 className="text-[10px] tracking-editorial uppercase font-sans mt-1 shrink-0 print:text-[9px]"
                 style={{ color: dark ? "rgba(255,255,255,0.35)" : "rgba(20,20,20,0.35)" }}
@@ -80,24 +82,28 @@ export default function ReportContent({ content }) {
                 {String(idx + 1).padStart(2, "0")}
               </span>
               <h3
-                className="font-serif leading-tight print:text-base print:mb-0"
+                className="font-serif leading-tight print:text-sm"
                 style={{
                   fontSize: "clamp(1.2rem, 2.2vw, 1.6rem)",
                   color: dark ? "white" : "#141414",
+                  pageBreakAfter: "avoid",
                 }}
               >
                 {section.title}
               </h3>
             </div>
 
-            <div className="pl-9 space-y-3 print:space-y-2">
+            <div className="pl-9 space-y-3 print:space-y-2 print:pl-7">
               {section.body.map((line, i) => {
                 const isBullet = line.startsWith("•") || line.startsWith("-") || line.match(/^\d+\./);
                 return (
                   <p
                     key={i}
                     className="text-sm font-sans leading-relaxed print:text-xs print:leading-snug"
-                    style={{ color: dark ? "rgba(255,255,255,0.70)" : "rgba(20,20,20,0.65)" }}
+                    style={{ 
+                      color: dark ? "rgba(255,255,255,0.70)" : "rgba(20,20,20,0.65)",
+                      pageBreakInside: "avoid",
+                    }}
                   >
                     {isBullet ? line : line}
                   </p>

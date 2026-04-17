@@ -28,14 +28,14 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-        <Link to="/" className="flex flex-col leading-none">
+        <a href="https://laurajanethomas.biz" target="_blank" rel="noopener noreferrer" className="flex flex-col leading-none hover:opacity-80 transition-opacity duration-300">
           <span className="font-serif text-xl md:text-2xl tracking-tight text-foreground">
             laura<span className="italic">jane</span>thomas
           </span>
           <span className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-1">
             Award-Winning Brand Strategist
           </span>
-        </Link>
+        </a>
 
         <nav className="hidden lg:flex items-center gap-9">
           {links.map((l) => (

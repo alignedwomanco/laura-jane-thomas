@@ -8,12 +8,14 @@ export default function Footer() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-20">
         <div className="grid md:grid-cols-3 gap-12 md:gap-8">
           <div>
-            <h3 className="font-serif text-3xl md:text-4xl leading-[1.05]">
-              laura<span className="italic">jane</span>thomas
-            </h3>
-            <p className="text-[11px] tracking-editorial uppercase mt-3 text-ivory/60">
-              Award-Winning Brand Strategist
-            </p>
+            <a href="https://laurajanethomas.biz" target="_blank" rel="noopener noreferrer" className="inline-block hover:opacity-80 transition-opacity duration-300">
+              <h3 className="font-serif text-3xl md:text-4xl leading-[1.05]">
+                laura<span className="italic">jane</span>thomas
+              </h3>
+              <p className="text-[11px] tracking-editorial uppercase mt-3 text-ivory/60">
+                Award-Winning Brand Strategist
+              </p>
+            </a>
           </div>
 
           <div className="md:col-span-1">

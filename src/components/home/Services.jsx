@@ -37,8 +37,13 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="bg-oxblood text-ivory py-24 md:py-36">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section className="text-ivory py-24 md:py-36 relative" style={{
+      backgroundImage: 'url(https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/ffd394de8_efca8aa6761e6e74544ba4e9681156c9.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}>
+      <div className="absolute inset-0 bg-oxblood/85" />
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-16 md:mb-24">
           — 02 / What I Do
         </p>

@@ -58,7 +58,7 @@ export default function ReportContent({ content }) {
     title.toLowerCase().includes("priorities") || title.toLowerCase().includes("recommended");
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 print:space-y-4">
       {sections.map((section, idx) => {
         const dark = isPriorities(section.title);
         const bg = SECTION_COLORS[section.title] || (idx % 2 === 0 ? "#FAF8F5" : "#F5F1EC");
@@ -66,18 +66,21 @@ export default function ReportContent({ content }) {
         return (
           <div
             key={idx}
-            className="p-8 md:p-10"
-            style={{ backgroundColor: dark ? "#141414" : bg }}
+            className="p-8 md:p-10 print:p-6 print:page-break-inside-avoid"
+            style={{ 
+              backgroundColor: dark ? "#141414" : bg,
+              pageBreakInside: "avoid",
+            }}
           >
-            <div className="flex items-start gap-5 mb-6">
+            <div className="flex items-start gap-5 mb-6 print:mb-4">
               <span
-                className="text-[10px] tracking-editorial uppercase font-sans mt-1 shrink-0"
+                className="text-[10px] tracking-editorial uppercase font-sans mt-1 shrink-0 print:text-[9px]"
                 style={{ color: dark ? "rgba(255,255,255,0.35)" : "rgba(20,20,20,0.35)" }}
               >
                 {String(idx + 1).padStart(2, "0")}
               </span>
               <h3
-                className="font-serif leading-tight"
+                className="font-serif leading-tight print:text-base print:mb-0"
                 style={{
                   fontSize: "clamp(1.2rem, 2.2vw, 1.6rem)",
                   color: dark ? "white" : "#141414",
@@ -87,13 +90,13 @@ export default function ReportContent({ content }) {
               </h3>
             </div>
 
-            <div className="pl-9 space-y-3">
+            <div className="pl-9 space-y-3 print:space-y-2">
               {section.body.map((line, i) => {
                 const isBullet = line.startsWith("•") || line.startsWith("-") || line.match(/^\d+\./);
                 return (
                   <p
                     key={i}
-                    className="text-sm font-sans leading-relaxed"
+                    className="text-sm font-sans leading-relaxed print:text-xs print:leading-snug"
                     style={{ color: dark ? "rgba(255,255,255,0.70)" : "rgba(20,20,20,0.65)" }}
                   >
                     {isBullet ? line : line}

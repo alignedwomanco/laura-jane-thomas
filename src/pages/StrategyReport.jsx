@@ -234,7 +234,9 @@ export default function StrategyReport() {
           body { background: white !important; }
           .print\\:hidden { display: none !important; }
           .print\\:block { display: block !important; }
-          @page { margin: 2cm; }
+          @page { margin: 1.5cm 2cm; orphans: 3; widows: 3; }
+          * { page-break-inside: auto; }
+          main { padding-top: 0 !important; padding-bottom: 0 !important; }
         }
       `}</style>
 

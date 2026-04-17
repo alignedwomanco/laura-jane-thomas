@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Linkedin } from "lucide-react";
 
 const links = [
   { label: "Home", to: "/" },
@@ -49,13 +49,23 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <Link
-          to="/"
-          to="/contact"
-        className="hidden lg:inline-flex text-[11px] tracking-editorial uppercase border border-foreground/80 px-5 py-2.5 hover:bg-foreground hover:text-ivory transition-all duration-300"
-        >
-          Work With Me
-        </Link>
+        <div className="hidden lg:flex items-center gap-6">
+          <a
+            href="https://www.linkedin.com/in/ljthomas/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground/80 hover:text-oxblood transition-colors duration-300"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+          <Link
+            to="/contact"
+            className="text-[11px] tracking-editorial uppercase border border-foreground/80 px-5 py-2.5 hover:bg-foreground hover:text-ivory transition-all duration-300"
+          >
+            Work With Me
+          </Link>
+        </div>
 
         <button
           className="lg:hidden text-foreground"

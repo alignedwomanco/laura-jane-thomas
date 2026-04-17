@@ -1,18 +1,5 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-const SECTION_LABELS = [
-  "Contact Details",
-  "Business Foundation",
-  "Operations, Budget & Delivery",
-  "Current Marketing Assets",
-  "Audience Insight",
-  "Positioning & Differentiation",
-  "Brand Truth",
-  "Brand Essence",
-  "Vision & Growth",
-  "Legacy & Values",
-];
-
 const BUSINESS_QUESTIONS = [
   "What are you actually selling — not the category, but the outcome?",
   "If someone paid you tomorrow, what exactly would they receive?",
@@ -75,32 +62,30 @@ function buildQABlock(label, questions, data) {
   let block = `\n## ${label}\n`;
   questions.forEach((q, i) => {
     const answer = data[`q${i}`];
-    if (answer && answer.trim()) {
-      block += `Q: ${q}\nA: ${answer.trim()}\n\n`;
+    if (answer && String(answer).trim()) {
+      block += `Q: ${q}\nA: ${String(answer).trim()}\n\n`;
     }
   });
   return block;
 }
 
-function buildPrompt(submission) {
-  const name = submission.firstName || submission.fullName || "the client";
-  const company = submission.company || "their business";
+function buildPrompt(record) {
+  const name = record.firstName || record.fullName || "the client";
+  const company = record.company || "their business";
 
   let context = `You are a senior brand strategist conducting a strategic review for ${name} at ${company}.\n\n`;
-  context += `Your task is to analyze their questionnaire responses and produce a structured Brand Strategy Report. Be commercially grounded, direct, and specific to their answers. Do not repeat questions or answers verbatim — interpret, synthesize, and provide strategic insight.\n\n`;
-  context += `Avoid generic motivational language. Identify genuine strengths, real weaknesses, and commercially viable opportunities.\n\n`;
+  context += `Analyze their questionnaire responses and produce a structured Brand Strategy Report. Be commercially grounded, direct, and specific to their answers. Do not repeat questions verbatim — interpret, synthesize, and provide strategic insight. Avoid generic motivational language.\n\n`;
   context += `=== QUESTIONNAIRE RESPONSES ===\n`;
 
-  context += buildQABlock("Business Foundation", BUSINESS_QUESTIONS, submission.sectionBusinessFoundation);
-  context += buildQABlock("Audience Insight", AUDIENCE_QUESTIONS, submission.sectionAudienceInsight);
-  context += buildQABlock("Positioning & Differentiation", POSITIONING_QUESTIONS, submission.sectionPositioning);
-  context += buildQABlock("Brand Truth", BRAND_TRUTH_QUESTIONS, submission.sectionBrandTruth);
-  context += buildQABlock("Brand Essence", BRAND_ESSENCE_QUESTIONS, submission.sectionBrandEssence);
-  context += buildQABlock("Vision & Growth", VISION_QUESTIONS, submission.sectionVisionGrowth);
-  context += buildQABlock("Legacy & Values", LEGACY_QUESTIONS, submission.sectionLegacyValues);
+  context += buildQABlock("Business Foundation", BUSINESS_QUESTIONS, record.sectionBusinessFoundation);
+  context += buildQABlock("Audience Insight", AUDIENCE_QUESTIONS, record.sectionAudienceInsight);
+  context += buildQABlock("Positioning & Differentiation", POSITIONING_QUESTIONS, record.sectionPositioning);
+  context += buildQABlock("Brand Truth", BRAND_TRUTH_QUESTIONS, record.sectionBrandTruth);
+  context += buildQABlock("Brand Essence", BRAND_ESSENCE_QUESTIONS, record.sectionBrandEssence);
+  context += buildQABlock("Vision & Growth", VISION_QUESTIONS, record.sectionVisionGrowth);
+  context += buildQABlock("Legacy & Values", LEGACY_QUESTIONS, record.sectionLegacyValues);
 
-  // Operations
-  const ops = submission.sectionOperations || {};
+  const ops = record.sectionOperations || {};
   if (ops.budget || ops.support || ops.workingModel) {
     context += `\n## Operations & Budget\n`;
     if (ops.budget) context += `Budget: ${ops.budget}\n`;
@@ -110,16 +95,16 @@ function buildPrompt(submission) {
     if (ops.different) context += `What needs to be different: ${ops.different}\n`;
   }
 
-  // Core values
-  const legacy = submission.sectionLegacyValues || {};
+  const legacy = record.sectionLegacyValues || {};
   if (legacy.values && legacy.values.length > 0) {
     context += `\nCore Values selected: ${legacy.values.join(", ")}\n`;
   }
 
   context += `\n=== END OF RESPONSES ===\n\n`;
-  context += `Now produce the following two outputs:\n\n`;
-  context += `OUTPUT 1 — FULL STRATEGY REPORT\nStructure it with these clear sections:\n1. Executive Summary\n2. Brand Positioning Analysis\n3. Audience & Market Opportunity\n4. Core Brand Identity & Differentiation\n5. Strategic Gaps & Risks\n6. Growth & Vision Alignment\n7. Recommended Strategic Priorities (top 3–5 actionable priorities)\n\nBe specific, direct, and reference their actual answers where relevant.\n\n`;
-  context += `OUTPUT 2 — EMAIL SUMMARY\nWrite 4–6 bullet points that summarize the most important strategic insights. Each bullet should be one sharp, direct sentence. Start each with "•"\n\nFormat your entire response as JSON matching this schema exactly, with no extra text outside the JSON:\n{\n  "fullReport": "...",\n  "emailSummary": "..."\n}`;
+  context += `Produce two outputs:\n\n`;
+  context += `OUTPUT 1 — FULL STRATEGY REPORT\nStructure with these sections:\n1. Executive Summary\n2. Brand Positioning Analysis\n3. Audience & Market Opportunity\n4. Core Brand Identity & Differentiation\n5. Strategic Gaps & Risks\n6. Growth & Vision Alignment\n7. Recommended Strategic Priorities (top 3–5 actionable priorities)\n\n`;
+  context += `OUTPUT 2 — EMAIL SUMMARY\n4–6 bullet points summarizing the most important strategic insights. Each bullet is one sharp direct sentence starting with "•"\n\n`;
+  context += `Return ONLY valid JSON with no extra text:\n{"fullReport": "...", "emailSummary": "..."}`;
 
   return context;
 }
@@ -127,9 +112,14 @@ function buildPrompt(submission) {
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const { submissionId, formData } = await req.json();
+    const body = await req.json();
+    const formData = body.formData;
 
-    // Save all sections to the record
+    if (!formData || !Array.isArray(formData) || formData.length < 10) {
+      return Response.json({ error: "Invalid formData: expected array of 10 sections" }, { status: 400 });
+    }
+
+    // ── Step 1: Build and save the record ────────────────────────────
     const contact = formData[0] || {};
     const firstName = (contact.fullName || "").split(" ")[0] || "";
 
@@ -154,49 +144,71 @@ Deno.serve(async (req) => {
       status: "processing",
     };
 
-    // Create the record
     const saved = await base44.asServiceRole.entities.BrandStrategySubmission.create(record);
+    const savedId = saved.id;
+    console.log("[processBrandStrategy] Record created:", savedId);
 
-    // Generate the report
-    const prompt = buildPrompt({ ...record });
-    const llmResult = await base44.asServiceRole.integrations.Core.InvokeLLM({
-      prompt,
-      response_json_schema: {
-        type: "object",
-        properties: {
-          fullReport: { type: "string" },
-          emailSummary: { type: "string" },
+    // ── Step 2: Build prompt from saved record values ─────────────────
+    const prompt = buildPrompt(record);
+    console.log("[processBrandStrategy] Prompt length:", prompt.length);
+
+    // ── Step 3: Call LLM ──────────────────────────────────────────────
+    let fullReport = "";
+    let emailSummary = "";
+    try {
+      const llmResult = await base44.asServiceRole.integrations.Core.InvokeLLM({
+        prompt,
+        response_json_schema: {
+          type: "object",
+          properties: {
+            fullReport: { type: "string" },
+            emailSummary: { type: "string" },
+          },
+          required: ["fullReport", "emailSummary"],
         },
-        required: ["fullReport", "emailSummary"],
-      },
-      model: "claude_sonnet_4_6",
-    });
+        model: "claude_sonnet_4_6",
+      });
+      fullReport = llmResult.fullReport || "";
+      emailSummary = llmResult.emailSummary || "";
+      console.log("[processBrandStrategy] LLM returned fullReport length:", fullReport.length, "emailSummary length:", emailSummary.length);
+    } catch (llmError) {
+      console.error("[processBrandStrategy] LLM error:", llmError.message);
+      await base44.asServiceRole.entities.BrandStrategySubmission.update(savedId, { status: "error" });
+      return Response.json({ error: "LLM failed: " + llmError.message, id: savedId }, { status: 500 });
+    }
 
-    const fullReport = llmResult.fullReport || "";
-    const emailSummary = llmResult.emailSummary || "";
-
-    // Update record with generated content
-    await base44.asServiceRole.entities.BrandStrategySubmission.update(saved.id, {
+    // ── Step 4: Write LLM output back to the record ───────────────────
+    await base44.asServiceRole.entities.BrandStrategySubmission.update(savedId, {
       generatedReport: fullReport,
       emailSummary,
       status: "complete",
     });
+    console.log("[processBrandStrategy] Record updated with report.");
 
-    // Send email to user
+    // ── Step 5: Send email (non-blocking — don't fail on email error) ─
     if (record.email) {
-      const reportUrl = `${req.headers.get("origin") || ""}/strategy-report/${saved.id}`;
-      const emailBody = `Hi ${record.firstName || record.fullName || "there"},\n\nThank you for completing the Brand Strategy Diagnostic. Your personalized report is ready.\n\nHere are your key strategic insights:\n\n${emailSummary}\n\nView your full report here:\n${reportUrl}\n\nIf you're ready to go deeper, I'd love to book a strategy session to walk through these findings together and map out your next move.\n\nBook your session: https://laurajanethomas.biz/contact\n\nWith clarity,\nLaura Jane Thomas\nAward-Winning Brand Strategist`;
-
-      await base44.asServiceRole.integrations.Core.SendEmail({
-        to: record.email,
-        subject: "Your Brand Strategy Report",
-        body: emailBody,
-        from_name: "Laura Jane Thomas",
-      });
+      try {
+        const origin = req.headers.get("origin") || "https://laurajanethomas.biz";
+        const reportUrl = `${origin}/strategy-report/${savedId}`;
+        const emailBody = `Hi ${record.firstName || record.fullName || "there"},\n\nThank you for completing the Brand Strategy Diagnostic. Your personalized report is ready.\n\nKey strategic insights:\n\n${emailSummary}\n\nView your full report:\n${reportUrl}\n\nWith clarity,\nLaura Jane Thomas`;
+        await base44.asServiceRole.integrations.Core.SendEmail({
+          to: record.email,
+          subject: "Your Brand Strategy Report",
+          body: emailBody,
+          from_name: "Laura Jane Thomas",
+        });
+        console.log("[processBrandStrategy] Email sent to:", record.email);
+      } catch (emailError) {
+        // Log but do not fail — report is already saved
+        console.warn("[processBrandStrategy] Email send failed (non-fatal):", emailError.message);
+      }
     }
 
-    return Response.json({ success: true, id: saved.id });
+    // ── Step 6: Return the record ID to the frontend ──────────────────
+    return Response.json({ success: true, id: savedId });
+
   } catch (error) {
+    console.error("[processBrandStrategy] Fatal error:", error.message);
     return Response.json({ error: error.message }, { status: 500 });
   }
 });

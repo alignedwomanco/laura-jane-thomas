@@ -3,27 +3,27 @@ import React from "react";
 const outlets = [
   {
     name: "The Times",
-    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+    logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/6bb7ca2df_1.png",
   },
   {
     name: "Forbes",
-    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+    logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/871613b6a_2.png",
   },
   {
     name: "Women's Health",
-    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+    logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/6378559e5_3.png",
   },
   {
     name: "Glamour",
-    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+    logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/1356abfbd_4.png",
   },
   {
     name: "TechCrunch",
-    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+    logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/164279a3f_6.png",
   },
   {
     name: "Business Day",
-    logo: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=80&fit=crop",
+    logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/71e3efbad_7.png",
   },
 ];
 

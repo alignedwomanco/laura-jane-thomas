@@ -36,13 +36,13 @@ export default function PressMarquee() {
       <div className="overflow-hidden">
         <div className="marquee whitespace-nowrap">
           {Array.from({ length: 2 }).map((_, i) => (
-            <div key={i} className="flex items-center gap-16 md:gap-24 pr-16 md:pr-24">
+            <div key={i} className="flex items-center gap-32 md:gap-48 pr-32 md:pr-48">
               {outlets.map((o, j) => (
                 <img
                   key={`${i}-${j}`}
                   src={o.logo}
                   alt={o.name}
-                  className="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-7 md:h-9 w-auto max-w-[140px] object-contain opacity-70 hover:opacity-100 transition-opacity flex-shrink-0"
                 />
               ))}
             </div>

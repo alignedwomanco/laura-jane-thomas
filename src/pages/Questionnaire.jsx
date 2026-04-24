@@ -162,10 +162,12 @@ function YesNoToggle({ value, onChange }) {
 function AssetRow({ label, value = {}, onChange }) {
   return (
     <div className="py-5 border-b border-[#ece8e3]">
-      <div className="flex items-start justify-between gap-6">
-        <p className="font-sans text-base text-[#141414] flex-1 pt-1">{label}</p>
+    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-6">
+      <p className="font-sans text-base text-[#141414] flex-1 pt-1">{label}</p>
+      <div className="flex-shrink-0">
         <YesNoToggle value={value.has} onChange={v => onChange({ ...value, has: v, detail: v === "No" ? "" : value.detail })} />
       </div>
+    </div>
       <AnimatePresence>
         {value.has === "Yes" && (
           <motion.div
@@ -613,7 +615,7 @@ export default function Questionnaire() {
           <p className="text-[11px] tracking-editorial uppercase font-sans mb-6" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
             Brand Strategy Diagnostic
           </p>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#141414] leading-[0.95] tracking-tight mb-6">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-[#141414] leading-[0.95] tracking-tight mb-6">
             Clarity before <span className="italic font-normal">creativity.</span>
           </h1>
           <p className="text-[#141414]/55 text-base md:text-lg leading-relaxed font-sans max-w-2xl">
@@ -686,7 +688,7 @@ export default function Questionnaire() {
                   Previous
                 </button>
 
-                <div className="flex items-center gap-2">
+                <div className="hidden sm:flex items-center gap-2">
                   {SECTIONS.map((_, i) => (
                     <button
                       key={i}
@@ -697,6 +699,9 @@ export default function Questionnaire() {
                     />
                   ))}
                 </div>
+                <span className="sm:hidden text-xs font-sans" style={{ color: "rgba(20,20,20,0.4)" }}>
+                  {current + 1} / {SECTIONS.length}
+                </span>
 
                 {current < SECTIONS.length - 1 ? (
                   <button
@@ -712,7 +717,7 @@ export default function Questionnaire() {
                   <button
                     type="button"
                     onClick={handleSubmit}
-                    className="flex items-center gap-3 px-8 py-3.5 text-[11px] tracking-editorial uppercase font-sans text-white transition-all duration-300"
+                    className="flex items-center gap-2 px-5 py-3 sm:px-8 sm:py-3.5 text-[11px] tracking-editorial uppercase font-sans text-white transition-all duration-300"
                     style={{ backgroundColor: ACCENT }}
                     onMouseEnter={e => { e.currentTarget.style.opacity = "0.85"; }}
                     onMouseLeave={e => { e.currentTarget.style.opacity = "1"; }}

@@ -5,15 +5,18 @@ import { Link } from "react-router-dom";
 export default function Hero() {
   return (
     <section className="relative min-h-screen bg-oxblood text-ivory overflow-hidden pt-20">
-      {/* Portrait image layered behind */}
-      <div className="absolute inset-0">
-        <img
-          src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/876ade75f_generated_0f1e065f.png"
-          alt="Laura Jane Thomas portrait"
-          className="w-full h-full object-cover opacity-40 mix-blend-luminosity"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-oxblood/60 via-oxblood/50 to-oxblood" />
-      </div>
+      {/* Video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-b from-oxblood/60 via-oxblood/50 to-oxblood" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 min-h-[calc(100vh-5rem)] flex flex-col justify-center">
         <motion.p

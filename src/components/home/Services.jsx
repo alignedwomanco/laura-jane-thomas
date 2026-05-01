@@ -15,12 +15,13 @@ const services = [
   },
   {
     num: "02.",
-    title: "Talks that",
-    italic: "spark change",
-    suffix: "",
-    lead: "From global summits to intimate panels,",
+    label: "— For Women",
+    title: "Senior Advisory and",
+    italic: "Coaching",
+    suffix: "For ambitious women building what's next",
     body:
-      "I bring raw honesty, strategy & soul to conversations on branding, burnout & bold leadership.",
+      "Private advisory engagements for women at the threshold of their next chapter. Whether you're stepping out of corporate, evolving the business you've built, or building the life that finally matches your resources. Built on The A.L.I.V.E. Method.",
+    buttonText: "Explore the Advisory",
     image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/61a51e44c_09d6406628841f576d2d27f8b1e4c78c-1.jpg",
   },
   {
@@ -94,7 +95,7 @@ export default function Services() {
                   to={s.href}
                   className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all duration-300 group"
                 >
-                  Learn More
+                  {s.buttonText || "Learn More"}
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </div>

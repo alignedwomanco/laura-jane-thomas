@@ -29,12 +29,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif leading-[1.1] tracking-tight max-w-4xl"
+          className="font-serif leading-[1.1] tracking-tight max-w-5xl"
         >
-          <span className="block text-5xl md:text-6xl lg:text-7xl font-medium">
+          <span className="block text-6xl md:text-7xl lg:text-8xl font-medium">
             Strategy for businesses that want to grow,
           </span>
-          <span className="block text-5xl md:text-6xl lg:text-7xl font-medium italic">
+          <span className="block text-6xl md:text-7xl lg:text-8xl font-medium italic">
             and the leaders who want to last.
           </span>
         </motion.h1>

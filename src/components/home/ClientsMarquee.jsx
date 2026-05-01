@@ -3,10 +3,7 @@ import React from "react";
 const clients = [
   { name: "HBO", logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/3c16a10bb_1.png" },
   { name: "British Airways", logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/92fd3c8ce_2.png" },
-  { name: "Women's Health", logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/8a924c090_3.png" },
-  { name: "Glamour", logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/b84bd3390_4.png" },
-  { name: "TechCrunch", logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/3d4b7cc6b_6.png" },
-  { name: "Business Day", logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/1a6896ef6_7.png" },
+
   { name: "Best 10", logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/3e26e1445_6990.png" },
   { name: "Mask Group 2", logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/ce93fc3a7_Maskgroup-2.png" },
   { name: "Ubank", logo: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/f7bbffad0_Maskgroup-3.png" },

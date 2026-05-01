@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 const services = [
   {
     num: "01.",
-    title: "Consulting",
-    italic: "fractional cmo",
-    suffix: "& brand strategy",
-    lead: "Senior-level strategy without the full-time overhead.",
+    title: "— For Businesses",
+    italic: "Fractional CMO and Brand Advisor",
+    suffix: "For founders, CEOs, and leadership teams",
+    lead: "Senior brand and marketing strategy for businesses that want commercial clarity and elevated brand expression in one partner.",
     body:
-      "From boardrooms to brand positioning, I help companies grow with clarity and creative edge.",
+      "Productized 90-day engagements. Built on The Aligned Operating Model.",
     image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/953937053_c8a5c449f76180ff39af1e8a255f498b.jpg",
   },
   {

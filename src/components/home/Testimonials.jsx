@@ -82,7 +82,7 @@ const testimonials = [
     company: "CEO, Ring Artisan",
   },
   {
-    headline: "For the first time in my business, everything feels aligned — and the results speak for themselves.",
+    headline: "For the first time in my business, everything feels aligned and the results speak for themselves.",
     quote: "I came to Laura overwhelmed and unclear about how to position my brand. Within a matter of weeks, she helped me articulate exactly what I do, who I do it for, and how to confidently show up as a leader.",
     name: "Tasha M.",
     company: "Founder, Clean Beauty Startup",

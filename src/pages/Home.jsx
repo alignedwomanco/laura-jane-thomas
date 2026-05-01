@@ -17,8 +17,8 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <AboutIntro />
         <PressMarquee />
+        <AboutIntro />
         <Services />
         <MeetLaura />
         <ChooseExperience />

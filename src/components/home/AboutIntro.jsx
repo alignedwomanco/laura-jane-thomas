@@ -25,7 +25,7 @@ export default function AboutIntro() {
             className="lg:col-span-7"
           >
             <h2 className="font-serif text-[18vw] md:text-[12vw] lg:text-[9vw] leading-[0.9] tracking-tight">
-              About <span className="italic font-normal">me</span>
+              Most growth strategies fail because something underneath is <span className="italic font-normal">misaligned.</span>
             </h2>
           </motion.div>
 

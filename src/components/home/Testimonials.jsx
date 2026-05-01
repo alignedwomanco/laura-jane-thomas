@@ -126,10 +126,10 @@ export default function Testimonials() {
             onClick={prev}
           >
             <h2 className="font-serif font-bold text-2xl md:text-3xl leading-[1.05] tracking-tight uppercase mb-4">
-              "{testimonials[getIndex(-1)].headline}"
+              {testimonials[getIndex(-1)].headline}
             </h2>
             <p className="text-[10px] tracking-widest uppercase text-foreground/70 leading-relaxed mb-4">
-              "{testimonials[getIndex(-1)].quote}"
+              {testimonials[getIndex(-1)].quote}
             </p>
             <p className="font-serif italic text-base text-foreground/80">
               — {testimonials[getIndex(-1)].name}
@@ -147,10 +147,10 @@ export default function Testimonials() {
               className="flex-shrink-0 w-full md:w-[44%] text-center"
             >
               <h2 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight uppercase mb-8">
-                "{testimonials[i].headline}"
+                {testimonials[i].headline}
               </h2>
               <p className="text-[11px] md:text-xs tracking-widest uppercase text-foreground/70 leading-relaxed max-w-xl mx-auto mb-8">
-                "{testimonials[i].quote}"
+                {testimonials[i].quote}
               </p>
               <p className="font-serif italic text-xl text-foreground/80">
                 — {testimonials[i].name}
@@ -165,10 +165,10 @@ export default function Testimonials() {
             onClick={next}
           >
             <h2 className="font-serif font-bold text-2xl md:text-3xl leading-[1.05] tracking-tight uppercase mb-4">
-              "{testimonials[getIndex(1)].headline}"
+              {testimonials[getIndex(1)].headline}
             </h2>
             <p className="text-[10px] tracking-widest uppercase text-foreground/70 leading-relaxed mb-4">
-              "{testimonials[getIndex(1)].quote}"
+              {testimonials[getIndex(1)].quote}
             </p>
             <p className="font-serif italic text-base text-foreground/80">
               — {testimonials[getIndex(1)].name}

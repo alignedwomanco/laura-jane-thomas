@@ -99,7 +99,7 @@ export default function About() {
             loop
             playsInline
             preload="auto"
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover object-center"
           >
             <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
           </video>

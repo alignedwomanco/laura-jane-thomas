@@ -68,21 +68,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Running marquee name strip */}
-      <div className="absolute bottom-0 inset-x-0 overflow-hidden border-t border-ivory/20 py-5 bg-oxblood-deep/40">
-        <div className="marquee whitespace-nowrap">
-          {Array.from({ length: 2 }).map((_, i) => (
-            <div key={i} className="flex items-center gap-10 pr-10 font-serif text-2xl md:text-3xl">
-              {Array.from({ length: 8 }).map((__, j) => (
-                <span key={j} className="flex items-center gap-10">
-                  LAURA JANE THOMAS
-                  <span className="w-2 h-2 rounded-full bg-ivory/60" />
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
+
     </section>
   );
 }

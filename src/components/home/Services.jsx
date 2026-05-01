@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 const services = [
   {
     num: "01.",
-    title: "— For Businesses",
-    italic: "Fractional CMO and Brand Advisor",
+    label: "— For Businesses",
+    title: "Fractional CMO and",
+    italic: "Brand Advisor",
     suffix: "For founders, CEOs, and leadership teams",
-    lead: "Senior brand and marketing strategy for businesses that want commercial clarity and elevated brand expression in one partner.",
     body:
-      "Productized 90-day engagements. Built on The Aligned Operating Model.",
+      "Senior brand and marketing strategy for businesses that want commercial clarity and elevated brand expression in one partner. Productized 90-day engagements. Built on The Aligned Operating Model.",
     image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/953937053_c8a5c449f76180ff39af1e8a255f498b.jpg",
   },
   {
@@ -74,23 +74,21 @@ export default function Services() {
               </div>
 
               <div className="lg:col-span-7 lg:pl-8">
-                <span className="block text-[11px] tracking-editorial uppercase text-ivory/50 mb-6">
-                  {s.num}
-                </span>
-                <h3 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-8">
-                  <span className="block">{s.title}</span>
-                  <span className="block italic">{s.italic}</span>
-                  {s.suffix && <span className="block">{s.suffix}</span>}
-                </h3>
+               <span className="block text-[11px] tracking-editorial uppercase text-ivory/50 mb-8">
+                 {s.label || s.num}
+               </span>
+               <h3 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-6">
+                 <span className="block">{s.title}</span>
+                 {s.italic && <span className="block italic">{s.italic}</span>}
+               </h3>
 
-                <div className="hairline w-16 mb-6 bg-ivory" />
+               {s.suffix && <p className="font-serif italic text-lg md:text-xl text-ivory/80 mb-6">{s.suffix}</p>}
 
-                <p className="font-serif italic text-xl md:text-2xl text-ivory/90 mb-4">
-                  {s.lead}
-                </p>
-                <p className="text-sm md:text-base text-ivory/70 leading-relaxed max-w-lg mb-8">
-                  {s.body}
-                </p>
+               <div className="hairline w-16 mb-8 bg-ivory" />
+
+               <p className="text-sm md:text-base text-ivory/70 leading-relaxed max-w-2xl mb-12">
+                 {s.body}
+               </p>
 
                 <Link
                   to={s.href}

@@ -47,7 +47,7 @@ export default function Services() {
       <div className="absolute inset-0 bg-oxblood/85" />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-16 md:mb-24">
-          — 02 / What I Do
+          — 04 / What I Do
         </p>
 
         <div className="space-y-24 md:space-y-32">

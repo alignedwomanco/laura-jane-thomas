@@ -33,19 +33,6 @@ export default function ChooseExperience() {
   return (
     <section className="bg-ivory text-foreground py-24 md:py-36 border-t border-foreground/10">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-10">
-          — 04 / Pathways
-        </p>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="font-serif text-6xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tight mb-16 md:mb-20"
-        >
-          choose your <span className="italic block">experience</span>
-        </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-px bg-foreground/15">
           {pathways.map((p, i) => (

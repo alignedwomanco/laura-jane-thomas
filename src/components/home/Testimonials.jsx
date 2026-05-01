@@ -97,7 +97,7 @@ const testimonials = [
     headline: "The teams thoroughly enjoyed and were engaged in your H2H workshop.",
     quote: "Thank you for such a fantastic workshop. The teams thoroughly enjoyed and were engaged in your H2H workshop. They even stayed overtime!",
     name: "Cathy Stadler",
-    company: "Oracle Director Marketing, ECEMEA",
+    company: "Oracle Director Marketing",
   },
 ];
 

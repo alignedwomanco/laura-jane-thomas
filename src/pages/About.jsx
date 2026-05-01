@@ -91,13 +91,18 @@ export default function About() {
             </motion.div>
           </div>
         </div>
-        {/* Hero image strip */}
+        {/* Hero video strip */}
         <div className="relative h-[50vw] max-h-[500px] overflow-hidden">
-          <img
-            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/a70bbb6f9_DSC08995.jpg"
-            alt="Laura Jane Thomas"
-            className="w-full h-full object-cover object-top opacity-70"
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover object-top"
+          >
+            <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-t from-ivory via-transparent to-transparent" />
         </div>
       </section>

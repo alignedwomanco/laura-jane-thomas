@@ -22,7 +22,7 @@ const services = [
     body:
       "Private advisory engagements for women at the threshold of their next chapter. Whether you're stepping out of corporate, evolving the business you've built, or building the life that finally matches your resources. Built on The A.L.I.V.E. Method.",
     buttonText: "Explore the Advisory",
-    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/61a51e44c_09d6406628841f576d2d27f8b1e4c78c-1.jpg",
+    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/afc6226c6_89a312eb131a146172728691bff76edc.jpg",
   },
   {
     num: "03.",
@@ -33,7 +33,7 @@ const services = [
     body:
       "Keynotes, half-day workshops, and multi-session leadership programs designed to develop and retain high-performing women. Built on The A.L.I.V.E. Method at organisational scale.",
     buttonText: "Explore Speaking",
-    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/afc6226c6_89a312eb131a146172728691bff76edc.jpg",
+    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/61a51e44c_09d6406628841f576d2d27f8b1e4c78c-1.jpg",
   },
 ];
 

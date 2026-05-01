@@ -26,12 +26,13 @@ const services = [
   },
   {
     num: "03.",
-    title: "",
-    italic: "Coaching, courses",
-    suffix: "& community",
-    lead: "For ambitious women ready to rewrite the rules.",
+    label: "— For Organisations",
+    title: "Speaking and",
+    italic: "Leadership Programs",
+    suffix: "For corporates investing in their female pipeline",
     body:
-      "A space for coaching, masterclasses & programs designed to help you thrive without burning out.",
+      "Keynotes, half-day workshops, and multi-session leadership programs designed to develop and retain high-performing women. Built on The A.L.I.V.E. Method at organisational scale.",
+    buttonText: "Explore Speaking",
     image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/afc6226c6_89a312eb131a146172728691bff76edc.jpg",
   },
 ];

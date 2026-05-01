@@ -24,8 +24,8 @@ const testimonials = [
   {
     headline: "For the first time in my business, everything feels aligned.",
     quote: "I came to Laura overwhelmed and unclear about how to position my brand. Within a matter of weeks, she helped me articulate exactly what I do, who I do it for, and how to confidently show up as a leader.",
-    name: "Tasha B",
-    company: "",
+    name: "Tasha Berrings",
+    company: "The EQ Co",
   },
   {
     headline: "Working with Laura was like plugging my business into power.",

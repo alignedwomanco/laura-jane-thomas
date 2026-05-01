@@ -113,8 +113,8 @@ export default function Testimonials() {
   return (
     <section className="bg-ivory text-foreground py-24 md:py-40 border-t border-foreground/10 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
-        <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-20">
-          — Client Love
+        <p className="font-serif italic text-2xl md:text-3xl text-foreground/70 mb-20 max-w-2xl mx-auto leading-snug">
+          Hundreds of businesses from around the world have trusted me with their brands
         </p>
 
         {/* Scrolling carousel */}

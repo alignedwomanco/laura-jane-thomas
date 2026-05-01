@@ -132,7 +132,7 @@ export default function Testimonials() {
               {testimonials[getIndex(-1)].quote}
             </p>
             <p className="font-serif italic text-base text-foreground/80">
-              — {testimonials[getIndex(-1)].name}
+              — {testimonials[getIndex(-1)].name}{testimonials[getIndex(-1)].company ? ` | ${testimonials[getIndex(-1)].company}` : ""}
             </p>
           </div>
 
@@ -153,7 +153,7 @@ export default function Testimonials() {
                 {testimonials[i].quote}
               </p>
               <p className="font-serif italic text-xl text-foreground/80">
-                — {testimonials[i].name}
+                — {testimonials[i].name}{testimonials[i].company ? ` | ${testimonials[i].company}` : ""}
               </p>
             </motion.div>
           </AnimatePresence>
@@ -171,7 +171,7 @@ export default function Testimonials() {
               {testimonials[getIndex(1)].quote}
             </p>
             <p className="font-serif italic text-base text-foreground/80">
-              — {testimonials[getIndex(1)].name}
+              — {testimonials[getIndex(1)].name}{testimonials[getIndex(1)].company ? ` | ${testimonials[getIndex(1)].company}` : ""}
             </p>
           </div>
         </div>

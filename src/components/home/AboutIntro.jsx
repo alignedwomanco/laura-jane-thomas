@@ -42,9 +42,23 @@ export default function AboutIntro() {
 
             <div className="hairline mb-8 w-full" />
 
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-10 max-w-md">
-              I bring 15+ years of experience as an award-winning Brand Strategist.
-            </p>
+            <div className="space-y-6 text-sm md:text-base text-muted-foreground leading-relaxed mb-10 max-w-2xl">
+              <p>
+                In a business, the misalignment is between the brand and the commercial reality. The brand says one thing. The numbers tell another. Marketing is busy but not compounding. The founder feels the gap before she can name it.
+              </p>
+
+              <p>
+                In a leader, it's between the success she has built and the woman she has become inside it. She is competent. She is admired. She is also at a threshold she cannot quite name, where what got her here will not get her where she wants to go next.
+              </p>
+
+              <p>
+                These two misalignments look different on the surface. They are the same problem.
+              </p>
+
+              <p>
+                I have spent fifteen years working at the layer where this gets fixed.
+              </p>
+            </div>
 
             <Link
               to="/about"

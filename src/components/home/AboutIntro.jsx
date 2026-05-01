@@ -36,10 +36,6 @@ export default function AboutIntro() {
             transition={{ duration: 1, delay: 0.15 }}
             className="lg:col-span-5 lg:pt-16"
           >
-            <p className="font-serif text-2xl md:text-3xl leading-[1.3] mb-8">
-              Most growth strategies fail because something underneath is misaligned.
-            </p>
-
             <div className="hairline mb-8 w-full" />
 
             <div className="space-y-6 text-sm md:text-base text-muted-foreground leading-relaxed mb-10 max-w-2xl">

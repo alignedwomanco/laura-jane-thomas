@@ -36,7 +36,7 @@ const testimonials = [
   {
     headline: "I thought I was just getting a logo, but what Laura delivered was an entire brand world.",
     quote: "She didn't just design something beautiful; she built a visual system that finally reflects the depth and direction of my business. It's cohesive, elevated, and powerful. I finally feel seen and so does my audience.",
-    name: "Jenna K",
+    name: "Jenna Cummings",
     company: "Founder, Luxury Interior Studio",
   },
   {

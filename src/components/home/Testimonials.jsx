@@ -38,27 +38,8 @@ export default function Testimonials() {
           <span className="italic">trusted me</span> with their brands
         </h2>
 
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div className="lg:col-span-4">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.6 }}
-                className="aspect-[4/5] overflow-hidden"
-              >
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          <div className="lg:col-span-8 lg:pl-6">
+        <div className="max-w-4xl">
+          <div>
             <span className="font-serif italic text-[8rem] md:text-[12rem] leading-none text-oxblood/20 block -mb-16 md:-mb-24 select-none">
               "
             </span>

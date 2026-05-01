@@ -197,9 +197,7 @@ export default function Testimonials() {
           </button>
         </div>
 
-        <p className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-20">
-          Laura Jane Thomas
-        </p>
+
       </div>
     </section>
   );

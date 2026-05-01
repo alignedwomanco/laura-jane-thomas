@@ -37,10 +37,7 @@ export default function AboutIntro() {
             className="lg:col-span-5 lg:pt-16"
           >
             <p className="font-serif text-2xl md:text-3xl leading-[1.3] mb-8">
-              I work with ambitious leaders and growth-driven brands to turn{" "}
-              <span className="italic">identity into strategy</span>, strategy into{" "}
-              <span className="italic">growth</span>, and leadership into{" "}
-              <span className="italic">lasting influence</span>.
+              Most growth strategies fail because something underneath is misaligned.
             </p>
 
             <div className="hairline mb-8 w-full" />

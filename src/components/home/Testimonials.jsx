@@ -30,7 +30,7 @@ const testimonials = [
   {
     headline: "Working with Laura was like plugging my business into power.",
     quote: "She pulled the strategy, story, and messaging out of me in a way that felt effortless but the outcome was anything but. I now have a clear roadmap, a stronger offer, and marketing that finally makes sense and feels like ME. Game-changer!",
-    name: "Vanessa R",
+    name: "Vanessa Rathbone",
     company: "Founder & Coach, Wellness Consultancy",
   },
   {

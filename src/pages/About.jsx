@@ -108,7 +108,7 @@ export default function About() {
       </section>
 
       {/* Bio body */}
-      <section className="bg-ivory py-24 md:py-36">
+      <section className="bg-ivory py-32 md:py-48">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-12 gap-16">
             <div className="lg:col-span-7 space-y-6">

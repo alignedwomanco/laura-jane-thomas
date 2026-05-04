@@ -58,7 +58,7 @@ export default function Services() {
             position: "sticky",
             top: `${s.top}px`,
             zIndex: s.zIndex,
-            minHeight: "100vh",
+            minHeight: s.zIndex === 3 ? "auto" : "100vh",
             borderTopLeftRadius: "24px",
             borderTopRightRadius: "24px",
             overflow: "hidden",
@@ -98,7 +98,7 @@ export default function Services() {
               maxWidth: "880px",
               margin: "0 auto",
               paddingTop: "48px",
-              paddingBottom: "96px",
+              paddingBottom: s.zIndex === 3 ? "48px" : "96px",
               paddingLeft: "24px",
               paddingRight: "24px",
             }}

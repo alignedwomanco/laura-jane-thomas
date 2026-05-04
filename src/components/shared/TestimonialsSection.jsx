@@ -121,13 +121,13 @@ export default function TestimonialsSection({ dark = false }) {
         </div>
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-          {testimonials.slice(0, 3).map((testimonial, idx) => (
+          {testimonials.map((testimonial, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.8, delay: idx * 0.1 }}
+              transition={{ duration: 0.8, delay: (idx % 3) * 0.1 }}
               className="text-center"
             >
               <h3 className="font-serif font-bold text-2xl md:text-3xl leading-[1.05] tracking-tight uppercase mb-6">

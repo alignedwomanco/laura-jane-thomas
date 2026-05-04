@@ -58,24 +58,9 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${
-                i % 2 === 1 ? "lg:[&>.img]:order-2" : ""
-              }`}
+              className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center"
             >
-              <div className="img lg:col-span-5 relative">
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img
-                    src={s.image}
-                    alt={s.title}
-                    className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105 opacity-70 hover:opacity-100"
-                  />
-                </div>
-                <span className="absolute -top-6 -left-2 font-serif text-8xl md:text-9xl italic text-ivory/25 pointer-events-none">
-                  {s.num}
-                </span>
-              </div>
-
-              <div className="lg:col-span-7 lg:pl-8">
+              <div className="lg:col-span-7">
                <span className="block text-[11px] tracking-editorial uppercase text-ivory/50 mb-8">
                  {s.label || s.num}
                </span>
@@ -99,6 +84,19 @@ export default function Services() {
                   {s.buttonText || "Learn More"}
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                 </Link>
+              </div>
+
+              <div className="img lg:col-span-5 relative">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105 opacity-70 hover:opacity-100"
+                  />
+                </div>
+                <span className="absolute -top-6 -right-2 font-serif text-8xl md:text-9xl italic text-ivory/25 pointer-events-none">
+                  {s.num}
+                </span>
               </div>
             </motion.article>
           ))}

@@ -133,7 +133,7 @@ export default function TestimonialsSection({ dark = false }) {
           <button
             onClick={prev}
             aria-label="Previous"
-            className={`flex w-12 h-12 border-2 flex-shrink-0 items-center justify-center hover:bg-foreground hover:text-ivory transition-all ${dark ? "border-ivory/30" : "border-foreground/30"}`}
+            className={`flex flex-shrink-0 items-center justify-center hover:text-primary transition-all`}
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -163,7 +163,7 @@ export default function TestimonialsSection({ dark = false }) {
           <button
             onClick={next}
             aria-label="Next"
-            className={`flex w-12 h-12 border-2 flex-shrink-0 items-center justify-center hover:bg-foreground hover:text-ivory transition-all ${dark ? "border-ivory/30" : "border-foreground/30"}`}
+            className={`flex flex-shrink-0 items-center justify-center hover:text-primary transition-all`}
           >
             <ChevronRight className="w-5 h-5" />
           </button>

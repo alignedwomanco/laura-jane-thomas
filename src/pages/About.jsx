@@ -113,10 +113,10 @@ export default function About() {
           <div className="max-w-3xl mx-auto text-center">
             <div className="space-y-6">
               {[
-                "I have worked with some of the world's leading brands as well as ambitious start-ups, bringing together creativity, data and strategy to build brands that perform. My approach is both analytical and imaginative, ensuring that every decision is driven by insight and aligned with the bigger picture of your business.",
-                "As a Fractional CMO and Marketing Consultant, I partner with founders, executives and in-house teams to refine strategy, strengthen positioning and deliver measurable results. From luxury and wellness to tech and lifestyle, my work focuses on helping brands scale with purpose and precision.",
-                "Beyond consulting, I also work one-to-one with ambitious women who are ready to redefine success on their own terms. Through personalised business and life coaching, I help women overcome burnout, find alignment and build lives and businesses that feel as good as they look.",
-                "Whether you are looking for high-level marketing leadership or coaching that integrates strategy with personal growth, my goal is the same: to help you unlock your potential and create lasting success.",
+                "For fifteen years I have worked at the intersection of three things most people separate: creative direction, team leadership, and commercial analytics.",
+                "I founded and ran a multi-seven-figure creative agency, advised more than 500 brands across luxury, wellness, tech, and lifestyle, and chaired the 30 Percent Club. The work compounds. So do the relationships.",
+                "What I learned the hard way is that any growth without internal alignment isn't sustainable, in business or in life. When the brand, the strategy, and the execution align, businesses last. When the woman, the work, and the life align, she lasts.",
+                "Today, that conviction shapes everything I do. I advise founders, CEOs, and senior teams as a Fractional CMO and Brand Advisor. I work privately with ambitious women building what's next. And I built The Aligned Woman Co. to scale the same methodology to women everywhere.",
               ].map((p, i) => (
                 <p key={i} className={`leading-relaxed text-center ${i === 0 ? "font-serif text-xl md:text-2xl text-foreground" : "text-[15px] text-muted-foreground"}`}>{p}</p>
               ))}

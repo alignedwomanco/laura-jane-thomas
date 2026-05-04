@@ -16,7 +16,7 @@ const pathways = [
     offer: "Brand repositioning sprints with strategy and creative direction in one partner.",
   },
   {
-    title: "Coaching & reset",
+    title: "Senior Advisory",
     prompt:
       "I need a safe space to recalibrate, rebuild, and get coaching that blends business with personal growth.",
     offer: "1:1 coaching, masterclasses & The Aligned Woman Co.",

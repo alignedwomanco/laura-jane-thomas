@@ -100,7 +100,7 @@ export default function About() {
       {/* Bio body */}
       <section className="bg-ivory py-32 md:py-48">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             <div className="space-y-6">
               {[
                 "I have worked with some of the world's leading brands as well as ambitious start-ups, bringing together creativity, data and strategy to build brands that perform. My approach is both analytical and imaginative, ensuring that every decision is driven by insight and aligned with the bigger picture of your business.",
@@ -110,7 +110,7 @@ export default function About() {
               ].map((p, i) => (
                 <p key={i} className={`leading-relaxed text-center ${i === 0 ? "font-serif text-xl md:text-2xl text-foreground" : "text-[15px] text-muted-foreground"}`}>{p}</p>
               ))}
-              <div className="pt-6">
+              <div className="pt-6 flex justify-center">
                 <Link to="/contact" className="inline-flex items-center gap-3 bg-foreground text-ivory px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group">
                   Apply To Work With Me
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>

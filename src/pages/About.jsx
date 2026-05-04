@@ -296,7 +296,7 @@ export default function About() {
         </div>
       </section>
 
-      <ClientsSection />
+      <ClientsSection dark={true} />
       <TestimonialsSection />
       <CtaBanner headline={<>Let's build<br /><span className="italic">something real</span></>} href="/contact" />
       <Footer />

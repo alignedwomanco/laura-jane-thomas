@@ -43,7 +43,7 @@ const aboutCards = [
     bodyElement: (
       <>
         <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "32px" }}>
-          The practice runs across three doors. Each door has its own audience, its own methodology, and its own engagement structure. The conviction underneath them is the same.
+          Three doors. Each door has its own audience, its own methodology, and its own engagement structure. The conviction underneath them is the same.
         </p>
         <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px", textAlign: "left" }}>
           <strong style={{ color: `rgba(242,235,224,0.95)`, display: "block", marginBottom: "6px" }}>For Businesses: Fractional CMO and Brand Advisor</strong>

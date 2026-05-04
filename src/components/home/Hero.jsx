@@ -32,7 +32,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif leading-[1.1] tracking-tight max-w-5xl"
+          className="font-serif leading-[1.1] tracking-tight max-w-5xl text-center mx-auto"
         >
           <span className="block text-6xl md:text-7xl lg:text-8xl font-medium">
             Strategy for businesses that want to grow,

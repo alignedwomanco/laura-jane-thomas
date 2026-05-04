@@ -108,7 +108,7 @@ export default function About() {
                 "Beyond consulting, I also work one-to-one with ambitious women who are ready to redefine success on their own terms. Through personalised business and life coaching, I help women overcome burnout, find alignment and build lives and businesses that feel as good as they look.",
                 "Whether you are looking for high-level marketing leadership or coaching that integrates strategy with personal growth, my goal is the same: to help you unlock your potential and create lasting success.",
               ].map((p, i) => (
-                <p key={i} className={`leading-relaxed ${i === 0 ? "font-serif text-xl md:text-2xl text-foreground" : "text-[15px] text-muted-foreground"}`}>{p}</p>
+                <p key={i} className={`leading-relaxed text-center ${i === 0 ? "font-serif text-xl md:text-2xl text-foreground" : "text-[15px] text-muted-foreground"}`}>{p}</p>
               ))}
               <div className="pt-6">
                 <Link to="/contact" className="inline-flex items-center gap-3 bg-foreground text-ivory px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group">

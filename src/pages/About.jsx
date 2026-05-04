@@ -222,7 +222,7 @@ export default function About() {
               {s.label === "CHAPTER THREE" && (
                 <div style={{ marginTop: "48px" }}>
                   <a
-                    href="https://thealigedwomancompany.com"
+                    href="https://alignedwomanco.com/blueprint"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{

@@ -19,7 +19,7 @@ const pathways = [
     title: "Coaching & reset",
     prompt:
       "I need a safe space to recalibrate, rebuild, and get coaching that blends business with personal growth.",
-    offer: "1:1 coaching, masterclasses & The Reset Room programs.",
+    offer: "1:1 coaching, masterclasses & The Aligned Woman Co.",
   },
   {
     title: "Talks & thought leadership",

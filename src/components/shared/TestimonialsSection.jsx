@@ -137,7 +137,7 @@ export default function TestimonialsSection({ dark = false }) {
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-3 gap-8 md:gap-12 pb-4 md:pb-0 flex-1">
+          <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-3 gap-8 md:gap-12 pb-4 md:pb-0 flex-1 px-4">
             <div className="hidden md:contents"></div>
             {visibleTestimonials.map((testimonial, idx) => (
             <motion.div

@@ -98,8 +98,18 @@ export default function About() {
       </section>
 
       {/* Bio body */}
-      <section className="bg-ivory py-16 md:py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section className="relative bg-ivory py-16 md:py-24 overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/e148e7858_efca8aa6761e6e74544ba4e9681156c9.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ opacity: 0.4 }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-ivory/80 via-ivory/40 to-ivory/80" />
+        </div>
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="max-w-3xl mx-auto text-center">
             <div className="space-y-6">
               {[

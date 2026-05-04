@@ -63,7 +63,7 @@ const aboutCards = [
   {
     label: "CHAPTER THREE",
     bg: "#0D0508",
-    top: 128,
+    top: 192,
     zIndex: 3,
     titleLines: [
       { text: "THE" },

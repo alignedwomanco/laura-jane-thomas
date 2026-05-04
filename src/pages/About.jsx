@@ -272,7 +272,7 @@ export default function About() {
                 Fifteen years. Multi-seven-figure agency founder. 500+ brands across luxury, wellness, tech, and lifestyle. Former Chair of the 30 Percent Club. Featured in Forbes, TechCrunch, Glamour, Business Day, and The Times.
               </p>
               <p className="text-ivory/70 text-[15px] leading-relaxed mb-6">
-                Those are the receipts. Here is what they actually mean.
+                Those are the receipts, here is what they actually mean.
               </p>
               <p className="text-ivory/70 text-[15px] leading-relaxed mb-6">
                 I have done the work I am asking you to trust me on. I have built the teams. I have run the agency. I have sat in the boardrooms making the calls and lived with whatever came next. Most people in this space have either consulted without operating, or coached without ever building anything. I have done both — at scale, for fifteen years, with the scars to prove it.

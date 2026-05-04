@@ -269,11 +269,21 @@ export default function About() {
                 why work <span className="italic block">with me</span>
               </h2>
               <p className="text-ivory/80 text-lg leading-relaxed mb-6">
-                Whether in boardrooms, workshops, or one-to-one sessions, my mission is the same: to create clarity, confidence, and alignment.
+                Fifteen years. Multi-seven-figure agency founder. 500+ brands across luxury, wellness, tech, and lifestyle. Former Chair of the 30 Percent Club. Featured in Forbes, TechCrunch, Glamour, Business Day, and The Times.
               </p>
-              <p className="text-ivory/70 text-[15px] leading-relaxed">
-                I bring both the structure of an award-winning strategist and the tools of a certified coach, equipping clients to lead, grow, and succeed on their own terms.
+              <p className="text-ivory/70 text-[15px] leading-relaxed mb-6">
+                Those are the receipts. Here is what they actually mean.
               </p>
+              <p className="text-ivory/70 text-[15px] leading-relaxed mb-6">
+                I have done the work I am asking you to trust me on. I have built the teams. I have run the agency. I have sat in the boardrooms making the calls and lived with whatever came next. Most people in this space have either consulted without operating, or coached without ever building anything. I have done both — at scale, for fifteen years, with the scars to prove it.
+              </p>
+              <p className="text-ivory/70 text-[15px] leading-relaxed mb-8">
+                That is the brain you are hiring. The methodologies are just the language for what I learned along the way.
+              </p>
+              <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/40 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood-deep transition-all duration-300">
+                Begin The Inquiry
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </Link>
             </div>
             <div className="aspect-[4/5] overflow-hidden">
               <img

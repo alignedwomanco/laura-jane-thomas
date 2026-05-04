@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -111,6 +111,13 @@ export default function TestimonialsSection({ dark = false }) {
   
   const next = () => setI((i + itemsPerPage) % testimonials.length);
   const prev = () => setI((i - itemsPerPage + testimonials.length) % testimonials.length);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setI((prev) => (prev + itemsPerPage) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className={`${dark ? "bg-oxblood-deep text-ivory" : "bg-ivory text-foreground"} py-16 md:py-24`}>

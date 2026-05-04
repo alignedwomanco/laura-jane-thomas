@@ -19,7 +19,7 @@ const aboutCards = [
       { text: "EXPERTISE &" },
       { parts: [{ text: "Credentials", italic: true }] },
     ],
-    body: "My background spans the full spectrum of brand, business and human development. I hold a specialised degree in Brand Communications and I am a Certified Director with international accreditation from the American Board of NLP as both an NLP Practitioner and a Timeline Therapy Coach. I have spent more than fifteen years leading brand strategy, creative direction and high level marketing across global organisations and fast growing start ups. I am also a published author, a keynote speaker and the former Chair of the 30 Percent Club.",
+    body: "I have spent fifteen years leading brand strategy, creative direction, and high-level marketing across global organisations and fast-growing start-ups. I founded and ran a multi-seven-figure creative agency. I have sat in the boardrooms where the decisions actually got made, and I have led the senior teams who had to deliver against them. I am a published author, a keynote speaker on female leadership, and the former Chair of the 30 Percent Club, the collective of senior executives advancing women into leadership. The work has been featured in Forbes, TechCrunch, Glamour, Business Day, and The Times. I hold a specialised degree in Brand Communications and I am a Certified Director. I am also internationally accredited by the American Board of NLP as both an NLP Practitioner and a Timeline Therapy Coach. The qualifications support the methodology. They are not the methodology.",
   },
   {
     label: "CHAPTER TWO",

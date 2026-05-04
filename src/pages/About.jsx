@@ -174,7 +174,7 @@ export default function About() {
                   </span>
                 ))}
               </h2>
-              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "14px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
+              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
                 {s.body}
               </p>
             </div>

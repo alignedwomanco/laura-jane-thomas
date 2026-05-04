@@ -11,7 +11,7 @@ const services = [
     suffix: "For founders, CEOs, and leadership teams",
     body:
       "Senior brand and marketing strategy for businesses that want commercial clarity and elevated brand expression in one partner. Productized 90-day engagements. Built on The Aligned Operating Model.",
-    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/953937053_c8a5c449f76180ff39af1e8a255f498b.jpg",
+    image: "https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/42c135d0f_LauraThomas4-05-2026-15-52-36.jpg",
   },
   {
     num: "02.",
@@ -67,7 +67,7 @@ export default function Services() {
                   <img
                     src={s.image}
                     alt={s.title}
-                    className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                    className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105 opacity-70 hover:opacity-100"
                   />
                 </div>
                 <span className="absolute -top-6 -left-2 font-serif text-8xl md:text-9xl italic text-ivory/25 pointer-events-none">

@@ -122,7 +122,8 @@ export default function TestimonialsSection({ dark = false }) {
           </h2>
         </div>
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-16">
+        <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-3 gap-8 md:gap-12 mb-16 pb-4 md:pb-0 -mx-6 md:mx-0 px-6 md:px-0">
+          <div className="hidden md:contents"></div>
           {visibleTestimonials.map((testimonial, idx) => (
             <motion.div
               key={idx}
@@ -130,7 +131,7 @@ export default function TestimonialsSection({ dark = false }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: idx * 0.1 }}
-              className="text-center"
+              className="text-center flex-shrink-0 w-full md:w-auto"
             >
               <h3 className="font-serif font-bold text-2xl md:text-3xl leading-[1.05] tracking-tight uppercase mb-6">
                 {testimonial.headline}

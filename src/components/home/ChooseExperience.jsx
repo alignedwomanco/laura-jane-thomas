@@ -13,7 +13,7 @@ const pathways = [
     title: "Clarity & Creative Direction",
     prompt:
       "My brand has outgrown the business I'm trying to build.",
-    offer: "Brand audits, positioning workshops & creative direction.",
+    offer: "Brand repositioning sprints with strategy and creative direction in one partner.",
   },
   {
     title: "Coaching & reset",

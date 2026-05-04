@@ -22,7 +22,7 @@ const aboutCards = [
     body: null,
     bodyElement: (
       <>
-      <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
+      <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
         I have spent fifteen years leading brand strategy, creative direction, and high-level marketing across global organisations and fast-growing start-ups. I founded and ran a multi-seven-figure creative agency. I have sat in the boardrooms where the decisions actually got made, and I have led the senior teams who had to deliver against them. I am a published author, a keynote speaker on female leadership, and the former Chair of the{" "}
         <a href="https://30percentclub.org/" target="_blank" rel="noopener noreferrer" style={{ color: `rgba(242,235,224,0.95)`, textDecoration: "underline" }}>30 Percent Club</a>
         , the collective of senior executives advancing women into leadership. The work has been featured in Forbes, TechCrunch, Glamour, Business Day, and The Times. I hold a specialised degree in Brand Communications and I am a Certified Director. I am also internationally accredited by the American Board of NLP as both an NLP Practitioner and a Timeline Therapy Coach. The qualifications support the methodology. They are not the methodology.
@@ -42,18 +42,18 @@ const aboutCards = [
     ],
     bodyElement: (
       <>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "32px" }}>
+        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "32px" }}>
           Three doors. Each door has its own audience, its own methodology, and its own engagement structure. The conviction underneath them is the same.
         </p>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px", textAlign: "left" }}>
+        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px", textAlign: "left" }}>
           <strong style={{ color: `rgba(242,235,224,0.95)`, display: "block", marginBottom: "6px" }}>For Businesses: Fractional CMO and Brand Advisor</strong>
           For founders, CEOs, and senior teams who need brand, strategy, and creative direction in one senior partner. Productised 90-day engagements covering brand repositioning, fractional marketing leadership, and embedded advisory. Built on The Aligned Operating Model: Diagnose, Architect, Activate.
         </p>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px", textAlign: "left" }}>
+        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px", textAlign: "left" }}>
           <strong style={{ color: `rgba(242,235,224,0.95)`, display: "block", marginBottom: "6px" }}>For Women: Senior Advisory and Coaching</strong>
           For ambitious women at the threshold of what's next. Whether you are stepping out of corporate, evolving the business you have built, or building the life that finally matches your resources. Private engagements built on The A.L.I.V.E. Method.
         </p>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "0", textAlign: "left" }}>
+        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0", textAlign: "left" }}>
           <strong style={{ color: `rgba(242,235,224,0.95)`, display: "block", marginBottom: "6px" }}>For Organisations: Speaking and Leadership Programs</strong>
           For organisations serious about developing and retaining their female leadership pipeline. Keynotes, half-day workshops, and the multi-session Aligned Leader Program. Built on The A.L.I.V.E. Method, at organisational scale.
         </p>
@@ -170,10 +170,10 @@ export default function About() {
               position: "sticky",
               top: `${s.top}px`,
               zIndex: s.zIndex,
-              minHeight: s.zIndex === 3 ? "auto" : "100vh",
+              minHeight: "100vh",
               borderTopLeftRadius: "24px",
               borderTopRightRadius: "24px",
-              overflow: "hidden",
+              overflow: "visible",
             }}
           >
             {/* Top bar */}
@@ -184,7 +184,7 @@ export default function About() {
             </div>
 
             {/* Body */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "100%", margin: "0 auto", paddingTop: "48px", paddingBottom: s.zIndex === 3 ? "48px" : "160px", paddingLeft: "24px", paddingRight: "24px" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "100%", margin: "0 auto", paddingTop: "48px", paddingBottom: "120px", paddingLeft: "24px", paddingRight: "24px" }}>
               <h2 style={{ color: cream, lineHeight: 0.95, letterSpacing: "-0.02em", marginBottom: "32px", fontSize: "clamp(44px, 7vw, 88px)" }}>
                 {s.titleLines.map((line, li) => (
                   <span key={li} style={{ display: "block" }}>
@@ -203,7 +203,7 @@ export default function About() {
                 ))}
               </h2>
               {s.bodyElement ? s.bodyElement : (
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
                   {s.body}
                 </p>
               )}

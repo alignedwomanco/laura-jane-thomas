@@ -34,10 +34,10 @@ export default function Hero() {
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           className="font-serif leading-[1.1] tracking-tight max-w-5xl text-center mx-auto"
         >
-          <span className="block text-6xl md:text-7xl lg:text-8xl font-medium">
+          <span className="block text-4xl md:text-5xl lg:text-6xl font-medium">
             Strategy for businesses that want to grow,
           </span>
-          <span className="block text-6xl md:text-7xl lg:text-8xl font-medium italic">
+          <span className="block text-4xl md:text-5xl lg:text-6xl font-medium italic">
             and the leaders who want to last.
           </span>
         </motion.h1>

@@ -184,7 +184,7 @@ export default function About() {
             </div>
 
             {/* Body */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "100%", margin: "0 auto", paddingTop: "48px", paddingBottom: "200px", paddingLeft: "24px", paddingRight: "24px" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "100%", margin: "0 auto", paddingTop: "48px", paddingBottom: "60px", paddingLeft: "24px", paddingRight: "24px" }}>
               <h2 style={{ color: cream, lineHeight: 0.95, letterSpacing: "-0.02em", marginBottom: "32px", fontSize: "clamp(44px, 7vw, 88px)" }}>
                 {s.titleLines.map((line, li) => (
                   <span key={li} style={{ display: "block" }}>

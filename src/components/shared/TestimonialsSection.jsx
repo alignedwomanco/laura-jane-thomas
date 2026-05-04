@@ -119,49 +119,28 @@ export default function TestimonialsSection({ dark = false }) {
             <span className="italic">trusted me</span> with their brands
           </h2>
         </div>
-        {/* Carousel */}
-        <div className="relative">
-          <AnimatePresence mode="wait">
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+          {testimonials.slice(0, 3).map((testimonial, idx) => (
             <motion.div
-              key={i}
+              key={idx}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="text-center max-w-4xl mx-auto"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, delay: idx * 0.1 }}
+              className="text-center"
             >
-              <h3 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight uppercase mb-8">
-                {t.headline}
+              <h3 className="font-serif font-bold text-2xl md:text-3xl leading-[1.05] tracking-tight uppercase mb-6">
+                {testimonial.headline}
               </h3>
-              <p className="text-[11px] md:text-xs tracking-widest uppercase text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
-                {t.quote}
+              <p className={`text-[11px] md:text-xs tracking-widest uppercase leading-relaxed mb-6 ${dark ? "text-ivory/60" : "text-muted-foreground"}`}>
+                {testimonial.quote}
               </p>
-              <p className="font-serif italic text-xl text-foreground/80">
-                — {t.name}{t.company ? ` | ${t.company}` : ""}
+              <p className={`font-serif italic text-sm ${dark ? "text-ivory/70" : "text-foreground/70"}`}>
+                — {testimonial.name}{testimonial.company ? ` | ${testimonial.company}` : ""}
               </p>
             </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-16">
-            <button
-              onClick={prev}
-              aria-label="Previous"
-              className={`w-10 h-10 border flex items-center justify-center hover:bg-foreground hover:text-ivory transition-all ${dark ? "border-ivory/30" : "border-foreground/30"}`}
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <span className={`text-[10px] tracking-editorial uppercase ${dark ? "text-ivory/50" : "text-muted-foreground"}`}>
-              {String(i + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
-            </span>
-            <button
-              onClick={next}
-              aria-label="Next"
-              className={`w-10 h-10 border flex items-center justify-center hover:bg-foreground hover:text-ivory transition-all ${dark ? "border-ivory/30" : "border-foreground/30"}`}
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+          ))}
         </div>
       </div>
     </section>

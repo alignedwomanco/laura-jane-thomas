@@ -113,7 +113,7 @@ export default function Testimonials() {
   return (
     <section className="bg-ivory text-foreground py-24 md:py-40 border-t border-foreground/10 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
-        <p className="font-serif italic text-2xl md:text-3xl text-foreground/70 mb-20 max-w-2xl mx-auto leading-snug">
+        <p className="font-serif italic text-[13vw] md:text-[9vw] lg:text-[6.5vw] text-foreground/70 mb-20 max-w-4xl mx-auto leading-[0.9] tracking-tight">
           Hundreds of businesses from around the world have trusted me with their brands
         </p>
 

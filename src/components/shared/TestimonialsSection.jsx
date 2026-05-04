@@ -129,9 +129,17 @@ export default function TestimonialsSection({ dark = false }) {
           </h2>
         </div>
         {/* Testimonials Grid */}
-        <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-3 gap-8 md:gap-12 mb-16 pb-4 md:pb-0 -mx-6 md:mx-0 px-6 md:px-0">
-          <div className="hidden md:contents"></div>
-          {visibleTestimonials.map((testimonial, idx) => (
+        <div className="flex items-center gap-6 md:gap-8">
+          <button
+            onClick={prev}
+            aria-label="Previous"
+            className={`hidden md:flex w-12 h-12 border-2 flex-shrink-0 items-center justify-center hover:bg-foreground hover:text-ivory transition-all ${dark ? "border-ivory/30" : "border-foreground/30"}`}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-3 gap-8 md:gap-12 pb-4 md:pb-0 flex-1">
+            <div className="hidden md:contents"></div>
+            {visibleTestimonials.map((testimonial, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
@@ -151,24 +159,11 @@ export default function TestimonialsSection({ dark = false }) {
               </p>
             </motion.div>
           ))}
-        </div>
-
-        {/* Navigation Controls */}
-        <div className="flex items-center justify-center gap-8">
-          <button
-            onClick={prev}
-            aria-label="Previous"
-            className={`w-12 h-12 border-2 flex items-center justify-center hover:bg-foreground hover:text-ivory transition-all ${dark ? "border-ivory/30" : "border-foreground/30"}`}
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <span className={`text-[11px] tracking-editorial uppercase font-semibold ${dark ? "text-ivory/70" : "text-foreground/70"}`}>
-            {String(currentPage + 1).padStart(2, "0")} / {String(totalPages).padStart(2, "0")}
-          </span>
+          </div>
           <button
             onClick={next}
             aria-label="Next"
-            className={`w-12 h-12 border-2 flex items-center justify-center hover:bg-foreground hover:text-ivory transition-all ${dark ? "border-ivory/30" : "border-foreground/30"}`}
+            className={`hidden md:flex w-12 h-12 border-2 flex-shrink-0 items-center justify-center hover:bg-foreground hover:text-ivory transition-all ${dark ? "border-ivory/30" : "border-foreground/30"}`}
           >
             <ChevronRight className="w-5 h-5" />
           </button>

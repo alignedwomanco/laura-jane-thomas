@@ -86,7 +86,7 @@ export default function About() {
             </motion.h1>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }} className="pb-12 lg:pb-20">
               <p className="font-serif italic text-xl md:text-2xl text-ivory/85 leading-relaxed">
-                Hi, I'm Laura Thomas, an award-winning Brand Strategist, Fractional CMO, and Coach with more than 15 years of experience helping businesses grow with clarity and confidence.
+                Alignment is the highest leverage asset there is. I am Laura Thomas, a senior strategy practitioner with fifteen years of experience advising founders, CEOs, and ambitious women on how to grow without breaking what matters underneath.
               </p>
             </motion.div>
           </div>

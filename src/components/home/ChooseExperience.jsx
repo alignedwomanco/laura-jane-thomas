@@ -12,7 +12,7 @@ const pathways = [
   {
     title: "Clarity & Creative Direction",
     prompt:
-      "I need a sharp strategist to drop in, cut through the noise, and give me clarity on my next big move.",
+      "My brand has outgrown the business I'm trying to build.",
     offer: "Brand audits, positioning workshops & creative direction.",
   },
   {

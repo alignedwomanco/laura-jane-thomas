@@ -120,7 +120,7 @@ export default function TestimonialsSection({ dark = false }) {
           </h2>
         </div>
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-16">
           {testimonials.slice(0, 3).map((testimonial, idx) => (
             <motion.div
               key={idx}
@@ -141,6 +141,27 @@ export default function TestimonialsSection({ dark = false }) {
               </p>
             </motion.div>
           ))}
+        </div>
+
+        {/* Navigation Controls */}
+        <div className="flex items-center justify-center gap-8">
+          <button
+            onClick={prev}
+            aria-label="Previous"
+            className={`w-12 h-12 border-2 flex items-center justify-center hover:bg-foreground hover:text-ivory transition-all ${dark ? "border-ivory/30" : "border-foreground/30"}`}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <span className={`text-[11px] tracking-editorial uppercase font-semibold ${dark ? "text-ivory/70" : "text-foreground/70"}`}>
+            {String(i + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
+          </span>
+          <button
+            onClick={next}
+            aria-label="Next"
+            className={`w-12 h-12 border-2 flex items-center justify-center hover:bg-foreground hover:text-ivory transition-all ${dark ? "border-ivory/30" : "border-foreground/30"}`}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>

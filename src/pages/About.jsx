@@ -67,7 +67,7 @@ const aboutCards = [
     zIndex: 3,
     titleLines: [
       { text: "THE" },
-      { parts: [{ text: "Reset", italic: true }, { text: " ROOM" }] },
+      { parts: [{ text: "Aligned Woman", italic: true }, { text: " CO." }] },
     ],
     bodyElement: (
       <>

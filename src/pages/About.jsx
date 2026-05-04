@@ -21,11 +21,14 @@ const aboutCards = [
     ],
     body: null,
     bodyElement: (
+      <>
       <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
         I have spent fifteen years leading brand strategy, creative direction, and high-level marketing across global organisations and fast-growing start-ups. I founded and ran a multi-seven-figure creative agency. I have sat in the boardrooms where the decisions actually got made, and I have led the senior teams who had to deliver against them. I am a published author, a keynote speaker on female leadership, and the former Chair of the{" "}
         <a href="https://30percentclub.org/" target="_blank" rel="noopener noreferrer" style={{ color: `rgba(242,235,224,0.95)`, textDecoration: "underline" }}>30 Percent Club</a>
         , the collective of senior executives advancing women into leadership. The work has been featured in Forbes, TechCrunch, Glamour, Business Day, and The Times. I hold a specialised degree in Brand Communications and I am a Certified Director. I am also internationally accredited by the American Board of NLP as both an NLP Practitioner and a Timeline Therapy Coach. The qualifications support the methodology. They are not the methodology.
       </p>
+      <div style={{ height: "48px" }} />
+      </>
     ),
   },
   {

@@ -69,7 +69,19 @@ const aboutCards = [
       { text: "THE" },
       { parts: [{ text: "Reset", italic: true }, { text: " ROOM" }] },
     ],
-    body: "The Reset Room is the learning and transformation space I created for women who are ready to expand into the next version of themselves. It is where all of my courses, masterclasses and coaching experiences live. From mindset and identity work to brand clarity and personal leadership, everything is created to support real, lasting change.",
+    bodyElement: (
+      <>
+        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px" }}>
+          The Aligned Woman Co. is the platform I built to scale the work to women everywhere. It is where the methodology lives outside the private advisory engagement.
+        </p>
+        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px" }}>
+          Self-paced courses, masterclasses, and the Aligned Woman Blueprint, the foundational program built on the five stages of The A.L.I.V.E. Method.
+        </p>
+        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
+          The methodology is the same one I use in private practice. The architecture does not soften when it gets bigger.
+        </p>
+      </>
+    ),
   },
 ];
 
@@ -206,6 +218,41 @@ export default function About() {
                 <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
                   {s.body}
                 </p>
+              )}
+              {s.label === "CHAPTER THREE" && (
+                <div style={{ marginTop: "48px" }}>
+                  <a
+                    href="https://thealigedwomancompany.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      border: `1px solid rgba(242,235,224,0.4)`,
+                      color: `rgba(242,235,224,0.95)`,
+                      background: "transparent",
+                      padding: "14px 28px",
+                      fontFamily: "Inter, system-ui, sans-serif",
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      letterSpacing: "0.2em",
+                      textTransform: "uppercase",
+                      textDecoration: "none",
+                      transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = `rgba(242,235,224,0.95)`;
+                      e.currentTarget.style.color = "#0d0508";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "transparent";
+                      e.currentTarget.style.color = `rgba(242,235,224,0.95)`;
+                    }}
+                  >
+                    Visit The Aligned Woman Co. →
+                  </a>
+                </div>
               )}
             </div>
           </div>

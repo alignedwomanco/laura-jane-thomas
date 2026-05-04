@@ -21,7 +21,7 @@ const clients = [
 
 export default function ClientsSection({ dark = false }) {
   return (
-    <section className={`${dark ? "bg-oxblood-deep text-ivory" : "bg-ivory text-foreground"} py-24 md:py-32`}>
+    <section className={`${dark ? "bg-oxblood-deep text-ivory" : "bg-ivory text-foreground"} py-16 md:py-20`}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center mb-14">
         <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight">
           Some of the <span className="italic">clients</span>

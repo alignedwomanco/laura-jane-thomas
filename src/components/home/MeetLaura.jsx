@@ -3,11 +3,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const paragraphs = [
-  "For more than 15 years, I've built, scaled, and advised brands across every stage of growth. I founded and ran a multi seven figure creative agency, consulting to some of the world's largest brands while helping ambitious founders sharpen their positioning and scale with precision.",
-  "Today, I work across strategy, consulting, and speaking. I partner with growth driven brands and ambitious leaders who want more than visibility. They want influence, commercial clarity and positioning that actually performs.",
-  "As a keynote speaker, I bring lived experience from the boardroom, entrepreneurship, and personal reinvention to conversations around leadership, identity and burnout.",
-  "Alongside my corporate and brand strategy work, I founded The Aligned Woman Co, an education platform redefining how ambitious women learn, lead, and build in today's world. What began as lived experience evolved into a mission to close the gap between high performance and personal sustainability.",
-  "Whether you are building a global brand, scaling your next chapter, or stepping onto a bigger stage, my work sits at the intersection of identity, strategy, and leadership. The result is growth that is commercially sharp, personally aligned, and built to last.",
+  "For fifteen years I have worked at the intersection of three things most people separate: creative direction, team leadership, and commercial analytics. Brand strategy that actually moves revenue. Creative work that the numbers can defend. Teams that can execute on both.",
+  "What I learned the hard way is that any growth without internal alignment isn't sustainable, in business or in life. When the brand, the strategy, and the execution align, businesses last. When the woman, the work, and the life align, she lasts.",
+  "Today, that conviction shapes everything I do. I advise founders, CEOs, and senior teams as a Fractional CMO and Brand Advisor. I work privately with ambitious women building what's next. And I built The Aligned Woman Co. to scale the same methodology to women everywhere.",
 ];
 
 export default function MeetLaura() {
@@ -75,10 +73,10 @@ export default function MeetLaura() {
             </div>
 
             <Link
-              to="/contact"
+              to="/about"
               className="mt-12 inline-flex items-center gap-3 bg-foreground text-ivory px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group"
             >
-              Apply To Work With Me
+              Read More About Me
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </motion.div>

@@ -103,9 +103,14 @@ const testimonials = [
 
 export default function TestimonialsSection({ dark = false }) {
   const [i, setI] = useState(0);
-  const t = testimonials[i];
-  const next = () => setI((i + 1) % testimonials.length);
-  const prev = () => setI((i - 1 + testimonials.length) % testimonials.length);
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(testimonials.length / itemsPerPage);
+  const currentPage = Math.floor(i / itemsPerPage);
+  const startIdx = currentPage * itemsPerPage;
+  const visibleTestimonials = testimonials.slice(startIdx, startIdx + itemsPerPage);
+  
+  const next = () => setI((i + itemsPerPage) % testimonials.length);
+  const prev = () => setI((i - itemsPerPage + testimonials.length) % testimonials.length);
 
   return (
     <section className={`${dark ? "bg-oxblood-deep text-ivory" : "bg-ivory text-foreground"} py-24 md:py-36 border-t border-current/10`}>
@@ -121,7 +126,7 @@ export default function TestimonialsSection({ dark = false }) {
         </div>
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-16">
-          {testimonials.slice(0, 3).map((testimonial, idx) => (
+          {visibleTestimonials.map((testimonial, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
@@ -153,7 +158,7 @@ export default function TestimonialsSection({ dark = false }) {
             <ChevronLeft className="w-5 h-5" />
           </button>
           <span className={`text-[11px] tracking-editorial uppercase font-semibold ${dark ? "text-ivory/70" : "text-foreground/70"}`}>
-            {String(i + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
+            {String(currentPage + 1).padStart(2, "0")} / {String(totalPages).padStart(2, "0")}
           </span>
           <button
             onClick={next}

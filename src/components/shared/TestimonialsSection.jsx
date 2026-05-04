@@ -116,9 +116,9 @@ export default function TestimonialsSection({ dark = false }) {
     <section className={`${dark ? "bg-oxblood-deep text-ivory" : "bg-ivory text-foreground"} py-24 md:py-36 border-t border-current/10`}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="text-center mb-20">
-          <h2 className="font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight max-w-4xl mx-auto">
+          <h2 className="font-serif italic text-4xl md:text-6xl leading-[0.95] tracking-tight max-w-4xl mx-auto">
             Hundreds of businesses from around the world have{" "}
-            <span className="italic">trusted me</span> with their brands
+            trusted me with their brands
           </h2>
         </div>
         {/* Testimonials Grid */}

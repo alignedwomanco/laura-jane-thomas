@@ -133,8 +133,8 @@ export default function Services() {
                         <span
                           key={pi}
                           style={{
-                            fontFamily: "Inter, system-ui, sans-serif",
-                            fontWeight: 800,
+                            fontFamily: "'Playfair Display', Georgia, serif",
+                            fontWeight: 700,
                             textTransform: "uppercase",
                           }}
                         >
@@ -145,8 +145,8 @@ export default function Services() {
                   ) : (
                     <span
                       style={{
-                        fontFamily: "Inter, system-ui, sans-serif",
-                        fontWeight: 800,
+                        fontFamily: "'Playfair Display', Georgia, serif",
+                        fontWeight: 700,
                         textTransform: "uppercase",
                       }}
                     >

@@ -1,61 +1,51 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Plus, Minus } from "lucide-react";
+
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import ClientsSection from "@/components/shared/ClientsSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import CtaBanner from "@/components/shared/CtaBanner";
 
-const accordionItems = [
+const aboutCards = [
   {
-    title: "My Expertise & Credentials",
-    body: "My background spans the full spectrum of brand, business and human development. I hold a specialised degree in Brand Communications and I am a Certified Director with international accreditation from the American Board of NLP as both an NLP Practitioner and a Timeline Therapy Coach. Alongside my formal qualifications, I have spent more than fifteen years leading brand strategy, creative direction and high level marketing across global organisations and fast growing start ups.\n\nI am also a published author, a keynote speaker and the former Chair of the 30 Percent Club, a collective of senior executives dedicated to advancing women in leadership. These experiences have given me a unique view of what helps people and businesses grow. I understand how brands gain traction, how teams function and what ambitious women need to thrive personally and professionally.\n\nThis combination of strategic expertise, creative thinking and deep human insight allows me to support transformation at every level. I work with both organisations and individuals, bringing clarity, grounded guidance and practical tools to help them move forward with confidence.",
+    label: "CHAPTER ONE",
+    bg: "#3A0E1A",
+    top: 0,
+    zIndex: 1,
+    titleLines: [
+      { text: "MY" },
+      { text: "EXPERTISE &" },
+      { parts: [{ text: "Credentials", italic: true }] },
+    ],
+    body: "My background spans the full spectrum of brand, business and human development. I hold a specialised degree in Brand Communications and I am a Certified Director with international accreditation from the American Board of NLP as both an NLP Practitioner and a Timeline Therapy Coach. I have spent more than fifteen years leading brand strategy, creative direction and high level marketing across global organisations and fast growing start ups. I am also a published author, a keynote speaker and the former Chair of the 30 Percent Club.",
   },
   {
-    title: "What I Do",
-    body: "My work bridges brand, business and personal transformation. I support companies, founders and ambitious women who want clarity, alignment and intentional growth in both their professional and personal lives.\n\nOn the business side, I partner with leaders who need senior level brand and marketing direction. I bring strategic clarity to positioning, customer journeys, creative direction, content, campaigns and team alignment. Whether you are building, scaling or repositioning, I help you make confident decisions and move with focus.\n\nOn the coaching side, I work one to one with women who are navigating change, growth or reinvention. Together we explore identity, values, patterns and vision so you can create a life and career that feels grounded and aligned.\n\nI also speak at events, participate in panels and lead workshops for organisations and communities. My talks focus on topics such as leadership, burnout recovery, reinvention, brand storytelling, women in business and the intersection of identity and success.",
+    label: "CHAPTER TWO",
+    bg: "#4A2730",
+    top: 64,
+    zIndex: 2,
+    titleLines: [
+      { text: "WHAT" },
+      { parts: [{ text: "I", italic: false }, { text: " Do", italic: true }] },
+    ],
+    body: "My work bridges brand, business and personal transformation. On the business side, I partner with leaders who need senior level brand and marketing direction — positioning, creative direction, content, campaigns and team alignment. On the coaching side, I work one to one with women navigating change, growth or reinvention, exploring identity, values and vision so they can create a life and career that feels grounded and aligned.",
   },
   {
-    title: "The Reset Room",
-    body: "The Reset Room is the learning and transformation space I created for women who are ready to expand into the next version of themselves. It is where all of my courses, masterclasses and coaching experiences live. This is the place you come to when you know something needs to shift, when you feel yourself outgrowing old patterns and when you want guided support as you step into a new chapter.\n\nInside The Reset Room, you will find both self paced and high touch experiences designed to help you reconnect with who you are, rebuild your confidence and realign your life or business with your truth. From mindset and identity work to brand clarity and personal leadership, everything is created to support real, lasting change.\n\nWhether you join a masterclass, dive into a course or work with me privately, the work inside The Reset Room is centred on clarity, alignment and personal evolution.",
+    label: "CHAPTER THREE",
+    bg: "#0D0508",
+    top: 128,
+    zIndex: 3,
+    titleLines: [
+      { text: "THE" },
+      { parts: [{ text: "Reset", italic: true }, { text: " ROOM" }] },
+    ],
+    body: "The Reset Room is the learning and transformation space I created for women who are ready to expand into the next version of themselves. It is where all of my courses, masterclasses and coaching experiences live. From mindset and identity work to brand clarity and personal leadership, everything is created to support real, lasting change.",
   },
 ];
 
-function AccordionItem({ title, body, index }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border-b border-foreground/15">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-6 text-left group"
-      >
-        <span className="font-serif text-2xl md:text-3xl group-hover:italic transition-all">{title}</span>
-        <span className="ml-4 flex-shrink-0">
-          {open ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-        </span>
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="overflow-hidden"
-          >
-            <div className="pb-8 pr-8">
-              {body.split("\n\n").map((p, i) => (
-                <p key={i} className="text-[15px] text-muted-foreground leading-relaxed mb-4 last:mb-0">{p}</p>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
+const cream = "#F2EBE0";
 
 const stats = [
   { num: "15+", label: "Years of experience" },
@@ -142,14 +132,55 @@ export default function About() {
         </div>
       </section>
 
-      {/* Accordion */}
-      <section className="bg-ivory border-t border-foreground/10 py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 max-w-4xl">
-          {accordionItems.map((item, i) => (
-            <AccordionItem key={i} {...item} index={i} />
-          ))}
-        </div>
-      </section>
+      {/* Sticky cards */}
+      <div className="relative">
+        {aboutCards.map((s) => (
+          <div
+            key={s.label}
+            style={{
+              backgroundColor: s.bg,
+              position: "sticky",
+              top: `${s.top}px`,
+              zIndex: s.zIndex,
+              minHeight: s.zIndex === 3 ? "auto" : "100vh",
+              borderTopLeftRadius: "24px",
+              borderTopRightRadius: "24px",
+              overflow: "hidden",
+            }}
+          >
+            {/* Top bar */}
+            <div style={{ height: "64px", padding: "0 64px", display: "flex", alignItems: "center" }}>
+              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: "11px", letterSpacing: "0.28em", textTransform: "uppercase", color: cream, opacity: 0.7 }}>
+                {s.label}
+              </span>
+            </div>
+
+            {/* Body */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "880px", margin: "0 auto", paddingTop: "48px", paddingBottom: s.zIndex === 3 ? "48px" : "96px", paddingLeft: "24px", paddingRight: "24px" }}>
+              <h2 style={{ color: cream, lineHeight: 0.95, letterSpacing: "-0.02em", marginBottom: "32px", fontSize: "clamp(44px, 7vw, 88px)" }}>
+                {s.titleLines.map((line, li) => (
+                  <span key={li} style={{ display: "block" }}>
+                    {line.parts ? (
+                      line.parts.map((part, pi) =>
+                        part.italic ? (
+                          <span key={pi} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, color: cream }}>{part.text}</span>
+                        ) : (
+                          <span key={pi} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, textTransform: "uppercase" }}>{part.text}</span>
+                        )
+                      )
+                    ) : (
+                      <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, textTransform: "uppercase" }}>{line.text}</span>
+                    )}
+                  </span>
+                ))}
+              </h2>
+              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "14px", lineHeight: 1.65, maxWidth: "560px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
+                {s.body}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* Why work with me */}
       <section className="bg-oxblood text-ivory py-24 md:py-36">

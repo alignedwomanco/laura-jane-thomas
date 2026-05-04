@@ -100,8 +100,8 @@ export default function About() {
       {/* Bio body */}
       <section className="bg-ivory py-32 md:py-48">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-7 space-y-6">
+          <div className="max-w-3xl">
+            <div className="space-y-6">
               {[
                 "I have worked with some of the world's leading brands as well as ambitious start-ups, bringing together creativity, data and strategy to build brands that perform. My approach is both analytical and imaginative, ensuring that every decision is driven by insight and aligned with the bigger picture of your business.",
                 "As a Fractional CMO and Marketing Consultant, I partner with founders, executives and in-house teams to refine strategy, strengthen positioning and deliver measurable results. From luxury and wellness to tech and lifestyle, my work focuses on helping brands scale with purpose and precision.",
@@ -117,17 +117,7 @@ export default function About() {
                 </Link>
               </div>
             </div>
-            <div className="lg:col-span-5 space-y-8">
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-px bg-foreground/15">
-                {stats.map((s) => (
-                  <div key={s.num} className="bg-ivory p-6">
-                    <span className="font-serif italic text-4xl md:text-5xl text-oxblood block">{s.num}</span>
-                    <span className="text-[11px] tracking-editorial uppercase text-muted-foreground mt-2 block">{s.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+
           </div>
         </div>
       </section>

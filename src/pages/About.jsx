@@ -43,19 +43,19 @@ const aboutCards = [
     bodyElement: (
       <>
         <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "32px" }}>
-          Three doors. Each door has its own audience, its own methodology, and its own engagement structure. The conviction underneath them is the same.
+          Three doors. One conviction underneath.
         </p>
         <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px", textAlign: "left" }}>
           <strong style={{ color: `rgba(242,235,224,0.95)`, display: "block", marginBottom: "6px" }}>For Businesses: Fractional CMO and Brand Advisor</strong>
-          For founders, CEOs, and senior teams who need brand, strategy, and creative direction in one senior partner. Productised 90-day engagements covering brand repositioning, fractional marketing leadership, and embedded advisory. Built on The Aligned Operating Model: Diagnose, Architect, Activate.
+          Brand, strategy, and creative direction in one senior partner. Built on The Aligned Operating Model.
         </p>
         <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px", textAlign: "left" }}>
           <strong style={{ color: `rgba(242,235,224,0.95)`, display: "block", marginBottom: "6px" }}>For Women: Senior Advisory and Coaching</strong>
-          For ambitious women at the threshold of what's next. Whether you are stepping out of corporate, evolving the business you have built, or building the life that finally matches your resources. Private engagements built on The A.L.I.V.E. Method.
+          Private engagements for ambitious women building what's next. Built on The A.L.I.V.E. Method.
         </p>
         <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0", textAlign: "left" }}>
           <strong style={{ color: `rgba(242,235,224,0.95)`, display: "block", marginBottom: "6px" }}>For Organisations: Speaking and Leadership Programs</strong>
-          For organisations serious about developing and retaining their female leadership pipeline. Keynotes, half-day workshops, and the multi-session Aligned Leader Program. Built on The A.L.I.V.E. Method, at organisational scale.
+          Keynotes, workshops, and the Aligned Leader Program. Built on The A.L.I.V.E. Method, at organisational scale.
         </p>
       </>
     ),

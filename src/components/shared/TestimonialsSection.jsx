@@ -148,13 +148,13 @@ export default function TestimonialsSection({ dark = false }) {
               transition={{ duration: 0.8, delay: idx * 0.1 }}
               className="text-center flex-shrink-0 w-full md:w-auto"
             >
-              <h3 className="font-serif font-bold text-2xl md:text-3xl leading-[1.05] tracking-tight uppercase mb-6">
+              <h3 className="font-serif font-bold text-lg md:text-3xl leading-[1.05] tracking-tight uppercase mb-6">
                 {testimonial.headline}
               </h3>
-              <p className={`text-[11px] md:text-xs tracking-widest uppercase leading-relaxed mb-6 ${dark ? "text-ivory/60" : "text-muted-foreground"}`}>
+              <p className={`text-[9px] md:text-xs tracking-widest uppercase leading-relaxed mb-6 ${dark ? "text-ivory/60" : "text-muted-foreground"}`}>
                 {testimonial.quote}
               </p>
-              <p className={`font-serif italic text-sm ${dark ? "text-ivory/70" : "text-foreground/70"}`}>
+              <p className={`font-serif italic text-xs md:text-sm ${dark ? "text-ivory/70" : "text-foreground/70"}`}>
                 — {testimonial.name}{testimonial.company ? ` | ${testimonial.company}` : ""}
               </p>
             </motion.div>

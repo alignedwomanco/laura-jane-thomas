@@ -209,20 +209,20 @@ export default function Speaking() {
             <img src="https://laurajanethomas.biz/wp-content/uploads/2026/02/C39D33B6-CEBB-4963-9550-4913F3A54680-1024x997.png" alt="Laura speaking" className="w-full h-full object-cover" />
           </div>
           <div>
-            <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Hi, I'm Laura</p>
-            <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8">
+            <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-8">— Hi, I'm Laura</p>
+            <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8 text-ivory">
               The honest version.
             </h2>
-            <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
+            <p className="text-[15px] text-ivory/75 leading-relaxed mb-5">
               I have spent fifteen years inside the rooms where senior commercial decisions get made. I founded and ran a multi-seven-figure creative agency, and I burned out in the middle of all of it, which forced me to rebuild what I thought success was, and how it should be built.
             </p>
-            <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
+            <p className="text-[15px] text-ivory/75 leading-relaxed mb-5">
               That rebuild is what I speak about now. Not the polished version. The honest one.
             </p>
-            <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
+            <p className="text-[15px] text-ivory/75 leading-relaxed mb-5">
               I speak about why female leadership keeps stalling between mid-level and senior, despite a decade of pipeline programmes. Why high-performing women keep arriving at the top exhausted rather than energised. Why the systems we work inside reward output and punish sustainability. And what it actually takes to build success that is honest, structured, and built to last.
             </p>
-            <p className="font-serif italic text-xl text-foreground">
+            <p className="font-serif italic text-xl text-ivory">
               I have stood on both sides of the conversation. The building, and the rebuild. That is what audiences hear.
             </p>
           </div>

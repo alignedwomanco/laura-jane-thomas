@@ -115,12 +115,14 @@ export default function ResourcesSection() {
                     {resource.cta} →
                   </a>
                 ) : (
-                  <Link
-                    to="/contact"
+                  <a
+                    href="https://alignedwomanco.com/blueprint"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-[11px] tracking-editorial uppercase border-b border-foreground hover:text-accent transition-colors"
                   >
                     {resource.cta} →
-                  </Link>
+                  </a>
                 )}
               </div>
             </motion.div>

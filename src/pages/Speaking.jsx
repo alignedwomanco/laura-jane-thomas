@@ -7,6 +7,7 @@ import Footer from "@/components/site/Footer";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import CtaBanner from "@/components/shared/CtaBanner";
 import SpeakingAccordion from "@/components/speaking/SpeakingAccordion";
+import KeynoteTopic from "@/components/speaking/KeynoteTopic";
 
 const speakingTopics = [
   {
@@ -251,29 +252,9 @@ export default function Speaking() {
           <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-20">
             Keynote Topics
           </h2>
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+          <div className="space-y-4">
             {speakingTopics.map((t, i) => (
-              <motion.div
-                key={t.num}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="flex flex-col"
-              >
-                <span className="font-serif italic text-4xl text-oxblood/40 mb-6">{t.num}</span>
-                <h3 className="font-serif text-2xl md:text-3xl leading-[1.05] tracking-tight mb-3">{t.title}</h3>
-                <p className="font-serif italic text-lg text-muted-foreground mb-6">{t.subtitle}</p>
-                {t.body.split("\n\n").map((p, j) => (
-                  <p key={j} className="text-[14px] text-muted-foreground leading-relaxed mb-4 last:mb-0">{p}</p>
-                ))}
-                <div className="mt-8 pt-6 border-t border-foreground/10">
-                  <Link to="/contact" className="inline-flex items-center gap-3 border border-foreground/50 px-7 py-3 text-[11px] tracking-editorial uppercase hover:bg-foreground hover:text-ivory transition-all group btn-pulse">
-                    Book Me To Speak
-                    <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                  </Link>
-                </div>
-              </motion.div>
+              <KeynoteTopic key={t.num} topic={t} index={i} />
             ))}
           </div>
         </div>

@@ -279,15 +279,26 @@ export default function ResetRoom() {
 
       {/* ── 6. FINAL CLOSE ──────────────────────────────────────────────── */}
       <section
-        className="py-32 md:py-52 px-6 text-center"
+        className="relative py-32 md:py-52 px-6 text-center overflow-hidden"
         style={{ backgroundColor: BRAND }}
       >
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/92fc7f53d_63cd67f9137a5dc29d667e503875ab27.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ opacity: 0.4 }}
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(38,3,15,0.3)" }} />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
-          className="max-w-3xl mx-auto"
+          className="relative z-10 max-w-3xl mx-auto"
         >
           <p
             className="text-white leading-[1.1] tracking-tight mb-6"

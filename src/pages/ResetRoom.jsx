@@ -326,7 +326,7 @@ export default function ResetRoom() {
 
         {/* Panel 2: The Recalibration Intensive */}
         <div style={{
-          backgroundColor: "#935170",
+          backgroundColor: "#F2EBE0",
           position: "sticky",
           top: 64,
           zIndex: 2,

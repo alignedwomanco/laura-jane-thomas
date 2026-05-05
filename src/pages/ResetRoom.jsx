@@ -34,7 +34,7 @@ export default function ResetRoom() {
 
       {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 pt-36 pb-28"
+        className="relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 pt-36 pb-40"
         style={{ backgroundColor: BRAND }}
       >
         {/* Full-width background image */}
@@ -89,10 +89,12 @@ export default function ResetRoom() {
             <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </motion.div>
-      </section>
 
-      {/* ── 2. PRESS MARQUEE ───────────────────────────────────────────── */}
-      <PressMarquee />
+        {/* Press Marquee at bottom of hero */}
+        <div className="absolute bottom-0 left-0 right-0 w-full z-10">
+          <PressMarquee isDark={true} />
+        </div>
+      </section>
 
       {/* ── 3. DARK INTEGRATED ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: "#1A1A1A", minHeight: "80vh" }}>

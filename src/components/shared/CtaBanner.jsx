@@ -20,7 +20,7 @@ export default function CtaBanner({ headline, sub, cta = "Apply To Work With Me"
         )}
         <Link
           to={href}
-          className="inline-flex items-center gap-3 border border-ivory/70 px-10 py-4 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-foreground transition-all duration-300 group"
+          className="inline-flex items-center gap-3 border border-ivory/70 px-10 py-4 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-foreground transition-all duration-300 group btn-pulse"
         >
           {cta}
           <span className="inline-block transition-transform group-hover:translate-x-1">→</span>

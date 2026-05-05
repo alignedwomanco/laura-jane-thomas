@@ -79,7 +79,7 @@ export default function Speaking() {
             transition={{ duration: 0.9, delay: 0.3 }}
             className="mt-12 flex gap-5"
           >
-            <Link to="/contact" className="inline-flex items-center gap-3 bg-ivory text-oxblood px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-ivory/90 transition-all group">
+            <Link to="/contact" className="inline-flex items-center gap-3 bg-ivory text-oxblood px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-ivory/90 transition-all group btn-pulse">
               Book Me
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </Link>
@@ -162,7 +162,7 @@ export default function Speaking() {
                 ))}
               </ul>
               <div className="mt-10">
-                <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-foreground transition-all group">
+                <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-foreground transition-all group btn-pulse">
                   Book Me To Speak
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                 </Link>
@@ -199,7 +199,7 @@ export default function Speaking() {
                     <p key={j} className="text-[15px] text-muted-foreground leading-relaxed mb-4 last:mb-0 max-w-3xl">{p}</p>
                   ))}
                   <div className="mt-8">
-                    <Link to="/contact" className="inline-flex items-center gap-3 border border-foreground/50 px-7 py-3 text-[11px] tracking-editorial uppercase hover:bg-foreground hover:text-ivory transition-all group">
+                    <Link to="/contact" className="inline-flex items-center gap-3 border border-foreground/50 px-7 py-3 text-[11px] tracking-editorial uppercase hover:bg-foreground hover:text-ivory transition-all group btn-pulse">
                       Book Me To Speak
                       <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                     </Link>
@@ -224,10 +224,10 @@ export default function Speaking() {
                 The Aligned Woman Podcast is where ambition meets alignment. Hosted by Laura Thomas, this show brings together extraordinary women to explore leadership, burnout, identity, wealth and joy. These are the conversations women are craving but rarely given space to have.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="https://open.spotify.com/show/0TdHPtBVdT9setqlPZUimi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-ivory/70 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all">
+                <a href="https://open.spotify.com/show/0TdHPtBVdT9setqlPZUimi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-ivory/70 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all btn-pulse">
                   Listen on Spotify
                 </a>
-                <a href="https://podcasts.apple.com/us/podcast/the-aligned-woman-podcast/id1877634580" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-ivory/70 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all">
+                <a href="https://podcasts.apple.com/us/podcast/the-aligned-woman-podcast/id1877634580" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-ivory/70 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all btn-pulse">
                   Apple Podcasts
                 </a>
               </div>

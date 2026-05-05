@@ -126,4 +126,11 @@
       transform: scale(1.02);
     }
   }
+
+  .btn-pulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  .btn-pulse:hover {
+    animation: none;
+  }
 }

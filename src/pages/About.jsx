@@ -161,7 +161,7 @@ export default function About() {
                 <p key={i} className={`leading-relaxed text-center ${i === 0 ? "font-serif text-xl md:text-2xl text-foreground" : "text-[15px] text-muted-foreground"}`}>{p}</p>
               ))}
               <div className="pt-6 flex justify-center">
-                <Link to="/contact" className="inline-flex items-center gap-3 bg-foreground text-ivory px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group">
+                <Link to="/contact" className="inline-flex items-center gap-3 bg-foreground text-ivory px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group btn-pulse">
                   Apply To Work With Me
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                 </Link>
@@ -280,7 +280,7 @@ export default function About() {
               <p className="text-ivory/70 text-[15px] leading-relaxed mb-8">
                 That is the brain you are hiring. The methodologies are just the language for what I learned along the way.
               </p>
-              <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/40 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood-deep transition-all duration-300">
+              <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/40 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood-deep transition-all duration-300 btn-pulse">
                 Begin The Inquiry
                 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
               </Link>

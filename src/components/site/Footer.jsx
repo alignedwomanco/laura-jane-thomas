@@ -37,7 +37,7 @@ export default function Footer() {
             </p>
             <Link
               to="/contact"
-              className="inline-block border border-ivory/40 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood-deep transition-all duration-300"
+              className="inline-block border border-ivory/40 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood-deep transition-all duration-300 btn-pulse"
             >
               Apply To Work With Me
             </Link>

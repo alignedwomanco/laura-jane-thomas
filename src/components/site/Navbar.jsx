@@ -61,7 +61,7 @@ export default function Navbar() {
           </a>
           <Link
             to="/contact"
-            className="text-[11px] tracking-editorial uppercase border border-foreground/80 px-5 py-2.5 hover:bg-foreground hover:text-ivory transition-all duration-300"
+            className="text-[11px] tracking-editorial uppercase border border-foreground/80 px-5 py-2.5 hover:bg-foreground hover:text-ivory transition-all duration-300 btn-pulse"
           >
             Work With Me
           </Link>

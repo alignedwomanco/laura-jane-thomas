@@ -96,8 +96,8 @@ export default function Consulting() {
             <p className="text-ivory/70 text-[15px] leading-relaxed mb-10">
               One brain holding brand, strategy, and creative direction together. The work has been done at the level you need it done at, and it is built so your team can run it long after I leave the room.
             </p>
-            <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all duration-300 group">
-              Apply To Work With Me
+            <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all duration-300 group btn-pulse">
+            Apply To Work With Me
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </div>
@@ -131,7 +131,7 @@ export default function Consulting() {
                 </AccordionItem>
               ))}
               <div className="mt-10">
-                <Link to="/contact" className="inline-flex items-center gap-3 bg-foreground text-ivory px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group animate-pulse hover:animate-none" style={{boxShadow: "0 0 0 0 rgba(107,15,15,0.7)", animation: "pulse-glow 2s ease-in-out infinite"}}>
+                <Link to="/contact" className="inline-flex items-center gap-3 bg-foreground text-ivory px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group btn-pulse">
                   Apply To Work With Me
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                 </Link>

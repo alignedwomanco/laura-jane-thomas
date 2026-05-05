@@ -225,81 +225,46 @@ export default function About() {
             className="about-sticky-card"
             style={{
               backgroundColor: s.bg,
-              position: "sticky",
-              top: `${s.top}px`,
-              zIndex: s.zIndex,
-              minHeight: "100vh",
-              borderTopLeftRadius: "24px",
-              borderTopRightRadius: "24px",
-              overflow: "visible"
+              position: "relative",
+              minHeight: "auto",
+              borderRadius: "24px",
+              overflow: "visible",
+              marginBottom: "16px"
             }}>
           
-            {/* Top bar */}
-            <div style={{ height: "64px", padding: "0 64px", display: "flex", alignItems: "center" }}>
-              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: "11px", letterSpacing: "0.28em", textTransform: "uppercase", color: cream, opacity: 0.7 }}>
-                {s.label}
-              </span>
-            </div>
-
-            {/* Body */}
-            <div className="about-card-body" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "100%", margin: "0 auto", paddingTop: "48px", paddingBottom: s.label === "CHAPTER THREE" ? "0px" : "40px", paddingLeft: "24px", paddingRight: "24px" }}>
-              <h2 style={{ color: cream, lineHeight: 0.95, letterSpacing: "-0.02em", marginBottom: "32px", fontSize: "clamp(44px, 7vw, 88px)" }}>
-                {s.titleLines.map((line, li) =>
-              <span key={li} style={{ display: "block" }}>
-                    {line.parts ?
-                line.parts.map((part, pi) =>
-                part.italic ?
-                <span key={pi} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, color: cream }}>{part.text}</span> :
-
-                <span key={pi} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, textTransform: "uppercase" }}>{part.text}</span>
-
-                ) :
-
-                <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, textTransform: "uppercase" }}>{line.text}</span>
-                }
-                  </span>
-              )}
-              </h2>
-              {s.bodyElement ? s.bodyElement :
-            <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
-                  {s.body}
+            {/* Card Header - Side by side layout */}
+            <div style={{ padding: "32px 48px", display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "32px" }}>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: "11px", letterSpacing: "0.28em", textTransform: "uppercase", color: cream, opacity: 0.7, margin: "0 0 12px 0" }}>
+                  {s.label}
                 </p>
-            }
-              {s.label === "CHAPTER THREE" &&
-            <div style={{ marginTop: "48px" }}>
-                  <a
-                href="https://alignedwomanco.com/blueprint"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  border: `1px solid rgba(242,235,224,0.4)`,
-                  color: `rgba(242,235,224,0.95)`,
-                  background: "transparent",
-                  padding: "14px 28px",
-                  fontFamily: "Inter, system-ui, sans-serif",
-                  fontSize: "11px",
-                  fontWeight: 600,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)"
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = `rgba(242,235,224,0.95)`;
-                  e.currentTarget.style.color = "#0d0508";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = `rgba(242,235,224,0.95)`;
-                }}>
-                
-                    Visit The Aligned Woman Co. →
-                  </a>
-                </div>
-            }
+                <h2 style={{ color: cream, lineHeight: 0.95, letterSpacing: "-0.02em", marginBottom: "0", fontSize: "clamp(28px, 5vw, 52px)", fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, textAlign: "left" }}>
+                  {s.titleLines.map((line, li) =>
+                <span key={li} style={{ display: "block" }}>
+                      {line.parts ?
+                  line.parts.map((part, pi) =>
+                  part.italic ?
+                  <span key={pi} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, color: cream }}>{part.text}</span> :
+
+                  <span key={pi} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, textTransform: "uppercase" }}>{part.text}</span>
+
+                  ) :
+
+                  <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, textTransform: "uppercase" }}>{line.text}</span>
+                  }
+                    </span>
+                )}
+                </h2>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px", flexShrink: 0 }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: "11px", letterSpacing: "0.28em", textTransform: "uppercase", color: cream, opacity: 0.7, margin: "0", textAlign: "center", whiteSpace: "nowrap" }}>
+                  More Info
+                </p>
+                <svg style={{ width: "20px", height: "20px", color: cream, opacity: 0.7 }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
             </div>
           </div>
         )}

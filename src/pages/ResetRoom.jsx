@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
-import TestimonialsSection from "@/components/shared/TestimonialsSection";
+
 import ResourcesSection from "@/components/shared/ResourcesSection";
 import OfferingsAccordion from "@/components/offerings/OfferingsAccordion";
 
@@ -341,7 +341,7 @@ export default function ResetRoom() {
         </motion.div>
       </section>
 
-      <TestimonialsSection />
+
       <ResourcesSection />
       <Footer />
     </div>

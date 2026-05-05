@@ -5,7 +5,6 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import CtaBanner from "@/components/shared/CtaBanner";
-import BlogPreview from "@/components/home/BlogPreview";
 
 const speakingTopics = [
   {
@@ -239,7 +238,6 @@ export default function Speaking() {
         </div>
       </section>
 
-      <BlogPreview />
       <TestimonialsSection />
       <CtaBanner headline={<>Book me<br /><span className="italic">to speak</span></>} cta="Book Me To Speak" href="/contact" />
       <Footer />

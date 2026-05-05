@@ -28,12 +28,13 @@ function AccordionItem({ title, children }) {
 }
 
 const corporateOffering = [
-  { title: "Strategic Leadership", body: "Clear direction for brand and marketing strategy that supports and amplifies your business objectives." },
-  { title: "Revenue Aligned Strategy", body: "Marketing plans designed to influence measurable commercial outcomes rather than vanity metrics." },
-  { title: "Customer Journey Mapping", body: "A complete view of how your customers move from awareness to loyalty, ensuring every touchpoint works in harmony." },
-  { title: "Creative Direction", body: "Elevated concepts, messaging and brand storytelling that keep your brand fresh, relevant and engaging." },
-  { title: "Collaborative Integration", body: "Flexible support that fits your structure. I can work independently as a senior consultant or integrate seamlessly with your existing team." },
-  { title: "Custom Growth Playbook", body: "A comprehensive, easy to follow blueprint that outlines your full marketing strategy, brand direction, content plan and priority actions." },
+  { title: "Fractional and Stand-in CMO", body: "Senior marketing leadership held inside the business on a fractional or interim basis. Useful when the role is between hires, when the existing CMO is on leave, or when the business is not yet ready to commit to a full-time appointment but needs senior judgement in the room now. Scope, time commitment, and reporting lines calibrated to the situation. Includes team leadership, executive alignment, and the operational rhythm a senior CMO would otherwise carry." },
+  { title: "Strategic Leadership", body: "Senior strategic direction for brand and marketing at the level the business actually needs it. Held quarterly or monthly, depending on scope. Includes prioritisation, executive alignment, and the structural conversations that keep the strategy from drifting back into busywork." },
+  { title: "Revenue-Aligned Strategy", body: "Marketing plans built to move commercial outcomes, not engagement metrics. Brand and revenue treated as one conversation rather than two functions. The plan names the priorities, the trade-offs, and the metrics the executive team can actually defend." },
+  { title: "Customer Journey Mapping", body: "The buyer's actual path from first touch to retention, mapped end-to-end. Names the gaps. Identifies the highest-leverage moments to invest in. Built so the marketing, sales, and creative teams are working from the same map." },
+  { title: "Creative Direction", body: "Senior creative judgement on the cornerstone customer-facing assets. Campaigns, messaging, brand storytelling, and visual direction. Strategy and creative held in one brain, which means the work doesn't have to be coordinated across three vendors." },
+  { title: "Team Alignment and Integration", body: "Designed to elevate your existing team, not replace it. I work alongside your CMO, marketing leads, and creative directors with clear decision rights, defined scope, and a structured handover. The team finishes the engagement more capable than they started." },
+  { title: "Custom Growth Playbook", body: "A written plan your team can run for the next twelve months without me in the room. Includes the strategy, the priorities, the cadence, the owners, and the metrics. The work is documented, defensible, and built to survive turnover, board reviews, and the next quarter's distractions." },
 ];
 
 const smbOffering = [

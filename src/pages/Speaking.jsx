@@ -261,7 +261,7 @@ export default function Speaking() {
       </section>
 
       {/* Podcast */}
-      <section className="bg-oxblood text-ivory py-24 md:py-32">
+      <section className="bg-oxblood text-ivory py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>

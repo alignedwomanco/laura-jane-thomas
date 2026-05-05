@@ -91,10 +91,40 @@ export default function ResourcesSection() {
                 <p className="text-xs sm:text-sm leading-relaxed text-white/85 mb-6 sm:mb-8 flex-grow">
                   {resource.description}
                 </p>
+
+                {/* Mobile CTA - Inside Card */}
+                <div className="md:hidden mt-6">
+                  {idx === 0 ? (
+                    <a
+                      href="https://media.base44.com/files/public/69e1e7f05d39205bc001ea00/847f6fdb1_The-5-Tools-That-Saved-Me-eBook-LJT-1.pdf"
+                      download
+                      className="text-[11px] tracking-editorial uppercase border-b border-white/40 text-white hover:border-white transition-colors inline-block"
+                    >
+                      {resource.cta} →
+                    </a>
+                  ) : idx === 1 ? (
+                    <a
+                      href="https://media.base44.com/files/public/69e1e7f05d39205bc001ea00/a7e23f2df_LJT-Nervous-System-Doc_compressed.pdf"
+                      download
+                      className="text-[11px] tracking-editorial uppercase border-b border-white/40 text-white hover:border-white transition-colors inline-block"
+                    >
+                      {resource.cta} →
+                    </a>
+                  ) : (
+                    <a
+                      href="https://alignedwomanco.com/blueprint"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] tracking-editorial uppercase border-b border-white/40 text-white hover:border-white transition-colors inline-block"
+                    >
+                      {resource.cta} →
+                    </a>
+                  )}
+                </div>
               </div>
 
-              {/* Footer - Specs and CTA */}
-              <div className="mt-4 sm:mt-6 flex items-center justify-between">
+              {/* Footer - Specs and CTA (Desktop Only) */}
+              <div className="hidden md:flex mt-6 flex items-center justify-between">
                 <span className="text-[9px] sm:text-[10px] tracking-editorial uppercase text-foreground/60">
                   {resource.specs}
                 </span>

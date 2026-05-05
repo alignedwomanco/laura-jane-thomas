@@ -258,24 +258,24 @@ export default function ResetRoom() {
           </div>
         </section>
 
+        {/* ── 5. OFFERINGS — ACCORDION CARDS ───────────────────────────────── */}
+        <style>{`
+          @keyframes pulse-arrow {
+            0%, 100% { transform: translateY(0); opacity: 0.7; }
+            50% { transform: translateY(4px); opacity: 1; }
+          }
+          .offerings-card { transition: background-color 200ms ease; }
+          .offerings-card:hover { background-color: rgba(242, 235, 224, 0.08); }
+          .offerings-arrow { animation: pulse-arrow 1.8s ease-in-out infinite; }
+          .offerings-arrow.expanded { animation: none; }
+        `}</style>
+        
+        <section style={{ backgroundColor: "rgba(245,241,236,0.5)", maxWidth: "1400px", margin: "0 auto", padding: "0 24px", paddingTop: "24px", paddingBottom: "96px" }}>
+          <OfferingsAccordion />
+        </section>
+
         </div>{/* end shared cream overlay */}
       </div>
-
-      {/* ── 5. OFFERINGS — ACCORDION CARDS ───────────────────────────────── */}
-      <style>{`
-        @keyframes pulse-arrow {
-          0%, 100% { transform: translateY(0); opacity: 0.7; }
-          50% { transform: translateY(4px); opacity: 1; }
-        }
-        .offerings-card { transition: background-color 200ms ease; }
-        .offerings-card:hover { background-color: rgba(242, 235, 224, 0.08); }
-        .offerings-arrow { animation: pulse-arrow 1.8s ease-in-out infinite; }
-        .offerings-arrow.expanded { animation: none; }
-      `}</style>
-      
-      <section style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
-        <OfferingsAccordion />
-      </section>
 
       {/* ── 6. FINAL CLOSE ──────────────────────────────────────────────── */}
       <section

@@ -231,40 +231,43 @@ export default function OfferingsAccordion() {
                 </div>
 
                 {/* What's Included */}
-                <p
-                  style={{
-                    fontFamily: "Inter, system-ui, sans-serif",
-                    fontWeight: 600,
-                    fontSize: "11px",
-                    letterSpacing: "0.28em",
-                    textTransform: "uppercase",
-                    color: offering.textColor,
-                    opacity: isDark ? 0.6 : 0.66,
-                    margin: "24px 0 16px",
-                  }}
-                >
-                  What's Included
-                </p>
-                <div style={{ maxWidth: "640px", margin: "0 auto 24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                  {offering.includedItems.map((item, i) => (
-                    <p
-                      key={i}
-                      style={{
-                        fontFamily: "Inter, system-ui, sans-serif",
-                        fontSize: "14px",
-                        lineHeight: "1.85",
-                        color: offering.textColor,
-                        opacity: isDark ? 0.78 : 0.7,
-                        margin: "0",
-                        display: "flex",
-                        gap: "8px",
-                        alignItems: "flex-start",
-                      }}
-                    >
-                      <span style={{ marginTop: "2px", flexShrink: 0 }}>✓</span>
-                      <span>{item}</span>
-                    </p>
-                  ))}
+                <div style={{ maxWidth: "640px", margin: "24px auto 24px", backgroundColor: "#F2EBE0", borderRadius: "12px", padding: "32px", textAlign: "center" }}>
+                  <p
+                    style={{
+                      fontFamily: "Inter, system-ui, sans-serif",
+                      fontWeight: 600,
+                      fontSize: "11px",
+                      letterSpacing: "0.28em",
+                      textTransform: "uppercase",
+                      color: "#1A1A1A",
+                      opacity: 1,
+                      margin: "0 0 16px 0",
+                    }}
+                  >
+                    What's Included
+                  </p>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                    {offering.includedItems.map((item, i) => (
+                      <p
+                        key={i}
+                        style={{
+                          fontFamily: "Inter, system-ui, sans-serif",
+                          fontSize: "14px",
+                          lineHeight: "1.85",
+                          color: "#1A1A1A",
+                          opacity: 0.7,
+                          margin: "0",
+                          display: "flex",
+                          gap: "8px",
+                          alignItems: "flex-start",
+                          textAlign: "left",
+                        }}
+                      >
+                        <span style={{ marginTop: "2px", flexShrink: 0 }}>✓</span>
+                        <span>{item}</span>
+                      </p>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Bonuses (Senior Advisory only) */}

@@ -344,23 +344,23 @@ export default function ResetRoom() {
               </span>
             </div>
             {/* Body */}
-            <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 24px 96px", textAlign: "center" }}>
-              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: 0.85, letterSpacing: "-0.02em", color: "#000", marginBottom: 32, textTransform: "uppercase" }}>
+            <div style={{ maxWidth: 880, margin: "0 auto", padding: "28px 24px 56px", textAlign: "center" }}>
+              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: 0.85, letterSpacing: "-0.02em", color: "#000", marginBottom: 24, textTransform: "uppercase" }}>
                 The Recalibration{" "}
                 <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Intensive</span>
               </h2>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: 1.2, maxWidth: 640, margin: "0 auto 32px", color: "#333" }}>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: 1.1, maxWidth: 640, margin: "0 auto 24px", color: "#333" }}>
                 Some decisions are too important to figure out slowly.
               </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "#555", marginBottom: 16 }}>
+              <div style={{ maxWidth: 640, margin: "0 auto 24px" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.5, color: "#555", marginBottom: 12 }}>
                   A private one-day intensive for the woman who already knows what is not working, and needs to make her next move with senior strategic clarity rather than another six months of trying to figure it out alone.
                 </p>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "#555" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.5, color: "#555" }}>
                   This is the offering for the threshold moment. The decision about whether to leave. The decision about what to build. The decision about which version of the next chapter is the one to commit to. Held in one structured day, with the senior strategic and embodied work running in the same conversation.
                 </p>
               </div>
-              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "#666", margin: "32px 0 20px" }}>
+              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "#666", margin: "24px 0 16px" }}>
                 What's Included
               </p>
               <div style={{ maxWidth: 640, margin: "0 auto 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
@@ -376,7 +376,7 @@ export default function ResetRoom() {
                   </p>
                 ))}
               </div>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "#000", maxWidth: 640, margin: "0 auto 40px" }}>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "#000", maxWidth: 640, margin: "0 auto 28px" }}>
                 The Recalibration Intensive is for the woman who is ready to move. Not ready to commit to a 90-day engagement. Ready to make the next decision properly.
               </p>
               <Link

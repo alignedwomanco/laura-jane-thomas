@@ -91,7 +91,7 @@ export default function ResetRoom() {
         </motion.div>
 
         {/* Press Marquee at bottom of hero */}
-        <div className="absolute bottom-0 left-0 right-0 w-full z-10">
+        <div className="absolute bottom-8 md:bottom-12 left-0 right-0 w-full z-10 px-6 lg:px-12">
           <PressMarquee isDark={true} />
         </div>
       </section>

@@ -29,24 +29,31 @@ const outlets = [
 
 export default function PressMarquee({ isDark = false }) {
   return (
-    <div className={`overflow-hidden ${isDark ? 'bg-gradient-to-t from-black/40 to-black/0' : 'bg-transparent'}`}>
-      <div className="marquee whitespace-nowrap">
-        {Array.from({ length: 2 }).map((_, i) => (
-          <div key={i} className="flex items-center gap-32 md:gap-48 pr-32 md:pr-48 py-6 md:py-6">
-            {outlets.map((o, j) => (
-              <img
-                key={`${i}-${j}`}
-                src={o.logo}
-                alt={o.name}
-                className={`h-8 md:h-10 w-auto max-w-[160px] object-contain transition-opacity flex-shrink-0 ${
-                  isDark 
-                    ? 'opacity-70 hover:opacity-100 brightness-0 invert' 
-                    : 'opacity-70 hover:opacity-100'
-                }`}
-              />
-            ))}
-          </div>
-        ))}
+    <div>
+      {isDark && (
+        <p className="text-center text-[10px] tracking-editorial uppercase text-ivory/70 mb-4 md:mb-6">
+          — As Seen In
+        </p>
+      )}
+      <div className={`overflow-hidden ${isDark ? 'bg-gradient-to-t from-black/40 to-black/0' : 'bg-transparent'}`}>
+        <div className="marquee whitespace-nowrap">
+          {Array.from({ length: 2 }).map((_, i) => (
+            <div key={i} className="flex items-center gap-32 md:gap-48 pr-32 md:pr-48 py-6 md:py-6">
+              {outlets.map((o, j) => (
+                <img
+                  key={`${i}-${j}`}
+                  src={o.logo}
+                  alt={o.name}
+                  className={`h-8 md:h-10 w-auto max-w-[160px] object-contain transition-opacity flex-shrink-0 ${
+                    isDark 
+                      ? 'opacity-70 hover:opacity-100 brightness-0 invert' 
+                      : 'opacity-70 hover:opacity-100'
+                  }`}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -106,7 +106,7 @@ export default function SpeakingAccordion() {
                 flexWrap: "wrap",
               }}
             >
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
                 <p
                   style={{
                     fontFamily: "Inter, system-ui, sans-serif",
@@ -124,12 +124,13 @@ export default function SpeakingAccordion() {
                   style={{
                     fontFamily: "Inter, system-ui, sans-serif",
                     fontWeight: 800,
-                    fontSize: "clamp(24px, 5vw, 40px)",
-                    lineHeight: "0.95",
+                    fontSize: "clamp(20px, 4vw, 40px)",
+                    lineHeight: "1.0",
                     letterSpacing: "-0.02em",
                     textTransform: "uppercase",
                     color: headerTextColor,
                     margin: "0",
+                    wordBreak: "break-word",
                   }}
                 >
                   {dropdown.title}{" "}
@@ -141,30 +142,32 @@ export default function SpeakingAccordion() {
                 </h3>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", marginLeft: "24px", flexShrink: 0 }}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", marginLeft: "clamp(12px, 3vw, 24px)", flexShrink: 0 }}>
                 <p
                   style={{
                     fontFamily: "Inter, system-ui, sans-serif",
                     fontWeight: 500,
-                    fontSize: "11px",
+                    fontSize: "9px",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
                     color: headerTextColor,
                     opacity: 0.7,
                     margin: "0",
                     textAlign: "center",
+                    whiteSpace: "nowrap",
                   }}
                 >
-                  {isExpanded ? "Click to close" : "More info"}
+                  {isExpanded ? "Close" : "Info"}
                 </p>
                 <ChevronDown
                   style={{
-                    width: "20px",
-                    height: "20px",
+                    width: "18px",
+                    height: "18px",
                     color: headerTextColor,
                     opacity: 0.7,
                     transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
                     transition: "transform 300ms ease",
+                    flexShrink: 0,
                   }}
                 />
               </div>

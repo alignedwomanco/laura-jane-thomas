@@ -123,26 +123,17 @@ export default function ResetRoom() {
               className="text-white leading-[1.15] tracking-tight mb-10"
               style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 5vw, 4rem)" }}
             >
-              Most women aren't stuck.
+              You have the answers.
               <br />
-              <span className="italic" style={{ color: "rgba(255,255,255,0.6)" }}>They're misaligned.</span>
+              <span className="italic" style={{ color: "rgba(255,255,255,0.6)" }}>I'm just going to help you find them.</span>
             </motion.p>
 
             <motion.div {...fadeUp(0.1)} className="space-y-6 text-white/65 text-base leading-relaxed">
               <p>
-                I know what it feels like to look like you have it all and not feel the joy that is supposed to come with it.
-              </p>
-              <p>
-                When the gap between who you are and who you want to be becomes too big, the cracks start to form. Quietly at first. Then everywhere. The schedule looks right and feels wrong. The success was built on a structure that was never honest about what you actually wanted. The capacity has outgrown the life around it.
-              </p>
-              <p>
-                That gap is the misalignment. And the misalignment is what causes the burnout, the unhappiness, the confusion that does not have a clean name. It does not announce itself. It accumulates.
-              </p>
-              <p>
-                The work I do is the work of seeing the misalignment clearly. And then rebuilding what comes next on a foundation that is honest. Not because the old life was wrong. Because the woman who built it has outgrown it.
+                You will leave the work feeling the most confident, aligned, and clear you have ever felt. Guaranteed.
               </p>
               <p className="text-white/80 italic" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1rem, 1.6vw, 1.15rem)" }}>
-                This is the work I have done with women globally through The A.L.I.V.E. Method. Five stages. Embodied, structured, and built to last.
+                The A.L.I.V.E. Method. Fifteen years of commercial experience. NLP. Real tools. Fast results.
               </p>
             </motion.div>
           </div>

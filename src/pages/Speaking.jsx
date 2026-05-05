@@ -202,8 +202,8 @@ export default function Speaking() {
       </section>
 
       {/* Who I am */}
-      <section className="bg-ivory py-24 md:py-36 relative">
-        <div className="absolute inset-0 bg-oxblood/5" />
+      <section className="bg-oxblood py-24 md:py-36 relative">
+        <div className="absolute inset-0" />
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="aspect-[3/4] overflow-hidden bg-oxblood rounded-lg max-w-sm">
             <img src="https://laurajanethomas.biz/wp-content/uploads/2026/02/C39D33B6-CEBB-4963-9550-4913F3A54680-1024x997.png" alt="Laura speaking" className="w-full h-full object-cover" />

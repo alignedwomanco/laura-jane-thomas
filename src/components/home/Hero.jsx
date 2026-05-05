@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import PressMarquee from "./PressMarquee";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-oxblood text-ivory overflow-hidden pt-20">
+    <section className="relative min-h-screen bg-oxblood text-ivory overflow-hidden pt-20 pb-40 md:pb-56">
       {/* Video background */}
       <video
         autoPlay
@@ -71,7 +72,10 @@ export default function Hero() {
         </motion.div>
       </div>
 
-
+      {/* Press Marquee at bottom of hero */}
+      <div className="absolute bottom-8 md:bottom-12 left-0 right-0 w-full z-10 px-6 lg:px-12">
+        <PressMarquee isDark={true} isInHero={true} />
+      </div>
     </section>
   );
 }

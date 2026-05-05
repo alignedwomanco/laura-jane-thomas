@@ -27,15 +27,15 @@ const outlets = [
   },
 ];
 
-export default function PressMarquee({ isDark = false }) {
+export default function PressMarquee({ isDark = false, isInHero = false }) {
   return (
-    <div>
+    <div className={isInHero ? "bg-transparent" : ""}>
       {isDark && (
         <p className="text-center text-[10px] tracking-editorial uppercase text-ivory/70 mb-4 md:mb-6">
           — As Seen In
         </p>
       )}
-      <div className="overflow-hidden bg-transparent">
+      <div className="overflow-hidden bg-transparent!important">
         <div className="marquee whitespace-nowrap">
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex items-center gap-32 md:gap-48 pr-32 md:pr-48 py-6 md:py-6">

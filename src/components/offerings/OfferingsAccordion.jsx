@@ -231,7 +231,7 @@ export default function OfferingsAccordion() {
                 </div>
 
                 {/* What's Included */}
-                <div style={{ maxWidth: "640px", margin: "24px auto 24px", backgroundColor: "#F2EBE0", borderRadius: "12px", padding: "32px", textAlign: "center" }}>
+                <div style={{ maxWidth: "640px", margin: "24px auto 24px", backgroundColor: offering.id === "intensive" ? "#935170" : "#F2EBE0", borderRadius: "12px", padding: "32px", textAlign: "center" }}>
                   <p
                     style={{
                       fontFamily: "Inter, system-ui, sans-serif",
@@ -239,7 +239,7 @@ export default function OfferingsAccordion() {
                       fontSize: "11px",
                       letterSpacing: "0.28em",
                       textTransform: "uppercase",
-                      color: "#1A1A1A",
+                      color: offering.id === "intensive" ? "rgba(242,235,224,1)" : "#1A1A1A",
                       opacity: 1,
                       margin: "0 0 16px 0",
                     }}
@@ -254,8 +254,8 @@ export default function OfferingsAccordion() {
                           fontFamily: "Inter, system-ui, sans-serif",
                           fontSize: "14px",
                           lineHeight: "1.85",
-                          color: "#1A1A1A",
-                          opacity: 0.7,
+                          color: offering.id === "intensive" ? "rgba(242,235,224,0.85)" : "#1A1A1A",
+                          opacity: 1,
                           margin: "0",
                           display: "flex",
                           gap: "8px",

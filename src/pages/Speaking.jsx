@@ -202,7 +202,7 @@ export default function Speaking() {
       </section>
 
       {/* Who I am */}
-      <section className="bg-oxblood py-24 md:py-36 relative overflow-hidden">
+      <section className="bg-oxblood py-16 md:py-24 relative overflow-hidden">
         <video
           autoPlay
           muted

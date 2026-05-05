@@ -258,7 +258,7 @@ export default function ResetRoom() {
       {/* ── 4. ALIVE METHOD ─────────────────────────────────────────────── */}
       <section className="py-24 md:py-36 px-6" style={{ backgroundColor: "#F5EEE4" }}>
         <div className="max-w-[1200px] mx-auto">
-          <motion.div {...fadeUp(0)} className="mb-20">
+          <motion.div {...fadeUp(0)} className="mb-20 text-center">
             <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>
               — The Methodology
             </p>

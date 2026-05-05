@@ -49,7 +49,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-12 md:mt-16 grid md:grid-cols-[1fr_auto_1fr] items-end gap-6 md:gap-10 text-center md:text-left"
         >
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 justify-center md:justify-start">
             <span className="font-serif italic text-3xl md:text-4xl">15+</span>
             <span className="text-[10px] tracking-editorial uppercase text-ivory/70 max-w-[160px] leading-relaxed">
               Years scaling<br />global brands

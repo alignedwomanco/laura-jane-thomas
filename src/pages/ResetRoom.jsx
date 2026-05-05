@@ -143,47 +143,34 @@ export default function ResetRoom() {
           }} />
         </div>
 
-        {/* Content — pushed to right half */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-28 md:py-44 flex justify-end">
-          <div className="w-full lg:w-1/2">
+        {/* Content — centred */}
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-28 md:py-44 flex justify-center">
+          <div className="w-full max-w-3xl text-center">
             <motion.p
               {...fadeUp(0)}
-              className="text-white leading-[1.2] tracking-tight mb-10"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+              className="text-white leading-[1.15] tracking-tight mb-10"
+              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 5vw, 4rem)" }}
             >
-              Most women aren't stuck.{" "}
-              <span className="italic" style={{ color: "rgba(255,255,255,0.6)" }}>They're being drained.</span>
+              Most women aren't stuck.
+              <br />
+              <span className="italic" style={{ color: "rgba(255,255,255,0.6)" }}>They're misaligned.</span>
             </motion.p>
 
-            <motion.p {...fadeUp(0.1)} className="text-white/60 text-lg leading-relaxed mb-8">
-              Drained of energy, money and power without even knowing it.
-            </motion.p>
-
-            <motion.div {...fadeUp(0.15)} className="border-l-2 pl-8 mb-10 space-y-3" style={{ borderColor: BRAND }}>
-              {[
-                "Overthinking every decision.",
-                "Second guessing your pricing.",
-                "Saying yes when you should be setting boundaries.",
-                "Building a business that technically works but exhausts you.",
-              ].map((line) => (
-                <p key={line} className="text-white/70 text-lg" style={{ fontFamily: "var(--font-serif)" }}>
-                  {line}
-                </p>
-              ))}
-            </motion.div>
-
-            <motion.div {...fadeUp(0.2)} className="space-y-5">
-              <p className="text-white text-xl leading-relaxed" style={{ fontFamily: "var(--font-serif)" }}>
-                I help women see what is actually costing them energy, money, and power.
+            <motion.div {...fadeUp(0.1)} className="space-y-6 text-white/65 text-base leading-relaxed">
+              <p>
+                I know what it feels like to look like you have it all and not feel the joy that is supposed to come with it.
               </p>
-              <p className="text-white/60 text-base leading-relaxed">
-                The patterns, behaviours and decisions that are holding everything back.
-                <br />
-                We uncover it, shift it and rebuild properly.
+              <p>
+                When the gap between who you are and who you want to be becomes too big, the cracks start to form. Quietly at first. Then everywhere. The schedule looks right and feels wrong. The success was built on a structure that was never honest about what you actually wanted. The capacity has outgrown the life around it.
               </p>
-              <p className="text-white/50 text-sm leading-relaxed pt-2">
-                Through my signature ALIVE Method™, I combine NLP techniques, Human Design,
-                and 15+ years of leading global brands to create results that are both strategic and deeply aligned.
+              <p>
+                That gap is the misalignment. And the misalignment is what causes the burnout, the unhappiness, the confusion that does not have a clean name. It does not announce itself. It accumulates.
+              </p>
+              <p>
+                The work I do is the work of seeing the misalignment clearly. And then rebuilding what comes next on a foundation that is honest. Not because the old life was wrong. Because the woman who built it has outgrown it.
+              </p>
+              <p className="text-white/80 italic" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1rem, 1.6vw, 1.15rem)" }}>
+                This is the work I have done with women globally through The A.L.I.V.E. Method. Five stages. Embodied, structured, and built to last.
               </p>
             </motion.div>
           </div>

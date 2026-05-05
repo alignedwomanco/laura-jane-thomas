@@ -15,20 +15,7 @@ const aliveMethod = [
   { letter: "E", word: "Embodiment",       short: "This is who you are now.", desc: "The integration. The work of becoming the woman who can hold the next chapter, in her body, her decisions, and her relationships." },
 ];
 
-const offers = [
-  {
-    title: "1:1 Private Mentorship",
-    lines: [
-      "This is where we go deeper.",
-      "We work through the patterns shaping your decisions, refine your offers and messaging, and build a business that supports your life.",
-      "High level. Personalised. Transformational.",
-    ],
-    cta: "Apply for Private Mentorship",
-    image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/Group-48095914.png",
-    reverse: true,
-    bg: "#FFFFFF",
-  },
-];
+
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -391,53 +378,81 @@ export default function ResetRoom() {
         </div>
       </section>
 
-      {/* ── 5c. OFFERS ───────────────────────────────────────────────────── */}
-      {offers.map((offer, i) => (
-        <section key={offer.title} className="py-24 md:py-36" style={{ backgroundColor: offer.bg }}>
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-            <div className="max-w-2xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, x: offer.reverse ? -40 : 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.1, delay: 0.15 }}
+      {/* ── 5c. SENIOR ADVISORY ──────────────────────────────────────────── */}
+      <section className="py-24 md:py-36" style={{ backgroundColor: "#FFFFFF" }}>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="max-w-2xl mx-auto">
+            <motion.div {...fadeUp(0)}>
+              <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— The Offering / Flagship</p>
+              <div className="mb-8" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
+              <h2
+                className="leading-[0.95] tracking-tight mb-4"
+                style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 4vw, 4rem)", color: "#1A1A1A" }}
               >
-                <div className="mb-8" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
-                <h2
-                  className="leading-[0.95] tracking-tight mb-8"
-                  style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 4vw, 4rem)", color: "#1A1A1A" }}
-                >
-                  {offer.title}
-                </h2>
-                <div className="space-y-4 mb-10">
-                  {offer.lines.map((line, j) => (
-                    <p
-                      key={j}
-                      className={j === 0 ? "text-xl italic" : "text-base leading-relaxed"}
-                      style={{
-                        fontFamily: j === 0 ? "var(--font-serif)" : "var(--font-sans)",
-                        color: j === 0 ? "#1A1A1A" : "rgba(26,26,26,0.60)",
-                      }}
-                    >
-                      {line}
-                    </p>
-                  ))}
-                </div>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-3 border px-8 py-4 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
-                  style={{ borderColor: "#1A1A1A", color: "#1A1A1A" }}
-                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#1A1A1A"; e.currentTarget.style.color = "white"; }}
-                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#1A1A1A"; }}
-                >
-                  {offer.cta}
-                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                </Link>
-              </motion.div>
-            </div>
+                The Senior Advisory
+              </h2>
+              <p
+                className="text-xl italic mb-8 leading-snug"
+                style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}
+              >
+                For the woman ready to build the next chapter properly, not piece by piece.
+              </p>
+              <div className="space-y-4 mb-10">
+                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                  A 90-day private engagement for ambitious women building what is next. Whether that is leaving corporate, evolving the business you have built, or building the life your higher self would be proud of.
+                </p>
+                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                  This is the work that sits underneath the next decade of your life. The senior advisory you have never given yourself. We hold the structural work and the embodied work in the same conversation, and we build the architecture for what comes next on a foundation that is honest about what you actually want.
+                </p>
+              </div>
+              <p className="text-[11px] tracking-editorial uppercase mb-4" style={{ color: "#1A1A1A" }}>What's Included</p>
+              <ul className="space-y-3 mb-10">
+                {[
+                  "A senior diagnostic intake and a written Misalignment Diagnostic, so the engagement opens at depth.",
+                  "Six 60-minute strategic sessions over 90 days, structured around the specific architecture of what you are building.",
+                  "A 90-Day Priority Structure that integrates business, capacity, and life into one operating system.",
+                  "A Renegotiated Standards Document, capturing the actual non-negotiables of who you are now.",
+                  "A System Renegotiation Session, for the conversations with the people in your life that have to happen as you become the woman who can hold this.",
+                  "Strategic async support throughout, so you are never building alone in the in-between weeks.",
+                  "A Forward Roadmap Session at the close, so the work continues when the engagement ends.",
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                    <span className="mt-1.5 flex-shrink-0" style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: BRAND, display: "inline-block" }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[11px] tracking-editorial uppercase mb-4" style={{ color: "#1A1A1A" }}>Included Bonuses</p>
+              <ul className="space-y-3 mb-10">
+                {[
+                  "A pre-engagement strategy briefing in the week before we start.",
+                  "Three Aligned Woman Blueprint seats inside The Aligned Woman Co., to share with the women in your life.",
+                  "A Quarterly Roundtable invitation, for ongoing connection with women doing this work at the same altitude.",
+                  "A 12-month strategic check-in.",
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                    <span className="mt-1.5 flex-shrink-0" style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: BRAND, display: "inline-block" }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-base leading-relaxed italic mb-10" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>
+                The Senior Advisory runs with a small number of women per quarter, by design. Privacy is assumed. The work is direct, structured, and built to last.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 border px-8 py-4 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
+                style={{ borderColor: "#1A1A1A", color: "#1A1A1A" }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#1A1A1A"; e.currentTarget.style.color = "white"; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#1A1A1A"; }}
+              >
+                Apply For The Senior Advisory
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+            </motion.div>
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
 
       {/* ── 6. FINAL CLOSE ──────────────────────────────────────────────── */}
       <section

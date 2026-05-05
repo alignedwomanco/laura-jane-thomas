@@ -272,7 +272,7 @@ export default function OfferingsAccordion() {
 
                 {/* Bonuses (Senior Advisory only) */}
                 {offering.bonuses && (
-                  <>
+                  <div style={{ maxWidth: "640px", margin: "24px auto 24px", backgroundColor: "#F2EBE0", borderRadius: "12px", padding: "32px", textAlign: "center" }}>
                     <p
                       style={{
                         fontFamily: "Inter, system-ui, sans-serif",
@@ -280,14 +280,14 @@ export default function OfferingsAccordion() {
                         fontSize: "11px",
                         letterSpacing: "0.28em",
                         textTransform: "uppercase",
-                        color: offering.textColor,
-                        opacity: isDark ? 0.6 : 0.66,
-                        margin: "24px 0 16px",
+                        color: "#1A1A1A",
+                        opacity: 1,
+                        margin: "0 0 16px 0",
                       }}
                     >
                       Included Bonuses
                     </p>
-                    <div style={{ maxWidth: "640px", margin: "0 auto 24px" }}>
+                    <div>
                       {offering.bonuses.map((bonus, i) => (
                         <p
                           key={i}
@@ -295,16 +295,17 @@ export default function OfferingsAccordion() {
                             fontFamily: "Inter, system-ui, sans-serif",
                             fontSize: "14px",
                             lineHeight: "1.85",
-                            color: offering.textColor,
-                            opacity: isDark ? 0.78 : 0.7,
-                            marginBottom: i < offering.bonuses.length - 1 ? "4px" : "0",
+                            color: "#1A1A1A",
+                            opacity: 0.7,
+                            marginBottom: i < offering.bonuses.length - 1 ? "8px" : "0",
+                            textAlign: "left",
                           }}
                         >
                           {bonus}
                         </p>
                       ))}
                     </div>
-                  </>
+                  </div>
                 )}
 
                 {/* Closing Line */}

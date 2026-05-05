@@ -265,7 +265,7 @@ export default function ResetRoom() {
 
         {/* Panel 1: The Alignment Audit */}
         <div style={{
-          backgroundColor: "#4A2730",
+          backgroundColor: "#935170",
           position: "sticky",
           top: 0,
           zIndex: 1,
@@ -326,7 +326,7 @@ export default function ResetRoom() {
 
         {/* Panel 2: The Recalibration Intensive */}
         <div style={{
-          backgroundColor: "#3A0E1A",
+          backgroundColor: "#935170",
           position: "sticky",
           top: 64,
           zIndex: 2,
@@ -387,7 +387,7 @@ export default function ResetRoom() {
 
         {/* Panel 3: The Senior Advisory */}
         <div style={{
-          backgroundColor: "#0D0508",
+          backgroundColor: "#935170",
           position: "sticky",
           top: 128,
           zIndex: 3,

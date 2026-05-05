@@ -202,8 +202,17 @@ export default function Speaking() {
       </section>
 
       {/* Who I am */}
-      <section className="bg-oxblood py-24 md:py-36 relative">
-        <div className="absolute inset-0" />
+      <section className="bg-oxblood py-24 md:py-36 relative overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://pub-ae72b52a458f4edc81594565a9362d8e.r2.dev/talking%20short.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-oxblood/50" />
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center relative z-10">
 
           <div>

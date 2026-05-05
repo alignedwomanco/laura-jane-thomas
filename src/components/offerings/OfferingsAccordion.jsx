@@ -52,7 +52,7 @@ const offerings = [
     label: "The Senior Advisory",
     title: "The Senior",
     titleItalic: "Advisory",
-    color: "#0D0508",
+    color: "#935170",
     textColor: "rgba(242,235,224,1)",
     subtitle: "For the woman ready to build the next chapter properly, not piece by piece.",
     body: [

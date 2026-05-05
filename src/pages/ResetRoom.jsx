@@ -205,6 +205,7 @@ export default function ResetRoom() {
               src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/16e609620_Facetune_17-04-2026-20-07-04.jpg"
               alt="Laura Jane Thomas"
               className="w-full h-full object-cover"
+              style={{ opacity: 0.7 }}
             />
           </motion.div>
 

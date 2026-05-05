@@ -81,11 +81,11 @@ export default function ResetRoom() {
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-4 text-[11px] tracking-editorial uppercase hover:bg-white transition-all duration-400 group btn-pulse"
+            className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-4 text-[11px] tracking-editorial uppercase hover:bg-white transition-all duration-400 group btn-pulse mt-4"
             onMouseEnter={e => { e.currentTarget.style.color = BRAND; }}
             onMouseLeave={e => { e.currentTarget.style.color = "white"; }}
           >
-            Apply For The Senior Advisory
+            Apply To Work With Me
             <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </motion.div>

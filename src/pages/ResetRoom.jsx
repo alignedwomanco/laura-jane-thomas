@@ -268,7 +268,7 @@ export default function ResetRoom() {
             >
               The A.L.I.V.E. Method™
             </h2>
-            <p className="text-base leading-relaxed max-w-2xl" style={{ color: "rgba(26,26,26,0.60)" }}>
+            <p className="text-base leading-relaxed max-w-2xl mx-auto" style={{ color: "rgba(26,26,26,0.60)" }}>
               The five-stage embodied methodology I built for the woman returning to herself. It is the architecture underneath every private engagement. It is also the foundation of The Aligned Woman Co., the platform I built to scale this work to women everywhere.
             </p>
           </motion.div>

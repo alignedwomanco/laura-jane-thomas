@@ -112,6 +112,12 @@ export default function Speaking() {
             >
               <source src="https://pub-a5b7b5d795624ffe98c7799d0aa110c1.r2.dev/laura-reduced.mp4" type="video/mp4" />
             </video>
+            <div className="absolute inset-0 bg-oxblood/30 pointer-events-none" />
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <button className="w-16 h-16 rounded-full bg-ivory flex items-center justify-center hover:scale-110 transition-transform duration-300 pointer-events-auto" onClick={(e) => e.currentTarget.closest('video')?.play()}>
+                <Play className="w-6 h-6 text-oxblood fill-oxblood ml-1" />
+              </button>
+            </div>
           </div>
         </div>
       </section>

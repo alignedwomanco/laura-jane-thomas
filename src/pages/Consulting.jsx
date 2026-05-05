@@ -145,7 +145,7 @@ export default function Consulting() {
       <section className="bg-foreground text-ivory py-64 md:py-80">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">— For Small to Medium Sized Businesses</p>
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-8">
                 for small to <span className="italic block">medium businesses</span>

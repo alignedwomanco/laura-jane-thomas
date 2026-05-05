@@ -8,11 +8,11 @@ import TestimonialsSection from "@/components/shared/TestimonialsSection";
 const BRAND = "#872D5B";
 
 const aliveMethod = [
-  { letter: "A", word: "Awareness",   desc: "See the patterns shaping your reality" },
-  { letter: "L", word: "Liberation",  desc: "Release what is no longer serving you" },
-  { letter: "I", word: "Intention",   desc: "Get clear on what you actually want" },
-  { letter: "V", word: "Vision",      desc: "Build your next level" },
-  { letter: "E", word: "Embodiment",  desc: "Become the woman who can hold it" },
+  { letter: "A", word: "Awareness",        short: "The body is not working against you. It is speaking to you.", desc: "The first stage is seeing what is actually happening, in the body, in the life, in the patterns you have stopped noticing." },
+  { letter: "L", word: "Liberation",       short: "You do not have to live in survival mode anymore.", desc: "The work of releasing the nervous system patterns that have been running you, often for decades." },
+  { letter: "I", word: "Intentional Action", short: "You think differently, so you choose differently.", desc: "The shift from reaction to decision. From operating on inherited rules to operating on your own." },
+  { letter: "V", word: "Vision",           short: "What do you actually want?", desc: "The clearest, hardest question. Most women have never been asked it without conditions attached. We answer it here." },
+  { letter: "E", word: "Embodiment",       short: "This is who you are now.", desc: "The integration. The work of becoming the woman who can hold the next chapter, in her body, her decisions, and her relationships." },
 ];
 
 const offers = [
@@ -260,17 +260,16 @@ export default function ResetRoom() {
         <div className="max-w-[1200px] mx-auto">
           <motion.div {...fadeUp(0)} className="mb-20">
             <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>
-              The Signature Framework
+              — The Methodology
             </p>
             <h2
               className="text-white leading-[0.95] tracking-tight mb-6"
               style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3rem, 6vw, 6rem)" }}
             >
-              The ALIVE Method™
+              The A.L.I.V.E. Method™
             </h2>
-            <p className="text-white/50 text-base leading-relaxed max-w-xl">
-              A proven method that helps women break through limiting beliefs, become deeply aware of what is holding them back,
-              and create results that are both sustainable and aligned.
+            <p className="text-white/60 text-base leading-relaxed max-w-2xl">
+              The five-stage embodied methodology I built for the woman returning to herself. It is the architecture underneath every private engagement. It is also the foundation of The Aligned Woman Co., the platform I built to scale this work to women everywhere.
             </p>
           </motion.div>
 
@@ -290,8 +289,9 @@ export default function ResetRoom() {
                 >
                   {item.letter}
                 </span>
-                <p className="text-white text-lg font-serif mb-3">{item.word}</p>
-                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-white text-lg font-serif mb-2">{item.word}</p>
+                <p className="text-white/80 text-sm italic leading-snug mb-3" style={{ fontFamily: "var(--font-serif)" }}>{item.short}</p>
+                <p className="text-white/45 text-xs leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>

@@ -81,19 +81,19 @@ export default function ResetRoom() {
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-4 text-[11px] tracking-editorial uppercase hover:bg-white transition-all duration-400 group btn-pulse mt-4"
+            className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-4 text-[11px] tracking-editorial uppercase hover:bg-white transition-all duration-400 group btn-pulse mt-4 mb-12"
             onMouseEnter={e => { e.currentTarget.style.color = BRAND; }}
             onMouseLeave={e => { e.currentTarget.style.color = "white"; }}
           >
             Apply To Work With Me
             <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
           </Link>
-        </motion.div>
 
-        {/* Press Marquee at bottom of hero */}
-        <div className="absolute bottom-8 md:bottom-12 left-0 right-0 w-full z-10 px-6 lg:px-12">
-          <PressMarquee isDark={true} />
-        </div>
+          {/* Press Marquee below button */}
+          <div className="relative z-10 w-full px-6 lg:px-12">
+            <PressMarquee isDark={true} />
+          </div>
+        </motion.div>
       </section>
 
       {/* ── 3. DARK INTEGRATED ──────────────────────────────────────────── */}

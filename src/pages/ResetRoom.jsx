@@ -17,19 +17,6 @@ const aliveMethod = [
 
 const offers = [
   {
-    title: "The Alignment Audit™",
-    lines: [
-      "You don't need another program.",
-      "You need to see what is actually going on.",
-      "This session identifies exactly where you are being drained and what needs to shift.",
-      "You leave with clarity, direction, and next steps you can trust.",
-    ],
-    cta: "Book Your Alignment Audit",
-    image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/LauraJThomas24-11-2025-09-52-50-1.png",
-    reverse: false,
-    bg: "#F5F1EC",
-  },
-  {
     title: "1:1 Private Mentorship",
     lines: [
       "This is where we go deeper.",
@@ -298,7 +285,66 @@ export default function ResetRoom() {
         </div>{/* end shared cream overlay */}
       </div>
 
-      {/* ── 5. OFFERS ───────────────────────────────────────────────────── */}
+      {/* ── 5a. ALIGNMENT AUDIT ─────────────────────────────────────────── */}
+      <section className="py-24 md:py-36" style={{ backgroundColor: "#F5F1EC" }}>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="max-w-2xl mx-auto">
+            <motion.div {...fadeUp(0)}>
+              <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— The Offering / Entry</p>
+              <div className="mb-8" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
+              <h2
+                className="leading-[0.95] tracking-tight mb-4"
+                style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 4vw, 4rem)", color: "#1A1A1A" }}
+              >
+                The Alignment Audit™
+              </h2>
+              <p
+                className="text-xl italic mb-8 leading-snug"
+                style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}
+              >
+                You do not need another program. You need to see what is actually going on.
+              </p>
+              <div className="space-y-4 mb-10">
+                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                  A 60-minute structured diagnostic session for the woman who needs to know exactly what is costing her, before she decides what to do about it.
+                </p>
+                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                  Most women at this threshold do not need more inspiration. They need a senior set of eyes on the actual situation, named clearly and held without judgement. The Alignment Audit is the lowest-commitment way to start.
+                </p>
+              </div>
+              <p className="text-[11px] tracking-editorial uppercase mb-4" style={{ color: "#1A1A1A" }}>What's Included</p>
+              <ul className="space-y-3 mb-10">
+                {[
+                  "A pre-audit intake so we are in the diagnostic from the first minute, not the fifteenth.",
+                  "A 60-minute audit session, structured and direct.",
+                  "A written Alignment Diagnostic delivered within 72 hours, capturing what is actually happening and what the next move is.",
+                  "A Senior Advisory path-forward conversation, so you leave knowing whether the deeper work is right for you.",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                    <span className="mt-1.5 flex-shrink-0" style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: BRAND, display: "inline-block" }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-base leading-relaxed italic mb-10" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>
+                This is the diagnostic that decides whether the rest of the work is for you. It is also a complete piece of work in itself.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 border px-8 py-4 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
+                style={{ borderColor: "#1A1A1A", color: "#1A1A1A" }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#1A1A1A"; e.currentTarget.style.color = "white"; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#1A1A1A"; }}
+              >
+                Book Your Alignment Audit
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5b. OFFERS ───────────────────────────────────────────────────── */}
       {offers.map((offer, i) => (
         <section key={offer.title} className="py-24 md:py-36" style={{ backgroundColor: offer.bg }}>
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">

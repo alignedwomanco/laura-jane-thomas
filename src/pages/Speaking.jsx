@@ -266,6 +266,128 @@ export default function Speaking() {
         </div>
       </section>
 
+      {/* Speaking Testimonials */}
+      <section className="bg-ivory py-24 md:py-36">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="grid md:grid-cols-3 gap-12 mb-16">
+            {/* Testimonial 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
+                <svg viewBox="0 0 120 120" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
+                  <g>
+                    {/* Left wreath */}
+                    <path d="M20 60 Q15 50 20 40 Q25 35 30 40 Q28 50 25 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
+                    <path d="M25 35 Q20 30 25 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                    <path d="M30 40 Q35 30 40 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                    {/* Right wreath */}
+                    <path d="M100 60 Q105 50 100 40 Q95 35 90 40 Q92 50 95 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
+                    <path d="M95 35 Q100 30 95 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                    <path d="M90 40 Q85 30 80 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                  </g>
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">Guest Keynote</p>
+                  <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">Big5Digital</p>
+                  <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">2024</p>
+                </div>
+              </div>
+              <p className="font-serif italic text-lg text-foreground mb-6 leading-relaxed">
+                "Laura's talk on The Hidden Tax on Female Leadership made me think differently about where I am in my life and my work. It gave me real insight, real confidence, and I wish it had been longer."
+              </p>
+              <p className="text-sm font-semibold text-foreground">Big5Digital</p>
+            </motion.div>
+
+            {/* Testimonial 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
+                <svg viewBox="0 0 120 120" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
+                  <g>
+                    {/* Left wreath */}
+                    <path d="M20 60 Q15 50 20 40 Q25 35 30 40 Q28 50 25 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
+                    <path d="M25 35 Q20 30 25 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                    <path d="M30 40 Q35 30 40 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                    {/* Right wreath */}
+                    <path d="M100 60 Q105 50 100 40 Q95 35 90 40 Q92 50 95 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
+                    <path d="M95 35 Q100 30 95 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                    <path d="M90 40 Q85 30 80 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                  </g>
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">Women's Day</p>
+                  <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">EY</p>
+                  <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Keynote · Panel</p>
+                </div>
+              </div>
+              <p className="font-serif italic text-lg text-foreground mb-6 leading-relaxed">
+                "To the most amazing speaker and panellist, on behalf of the D&I team and EY, thank you for helping make our Women's Day celebration a huge success."
+              </p>
+              <p className="text-sm font-semibold text-foreground">Clayton Jordy Fowlds</p>
+              <p className="text-xs text-muted-foreground">D&I Team, EY</p>
+            </motion.div>
+
+            {/* Testimonial 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
+                <svg viewBox="0 0 120 120" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
+                  <g>
+                    {/* Left wreath */}
+                    <path d="M20 60 Q15 50 20 40 Q25 35 30 40 Q28 50 25 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
+                    <path d="M25 35 Q20 30 25 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                    <path d="M30 40 Q35 30 40 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                    {/* Right wreath */}
+                    <path d="M100 60 Q105 50 100 40 Q95 35 90 40 Q92 50 95 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
+                    <path d="M95 35 Q100 30 95 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                    <path d="M90 40 Q85 30 80 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
+                  </g>
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">H2H Workshop</p>
+                  <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">Oracle</p>
+                  <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Marketing Team</p>
+                </div>
+              </div>
+              <p className="font-serif italic text-lg text-foreground mb-6 leading-relaxed">
+                "The teams thoroughly enjoyed and were engaged in your H2H workshop. They even stayed overtime. Thank you for such a fantastic session."
+              </p>
+              <p className="text-sm font-semibold text-foreground">Cathy Stadler</p>
+              <p className="text-xs text-muted-foreground">Director of Marketing, Oracle</p>
+            </motion.div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-foreground/15 my-16" />
+
+          {/* CTA */}
+          <div className="flex justify-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-3 bg-ivory border border-oxblood text-oxblood px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-oxblood hover:text-ivory transition-all duration-300 group"
+            >
+              Book Me To Speak
+              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <TestimonialsSection />
       <CtaBanner headline={<>Book me<br /><span className="italic">to speak</span></>} cta="Book Me To Speak" href="/contact" />
       <Footer />

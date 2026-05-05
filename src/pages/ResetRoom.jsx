@@ -261,19 +261,29 @@ export default function ResetRoom() {
       </div>
 
       {/* ── 5. OFFERINGS — SCROLL-STACKED PANELS ────────────────────────── */}
-      {/* Each panel wrapper must be tall enough that the sticky panel has room
-          to "sit" while the user reads the full content before the next panel
-          slides in. We use minHeight: calc(100vh + 200vh) as a generous wrapper
-          so even the tallest panel (Senior Advisory) is fully scrollable. */}
-      <div style={{ position: "relative" }}>
+      {/*
+        Architecture: each panel lives in its own tall "track" div.
+        The track must be taller than the sticky panel so sticky has
+        scroll-distance to engage. We use paddingBottom on the track
+        (NOT minHeight on the sticky child equal to the track) so the
+        browser sees a real content gap. The sticky panel itself uses
+        height: auto so it sizes to its own content.
 
-        {/* Panel 1 — The Alignment Audit */}
-        <div style={{ minHeight: "calc(100vh + 120vh)", position: "relative" }}>
+        Overflow rule: NO overflow other than "visible" on any ancestor
+        of a sticky element. The sticky panels themselves use
+        overflow: hidden only for border-radius — that is on the sticky
+        element itself, which is allowed.
+
+        The outer wrapper uses display: block (no flex).
+      */}
+      <div style={{ display: "block" }}>
+
+        {/* ── Track 1 ── must be taller than the panel for sticky to engage */}
+        <div style={{ minHeight: "250vh" }}>
           <div style={{
             position: "sticky",
             top: 0,
             zIndex: 1,
-            minHeight: "100vh",
             backgroundColor: "#4A2730",
             borderTopLeftRadius: 24,
             borderTopRightRadius: 24,
@@ -330,13 +340,12 @@ export default function ResetRoom() {
           </div>
         </div>
 
-        {/* Panel 2 — The Recalibration Intensive */}
-        <div style={{ minHeight: "calc(100vh + 140vh)", position: "relative" }}>
+        {/* ── Track 2 */}
+        <div style={{ minHeight: "250vh" }}>
           <div style={{
             position: "sticky",
             top: 64,
             zIndex: 2,
-            minHeight: "100vh",
             backgroundColor: "#3A0E1A",
             borderTopLeftRadius: 24,
             borderTopRightRadius: 24,
@@ -393,13 +402,12 @@ export default function ResetRoom() {
           </div>
         </div>
 
-        {/* Panel 3 — The Senior Advisory */}
-        <div style={{ minHeight: "calc(100vh + 200vh)", position: "relative" }}>
+        {/* ── Track 3 */}
+        <div style={{ minHeight: "350vh" }}>
           <div style={{
             position: "sticky",
             top: 128,
             zIndex: 3,
-            minHeight: "100vh",
             backgroundColor: "#0D0508",
             borderTopLeftRadius: 24,
             borderTopRightRadius: 24,

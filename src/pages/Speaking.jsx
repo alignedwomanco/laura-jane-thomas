@@ -213,9 +213,9 @@ export default function Speaking() {
           <source src="https://pub-ae72b52a458f4edc81594565a9362d8e.r2.dev/talking%20short.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-oxblood/85" />
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex justify-center relative z-10">
 
-          <div>
+          <div className="text-center max-w-3xl">
             <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-8">— Hi, I'm Laura</p>
             <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8 text-ivory">
               The honest version.

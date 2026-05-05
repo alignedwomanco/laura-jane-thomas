@@ -254,7 +254,7 @@ export default function Speaking() {
       </section>
 
       {/* Where I speak */}
-      <section className="bg-ivory pt-24 md:pt-36 pb-24 md:pb-36">
+      <section className="bg-ivory pt-40 md:pt-56 pb-24 md:pb-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <SpeakingAccordion />
         </div>

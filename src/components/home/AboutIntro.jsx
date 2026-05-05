@@ -36,8 +36,6 @@ export default function AboutIntro() {
             transition={{ duration: 1, delay: 0.15 }}
             className="lg:col-span-5 lg:pt-16"
           >
-            <div className="hairline mb-8 w-full" />
-
             <div className="space-y-6 text-sm md:text-base text-muted-foreground leading-relaxed mb-10 max-w-2xl">
               <p>
                 In a business, the misalignment is between the brand and the commercial reality. The brand says one thing. The numbers tell another. Marketing is busy but not compounding. The founder feels the gap before she can name it.

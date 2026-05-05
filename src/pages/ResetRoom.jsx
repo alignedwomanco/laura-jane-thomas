@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
+import ResourcesSection from "@/components/shared/ResourcesSection";
 import OfferingsAccordion from "@/components/offerings/OfferingsAccordion";
 
 const BRAND = "#26030F";
@@ -341,6 +342,7 @@ export default function ResetRoom() {
       </section>
 
       <TestimonialsSection />
+      <ResourcesSection />
       <Footer />
     </div>
   );

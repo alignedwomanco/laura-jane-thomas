@@ -281,8 +281,8 @@ export default function Speaking() {
                 </a>
               </div>
             </div>
-            <div className="aspect-square overflow-hidden">
-              <img src="https://laurajanethomas.biz/wp-content/uploads/2026/02/mockupapp-1.png" alt="Podcast" className="w-full h-full object-cover" />
+            <div className="aspect-square">
+              <img src="https://laurajanethomas.biz/wp-content/uploads/2026/02/mockupapp-1.png" alt="Podcast" className="w-full h-full object-contain" />
             </div>
           </div>
         </div>

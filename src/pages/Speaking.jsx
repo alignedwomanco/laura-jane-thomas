@@ -46,8 +46,20 @@ export default function Speaking() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-oxblood text-ivory pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section className="relative bg-oxblood text-ivory pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden">
+        {/* Background video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        >
+          <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-oxblood/60" />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">
             — Speaking
           </motion.p>

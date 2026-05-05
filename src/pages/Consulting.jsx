@@ -105,33 +105,33 @@ export default function Consulting() {
       </section>
 
       {/* Corporates */}
-      <section className="bg-ivory py-24 md:py-36">
+      <section className="bg-oxblood text-ivory py-24 md:py-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-10">— For Corporates</p>
+          <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">— For Corporates</p>
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
               <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-8">
                 for <span className="italic">corporates</span>
               </h2>
-              <p className="font-serif italic text-xl text-foreground mb-6 leading-relaxed">
+              <p className="font-serif italic text-xl text-ivory/85 mb-6 leading-relaxed">
                 The bigger the team, the easier it is to lose the strategy.
               </p>
-              <p className="text-[15px] text-muted-foreground leading-relaxed mb-6">
+              <p className="text-[15px] text-ivory/70 leading-relaxed mb-6">
                 When you are deep in the day-to-day, the misalignment is hard to see from the inside. Campaigns drift from the brand. Creative repeats itself. Marketing functions are busy but not compounding. The team is shipping. The numbers are not moving the way they should.
               </p>
-              <p className="text-[15px] text-muted-foreground leading-relaxed">
+              <p className="text-[15px] text-ivory/70 leading-relaxed">
                 This is where senior outside perspective earns its weight. Not another deck. Not another vendor. A senior strategic partner who can hold brand, marketing, and revenue in one conversation, name what is actually wrong, and equip your team to fix it without dismantling what is already working.
               </p>
             </div>
             <div>
-              <p className="text-[11px] tracking-editorial uppercase text-muted-foreground mb-6 border-b border-foreground/15 pb-4">The Offering</p>
+              <p className="text-[11px] tracking-editorial uppercase text-ivory/50 mb-6 border-b border-ivory/20 pb-4">The Offering</p>
               {corporateOffering.map((item, i) => (
                 <AccordionItem key={i} title={item.title}>
-                  <p className="text-[14px] text-muted-foreground leading-relaxed">{item.body}</p>
+                  <p className="text-[14px] text-ivory/70 leading-relaxed">{item.body}</p>
                 </AccordionItem>
               ))}
               <div className="mt-10">
-                <Link to="/contact" className="inline-flex items-center gap-3 bg-foreground text-ivory px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group">
+                <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all duration-300 group">
                   Apply To Work With Me
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                 </Link>

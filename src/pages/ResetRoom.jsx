@@ -300,14 +300,17 @@ export default function ResetRoom() {
               <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>
                 What's Included
               </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
+              <div style={{ maxWidth: 640, margin: "0 auto 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                 {[
                   "A pre-audit intake so we are in the diagnostic from the first minute, not the fifteenth.",
                   "A 60-minute audit session, structured and direct.",
                   "A written Alignment Diagnostic delivered within 72 hours, capturing what is actually happening and what the next move is.",
                   "A Senior Advisory path-forward conversation, so you leave knowing whether the deeper work is right for you.",
                 ].map((item, i) => (
-                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 4 }}>{item}</p>
+                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 0, display: "flex", gap: 8, alignItems: "flex-start" }}>
+                    <span style={{ marginTop: 2, flexShrink: 0 }}>✓</span>
+                    <span>{item}</span>
+                  </p>
                 ))}
               </div>
               <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "rgba(242,235,224,1)", maxWidth: 640, margin: "0 auto 40px" }}>
@@ -361,14 +364,17 @@ export default function ResetRoom() {
               <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "#666", margin: "32px 0 20px" }}>
                 What's Included
               </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
+              <div style={{ maxWidth: 640, margin: "0 auto 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                 {[
                   "A pre-intensive intake so the day opens at depth, not at introductions.",
                   "A full day of private strategic work, structured around the specific decision or threshold you are sitting in.",
                   "A written Recalibration Map delivered within five days, capturing the decision architecture, the priorities, and the next 90 days of action.",
                   "A 30-day strategic check-in, so the work holds when you are back in your life.",
                 ].map((item, i) => (
-                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "#555", marginBottom: 4 }}>{item}</p>
+                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "#555", marginBottom: 0, display: "flex", gap: 8, alignItems: "flex-start" }}>
+                    <span style={{ marginTop: 2, flexShrink: 0 }}>✓</span>
+                    <span>{item}</span>
+                  </p>
                 ))}
               </div>
               <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "#000", maxWidth: 640, margin: "0 auto 40px" }}>
@@ -421,7 +427,7 @@ export default function ResetRoom() {
               <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>
                 What's Included
               </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
+              <div style={{ maxWidth: 640, margin: "0 auto 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                 {[
                   "A senior diagnostic intake and a written Misalignment Diagnostic, so the engagement opens at depth.",
                   "Six 60-minute strategic sessions over 90 days, structured around the specific architecture of what you are building.",
@@ -431,7 +437,10 @@ export default function ResetRoom() {
                   "Strategic async support throughout, so you are never building alone in the in-between weeks.",
                   "A Forward Roadmap Session at the close, so the work continues when the engagement ends.",
                 ].map((item, i) => (
-                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 4 }}>{item}</p>
+                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 0, display: "flex", gap: 8, alignItems: "flex-start" }}>
+                    <span style={{ marginTop: 2, flexShrink: 0 }}>✓</span>
+                    <span>{item}</span>
+                  </p>
                 ))}
               </div>
               <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>

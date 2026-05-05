@@ -44,22 +44,22 @@ const fadeUp = (delay = 0) => ({
 
 export default function ResourcesSection() {
   return (
-    <section className="bg-ivory py-24 md:py-36">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section className="bg-ivory py-16 md:py-24 lg:py-36">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
-        <motion.div {...fadeUp(0)} className="mb-20">
-          <div className="flex items-baseline justify-between gap-8 mb-8 pb-8 border-b border-foreground/20">
-            <h2 className="font-serif text-5xl md:text-6xl leading-[0.95] tracking-tight">
+        <motion.div {...fadeUp(0)} className="mb-12 md:mb-20">
+          <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-4 md:gap-8 mb-8 pb-8 border-b border-foreground/20">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight flex-shrink-0">
               Resources<span className="text-accent">.</span>
             </h2>
-            <p className="font-serif italic text-base md:text-lg text-muted-foreground text-right max-w-xs flex-shrink-0">
+            <p className="font-serif italic text-sm sm:text-base md:text-lg text-muted-foreground md:text-right">
               The tools, frameworks, and reading I return to most.
             </p>
           </div>
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {resources.map((resource, idx) => (
             <motion.div
               key={idx}
@@ -68,34 +68,34 @@ export default function ResourcesSection() {
             >
               {/* Card Container */}
               <div
-                className="flex-1 rounded-lg p-8 md:p-10 flex flex-col text-white overflow-hidden relative"
+                className="flex-1 rounded-lg p-6 sm:p-8 md:p-10 flex flex-col text-white overflow-hidden relative"
                 style={{ background: resource.bg }}
               >
                 {/* Number Badge */}
                 <div className="mb-auto">
-                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 text-white text-[11px] font-semibold mb-6">
+                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 text-white text-[11px] font-semibold mb-4 sm:mb-6">
                     {resource.number}
                   </span>
-                  <p className="text-[10px] tracking-editorial uppercase text-white/70 mb-6">
+                  <p className="text-[9px] sm:text-[10px] tracking-editorial uppercase text-white/70 mb-4 sm:mb-6">
                     {resource.label}
                   </p>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-2xl md:text-3xl leading-[1.1] mb-6">
+                <h3 className="font-serif text-xl sm:text-2xl md:text-3xl leading-[1.1] mb-4 sm:mb-6">
                   {resource.title}{" "}
                   <span className="italic font-normal">{resource.titleHighlight}</span>
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-white/85 mb-8 flex-grow">
+                <p className="text-xs sm:text-sm leading-relaxed text-white/85 mb-6 sm:mb-8 flex-grow">
                   {resource.description}
                 </p>
               </div>
 
               {/* Footer - Specs and CTA */}
-              <div className="mt-6 flex items-center justify-between">
-                <span className="text-[10px] tracking-editorial uppercase text-foreground/60">
+              <div className="mt-4 sm:mt-6 flex items-center justify-between">
+                <span className="text-[9px] sm:text-[10px] tracking-editorial uppercase text-foreground/60">
                   {resource.specs}
                 </span>
                 {idx === 0 ? (

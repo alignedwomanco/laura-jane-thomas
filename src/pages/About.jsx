@@ -178,6 +178,7 @@ export default function About() {
             <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-t from-ivory via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-oxblood opacity-40" />
         </div>
       </section>
 

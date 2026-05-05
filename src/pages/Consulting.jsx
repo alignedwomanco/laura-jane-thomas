@@ -51,20 +51,29 @@ export default function Consulting() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-ivory pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-10">
+      <section className="relative text-ivory pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden min-h-[60vh] flex items-center">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-oxblood/30" />
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">
             — Consulting
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif leading-[0.92] tracking-tight"
+            className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight max-w-4xl font-light italic"
           >
-            <span className="block text-[14vw] md:text-[10vw] lg:text-[8.5vw] font-medium">Consulting</span>
-            <span className="block text-[10vw] md:text-[7vw] lg:text-[6vw] italic font-normal">Fractional CMO</span>
-            <span className="block text-[10vw] md:text-[7vw] lg:text-[6vw] font-light">& Brand Strategy</span>
+            Fractional CMO and Brand Strategy for businesses that want commercial clarity and elevated brand expression in one partner.
           </motion.h1>
         </div>
       </section>

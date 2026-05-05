@@ -184,7 +184,7 @@ export default function Consulting() {
         </div>
       </section>
 
-      <ClientsSection />
+      <ClientsSection dark={true} />
       <TestimonialsSection />
       <CtaBanner headline={<>Ready to build<br /><span className="italic">with clarity?</span></>} href="/contact" />
       <Footer />

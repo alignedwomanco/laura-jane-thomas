@@ -83,11 +83,49 @@ const offerings = [
 export default function OfferingsAccordion() {
   const [expanded, setExpanded] = useState(null);
 
+  const styles = `
+    @media (max-width: 768px) {
+      .offerings-card-header {
+        padding: 20px 16px !important;
+        min-height: auto !important;
+        flex-wrap: wrap !important;
+      }
+      .offerings-card-title {
+        font-size: 20px !important;
+        line-height: 1.1 !important;
+      }
+      .offerings-card-label {
+        font-size: 9px !important;
+        margin-bottom: 8px !important;
+      }
+      .offerings-card-chevron {
+        margin-left: 12px !important;
+      }
+      .offerings-card-content {
+        padding: 24px 16px 48px !important;
+      }
+      .offerings-included-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .offerings-subtitle {
+        font-size: 16px !important;
+      }
+      .offerings-body {
+        font-size: 13px !important;
+      }
+      .offerings-closing {
+        font-size: 14px !important;
+      }
+    }
+  `;
+
   const handleCardClick = (id) => {
     setExpanded(expanded === id ? null : id);
   };
 
   return (
+    <>
+      <style>{styles}</style>
     <div style={{ display: "flex", flexDirection: "column", gap: "16px", paddingTop: "48px", paddingBottom: "96px" }}>
       <div style={{ marginBottom: "48px", textAlign: "center" }}>
         <h2
@@ -128,20 +166,18 @@ export default function OfferingsAccordion() {
           >
             {/* Card Header */}
             <div
+              className="offerings-card-header"
               style={{
                 padding: "24px 64px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 minHeight: "100px",
-                "@media (max-width: 860px)": {
-                  padding: "24px",
-                },
               }}
-              className="@media (max-width: 860px) {padding: 24px}"
             >
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
                 <p
+                  className="offerings-card-label"
                   style={{
                     fontFamily: "Inter, system-ui, sans-serif",
                     fontWeight: 600,
@@ -155,6 +191,7 @@ export default function OfferingsAccordion() {
                   {offering.label}
                 </p>
                 <h3
+                  className="offerings-card-title"
                   style={{
                     fontFamily: "Inter, system-ui, sans-serif",
                     fontWeight: 800,
@@ -164,6 +201,7 @@ export default function OfferingsAccordion() {
                     textTransform: "uppercase",
                     color: headerTextColor,
                     margin: "0",
+                    wordBreak: "break-word",
                   }}
                 >
                   {offering.title}{" "}
@@ -173,7 +211,7 @@ export default function OfferingsAccordion() {
                 </h3>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", marginLeft: "24px", flexShrink: 0 }}>
+              <div className="offerings-card-chevron" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", marginLeft: "24px", flexShrink: 0 }}>
                 <p
                   style={{
                     fontFamily: "Inter, system-ui, sans-serif",
@@ -212,9 +250,10 @@ export default function OfferingsAccordion() {
                 transition: "max-height 400ms cubic-bezier(0.2, 0.6, 0.2, 1), opacity 300ms ease",
               }}
             >
-              <div style={{ padding: "48px 64px 96px", textAlign: "center" }}>
+              <div className="offerings-card-content" style={{ padding: "48px 64px 96px", textAlign: "center" }}>
                 {/* Subtitle */}
                 <p
+                  className="offerings-subtitle"
                   style={{
                     fontFamily: "'Playfair Display', Georgia, serif",
                     fontStyle: "italic",
@@ -232,6 +271,7 @@ export default function OfferingsAccordion() {
                 <div style={{ maxWidth: "640px", margin: "0 auto 24px" }}>
                   {offering.body.map((para, i) => (
                     <p
+                      className="offerings-body"
                       key={i}
                       style={{
                         fontFamily: "Inter, system-ui, sans-serif",
@@ -263,7 +303,7 @@ export default function OfferingsAccordion() {
                   >
                     What's Included
                   </p>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                  <div className="offerings-included-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                     {offering.includedItems.map((item, i) => (
                       <p
                         key={i}
@@ -327,6 +367,7 @@ export default function OfferingsAccordion() {
 
                 {/* Closing Line */}
                 <p
+                  className="offerings-closing"
                   style={{
                     fontFamily: "'Playfair Display', Georgia, serif",
                     fontStyle: "italic",
@@ -375,5 +416,6 @@ export default function OfferingsAccordion() {
         );
       })}
     </div>
+    </>
   );
 }

@@ -156,13 +156,13 @@ export default function Consulting() {
                 Whether you are launching something new or scaling something already built, the question is the same. Is the foundation underneath strong enough to hold what comes next.
               </p>
               <p className="text-[15px] text-ivory/70 leading-relaxed mb-6">
-                If you are starting out, the work is to build it properly the first time. The brand, the strategy, the customer journey, the messaging. All architected before the noise of execution takes over. Most founders at this stage spend years undoing what was set up wrong in the first six months. That is avoidable.
+                If you are starting out, the work is to build it properly the first time. Brand, strategy, customer journey, and messaging architected before the noise of execution takes over.
               </p>
               <p className="text-[15px] text-ivory/70 leading-relaxed mb-6">
-                If you have built something already, the work is different. The numbers are real. The brand is on the page. But the marketing function is doing too much of the work the founder used to do, and the work that needs senior judgement is being made by whoever is closest to the problem. This is the inflection point. The work that gets you to the next stage is not more of the work that got you here.
+                If you are already in motion, the work is different. The numbers are real, but the marketing function is doing too much of the work the founder used to do. The work that gets you to the next stage is not more of the work that got you here.
               </p>
               <p className="text-[15px] text-ivory/70 leading-relaxed">
-                Either way, what you are buying is a senior brain holding brand, strategy, and creative direction together long enough to set the foundation up properly. So that when you launch, you launch into something built. When you hire, you hire into a structure that works. When you scale, you scale on a foundation that holds.
+                Either way, what you are buying is the senior brain that sets the foundation up properly. So when you launch, you launch into something built. When you scale, you scale on something that holds.
               </p>
             </div>
             <div>

@@ -6,6 +6,7 @@ import Footer from "@/components/site/Footer";
 
 import ResourcesSection from "@/components/shared/ResourcesSection";
 import OfferingsAccordion from "@/components/offerings/OfferingsAccordion";
+import PressMarquee from "@/components/home/PressMarquee";
 
 const BRAND = "#26030F";
 
@@ -89,6 +90,9 @@ export default function ResetRoom() {
           </Link>
         </motion.div>
       </section>
+
+      {/* ── 1.5 PRESS MARQUEE ───────────────────────────────────────────── */}
+      <PressMarquee />
 
       {/* ── 2. DARK INTEGRATED ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: "#1A1A1A", minHeight: "80vh" }}>

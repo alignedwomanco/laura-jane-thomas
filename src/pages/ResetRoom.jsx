@@ -58,7 +58,7 @@ export default function ResetRoom() {
           transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 max-w-5xl mx-auto"
         >
-          <p className="text-[10px] tracking-editorial uppercase text-white/50 mb-8">— Senior Advisory and Coaching</p>
+          <p className="text-[10px] tracking-editorial uppercase text-white/50 mb-8">— Coaching</p>
           <h1
             className="text-white leading-[1.0] tracking-tight mb-8"
             style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3rem, 8vw, 7rem)" }}

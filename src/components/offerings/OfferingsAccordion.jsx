@@ -30,7 +30,7 @@ const offerings = [
     label: "The Recalibration Intensive",
     title: "The Recalibration",
     titleItalic: "Intensive",
-    color: "#3A0E1A",
+    color: "#F2EBE0",
     textColor: "#000",
     subtitle: "Some decisions are too important to figure out slowly.",
     body: [

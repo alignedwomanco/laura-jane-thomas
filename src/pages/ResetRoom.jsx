@@ -261,34 +261,19 @@ export default function ResetRoom() {
       </div>
 
       {/* ── 5. OFFERINGS — SCROLL-STACKED PANELS ────────────────────────── */}
-      {/*
-        Architecture: each panel lives in its own tall "track" div.
-        The track must be taller than the sticky panel so sticky has
-        scroll-distance to engage. We use paddingBottom on the track
-        (NOT minHeight on the sticky child equal to the track) so the
-        browser sees a real content gap. The sticky panel itself uses
-        height: auto so it sizes to its own content.
+      <div className="relative">
 
-        Overflow rule: NO overflow other than "visible" on any ancestor
-        of a sticky element. The sticky panels themselves use
-        overflow: hidden only for border-radius — that is on the sticky
-        element itself, which is allowed.
-
-        The outer wrapper uses display: block (no flex).
-      */}
-      <div style={{ display: "block" }}>
-
-        {/* ── Track 1 ── must be taller than the panel for sticky to engage */}
-        <div style={{ minHeight: "250vh" }}>
-          <div style={{
-            position: "sticky",
-            top: 0,
-            zIndex: 1,
-            backgroundColor: "#4A2730",
-            borderTopLeftRadius: 24,
-            borderTopRightRadius: 24,
-            overflow: "hidden",
-          }}>
+        {/* Panel 1: The Alignment Audit */}
+        <div style={{
+          backgroundColor: "#4A2730",
+          position: "sticky",
+          top: 0,
+          zIndex: 1,
+          minHeight: "100vh",
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
+          overflow: "hidden",
+        }}>
             {/* Top bar */}
             <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
               <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.7)" }}>
@@ -338,19 +323,18 @@ export default function ResetRoom() {
               </Link>
             </div>
           </div>
-        </div>
 
-        {/* ── Track 2 */}
-        <div style={{ minHeight: "250vh" }}>
-          <div style={{
-            position: "sticky",
-            top: 64,
-            zIndex: 2,
-            backgroundColor: "#3A0E1A",
-            borderTopLeftRadius: 24,
-            borderTopRightRadius: 24,
-            overflow: "hidden",
-          }}>
+        {/* Panel 2: The Recalibration Intensive */}
+        <div style={{
+          backgroundColor: "#3A0E1A",
+          position: "sticky",
+          top: 64,
+          zIndex: 2,
+          minHeight: "100vh",
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
+          overflow: "hidden",
+        }}>
             {/* Top bar */}
             <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
               <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.7)" }}>
@@ -400,19 +384,17 @@ export default function ResetRoom() {
               </Link>
             </div>
           </div>
-        </div>
 
-        {/* ── Track 3 */}
-        <div style={{ minHeight: "350vh" }}>
-          <div style={{
-            position: "sticky",
-            top: 128,
-            zIndex: 3,
-            backgroundColor: "#0D0508",
-            borderTopLeftRadius: 24,
-            borderTopRightRadius: 24,
-            overflow: "hidden",
-          }}>
+        {/* Panel 3: The Senior Advisory */}
+        <div style={{
+          backgroundColor: "#0D0508",
+          position: "sticky",
+          top: 128,
+          zIndex: 3,
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
+          overflow: "hidden",
+        }}>
             {/* Top bar */}
             <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
               <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.7)" }}>
@@ -478,8 +460,6 @@ export default function ResetRoom() {
               </Link>
             </div>
           </div>
-        </div>
-
       </div>
 
       {/* ── 6. FINAL CLOSE ──────────────────────────────────────────────── */}

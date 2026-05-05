@@ -112,13 +112,13 @@ export default function Consulting() {
                 for <span className="italic">corporates</span>
               </h2>
               <p className="font-serif italic text-xl text-foreground mb-6 leading-relaxed">
-                Even the strongest in house teams can lose perspective.
+                The bigger the team, the easier it is to lose the strategy.
               </p>
               <p className="text-[15px] text-muted-foreground leading-relaxed mb-6">
-                When you are deep in the day to day, it becomes difficult to see the gaps, the blind spots or where your marketing is no longer aligned with the company's bigger vision. Campaigns start to feel siloed. Creative gets stuck in familiar patterns. Teams become reactive instead of strategic.
+                When you are deep in the day-to-day, the misalignment is hard to see from the inside. Campaigns drift from the brand. Creative repeats itself. Marketing functions are busy but not compounding. The team is shipping. The numbers are not moving the way they should.
               </p>
               <p className="text-[15px] text-muted-foreground leading-relaxed">
-                This is where outside clarity becomes your most valuable asset. I bring an unbiased view, senior level strategy and creative direction that helps your team reconnect the dots between brand, marketing and revenue.
+                This is where senior outside perspective earns its weight. Not another deck. Not another vendor. A senior strategic partner who can hold brand, marketing, and revenue in one conversation, name what is actually wrong, and equip your team to fix it without dismantling what is already working.
               </p>
             </div>
             <div>

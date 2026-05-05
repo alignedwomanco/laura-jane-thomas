@@ -66,12 +66,18 @@ export default function Speaking() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif leading-[0.92] tracking-tight"
+            className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight mb-8"
           >
-            <span className="block text-[10vw] md:text-[7vw] lg:text-[6vw] font-medium">Keynote</span>
-            <span className="block text-[7vw] md:text-[5vw] lg:text-[4.5vw] italic font-normal">Speaker</span>
-            <span className="block text-[5vw] md:text-[3.5vw] lg:text-[3vw] font-light mt-2">Leadership Strategist. Brand & Performance Expert.</span>
+            Keynote Speaker
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2 }}
+            className="font-serif italic text-xl md:text-2xl text-ivory/85 mb-12 max-w-2xl"
+          >
+            For organisations serious about developing female leadership, building healthier performance cultures, and having the conversations most stages avoid.
+          </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,8 +85,7 @@ export default function Speaking() {
             className="mt-12 flex gap-5"
           >
             <Link to="/contact" className="inline-flex items-center gap-3 bg-ivory text-oxblood px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-ivory/90 transition-all group btn-pulse">
-              Book Me
-              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              Book Me →
             </Link>
           </motion.div>
         </div>

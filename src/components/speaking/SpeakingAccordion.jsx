@@ -4,23 +4,28 @@ import { ChevronDown } from "lucide-react";
 const speakingDropdowns = [
   {
     id: "where",
-    label: "— Where I Speak",
-    title: "Where I Speak",
+    label: "— WHERE I SPEAK",
+    title: "Stages and",
+    titleItalic: "audiences.",
     color: "#935170",
     textColor: "rgba(242,235,224,1)",
     body: [
-      "My work translates across multiple audiences because the core themes are universal:",
+      "The work translates across audiences because the underlying themes are universal.",
     ],
     themes: ["Power.", "Identity.", "Performance.", "Ambition.", "Sustainability."],
-    subtitle: "I deliver talks for:",
-    items: [
-      "Corporate conferences and executive teams",
-      "Leadership development programmes",
-      "Women in business forums",
-      "Entrepreneurship events",
-      "Universities and schools",
-      "Community platforms aligned with women's growth and development",
+    primarySubtitle: "PRIMARY STAGES",
+    primaryItems: [
+      "Corporate conferences and executive teams.",
+      "Leadership development programmes.",
+      "Women in business forums.",
+      "Entrepreneurship events.",
     ],
+    secondarySubtitle: "ALSO AVAILABLE FOR",
+    secondaryItems: [
+      "Universities and senior school assemblies.",
+      "Community platforms aligned with women's growth and leadership.",
+    ],
+    closingLine: "Each keynote is calibrated to the audience. The integrity does not move.",
   },
   {
     id: "experience",
@@ -210,8 +215,99 @@ export default function SpeakingAccordion() {
                   </div>
                 )}
 
-                {/* Subtitle and Items */}
-                {dropdown.subtitle && (
+                {/* Primary and Secondary Lists (Where I Speak) */}
+                {dropdown.primarySubtitle && (
+                  <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+                    <p
+                      style={{
+                        fontFamily: "Inter, system-ui, sans-serif",
+                        fontWeight: 600,
+                        fontSize: "11px",
+                        letterSpacing: "0.28em",
+                        textTransform: "uppercase",
+                        color: headerTextColor,
+                        marginBottom: "16px",
+                      }}
+                    >
+                      {dropdown.primarySubtitle}
+                    </p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "32px" }}>
+                      {dropdown.primaryItems.map((item, i) => (
+                        <p
+                          key={i}
+                          style={{
+                            fontFamily: "Inter, system-ui, sans-serif",
+                            fontSize: "14px",
+                            lineHeight: "1.6",
+                            color: dropdown.textColor,
+                            opacity: isDark ? 0.78 : 0.7,
+                            margin: "0",
+                            display: "flex",
+                            gap: "8px",
+                            alignItems: "flex-start",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <span style={{ flexShrink: 0 }}>●</span>
+                          <span>{item}</span>
+                        </p>
+                      ))}
+                    </div>
+
+                    <p
+                      style={{
+                        fontFamily: "Inter, system-ui, sans-serif",
+                        fontWeight: 600,
+                        fontSize: "11px",
+                        letterSpacing: "0.28em",
+                        textTransform: "uppercase",
+                        color: headerTextColor,
+                        marginBottom: "16px",
+                      }}
+                    >
+                      {dropdown.secondarySubtitle}
+                    </p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "32px" }}>
+                      {dropdown.secondaryItems.map((item, i) => (
+                        <p
+                          key={i}
+                          style={{
+                            fontFamily: "Inter, system-ui, sans-serif",
+                            fontSize: "14px",
+                            lineHeight: "1.6",
+                            color: dropdown.textColor,
+                            opacity: isDark ? 0.78 : 0.7,
+                            margin: "0",
+                            display: "flex",
+                            gap: "8px",
+                            alignItems: "flex-start",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <span style={{ flexShrink: 0 }}>●</span>
+                          <span>{item}</span>
+                        </p>
+                      ))}
+                    </div>
+
+                    {dropdown.closingLine && (
+                      <p
+                        style={{
+                          fontFamily: "'Playfair Display', Georgia, serif",
+                          fontStyle: "italic",
+                          fontSize: "clamp(0.95rem, 1.5vw, 1.15rem)",
+                          color: headerTextColor,
+                          margin: "0",
+                        }}
+                      >
+                        {dropdown.closingLine}
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                {/* Generic Subtitle and Items for other dropdowns */}
+                {dropdown.subtitle && !dropdown.primarySubtitle && (
                   <div style={{ maxWidth: "640px", margin: "0 auto" }}>
                     <p
                       style={{

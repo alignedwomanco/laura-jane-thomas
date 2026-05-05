@@ -29,18 +29,22 @@ const speakingDropdowns = [
   },
   {
     id: "experience",
-    label: "What Audiences Experience",
-    title: "What Audiences",
-    titleItalic: "Experience",
+    label: "— WHAT AUDIENCES EXPERIENCE",
+    title: "Four perspectives,",
+    titleItalic: "held in one keynote.",
     color: "#F2EBE0",
     textColor: "#1A1A1A",
-    subtitle: "My talks combine:",
-    items: [
-      "Behavioural research",
-      "Organisational insight",
-      "Strategic business thinking",
-      "Personal lived experience",
+    body: [
+      "Most leadership talks come from one of these places. I have spent fifteen years inside all four.",
     ],
+    subtitle: "THE TALKS COMBINE",
+    items: [
+      "Operator experience from running a multi-seven-figure agency.",
+      "Senior strategic insight from advising leadership teams across global organisations.",
+      "Behavioural and organisational research on female leadership and high performance.",
+      "Lived experience of building it, breaking under it, and rebuilding it.",
+    ],
+    closingLine: "The language adapts to the room. The integrity does not.",
   },
   {
     id: "travel",

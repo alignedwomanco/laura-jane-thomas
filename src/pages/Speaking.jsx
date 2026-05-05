@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Play } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
@@ -88,6 +89,28 @@ export default function Speaking() {
               Book Me →
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Introduction Video */}
+      <section className="bg-ivory py-24 md:py-36">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Trusted On The Stages That Matter</p>
+            <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight mb-6">
+              A short introduction, <span className="italic">in my own words.</span>
+            </h2>
+            <p className="text-[15px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              A two-minute introduction to the work, the talks, and what audiences walk away with.
+            </p>
+          </div>
+          <div className="relative aspect-video bg-gradient-to-b from-[#6B3E4D] to-[#3A1E2A] rounded-lg overflow-hidden group cursor-pointer">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <button className="w-16 h-16 rounded-full bg-ivory flex items-center justify-center hover:scale-110 transition-transform duration-300 group-hover:shadow-lg">
+                <Play className="w-6 h-6 text-oxblood fill-oxblood ml-1" />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 

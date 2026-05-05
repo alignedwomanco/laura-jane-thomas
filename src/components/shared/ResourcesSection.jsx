@@ -106,6 +106,14 @@ export default function ResourcesSection() {
                   >
                     {resource.cta} →
                   </a>
+                ) : idx === 1 ? (
+                  <a
+                    href="https://media.base44.com/files/public/69e1e7f05d39205bc001ea00/a7e23f2df_LJT-Nervous-System-Doc_compressed.pdf"
+                    download
+                    className="text-[11px] tracking-editorial uppercase border-b border-foreground hover:text-accent transition-colors"
+                  >
+                    {resource.cta} →
+                  </a>
                 ) : (
                   <Link
                     to="/contact"

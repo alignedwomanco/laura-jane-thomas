@@ -38,12 +38,13 @@ const corporateOffering = [
 ];
 
 const smbOffering = [
-  { title: "Brand and Business Review", body: "A full audit of your brand, marketing and business ecosystem. We identify gaps, strengths, opportunities and the exact levers that will create scalable, sustainable growth." },
-  { title: "Holistic Marketing Strategy", body: "A clear, end to end strategy that aligns your brand, content, campaigns, funnels, customer experience and paid media into one cohesive growth engine." },
-  { title: "Brand Development and Concept Creation", body: "Support with creative direction, brand evolution, storytelling and campaign concepts so your brand stands out with clarity and emotional intelligence." },
-  { title: "Content and Communication Frameworks", body: "Strategic content pillars, messaging frameworks and story driven angles your team can confidently execute. This includes ideas for campaigns, launches, video content, newsletters and more." },
-  { title: "Team Alignment and Leadership Support", body: "I guide your team to understand the strategy, implement effectively and stay aligned. From marketing meetings to review sessions, we ensure everyone is rowing in the same direction." },
-  { title: "Custom Growth Playbook", body: "A comprehensive, easy to follow blueprint that outlines your full marketing strategy, brand direction, content plan and priority actions. Your team can use this long after our work together." },
+  { title: "Brand Foundation and Build", body: "For businesses launching something new or repositioning something built. Brand strategy, identity direction, positioning, messaging architecture, and the foundational decisions that determine whether the brand holds at scale. Built so the rest of the business can be constructed on top of it without retrofitting later." },
+  { title: "Brand and Business Review", body: "A senior audit of where the business actually is. Brand, marketing, customer journey, and the commercial reality underneath. Names the gaps, the leaks, and the highest-leverage moves to make in the next twelve months. The starting point if you are not yet sure where the issue is." },
+  { title: "Marketing Strategy", body: "A 12-month strategic plan that sequences brand, content, campaigns, customer experience, and paid acquisition into one operating rhythm. Names the priorities, the trade-offs, and the metrics. Built so the team can run it without senior strategy needing to be present in every conversation." },
+  { title: "Brand Development and Creative Direction", body: "Senior creative judgement on the work that actually shapes how the brand is perceived. Identity evolution, campaign concepts, brand storytelling, and the visual and verbal direction that holds the brand together across every customer touchpoint." },
+  { title: "Content and Communication Frameworks", body: "Messaging architecture, content pillars, and the story angles your team can run with. Built so the team is not reinventing the brand voice on every campaign, launch, or post. Includes structural frameworks for video, newsletters, launches, and ongoing content rhythm." },
+  { title: "Team Alignment and Leadership Support", body: "Working sessions, review cadence, and the structural conversations that keep the strategy alive once the engagement closes. The team finishes more aligned, more capable, and able to defend the strategic direction without needing me in the room." },
+  { title: "Custom Growth Playbook", body: "A written plan your team can run after the engagement ends. Strategy, brand direction, content plan, and priority actions, sequenced and named. Built to be referenced quarterly and to survive the team changes that small businesses go through as they grow." },
 ];
 
 export default function Consulting() {

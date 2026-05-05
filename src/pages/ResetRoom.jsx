@@ -256,32 +256,32 @@ export default function ResetRoom() {
       </section>
 
       {/* ── 4. ALIVE METHOD ─────────────────────────────────────────────── */}
-      <section className="py-24 md:py-36 px-6" style={{ backgroundColor: "#1A1A1A" }}>
+      <section className="py-24 md:py-36 px-6" style={{ backgroundColor: "#F5EEE4" }}>
         <div className="max-w-[1200px] mx-auto">
           <motion.div {...fadeUp(0)} className="mb-20">
             <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>
               — The Methodology
             </p>
             <h2
-              className="text-white leading-[0.95] tracking-tight mb-6"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3rem, 6vw, 6rem)" }}
+              className="leading-[0.95] tracking-tight mb-6"
+              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3rem, 6vw, 6rem)", color: "#1A1A1A" }}
             >
               The A.L.I.V.E. Method™
             </h2>
-            <p className="text-white/60 text-base leading-relaxed max-w-2xl">
+            <p className="text-base leading-relaxed max-w-2xl" style={{ color: "rgba(26,26,26,0.60)" }}>
               The five-stage embodied methodology I built for the woman returning to herself. It is the architecture underneath every private engagement. It is also the foundation of The Aligned Woman Co., the platform I built to scale this work to women everywhere.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-5 gap-px" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
+          <div className="grid md:grid-cols-5 gap-px" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
             {aliveMethod.map((item, i) => (
               <motion.div
                 key={item.letter}
                 {...fadeUp(i * 0.08)}
                 className="group p-8 md:p-10 transition-colors duration-500"
-                style={{ backgroundColor: "#1A1A1A" }}
+                style={{ backgroundColor: "#F5EEE4" }}
                 onMouseEnter={e => { e.currentTarget.style.backgroundColor = BRAND; }}
-                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#1A1A1A"; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#F5EEE4"; }}
               >
                 <span
                   className="block leading-none italic mb-5 transition-colors duration-500"
@@ -289,9 +289,9 @@ export default function ResetRoom() {
                 >
                   {item.letter}
                 </span>
-                <p className="text-white text-lg font-serif mb-2">{item.word}</p>
-                <p className="text-white/80 text-sm italic leading-snug mb-3" style={{ fontFamily: "var(--font-serif)" }}>{item.short}</p>
-                <p className="text-white/45 text-xs leading-relaxed">{item.desc}</p>
+                <p className="text-lg font-serif mb-2 transition-colors duration-500 group-hover:text-white" style={{ color: "#1A1A1A" }}>{item.word}</p>
+                <p className="text-sm italic leading-snug mb-3 transition-colors duration-500 group-hover:text-white/80" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>{item.short}</p>
+                <p className="text-xs leading-relaxed transition-colors duration-500 group-hover:text-white/50" style={{ color: "rgba(26,26,26,0.45)" }}>{item.desc}</p>
               </motion.div>
             ))}
           </div>

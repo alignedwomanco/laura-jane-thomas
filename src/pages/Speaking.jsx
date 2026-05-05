@@ -239,7 +239,7 @@ export default function Speaking() {
       </section>
 
       {/* Keynote Topics */}
-      <section className="bg-ivory pt-0 pb-24 md:pb-36">
+      <section className="bg-ivory pt-24 md:pt-40 pb-24 md:pb-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-10">— Keynote Topics</p>
           <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-20">

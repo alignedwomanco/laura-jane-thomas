@@ -34,7 +34,7 @@ export default function ResetRoom() {
 
       {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 pt-36 pb-40"
+        className="relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 md:pt-36 pb-20 md:pb-40"
         style={{ backgroundColor: BRAND }}
       >
         {/* Full-width background image */}

@@ -100,23 +100,41 @@ export default function About() {
       <style>{`
         @media (max-width: 768px) {
           .about-sticky-card {
-            position: static !important;
-            top: auto !important;
-            min-height: auto !important;
-            margin-bottom: 0 !important;
+            position: sticky !important;
+            overflow: hidden;
           }
-          .about-card-content {
-            overflow: visible !important;
+          
+          .about-sticky-card:nth-of-type(1) {
+            top: 0 !important;
+            min-height: 350vh !important;
+            z-index: 1 !important;
           }
+          
+          .about-sticky-card:nth-of-type(2) {
+            top: 48px !important;
+            min-height: 350vh !important;
+            z-index: 2 !important;
+          }
+          
+          .about-sticky-card:nth-of-type(3) {
+            top: 96px !important;
+            min-height: 450vh !important;
+            z-index: 3 !important;
+          }
+          
           .about-card-body {
             padding-top: 48px !important;
             padding-bottom: 48px !important;
             padding-left: 16px !important;
             padding-right: 16px !important;
+            height: auto !important;
+            overflow: visible !important;
           }
+          
           .about-card-title {
             font-size: 32px !important;
           }
+          
           .about-card-text {
             font-size: 15px !important;
             line-height: 1.65 !important;

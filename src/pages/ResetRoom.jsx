@@ -92,35 +92,33 @@ export default function ResetRoom() {
           transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 max-w-5xl mx-auto"
         >
+          <p className="text-[10px] tracking-editorial uppercase text-white/50 mb-8">— Senior Advisory and Coaching</p>
           <h1
-            className="text-white leading-[1.0] tracking-tight mb-12"
-            style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3.5rem, 9vw, 8rem)" }}
+            className="text-white leading-[1.0] tracking-tight mb-8"
+            style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3rem, 8vw, 7rem)" }}
           >
             <span className="block">Wildly successful.</span>
             <span className="block italic font-normal" style={{ opacity: 0.85 }}>Deeply aligned.</span>
-            <span className="block">Finally.</span>
+            <span className="block">Built to last.</span>
           </h1>
 
-          <div className="max-w-xl mx-auto mb-14 space-y-4">
-            <p className="text-white/80 text-lg leading-relaxed">
-              I work with ambitious women ready to become wildly successful and deeply aligned
-              by working with the mind, body, and soul.
-            </p>
-            <p className="text-white/70 text-base leading-relaxed">
-              Through my signature ALIVE Method™, I've helped hundreds of women globally
-              move through internal blocks, refine their offers and messaging,
-              and build businesses their higher self would be proud of.
+          <p className="text-white/75 text-lg leading-relaxed mb-6 max-w-2xl mx-auto" style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
+            For ambitious women building what's next. Whether that is leaving corporate, evolving the business you have built, or building the life your higher self would be proud of.
+          </p>
+
+          <div className="max-w-xl mx-auto mb-12">
+            <p className="text-white/65 text-base leading-relaxed">
+              I work with women ready to build what is next by working with the mind, the body, and the soul. Through The A.L.I.V.E. Method, the embodied methodology I have used with women globally, we build the next chapter with structure rather than guesswork.
             </p>
           </div>
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-4 text-[11px] tracking-editorial uppercase hover:bg-white transition-all duration-400 group"
-            style={{ "--hover-color": BRAND }}
+            className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-4 text-[11px] tracking-editorial uppercase hover:bg-white transition-all duration-400 group btn-pulse"
             onMouseEnter={e => { e.currentTarget.style.color = BRAND; }}
             onMouseLeave={e => { e.currentTarget.style.color = "white"; }}
           >
-            Work With Me
+            Apply For The Senior Advisory
             <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </motion.div>

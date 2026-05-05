@@ -58,8 +58,8 @@ export default function Speaking() {
         >
           <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-oxblood/60" />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="absolute inset-0 bg-oxblood/30" />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">
             — Speaking
           </motion.p>
@@ -69,9 +69,9 @@ export default function Speaking() {
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="font-serif leading-[0.92] tracking-tight"
           >
-            <span className="block text-[14vw] md:text-[10vw] lg:text-[8.5vw] font-medium">Keynote</span>
-            <span className="block text-[10vw] md:text-[7vw] lg:text-[6vw] italic font-normal">Speaker</span>
-            <span className="block text-[8vw] md:text-[5.5vw] lg:text-[4.5vw] font-light mt-2">Leadership Strategist. Brand & Performance Expert.</span>
+            <span className="block text-[10vw] md:text-[7vw] lg:text-[6vw] font-medium">Keynote</span>
+            <span className="block text-[7vw] md:text-[5vw] lg:text-[4.5vw] italic font-normal">Speaker</span>
+            <span className="block text-[5vw] md:text-[3.5vw] lg:text-[3vw] font-light mt-2">Leadership Strategist. Brand & Performance Expert.</span>
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -214,7 +214,7 @@ export default function ResetRoom() {
             viewport={{ once: true }}
             transition={{ duration: 1.1, delay: 0.15 }}
           >
-            <div className="mb-10" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
+
             <p
               className="leading-[1.15] tracking-tight mb-5"
               style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)", color: "#1A1A1A" }}

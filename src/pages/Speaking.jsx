@@ -56,7 +56,7 @@ export default function Speaking() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          className="absolute inset-0 w-full h-[60vh] md:h-full object-cover opacity-30"
         >
           <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
         </video>

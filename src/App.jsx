@@ -16,14 +16,8 @@ import Questionnaire from './pages/Questionnaire';
 import StrategyReport from './pages/StrategyReport.jsx';
 import Submissions from './pages/Submissions.jsx';
 
-// Redirect unauthenticated users away from all pages except /questionnaire and /strategy-report
+// Allow all pages to be accessible
 const PublicOnlyRoute = ({ children }) => {
-  const { isAuthenticated } = useAuth();
-  const location = useLocation();
-  const isPublicPath = location.pathname === '/questionnaire' || location.pathname.startsWith('/strategy-report');
-  if (!isAuthenticated && !isPublicPath) {
-    return <Navigate to="/questionnaire" replace />;
-  }
   return children;
 };
 

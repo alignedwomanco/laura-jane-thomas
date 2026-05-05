@@ -347,7 +347,7 @@ export default function Speaking() {
 
       {/* Speaking Testimonials */}
       <section className="bg-ivory py-0">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-4">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             {/* Testimonial 1 */}
             <motion.div

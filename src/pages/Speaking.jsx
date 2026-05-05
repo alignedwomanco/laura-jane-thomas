@@ -290,7 +290,7 @@ export default function Speaking() {
 
 
 
-      <TestimonialsSection />
+
       <CtaBanner headline={<>Book me<br /><span className="italic">to speak</span></>} cta="Book Me To Speak" href="/contact" />
       <Footer />
     </div>

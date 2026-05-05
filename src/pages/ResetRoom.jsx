@@ -116,7 +116,7 @@ export default function ResetRoom() {
         </div>
 
         {/* Content — centred */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-28 md:py-44 flex justify-center">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-16 md:py-28 lg:py-44 flex justify-center">
           <div className="w-full max-w-3xl text-center">
             <motion.p
               {...fadeUp(0)}
@@ -155,8 +155,8 @@ export default function ResetRoom() {
         <div style={{ backgroundColor: "rgba(245,241,236,0.82)" }}>
 
         {/* ── 3. IMAGE + TEXT ───────────────────────────────────────────── */}
-        <section className="relative py-24 md:py-36">
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
+        <section className="relative py-16 md:py-24 lg:py-36">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-28 items-center">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -218,7 +218,7 @@ export default function ResetRoom() {
         </section>
 
         {/* ── 4. ALIVE METHOD ───────────────────────────────────────────── */}
-        <section className="py-24 md:py-36 px-6" style={{ backgroundColor: "transparent" }}>
+        <section className="py-16 md:py-24 lg:py-36 px-6" style={{ backgroundColor: "transparent" }}>
           <div className="max-w-[1200px] mx-auto">
             <motion.div {...fadeUp(0)} className="mb-20 text-center">
               <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>
@@ -235,7 +235,7 @@ export default function ResetRoom() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-5 gap-px" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-px" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
               {aliveMethod.map((item, i) => (
                 <motion.div
                   key={item.letter}
@@ -279,7 +279,7 @@ export default function ResetRoom() {
 
       {/* ── 6. FINAL CLOSE ──────────────────────────────────────────────── */}
       <section
-        className="relative py-32 md:py-52 px-6 text-center overflow-hidden"
+        className="relative py-16 md:py-32 lg:py-52 px-6 text-center overflow-hidden"
         style={{ backgroundColor: BRAND }}
       >
         {/* Background image */}

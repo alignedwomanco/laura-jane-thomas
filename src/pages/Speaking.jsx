@@ -12,14 +12,14 @@ const speakingTopics = [
   {
     num: "01.",
     title: "The Hidden Tax on Female Leadership",
-    subtitle: "When Likeability Becomes a Leadership Liability",
-    body: "In many modern workplaces, overt sexism has largely disappeared. But something more subtle has taken its place. Research consistently shows that when women demonstrate the traits associated with strong leadership — decisiveness, authority, ambition and confidence — they are often perceived as less likeable. Unlike their male counterparts, likeability significantly influences how their competence is judged.\n\nThat is the hidden tax.\n\nIn this keynote, I explore why women are still penalised for authority, how perception bias shapes performance evaluations and promotion decisions, the psychological toll of constantly managing how you are received, and the measurable impact this has on innovation, retention and leadership pipelines.\n\nThis is not about blaming men. It is about understanding systems. And redesigning them.",
+    subtitle: "When likeability becomes a leadership liability.",
+    body: "Overt sexism has mostly left the modern workplace. Something subtler has replaced it.\n\nWhen a woman demonstrates the exact traits that define strong leadership: decisiveness, authority, ambition, conviction — she is read as less likeable. Her male counterparts, demonstrating the same traits, are read as confident. Likeability then becomes a quiet input into how her competence is judged, how her promotions are decided, and how her leadership ceiling gets set.\n\nThat is the hidden tax. Most senior women have been paying it for years without naming it.\n\nThis keynote names it directly. Why is authority still penalised in women but rewarded in men? How perception bias shapes performance evaluations and promotion decisions. The psychological cost of managing how you are received in every meeting, every email, every room. And the measurable impact on innovation, retention, and the leadership pipelines most organisations claim to care about.\n\nThe talk does not flatter the audience. It gives them language for what they have been feeling, evidence for what they have been suspecting, and a structural understanding of what to do next.",
   },
   {
     num: "02.",
     title: "How to Ruin Your Life as a Woman",
-    subtitle: "The title is intentionally provocative. The message is deeply human.",
-    body: "In this keynote, Laura Thomas explores how many high-performing women did everything right. We worked hard. We achieved. We proved ourselves. And somewhere along the way, we forgot why we started.\n\nWe lost the purpose behind the ambition. Which was joy. We over-function. We over-deliver. We hold everything together. And we call it strength.\n\nBut what if success without joy is not success at all?\n\nIn this talk, Laura examines why so many accomplished women feel quietly exhausted, how overachievement can disconnect us from identity and pleasure, the role of nervous system health in sustainable performance, and how to redefine ambition in a way that includes fulfilment, not just output.\n\nThis is not about doing less. It is about doing differently.",
+    subtitle: "The title is provocative on purpose. The message is the one most accomplished women already know.",
+    body: "We did everything right. We worked hard. We achieved. We proved ourselves. We met the milestones, climbed the ladders, built the businesses. And somewhere along the way, we forgot why we started.\n\nWe lost the purpose underneath the ambition. Which was joy. We over-function. We over-deliver. We hold everything together. And we call it strength.\n\nBut what if success without joy is not success at all?\n\nThis keynote names what most accomplished women are quietly carrying. The exhaustion that does not show up in performance reviews. The disconnection between identity and pleasure. The role the nervous system plays in determining whether high performance is sustainable or self-destructive. And how to rebuild ambition on a foundation that includes fulfilment, not just output.\n\nThe talk is not a permission slip to do less. It is a structural argument for doing it differently, and a roadmap for what comes next.",
   },
 ];
 
@@ -251,7 +251,7 @@ export default function Speaking() {
           <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-20">
             Keynote Topics
           </h2>
-          <div className="space-y-0 divide-y divide-foreground/15">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
             {speakingTopics.map((t, i) => (
               <motion.div
                 key={t.num}
@@ -259,23 +259,19 @@ export default function Speaking() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="py-12 md:py-16 grid lg:grid-cols-12 gap-8"
+                className="flex flex-col"
               >
-                <div className="lg:col-span-1">
-                  <span className="font-serif italic text-4xl text-oxblood/40">{t.num}</span>
-                </div>
-                <div className="lg:col-span-11">
-                  <h3 className="font-serif text-3xl md:text-5xl leading-[1.05] tracking-tight mb-3">{t.title}</h3>
-                  <p className="font-serif italic text-xl text-muted-foreground mb-6">{t.subtitle}</p>
-                  {t.body.split("\n\n").map((p, j) => (
-                    <p key={j} className="text-[15px] text-muted-foreground leading-relaxed mb-4 last:mb-0 max-w-3xl">{p}</p>
-                  ))}
-                  <div className="mt-8">
-                    <Link to="/contact" className="inline-flex items-center gap-3 border border-foreground/50 px-7 py-3 text-[11px] tracking-editorial uppercase hover:bg-foreground hover:text-ivory transition-all group btn-pulse">
-                      Book Me To Speak
-                      <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                    </Link>
-                  </div>
+                <span className="font-serif italic text-4xl text-oxblood/40 mb-6">{t.num}</span>
+                <h3 className="font-serif text-2xl md:text-3xl leading-[1.05] tracking-tight mb-3">{t.title}</h3>
+                <p className="font-serif italic text-lg text-muted-foreground mb-6">{t.subtitle}</p>
+                {t.body.split("\n\n").map((p, j) => (
+                  <p key={j} className="text-[14px] text-muted-foreground leading-relaxed mb-4 last:mb-0">{p}</p>
+                ))}
+                <div className="mt-8 pt-6 border-t border-foreground/10">
+                  <Link to="/contact" className="inline-flex items-center gap-3 border border-foreground/50 px-7 py-3 text-[11px] tracking-editorial uppercase hover:bg-foreground hover:text-ivory transition-all group btn-pulse">
+                    Book Me To Speak
+                    <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                  </Link>
                 </div>
               </motion.div>
             ))}

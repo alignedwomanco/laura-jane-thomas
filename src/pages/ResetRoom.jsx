@@ -372,12 +372,9 @@ export default function ResetRoom() {
           >
             You can feel it. You have been feeling it for a while.
           </p>
-          <div className="space-y-3 mb-16 text-white/65 text-base md:text-lg leading-relaxed">
-            <p>The version of you that built this life</p>
-            <p>is not the version that will build the next one.</p>
-            <p>The way you got here was the way you got here.</p>
-            <p>It is not the way forward.</p>
-          </div>
+          <p className="mb-16 text-white/65 text-base md:text-lg leading-relaxed">
+            The version of you that built this life is not the version that will build the next one. The way you got here was the way you got here. It is not the way forward.
+          </p>
           <p
             className="italic text-white/85 mb-10"
             style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.2rem, 2vw, 1.6rem)" }}

@@ -11,7 +11,7 @@ export default function CtaBanner({ headline, sub, cta = "Apply To Work With Me"
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black opacity-40" />
+        <div className="absolute inset-0 bg-black opacity-80" />
       </div>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center relative z-10">
         <motion.h2

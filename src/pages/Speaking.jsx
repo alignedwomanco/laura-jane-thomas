@@ -145,24 +145,10 @@ export default function Speaking() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="flex flex-col items-center text-center"
             >
-              <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
-                <svg viewBox="0 0 120 120" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
-                  <g>
-                    {/* Left wreath */}
-                    <path d="M20 60 Q15 50 20 40 Q25 35 30 40 Q28 50 25 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
-                    <path d="M25 35 Q20 30 25 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    <path d="M30 40 Q35 30 40 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    {/* Right wreath */}
-                    <path d="M100 60 Q105 50 100 40 Q95 35 90 40 Q92 50 95 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
-                    <path d="M95 35 Q100 30 95 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    <path d="M90 40 Q85 30 80 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                  </g>
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">Women's Day</p>
-                  <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">EY</p>
-                  <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Keynote · Panel</p>
-                </div>
+              <div className="mb-8">
+                <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">Women's Day</p>
+                <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">EY</p>
+                <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Keynote · Panel</p>
               </div>
               <p className="font-serif italic text-lg text-foreground mb-6 leading-relaxed">
                 "To the most amazing speaker and panellist, on behalf of the D&I team and EY, thank you for helping make our Women's Day celebration a huge success."
@@ -179,24 +165,10 @@ export default function Speaking() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col items-center text-center"
             >
-              <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
-                <svg viewBox="0 0 120 120" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
-                  <g>
-                    {/* Left wreath */}
-                    <path d="M20 60 Q15 50 20 40 Q25 35 30 40 Q28 50 25 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
-                    <path d="M25 35 Q20 30 25 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    <path d="M30 40 Q35 30 40 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    {/* Right wreath */}
-                    <path d="M100 60 Q105 50 100 40 Q95 35 90 40 Q92 50 95 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
-                    <path d="M95 35 Q100 30 95 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    <path d="M90 40 Q85 30 80 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                  </g>
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">H2H Workshop</p>
-                  <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">Oracle</p>
-                  <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Marketing Team</p>
-                </div>
+              <div className="mb-8">
+                <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">H2H Workshop</p>
+                <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">Oracle</p>
+                <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Marketing Team</p>
               </div>
               <p className="font-serif italic text-lg text-foreground mb-6 leading-relaxed">
                 "The teams thoroughly enjoyed and were engaged in your H2H workshop. They even stayed overtime. Thank you for such a fantastic session."
@@ -404,24 +376,10 @@ export default function Speaking() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="flex flex-col items-center text-center"
             >
-              <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
-                <svg viewBox="0 0 120 120" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
-                  <g>
-                    {/* Left wreath */}
-                    <path d="M20 60 Q15 50 20 40 Q25 35 30 40 Q28 50 25 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
-                    <path d="M25 35 Q20 30 25 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    <path d="M30 40 Q35 30 40 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    {/* Right wreath */}
-                    <path d="M100 60 Q105 50 100 40 Q95 35 90 40 Q92 50 95 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
-                    <path d="M95 35 Q100 30 95 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    <path d="M90 40 Q85 30 80 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                  </g>
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">Women's Day</p>
-                  <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">EY</p>
-                  <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Keynote · Panel</p>
-                </div>
+              <div className="mb-8">
+                <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">Women's Day</p>
+                <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">EY</p>
+                <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Keynote · Panel</p>
               </div>
               <p className="font-serif italic text-lg text-foreground mb-6 leading-relaxed">
                 "To the most amazing speaker and panellist, on behalf of the D&I team and EY, thank you for helping make our Women's Day celebration a huge success."
@@ -438,24 +396,10 @@ export default function Speaking() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col items-center text-center"
             >
-              <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
-                <svg viewBox="0 0 120 120" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
-                  <g>
-                    {/* Left wreath */}
-                    <path d="M20 60 Q15 50 20 40 Q25 35 30 40 Q28 50 25 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
-                    <path d="M25 35 Q20 30 25 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    <path d="M30 40 Q35 30 40 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    {/* Right wreath */}
-                    <path d="M100 60 Q105 50 100 40 Q95 35 90 40 Q92 50 95 60" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.6" />
-                    <path d="M95 35 Q100 30 95 20" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                    <path d="M90 40 Q85 30 80 35" stroke="#6B0F0F" strokeWidth="2" fill="none" opacity="0.5" />
-                  </g>
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">H2H Workshop</p>
-                  <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">Oracle</p>
-                  <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Marketing Team</p>
-                </div>
+              <div className="mb-8">
+                <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">H2H Workshop</p>
+                <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">Oracle</p>
+                <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Marketing Team</p>
               </div>
               <p className="font-serif italic text-lg text-foreground mb-6 leading-relaxed">
                 "The teams thoroughly enjoyed and were engaged in your H2H workshop. They even stayed overtime. Thank you for such a fantastic session."

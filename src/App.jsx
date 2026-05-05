@@ -53,7 +53,7 @@ const AuthenticatedApp = () => {
       <Route path="/about" element={<PublicOnlyRoute><About /></PublicOnlyRoute>} />
       <Route path="/consulting" element={<PublicOnlyRoute><Consulting /></PublicOnlyRoute>} />
       <Route path="/speaking" element={<PublicOnlyRoute><Speaking /></PublicOnlyRoute>} />
-      <Route path="/reset-room" element={<PublicOnlyRoute><ResetRoom /></PublicOnlyRoute>} />
+      <Route path="/services" element={<PublicOnlyRoute><ResetRoom /></PublicOnlyRoute>} />
       <Route path="/contact" element={<PublicOnlyRoute><Contact /></PublicOnlyRoute>} />
       <Route path="/submissions" element={<PublicOnlyRoute><Submissions /></PublicOnlyRoute>} />
       <Route path="*" element={<PageNotFound />} />

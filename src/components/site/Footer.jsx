@@ -23,7 +23,7 @@ export default function Footer() {
               <li><Link to="/about" className="hover:italic transition-all">About</Link></li>
               <li><Link to="/consulting" className="hover:italic transition-all">Consulting</Link></li>
               <li><Link to="/speaking" className="hover:italic transition-all">Speaking</Link></li>
-              <li><Link to="/reset-room" className="hover:italic transition-all">Coaching</Link></li>
+              <li><Link to="/services" className="hover:italic transition-all">Coaching</Link></li>
               <li><Link to="/contact" className="hover:italic transition-all">Contact</Link></li>
             </ul>
           </div>

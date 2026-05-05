@@ -5,7 +5,7 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 
-const BRAND = "#872D5B";
+const BRAND = "#26030F";
 
 const aliveMethod = [
   { letter: "A", word: "Awareness",        short: "The body is not working against you. It is speaking to you.", desc: "The first stage is seeing what is actually happening, in the body, in the life, in the patterns you have stopped noticing." },

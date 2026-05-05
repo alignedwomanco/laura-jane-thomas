@@ -133,4 +133,11 @@
   .btn-pulse:hover {
     animation: none;
   }
+
+  /* Mobile fallback: fixed background-attachment is broken on iOS Safari */
+  @media (max-width: 767px) {
+    .fixed-bg-wrapper {
+      background-attachment: scroll !important;
+    }
+  }
 }

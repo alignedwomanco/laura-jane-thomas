@@ -177,124 +177,121 @@ export default function ResetRoom() {
         </div>
       </section>
 
-      {/* ── 3. IMAGE + TEXT ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-24 md:py-36" style={{ backgroundColor: "#F5F1EC" }}>
-        {/* Full-width background image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/2287c0313_Screenshot2026-04-17at131145.png"
-            alt=""
-            className="w-full h-full object-cover object-center"
-            style={{ opacity: 0.18 }}
-          />
-          {/* Grainy texture overlay */}
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise2)' opacity='0.07'/%3E%3C/svg%3E")`,
-            opacity: 0.7,
-          }} />
-        </div>
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.1 }}
-            className="aspect-[3/4] overflow-hidden"
-          >
-            <img
-              src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/16e609620_Facetune_17-04-2026-20-07-04.jpg"
-              alt="Laura Jane Thomas"
-              className="w-full h-full object-cover"
-              style={{ opacity: 0.7 }}
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.1, delay: 0.15 }}
-          >
-
-            <p
-              className="leading-[1.15] tracking-tight mb-3"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.25rem, 2.2vw, 1.85rem)", color: "#1A1A1A" }}
+      {/* ── 3 + 4. SHARED FIXED BACKGROUND WRAPPER ──────────────────────── */}
+      <div
+        style={{
+          backgroundImage: `url("https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/2287c0313_Screenshot2026-04-17at131145.png")`,
+          backgroundAttachment: "fixed",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        className="fixed-bg-wrapper"
+      >
+        {/* ── 3. IMAGE + TEXT ───────────────────────────────────────────── */}
+        <section className="relative py-24 md:py-36" style={{ backgroundColor: "rgba(245,241,236,0.82)" }}>
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.1 }}
+              className="aspect-[3/4] overflow-hidden"
             >
-              I built the multi-seven-figure business and hit the milestones.
-            </p>
-            <p
-              className="italic leading-snug mb-5"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(0.95rem, 1.4vw, 1.15rem)", color: "rgba(26,26,26,0.65)" }}
-            >
-              I created the success most people are chasing, and then I burned out.
-            </p>
-            <div className="space-y-3 mb-7">
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
-                Not slowly. Completely.
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
-                The kind of burnout that takes the version of you who built it and makes it impossible to keep going. The kind that forces you to stop, question everything, and rebuild from the ground up.
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
-                What came next was the most defining chapter of my life. It forced me to redefine what success actually means. To understand what it looks like to build something that is not just successful, but sustainable, aligned and honest about what I actually wanted.
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
-                Now I do things differently. I've built a life and a business that are powerful, profitable, and a place I actually want to live inside. And that is what I want for you! The kind of success that feels truly yours.
-              </p>
-            </div>
-            <p
-              className="italic leading-snug mb-5"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(0.95rem, 1.5vw, 1.2rem)", color: "#1A1A1A" }}
-            >
-              I want you to become dangerously competent. Clear in your decisions, confident in your direction, and deeply aligned in the way you build your life and your business.
-            </p>
-            <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
-              You do not have to learn this the hard way. I did that for you already.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+              <img
+                src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/16e609620_Facetune_17-04-2026-20-07-04.jpg"
+                alt="Laura Jane Thomas"
+                className="w-full h-full object-cover"
+                style={{ opacity: 0.7 }}
+              />
+            </motion.div>
 
-      {/* ── 4. ALIVE METHOD ─────────────────────────────────────────────── */}
-      <section className="py-24 md:py-36 px-6" style={{ backgroundColor: "#F5EEE4" }}>
-        <div className="max-w-[1200px] mx-auto">
-          <motion.div {...fadeUp(0)} className="mb-20 text-center">
-            <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>
-              — The Methodology
-            </p>
-            <h2
-              className="leading-[0.95] tracking-tight mb-6"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3rem, 6vw, 6rem)", color: "#1A1A1A" }}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.1, delay: 0.15 }}
             >
-              The A.L.I.V.E. Method™
-            </h2>
-            <p className="text-base leading-relaxed max-w-2xl mx-auto" style={{ color: "rgba(26,26,26,0.60)" }}>
-              The five-stage embodied methodology I built for the woman returning to herself. It is the architecture underneath every private engagement. It is also the foundation of The Aligned Woman Co., the platform I built to scale this work to women everywhere.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-5 gap-px" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
-            {aliveMethod.map((item, i) => (
-              <motion.div
-                key={item.letter}
-                {...fadeUp(i * 0.08)}
-                className="group p-8 md:p-10 transition-transform duration-500 hover:scale-105 hover:z-10 relative"
-                style={{ backgroundColor: "#F5EEE4" }}
+              <p
+                className="leading-[1.15] tracking-tight mb-3"
+                style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.25rem, 2.2vw, 1.85rem)", color: "#1A1A1A" }}
               >
-                <span
-                  className="block leading-none italic mb-5"
-                  style={{ fontFamily: "var(--font-serif)", fontSize: "5rem", color: BRAND }}
-                >
-                  {item.letter}
-                </span>
-                <p className="text-lg font-serif mb-2" style={{ color: "#1A1A1A" }}>{item.word}</p>
-                <p className="text-sm italic leading-snug mb-3" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>{item.short}</p>
-                <p className="text-xs leading-relaxed" style={{ color: "rgba(26,26,26,0.45)" }}>{item.desc}</p>
-              </motion.div>
-            ))}
+                I built the multi-seven-figure business and hit the milestones.
+              </p>
+              <p
+                className="italic leading-snug mb-5"
+                style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(0.95rem, 1.4vw, 1.15rem)", color: "rgba(26,26,26,0.65)" }}
+              >
+                I created the success most people are chasing, and then I burned out.
+              </p>
+              <div className="space-y-3 mb-7">
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
+                  Not slowly. Completely.
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
+                  The kind of burnout that takes the version of you who built it and makes it impossible to keep going. The kind that forces you to stop, question everything, and rebuild from the ground up.
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
+                  What came next was the most defining chapter of my life. It forced me to redefine what success actually means. To understand what it looks like to build something that is not just successful, but sustainable, aligned and honest about what I actually wanted.
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
+                  Now I do things differently. I've built a life and a business that are powerful, profitable, and a place I actually want to live inside. And that is what I want for you! The kind of success that feels truly yours.
+                </p>
+              </div>
+              <p
+                className="italic leading-snug mb-5"
+                style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(0.95rem, 1.5vw, 1.2rem)", color: "#1A1A1A" }}
+              >
+                I want you to become dangerously competent. Clear in your decisions, confident in your direction, and deeply aligned in the way you build your life and your business.
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
+                You do not have to learn this the hard way. I did that for you already.
+              </p>
+            </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* ── 4. ALIVE METHOD ───────────────────────────────────────────── */}
+        <section className="py-24 md:py-36 px-6" style={{ backgroundColor: "rgba(245,238,228,0.92)" }}>
+          <div className="max-w-[1200px] mx-auto">
+            <motion.div {...fadeUp(0)} className="mb-20 text-center">
+              <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>
+                — The Methodology
+              </p>
+              <h2
+                className="leading-[0.95] tracking-tight mb-6"
+                style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(3rem, 6vw, 6rem)", color: "#1A1A1A" }}
+              >
+                The A.L.I.V.E. Method™
+              </h2>
+              <p className="text-base leading-relaxed max-w-2xl mx-auto" style={{ color: "rgba(26,26,26,0.60)" }}>
+                The five-stage embodied methodology I built for the woman returning to herself. It is the architecture underneath every private engagement. It is also the foundation of The Aligned Woman Co., the platform I built to scale this work to women everywhere.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-5 gap-px" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
+              {aliveMethod.map((item, i) => (
+                <motion.div
+                  key={item.letter}
+                  {...fadeUp(i * 0.08)}
+                  className="group p-8 md:p-10 transition-transform duration-500 hover:scale-105 hover:z-10 relative"
+                  style={{ backgroundColor: "rgba(245,238,228,0.95)" }}
+                >
+                  <span
+                    className="block leading-none italic mb-5"
+                    style={{ fontFamily: "var(--font-serif)", fontSize: "5rem", color: BRAND }}
+                  >
+                    {item.letter}
+                  </span>
+                  <p className="text-lg font-serif mb-2" style={{ color: "#1A1A1A" }}>{item.word}</p>
+                  <p className="text-sm italic leading-snug mb-3" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>{item.short}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: "rgba(26,26,26,0.45)" }}>{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* ── 5. OFFERS ───────────────────────────────────────────────────── */}
       {offers.map((offer, i) => (

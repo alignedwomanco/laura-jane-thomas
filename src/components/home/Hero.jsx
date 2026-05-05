@@ -47,7 +47,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-12 md:mt-16 grid md:grid-cols-[1fr_auto_1fr] items-end gap-6 md:gap-10"
+          className="mt-12 md:mt-16 grid md:grid-cols-[1fr_auto_1fr] items-end gap-6 md:gap-10 text-center md:text-left"
         >
           <div className="flex items-center gap-5">
             <span className="font-serif italic text-3xl md:text-4xl">15+</span>

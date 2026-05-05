@@ -6,6 +6,7 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import CtaBanner from "@/components/shared/CtaBanner";
+import SpeakingAccordion from "@/components/speaking/SpeakingAccordion";
 
 const speakingTopics = [
   {
@@ -237,59 +238,9 @@ export default function Speaking() {
       </section>
 
       {/* Where I speak */}
-      <section className="bg-foreground text-ivory py-24 md:py-36">
+      <section className="bg-ivory py-24 md:py-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">— Where I Speak</p>
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-8">
-                Where I Speak
-              </h2>
-              <p className="text-ivory/80 text-lg leading-relaxed mb-8">
-                My work translates across multiple audiences because the core themes are universal:
-              </p>
-              <div className="flex flex-wrap gap-3 mb-10">
-                {["Power.", "Identity.", "Performance.", "Ambition.", "Sustainability."].map((w) => (
-                  <span key={w} className="font-serif italic text-2xl text-ivory">{w}</span>
-                ))}
-              </div>
-              <p className="text-[11px] tracking-editorial uppercase text-ivory/60 mb-4">I deliver talks for:</p>
-              <ul className="space-y-3">
-                {venues.map((v) => (
-                  <li key={v} className="flex items-start gap-3 text-[15px] text-ivory/80">
-                    <span className="text-oxblood mt-1.5 text-xs">●</span>{v}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-[11px] tracking-editorial uppercase text-ivory/60 mb-6">What Audiences Experience</p>
-              <p className="font-serif italic text-xl text-ivory/90 mb-6">My talks combine:</p>
-              <ul className="space-y-3 mb-12">
-                {["Behavioural research", "Organisational insight", "Strategic business thinking", "Personal lived experience"].map((v) => (
-                  <li key={v} className="flex items-start gap-3 text-[15px] text-ivory/80">
-                    <span className="text-oxblood mt-1.5 text-xs">●</span>{v}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-[11px] tracking-editorial uppercase text-ivory/60 mb-4">Travel & Availability</p>
-              <p className="text-[15px] text-ivory/70 mb-4">I hold both South African and British passports and am available for engagements across United Kingdom, Europe, Middle East, South Africa, and international conferences.</p>
-              <p className="text-[11px] tracking-editorial uppercase text-ivory/60 mb-4 mt-8">Available formats:</p>
-              <ul className="space-y-2">
-                {formats.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-[14px] text-ivory/80">
-                    <span className="text-oxblood mt-1.5 text-xs">●</span>{f}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-10">
-                <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-foreground transition-all group btn-pulse">
-                  Book Me To Speak
-                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                </Link>
-              </div>
-            </div>
-          </div>
+          <SpeakingAccordion />
         </div>
       </section>
 

@@ -30,11 +30,69 @@ const fadeUp = (delay = 0) => ({
 export default function ResetRoom() {
   return (
     <div style={{ fontFamily: "var(--font-sans)" }}>
+      <style>{`
+        @media (max-width: 768px) {
+          .coaching-hero-section {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+          }
+          .coaching-hero-content {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+          }
+          .coaching-hero-headline {
+            font-size: 44px !important;
+            line-height: 1.05 !important;
+            margin-bottom: 24px !important;
+          }
+          .coaching-hero-subheadline {
+            font-size: 16px !important;
+            line-height: 1.5 !important;
+            max-width: 100% !important;
+            padding: 0 !important;
+            margin-bottom: 20px !important;
+          }
+          .coaching-hero-body {
+            font-size: 14px !important;
+            line-height: 1.6 !important;
+            max-width: 100% !important;
+            padding: 0 !important;
+            margin-bottom: 28px !important;
+          }
+          .coaching-hero-cta {
+            width: auto !important;
+            padding: 12px 20px !important;
+            font-size: 10px !important;
+          }
+          .coaching-hero-marquee {
+            overflow: hidden !important;
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 -24px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .coaching-hero-headline {
+            font-size: 32px !important;
+            line-height: 1.1 !important;
+          }
+          .coaching-hero-subheadline {
+            font-size: 15px !important;
+          }
+          .coaching-hero-body {
+            font-size: 13px !important;
+          }
+        }
+      `}</style>
       <Navbar />
 
       {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 md:pt-36 pb-20 md:pb-40"
+        className="coaching-hero-section relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 md:pt-36 pb-20 md:pb-40"
         style={{ backgroundColor: BRAND }}
       >
         {/* Full-width background image */}
@@ -57,11 +115,11 @@ export default function ResetRoom() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 max-w-5xl mx-auto px-6 lg:px-0"
+          className="coaching-hero-content relative z-10 max-w-5xl mx-auto px-6 lg:px-0"
         >
           <p className="text-[10px] tracking-editorial uppercase text-white/50 mb-6 md:mb-8">— Coaching</p>
           <h1
-            className="text-white leading-[1.0] tracking-tight mb-6 md:mb-8"
+            className="coaching-hero-headline text-white leading-[1.0] tracking-tight mb-6 md:mb-8"
             style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 6vw, 7rem)" }}
           >
             <span className="block">Wildly successful.</span>
@@ -69,19 +127,19 @@ export default function ResetRoom() {
             <span className="block">Built to last.</span>
           </h1>
 
-          <p className="text-white/75 text-base md:text-lg leading-relaxed mb-4 md:mb-6 max-w-2xl mx-auto" style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
+          <p className="coaching-hero-subheadline text-white/75 text-base md:text-lg leading-relaxed mb-4 md:mb-6 max-w-2xl mx-auto" style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
             For ambitious women building what's next. Whether that is leaving corporate, evolving the business you have built, or building the life your higher self would be proud of.
           </p>
 
           <div className="max-w-xl mx-auto mb-8 md:mb-12">
-            <p className="text-white/65 text-sm md:text-base leading-relaxed">
+            <p className="coaching-hero-body text-white/65 text-sm md:text-base leading-relaxed">
               I work with women ready to build what is next by working with the mind, the body, and the soul. Through The A.L.I.V.E. Method, the embodied methodology I have used with women globally, we build the next chapter with structure rather than guesswork.
             </p>
           </div>
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 border border-white/60 text-white px-8 md:px-12 py-3 md:py-4 text-[10px] md:text-[11px] tracking-editorial uppercase hover:bg-white transition-all duration-400 group btn-pulse mt-2 md:mt-4 mb-8 md:mb-12"
+            className="coaching-hero-cta inline-flex items-center gap-3 border border-white/60 text-white px-8 md:px-12 py-3 md:py-4 text-[10px] md:text-[11px] tracking-editorial uppercase hover:bg-white transition-all duration-400 group btn-pulse mt-2 md:mt-4 mb-8 md:mb-12"
             onMouseEnter={e => { e.currentTarget.style.color = BRAND; }}
             onMouseLeave={e => { e.currentTarget.style.color = "white"; }}
           >
@@ -90,7 +148,7 @@ export default function ResetRoom() {
           </Link>
 
           {/* Press Marquee below button */}
-          <div className="relative z-10 w-full -mx-6 lg:mx-0">
+          <div className="coaching-hero-marquee relative z-10 w-full -mx-6 lg:mx-0">
             <PressMarquee isDark={true} />
           </div>
         </motion.div>

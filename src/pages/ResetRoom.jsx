@@ -202,7 +202,7 @@ export default function ResetRoom() {
             className="aspect-[3/4] overflow-hidden"
           >
             <img
-              src="https://laurajanethomas.biz/wp-content/uploads/2025/11/LauraJThomas24-11-2025-09-52-50-1.png"
+              src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/16e609620_Facetune_17-04-2026-20-07-04.jpg"
               alt="Laura Jane Thomas"
               className="w-full h-full object-cover"
             />

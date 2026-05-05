@@ -282,11 +282,11 @@ export default function ResetRoom() {
             </div>
             {/* Body */}
             <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 24px 96px", textAlign: "center" }}>
-              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 5vw, 5rem)", lineHeight: 0.95, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 32, textTransform: "uppercase" }}>
+              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: 0.85, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 32, textTransform: "uppercase" }}>
                 The Alignment{" "}
                 <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Audit</span>
               </h2>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: 1.3, maxWidth: 640, margin: "0 auto 32px", color: "rgba(242,235,224,0.85)" }}>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: 1.2, maxWidth: 640, margin: "0 auto 32px", color: "rgba(242,235,224,0.85)" }}>
                 You do not need another program. You need to see what is actually going on.
               </p>
               <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
@@ -343,11 +343,11 @@ export default function ResetRoom() {
             </div>
             {/* Body */}
             <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 24px 96px", textAlign: "center" }}>
-              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 5vw, 5rem)", lineHeight: 0.95, letterSpacing: "-0.02em", color: "#000", marginBottom: 32, textTransform: "uppercase" }}>
+              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: 0.85, letterSpacing: "-0.02em", color: "#000", marginBottom: 32, textTransform: "uppercase" }}>
                 The Recalibration{" "}
                 <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Intensive</span>
               </h2>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: 1.3, maxWidth: 640, margin: "0 auto 32px", color: "#333" }}>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: 1.2, maxWidth: 640, margin: "0 auto 32px", color: "#333" }}>
                 Some decisions are too important to figure out slowly.
               </p>
               <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
@@ -403,11 +403,11 @@ export default function ResetRoom() {
             </div>
             {/* Body */}
             <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 24px 96px", textAlign: "center" }}>
-              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 5vw, 5rem)", lineHeight: 0.95, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 32, textTransform: "uppercase" }}>
+              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: 0.85, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 32, textTransform: "uppercase" }}>
                 The Senior{" "}
                 <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Advisory</span>
               </h2>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: 1.3, maxWidth: 640, margin: "0 auto 32px", color: "rgba(242,235,224,0.85)" }}>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: 1.2, maxWidth: 640, margin: "0 auto 32px", color: "rgba(242,235,224,0.85)" }}>
                 For the woman ready to build the next chapter properly, not piece by piece.
               </p>
               <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>

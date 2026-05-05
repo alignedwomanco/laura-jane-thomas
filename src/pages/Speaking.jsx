@@ -73,6 +73,20 @@ export default function Speaking() {
             </Link>
           </motion.div>
         </div>
+        {/* Hero video strip */}
+        <div className="relative h-[50vw] max-h-[500px] overflow-hidden mt-16">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover object-center"
+          >
+            <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-ivory via-transparent to-transparent" />
+        </div>
       </section>
 
       {/* Who I am */}

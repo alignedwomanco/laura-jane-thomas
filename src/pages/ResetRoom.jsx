@@ -260,153 +260,178 @@ export default function ResetRoom() {
         </div>{/* end shared cream overlay */}
       </div>
 
-      {/* ── 5a. ALIGNMENT AUDIT ─────────────────────────────────────────── */}
-      <section className="py-24 md:py-36" style={{ backgroundColor: "#F5F1EC" }}>
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="max-w-2xl mx-auto">
-            <motion.div {...fadeUp(0)}>
-              <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— The Offering / Entry</p>
-              <div className="mb-8" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
-              <h2
-                className="leading-[0.95] tracking-tight mb-4"
-                style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 4vw, 4rem)", color: "#1A1A1A" }}
-              >
-                The Alignment Audit™
+      {/* ── 5. OFFERINGS — SCROLL-STACKED PANELS ────────────────────────── */}
+      {/* Each panel wrapper must be tall enough that the sticky panel has room
+          to "sit" while the user reads the full content before the next panel
+          slides in. We use minHeight: calc(100vh + 200vh) as a generous wrapper
+          so even the tallest panel (Senior Advisory) is fully scrollable. */}
+      <div style={{ position: "relative" }}>
+
+        {/* Panel 1 — The Alignment Audit */}
+        <div style={{ minHeight: "calc(100vh + 120vh)", position: "relative" }}>
+          <div style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 1,
+            minHeight: "100vh",
+            backgroundColor: "#4A2730",
+            borderTopLeftRadius: 24,
+            borderTopRightRadius: 24,
+            overflow: "hidden",
+          }}>
+            {/* Top bar */}
+            <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
+              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.7)" }}>
+                The Alignment Audit
+              </span>
+            </div>
+            {/* Body */}
+            <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 24px 96px", textAlign: "center" }}>
+              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 5vw, 5rem)", lineHeight: 0.95, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 32, textTransform: "uppercase" }}>
+                The Alignment{" "}
+                <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Audit</span>
               </h2>
-              <p
-                className="text-xl italic mb-8 leading-snug"
-                style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}
-              >
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: 1.3, maxWidth: 640, margin: "0 auto 32px", color: "rgba(242,235,224,0.85)" }}>
                 You do not need another program. You need to see what is actually going on.
               </p>
-              <div className="space-y-4 mb-10">
-                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)", marginBottom: 16 }}>
                   A 60-minute structured diagnostic session for the woman who needs to know exactly what is costing her, before she decides what to do about it.
                 </p>
-                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)" }}>
                   Most women at this threshold do not need more inspiration. They need a senior set of eyes on the actual situation, named clearly and held without judgement. The Alignment Audit is the lowest-commitment way to start.
                 </p>
               </div>
-              <p className="text-[11px] tracking-editorial uppercase mb-4" style={{ color: "#1A1A1A" }}>What's Included</p>
-              <ul className="space-y-3 mb-10">
+              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>
+                What's Included
+              </p>
+              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
                 {[
                   "A pre-audit intake so we are in the diagnostic from the first minute, not the fifteenth.",
                   "A 60-minute audit session, structured and direct.",
                   "A written Alignment Diagnostic delivered within 72 hours, capturing what is actually happening and what the next move is.",
                   "A Senior Advisory path-forward conversation, so you leave knowing whether the deeper work is right for you.",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
-                    <span className="mt-1.5 flex-shrink-0" style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: BRAND, display: "inline-block" }} />
-                    {item}
-                  </li>
+                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 4 }}>{item}</p>
                 ))}
-              </ul>
-              <p className="text-base leading-relaxed italic mb-10" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>
+              </div>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "rgba(242,235,224,1)", maxWidth: 640, margin: "0 auto 40px" }}>
                 This is the diagnostic that decides whether the rest of the work is for you. It is also a complete piece of work in itself.
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 border px-8 py-4 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
-                style={{ borderColor: "#1A1A1A", color: "#1A1A1A" }}
-                onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#1A1A1A"; e.currentTarget.style.color = "white"; }}
-                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#1A1A1A"; }}
+                style={{ display: "inline-flex", alignItems: "center", gap: 12, border: "1px solid rgba(242,235,224,0.4)", color: "rgba(242,235,224,1)", background: "transparent", padding: "14px 28px", fontFamily: "Inter, system-ui, sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(242,235,224,1)"; e.currentTarget.style.color = "#4A2730"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "rgba(242,235,224,1)"; }}
               >
-                Book Your Alignment Audit
-                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                Book Your Alignment Audit <span style={{ display: "inline-block" }}>→</span>
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* ── 5b. RECALIBRATION INTENSIVE ─────────────────────────────────── */}
-      <section className="py-24 md:py-36" style={{ backgroundColor: "#EAE4DC" }}>
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="max-w-2xl mx-auto">
-            <motion.div {...fadeUp(0)}>
-              <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— The Offering / Mid-Tier</p>
-              <div className="mb-8" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
-              <h2
-                className="leading-[0.95] tracking-tight mb-4"
-                style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 4vw, 4rem)", color: "#1A1A1A" }}
-              >
+        {/* Panel 2 — The Recalibration Intensive */}
+        <div style={{ minHeight: "calc(100vh + 140vh)", position: "relative" }}>
+          <div style={{
+            position: "sticky",
+            top: 64,
+            zIndex: 2,
+            minHeight: "100vh",
+            backgroundColor: "#3A0E1A",
+            borderTopLeftRadius: 24,
+            borderTopRightRadius: 24,
+            overflow: "hidden",
+          }}>
+            {/* Top bar */}
+            <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
+              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.7)" }}>
                 The Recalibration Intensive
+              </span>
+            </div>
+            {/* Body */}
+            <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 24px 96px", textAlign: "center" }}>
+              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 5vw, 5rem)", lineHeight: 0.95, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 32, textTransform: "uppercase" }}>
+                The Recalibration{" "}
+                <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Intensive</span>
               </h2>
-              <p
-                className="text-xl italic mb-8 leading-snug"
-                style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}
-              >
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: 1.3, maxWidth: 640, margin: "0 auto 32px", color: "rgba(242,235,224,0.85)" }}>
                 Some decisions are too important to figure out slowly.
               </p>
-              <div className="space-y-4 mb-10">
-                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)", marginBottom: 16 }}>
                   A private one-day intensive for the woman who already knows what is not working, and needs to make her next move with senior strategic clarity rather than another six months of trying to figure it out alone.
                 </p>
-                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)" }}>
                   This is the offering for the threshold moment. The decision about whether to leave. The decision about what to build. The decision about which version of the next chapter is the one to commit to. Held in one structured day, with the senior strategic and embodied work running in the same conversation.
                 </p>
               </div>
-              <p className="text-[11px] tracking-editorial uppercase mb-4" style={{ color: "#1A1A1A" }}>What's Included</p>
-              <ul className="space-y-3 mb-10">
+              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>
+                What's Included
+              </p>
+              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
                 {[
                   "A pre-intensive intake so the day opens at depth, not at introductions.",
                   "A full day of private strategic work, structured around the specific decision or threshold you are sitting in.",
                   "A written Recalibration Map delivered within five days, capturing the decision architecture, the priorities, and the next 90 days of action.",
                   "A 30-day strategic check-in, so the work holds when you are back in your life.",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
-                    <span className="mt-1.5 flex-shrink-0" style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: BRAND, display: "inline-block" }} />
-                    {item}
-                  </li>
+                ].map((item, i) => (
+                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 4 }}>{item}</p>
                 ))}
-              </ul>
-              <p className="text-base leading-relaxed italic mb-10" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>
+              </div>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "rgba(242,235,224,1)", maxWidth: 640, margin: "0 auto 40px" }}>
                 The Recalibration Intensive is for the woman who is ready to move. Not ready to commit to a 90-day engagement. Ready to make the next decision properly.
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 border px-8 py-4 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
-                style={{ borderColor: "#1A1A1A", color: "#1A1A1A" }}
-                onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#1A1A1A"; e.currentTarget.style.color = "white"; }}
-                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#1A1A1A"; }}
+                style={{ display: "inline-flex", alignItems: "center", gap: 12, border: "1px solid rgba(242,235,224,0.4)", color: "rgba(242,235,224,1)", background: "transparent", padding: "14px 28px", fontFamily: "Inter, system-ui, sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(242,235,224,1)"; e.currentTarget.style.color = "#3A0E1A"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "rgba(242,235,224,1)"; }}
               >
-                Book Your Recalibration Intensive
-                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                Book Your Recalibration Intensive <span style={{ display: "inline-block" }}>→</span>
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* ── 5c. SENIOR ADVISORY ──────────────────────────────────────────── */}
-      <section className="py-24 md:py-36" style={{ backgroundColor: "#FFFFFF" }}>
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="max-w-2xl mx-auto">
-            <motion.div {...fadeUp(0)}>
-              <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— The Offering / Flagship</p>
-              <div className="mb-8" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
-              <h2
-                className="leading-[0.95] tracking-tight mb-4"
-                style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 4vw, 4rem)", color: "#1A1A1A" }}
-              >
+        {/* Panel 3 — The Senior Advisory */}
+        <div style={{ minHeight: "calc(100vh + 200vh)", position: "relative" }}>
+          <div style={{
+            position: "sticky",
+            top: 128,
+            zIndex: 3,
+            minHeight: "100vh",
+            backgroundColor: "#0D0508",
+            borderTopLeftRadius: 24,
+            borderTopRightRadius: 24,
+            overflow: "hidden",
+          }}>
+            {/* Top bar */}
+            <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
+              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.7)" }}>
                 The Senior Advisory
+              </span>
+            </div>
+            {/* Body */}
+            <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 24px 96px", textAlign: "center" }}>
+              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 5vw, 5rem)", lineHeight: 0.95, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 32, textTransform: "uppercase" }}>
+                The Senior{" "}
+                <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Advisory</span>
               </h2>
-              <p
-                className="text-xl italic mb-8 leading-snug"
-                style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}
-              >
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: 1.3, maxWidth: 640, margin: "0 auto 32px", color: "rgba(242,235,224,0.85)" }}>
                 For the woman ready to build the next chapter properly, not piece by piece.
               </p>
-              <div className="space-y-4 mb-10">
-                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)", marginBottom: 16 }}>
                   A 90-day private engagement for ambitious women building what is next. Whether that is leaving corporate, evolving the business you have built, or building the life your higher self would be proud of.
                 </p>
-                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)" }}>
                   This is the work that sits underneath the next decade of your life. The senior advisory you have never given yourself. We hold the structural work and the embodied work in the same conversation, and we build the architecture for what comes next on a foundation that is honest about what you actually want.
                 </p>
               </div>
-              <p className="text-[11px] tracking-editorial uppercase mb-4" style={{ color: "#1A1A1A" }}>What's Included</p>
-              <ul className="space-y-3 mb-10">
+              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>
+                What's Included
+              </p>
+              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
                 {[
                   "A senior diagnostic intake and a written Misalignment Diagnostic, so the engagement opens at depth.",
                   "Six 60-minute strategic sessions over 90 days, structured around the specific architecture of what you are building.",
@@ -415,44 +440,39 @@ export default function ResetRoom() {
                   "A System Renegotiation Session, for the conversations with the people in your life that have to happen as you become the woman who can hold this.",
                   "Strategic async support throughout, so you are never building alone in the in-between weeks.",
                   "A Forward Roadmap Session at the close, so the work continues when the engagement ends.",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
-                    <span className="mt-1.5 flex-shrink-0" style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: BRAND, display: "inline-block" }} />
-                    {item}
-                  </li>
+                ].map((item, i) => (
+                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 4 }}>{item}</p>
                 ))}
-              </ul>
-              <p className="text-[11px] tracking-editorial uppercase mb-4" style={{ color: "#1A1A1A" }}>Included Bonuses</p>
-              <ul className="space-y-3 mb-10">
+              </div>
+              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>
+                Included Bonuses
+              </p>
+              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
                 {[
                   "A pre-engagement strategy briefing in the week before we start.",
                   "Three Aligned Woman Blueprint seats inside The Aligned Woman Co., to share with the women in your life.",
                   "A Quarterly Roundtable invitation, for ongoing connection with women doing this work at the same altitude.",
                   "A 12-month strategic check-in.",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
-                    <span className="mt-1.5 flex-shrink-0" style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: BRAND, display: "inline-block" }} />
-                    {item}
-                  </li>
+                ].map((item, i) => (
+                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 4 }}>{item}</p>
                 ))}
-              </ul>
-              <p className="text-base leading-relaxed italic mb-10" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>
+              </div>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "rgba(242,235,224,1)", maxWidth: 640, margin: "0 auto 40px" }}>
                 The Senior Advisory runs with a small number of women per quarter, by design. Privacy is assumed. The work is direct, structured, and built to last.
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 border px-8 py-4 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
-                style={{ borderColor: "#1A1A1A", color: "#1A1A1A" }}
-                onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#1A1A1A"; e.currentTarget.style.color = "white"; }}
-                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#1A1A1A"; }}
+                style={{ display: "inline-flex", alignItems: "center", gap: 12, border: "1px solid rgba(242,235,224,0.4)", color: "rgba(242,235,224,1)", background: "transparent", padding: "14px 28px", fontFamily: "Inter, system-ui, sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(242,235,224,1)"; e.currentTarget.style.color = "#0D0508"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "rgba(242,235,224,1)"; }}
               >
-                Apply For The Senior Advisory
-                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                Apply For The Senior Advisory <span style={{ display: "inline-block" }}>→</span>
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </section>
+
+      </div>
 
       {/* ── 6. FINAL CLOSE ──────────────────────────────────────────────── */}
       <section

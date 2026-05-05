@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
+import OfferingsAccordion from "@/components/offerings/OfferingsAccordion";
 
 const BRAND = "#26030F";
 
@@ -260,215 +261,21 @@ export default function ResetRoom() {
         </div>{/* end shared cream overlay */}
       </div>
 
-      {/* ── 5. OFFERINGS — SCROLL-STACKED PANELS ────────────────────────── */}
-      <div className="relative">
-
-        {/* Panel 1: The Alignment Audit */}
-        <div style={{
-          backgroundColor: "#935170",
-          position: "sticky",
-          top: 0,
-          zIndex: 1,
-          minHeight: "100vh",
-          borderTopLeftRadius: 24,
-          borderTopRightRadius: 24,
-          overflow: "hidden",
-        }}>
-            {/* Top bar */}
-            <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
-              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.7)" }}>
-                The Alignment Audit
-              </span>
-            </div>
-            {/* Body */}
-            <div style={{ maxWidth: 880, margin: "0 auto", padding: "28px 24px 56px", textAlign: "center" }}>
-              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: 0.85, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 24, textTransform: "uppercase" }}>
-                The Alignment{" "}
-                <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Audit</span>
-              </h2>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: 1.1, maxWidth: 640, margin: "0 auto 24px", color: "rgba(242,235,224,0.85)" }}>
-                You do not need another program. You need to see what is actually going on.
-              </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 24px" }}>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.5, color: "rgba(242,235,224,0.78)", marginBottom: 12 }}>
-                  A 60-minute structured diagnostic session for the woman who needs to know exactly what is costing her, before she decides what to do about it.
-                </p>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.5, color: "rgba(242,235,224,0.78)" }}>
-                  Most women at this threshold do not need more inspiration. They need a senior set of eyes on the actual situation, named clearly and held without judgement. The Alignment Audit is the lowest-commitment way to start.
-                </p>
-              </div>
-              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "24px 0 16px" }}>
-                What's Included
-              </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                {[
-                  "A pre-audit intake so we are in the diagnostic from the first minute, not the fifteenth.",
-                  "A 60-minute audit session, structured and direct.",
-                  "A written Alignment Diagnostic delivered within 72 hours, capturing what is actually happening and what the next move is.",
-                  "A Senior Advisory path-forward conversation, so you leave knowing whether the deeper work is right for you.",
-                ].map((item, i) => (
-                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 0, display: "flex", gap: 8, alignItems: "flex-start" }}>
-                    <span style={{ marginTop: 2, flexShrink: 0 }}>✓</span>
-                    <span>{item}</span>
-                  </p>
-                ))}
-              </div>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "rgba(242,235,224,1)", maxWidth: 640, margin: "0 auto 28px" }}>
-                This is the diagnostic that decides whether the rest of the work is for you. It is also a complete piece of work in itself.
-              </p>
-              <Link
-                to="/contact"
-                style={{ display: "inline-flex", alignItems: "center", gap: 12, border: "1px solid rgba(242,235,224,0.4)", color: "rgba(242,235,224,1)", background: "transparent", padding: "14px 28px", fontFamily: "Inter, system-ui, sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)" }}
-                onMouseEnter={e => { e.currentTarget.style.background = "rgba(242,235,224,1)"; e.currentTarget.style.color = "#4A2730"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "rgba(242,235,224,1)"; }}
-              >
-                Book Your Alignment Audit <span style={{ display: "inline-block" }}>→</span>
-              </Link>
-            </div>
-          </div>
-
-        {/* Panel 2: The Recalibration Intensive */}
-        <div style={{
-          backgroundColor: "#F2EBE0",
-          position: "sticky",
-          top: 64,
-          zIndex: 2,
-          minHeight: "250vh",
-          borderTopLeftRadius: 24,
-          borderTopRightRadius: 24,
-          overflow: "hidden",
-        }}>
-            {/* Top bar */}
-            <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
-              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "#333" }}>
-              </span>
-            </div>
-            {/* Body */}
-            <div style={{ maxWidth: 880, margin: "0 auto", padding: "28px 24px 56px", textAlign: "center" }}>
-              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: 0.85, letterSpacing: "-0.02em", color: "#000", marginBottom: 24, textTransform: "uppercase" }}>
-                The Recalibration{" "}
-                <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Intensive</span>
-              </h2>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: 1.1, maxWidth: 640, margin: "0 auto 24px", color: "#333" }}>
-                Some decisions are too important to figure out slowly.
-              </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 24px" }}>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.5, color: "#555", marginBottom: 12 }}>
-                  A private one-day intensive for the woman who already knows what is not working, and needs to make her next move with senior strategic clarity rather than another six months of trying to figure it out alone.
-                </p>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.5, color: "#555" }}>
-                  This is the offering for the threshold moment. The decision about whether to leave. The decision about what to build. The decision about which version of the next chapter is the one to commit to. Held in one structured day, with the senior strategic and embodied work running in the same conversation.
-                </p>
-              </div>
-              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "#666", margin: "24px 0 16px" }}>
-                What's Included
-              </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                {[
-                  "A pre-intensive intake so the day opens at depth, not at introductions.",
-                  "A full day of private strategic work, structured around the specific decision or threshold you are sitting in.",
-                  "A written Recalibration Map delivered within five days, capturing the decision architecture, the priorities, and the next 90 days of action.",
-                  "A 30-day strategic check-in, so the work holds when you are back in your life.",
-                ].map((item, i) => (
-                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "#555", marginBottom: 0, display: "flex", gap: 8, alignItems: "flex-start" }}>
-                    <span style={{ marginTop: 2, flexShrink: 0 }}>✓</span>
-                    <span>{item}</span>
-                  </p>
-                ))}
-              </div>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "#000", maxWidth: 640, margin: "0 auto 28px" }}>
-                The Recalibration Intensive is for the woman who is ready to move. Not ready to commit to a 90-day engagement. Ready to make the next decision properly.
-              </p>
-              <Link
-                to="/contact"
-                style={{ display: "inline-flex", alignItems: "center", gap: 12, border: "1px solid #333", color: "#000", background: "transparent", padding: "14px 28px", fontFamily: "Inter, system-ui, sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)" }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#000"; e.currentTarget.style.color = "#F2EBE0"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#000"; }}
-              >
-                Book Your Recalibration Intensive <span style={{ display: "inline-block" }}>→</span>
-              </Link>
-            </div>
-          </div>
-
-        {/* Panel 3: The Senior Advisory */}
-        <div style={{
-          backgroundColor: "#935170",
-          position: "sticky",
-          top: 128,
-          zIndex: 3,
-          borderTopLeftRadius: 24,
-          borderTopRightRadius: 24,
-          overflow: "hidden",
-        }}>
-            {/* Top bar */}
-            <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
-              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.7)" }}>
-                The Senior Advisory
-              </span>
-            </div>
-            {/* Body */}
-            <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 24px 96px", textAlign: "center" }}>
-              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: 0.85, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 32, textTransform: "uppercase" }}>
-                The Senior{" "}
-                <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Advisory</span>
-              </h2>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: 1.2, maxWidth: 640, margin: "0 auto 32px", color: "rgba(242,235,224,0.85)" }}>
-                For the woman ready to build the next chapter properly, not piece by piece.
-              </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)", marginBottom: 16 }}>
-                  A 90-day private engagement for ambitious women building what is next. Whether that is leaving corporate, evolving the business you have built, or building the life your higher self would be proud of.
-                </p>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)" }}>
-                  This is the work that sits underneath the next decade of your life. The senior advisory you have never given yourself. We hold the structural work and the embodied work in the same conversation, and we build the architecture for what comes next on a foundation that is honest about what you actually want.
-                </p>
-              </div>
-              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>
-                What's Included
-              </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                {[
-                  "A senior diagnostic intake and a written Misalignment Diagnostic, so the engagement opens at depth.",
-                  "Six 60-minute strategic sessions over 90 days, structured around the specific architecture of what you are building.",
-                  "A 90-Day Priority Structure that integrates business, capacity, and life into one operating system.",
-                  "A Renegotiated Standards Document, capturing the actual non-negotiables of who you are now.",
-                  "A System Renegotiation Session, for the conversations with the people in your life that have to happen as you become the woman who can hold this.",
-                  "Strategic async support throughout, so you are never building alone in the in-between weeks.",
-                  "A Forward Roadmap Session at the close, so the work continues when the engagement ends.",
-                ].map((item, i) => (
-                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 0, display: "flex", gap: 8, alignItems: "flex-start" }}>
-                    <span style={{ marginTop: 2, flexShrink: 0 }}>✓</span>
-                    <span>{item}</span>
-                  </p>
-                ))}
-              </div>
-              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>
-                Included Bonuses
-              </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
-                {[
-                  "A pre-engagement strategy briefing in the week before we start.",
-                  "Three Aligned Woman Blueprint seats inside The Aligned Woman Co., to share with the women in your life.",
-                  "A Quarterly Roundtable invitation, for ongoing connection with women doing this work at the same altitude.",
-                  "A 12-month strategic check-in.",
-                ].map((item, i) => (
-                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 4 }}>{item}</p>
-                ))}
-              </div>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "rgba(242,235,224,1)", maxWidth: 640, margin: "0 auto 40px" }}>
-                The Senior Advisory runs with a small number of women per quarter, by design. Privacy is assumed. The work is direct, structured, and built to last.
-              </p>
-              <Link
-                to="/contact"
-                style={{ display: "inline-flex", alignItems: "center", gap: 12, border: "1px solid rgba(242,235,224,0.4)", color: "rgba(242,235,224,1)", background: "transparent", padding: "14px 28px", fontFamily: "Inter, system-ui, sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)" }}
-                onMouseEnter={e => { e.currentTarget.style.background = "rgba(242,235,224,1)"; e.currentTarget.style.color = "#0D0508"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "rgba(242,235,224,1)"; }}
-              >
-                Apply For The Senior Advisory <span style={{ display: "inline-block" }}>→</span>
-              </Link>
-            </div>
-          </div>
-      </div>
+      {/* ── 5. OFFERINGS — ACCORDION CARDS ───────────────────────────────── */}
+      <style>{`
+        @keyframes pulse-arrow {
+          0%, 100% { transform: translateY(0); opacity: 0.7; }
+          50% { transform: translateY(4px); opacity: 1; }
+        }
+        .offerings-card { transition: background-color 200ms ease; }
+        .offerings-card:hover { background-color: rgba(242, 235, 224, 0.08); }
+        .offerings-arrow { animation: pulse-arrow 1.8s ease-in-out infinite; }
+        .offerings-arrow.expanded { animation: none; }
+      `}</style>
+      
+      <section style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
+        <OfferingsAccordion />
+      </section>
 
       {/* ── 6. FINAL CLOSE ──────────────────────────────────────────────── */}
       <section

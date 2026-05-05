@@ -33,7 +33,7 @@ export default function ClientsMarquee() {
         </h2>
       </div>
 
-      <div className="overflow-hidden border-y border-ivory/15 py-8">
+      <div className="overflow-hidden">
         <div className="marquee whitespace-nowrap">
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="inline-flex items-center">

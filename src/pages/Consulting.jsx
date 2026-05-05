@@ -131,7 +131,7 @@ export default function Consulting() {
                 </AccordionItem>
               ))}
               <div className="mt-10">
-                <Link to="/contact" className="inline-flex items-center gap-3 bg-foreground text-ivory px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group">
+                <Link to="/contact" className="inline-flex items-center gap-3 bg-foreground text-ivory px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group animate-pulse hover:animate-none" style={{boxShadow: "0 0 0 0 rgba(107,15,15,0.7)", animation: "pulse-glow 2s ease-in-out infinite"}}>
                   Apply To Work With Me
                   <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                 </Link>

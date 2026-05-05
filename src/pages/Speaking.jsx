@@ -60,7 +60,7 @@ export default function Speaking() {
         >
           <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-oxblood/30" />
+        <div className="absolute inset-0 bg-oxblood/60" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">
             — Speaking

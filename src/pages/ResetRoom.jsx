@@ -292,7 +292,7 @@ export default function ResetRoom() {
             style={{ opacity: 0.4 }}
           />
           {/* Dark overlay */}
-          <div className="absolute inset-0" style={{ backgroundColor: "rgba(147,81,112,0.4)" }} />
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(194, 133, 139, 0.4)" }} />
         </div>
         <motion.div
           initial={{ opacity: 0, y: 40 }}

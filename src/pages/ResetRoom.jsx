@@ -341,7 +341,6 @@ export default function ResetRoom() {
             {/* Top bar */}
             <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
               <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "#333" }}>
-                The Recalibration Intensive
               </span>
             </div>
             {/* Body */}

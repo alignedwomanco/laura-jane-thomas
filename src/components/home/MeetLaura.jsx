@@ -33,12 +33,6 @@ export default function MeetLaura() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-4 md:-right-8 bg-ivory px-4 py-3 border border-foreground/20">
-                <span className="block text-[10px] tracking-editorial uppercase text-muted-foreground">
-                  Nice to meet you
-                </span>
-                <span className="block font-serif italic text-2xl mt-1">— Laura</span>
-              </div>
             </div>
           </motion.div>
 

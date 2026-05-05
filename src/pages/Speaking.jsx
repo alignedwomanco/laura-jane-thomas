@@ -105,11 +105,13 @@ export default function Speaking() {
             </p>
           </div>
           <div className="relative aspect-video bg-gradient-to-b from-[#6B3E4D] to-[#3A1E2A] rounded-lg overflow-hidden group cursor-pointer">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button className="w-16 h-16 rounded-full bg-ivory flex items-center justify-center hover:scale-110 transition-transform duration-300 group-hover:shadow-lg">
-                <Play className="w-6 h-6 text-oxblood fill-oxblood ml-1" />
-              </button>
-            </div>
+            <video
+              className="w-full h-full object-cover"
+              controls
+              poster="https://laurajanethomas.biz/wp-content/uploads/2026/02/C39D33B6-CEBB-4963-9550-4913F3A54680-1024x997.png"
+            >
+              <source src="https://pub-a5b7b5d795624ffe98c7799d0aa110c1.r2.dev/laura-reduced.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </section>

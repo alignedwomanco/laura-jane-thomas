@@ -10,7 +10,7 @@ const resources = [
     titleHighlight: "E-book.",
     description: "For every successful woman quietly unraveling — the five tools that saved me, and a path back to a life that feels as good as it looks.",
     specs: "",
-    cta: "DOWNLOAD",
+    cta: "Download",
     bg: "linear-gradient(135deg, #A85A7C 0%, #6B2D5E 100%)",
   },
   {

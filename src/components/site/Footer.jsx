@@ -12,9 +12,6 @@ export default function Footer() {
               <h3 className="font-serif text-3xl md:text-4xl leading-[1.05]">
                 laura<span className="italic">jane</span>thomas
               </h3>
-              <p className="text-[11px] tracking-editorial uppercase mt-3 text-ivory/60">
-                Award-Winning Brand Strategist
-              </p>
             </a>
           </div>
 

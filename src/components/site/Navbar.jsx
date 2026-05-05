@@ -32,9 +32,6 @@ export default function Navbar() {
           <span className="font-serif text-xl md:text-2xl tracking-tight text-foreground">
             laura<span className="italic">jane</span>thomas
           </span>
-          <span className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-1">
-            Award-Winning Brand Strategist
-          </span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-9">

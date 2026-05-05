@@ -48,7 +48,7 @@ export default function Speaking() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative bg-oxblood text-ivory pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden">
+      <section className="relative bg-oxblood text-ivory pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden min-h-screen md:min-h-auto">
         {/* Background video */}
         <video
           autoPlay

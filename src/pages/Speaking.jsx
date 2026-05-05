@@ -271,14 +271,9 @@ export default function Speaking() {
               <p className="text-ivory/80 text-lg leading-relaxed mb-10">
                 The Aligned Woman Podcast is where ambition meets alignment. Hosted by Laura Thomas, this show brings together extraordinary women to explore leadership, burnout, identity, wealth and joy. These are the conversations women are craving but rarely given space to have.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <a href="https://open.spotify.com/show/0TdHPtBVdT9setqlPZUimi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-ivory/70 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all btn-pulse">
-                  Listen on Spotify
-                </a>
-                <a href="https://podcasts.apple.com/us/podcast/the-aligned-woman-podcast/id1877634580" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-ivory/70 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all btn-pulse">
-                  Apple Podcasts
-                </a>
-              </div>
+              <a href="https://open.spotify.com/show/0TdHPtBVdT9setqlPZUimi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-ivory/70 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all btn-pulse">
+                Listen on Spotify
+              </a>
             </div>
             <div className="aspect-square">
               <img src="https://laurajanethomas.biz/wp-content/uploads/2026/02/mockupapp-1.png" alt="Podcast" className="w-full h-full object-contain" />

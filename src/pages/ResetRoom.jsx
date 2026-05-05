@@ -278,20 +278,18 @@ export default function ResetRoom() {
               <motion.div
                 key={item.letter}
                 {...fadeUp(i * 0.08)}
-                className="group p-8 md:p-10 transition-colors duration-500"
+                className="group p-8 md:p-10 transition-transform duration-500 hover:scale-105 hover:z-10 relative"
                 style={{ backgroundColor: "#F5EEE4" }}
-                onMouseEnter={e => { e.currentTarget.style.backgroundColor = BRAND; }}
-                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#F5EEE4"; }}
               >
                 <span
-                  className="block leading-none italic mb-5 transition-colors duration-500"
+                  className="block leading-none italic mb-5"
                   style={{ fontFamily: "var(--font-serif)", fontSize: "5rem", color: BRAND }}
                 >
                   {item.letter}
                 </span>
-                <p className="text-lg font-serif mb-2 transition-colors duration-500 group-hover:text-white" style={{ color: "#1A1A1A" }}>{item.word}</p>
-                <p className="text-sm italic leading-snug mb-3 transition-colors duration-500 group-hover:text-white/80" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>{item.short}</p>
-                <p className="text-xs leading-relaxed transition-colors duration-500 group-hover:text-white/50" style={{ color: "rgba(26,26,26,0.45)" }}>{item.desc}</p>
+                <p className="text-lg font-serif mb-2" style={{ color: "#1A1A1A" }}>{item.word}</p>
+                <p className="text-sm italic leading-snug mb-3" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>{item.short}</p>
+                <p className="text-xs leading-relaxed" style={{ color: "rgba(26,26,26,0.45)" }}>{item.desc}</p>
               </motion.div>
             ))}
           </div>

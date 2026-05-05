@@ -7,7 +7,7 @@ const links = [
   { label: "About", to: "/about" },
   { label: "Consulting", to: "/consulting" },
   { label: "Speaking", to: "/speaking" },
-  { label: "The Reset Room", to: "/reset-room" },
+  { label: "Coaching", to: "/reset-room" },
   { label: "Contact", to: "/contact" },
 ];
 

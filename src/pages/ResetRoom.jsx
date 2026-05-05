@@ -32,7 +32,10 @@ export default function ResetRoom() {
     <div style={{ fontFamily: "var(--font-sans)" }}>
       <Navbar />
 
-      {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
+      {/* ── 1. PRESS MARQUEE ───────────────────────────────────────────── */}
+      <PressMarquee />
+
+      {/* ── 2. HERO ─────────────────────────────────────────────────────── */}
       <section
         className="relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 pt-36 pb-28"
         style={{ backgroundColor: BRAND }}
@@ -91,10 +94,7 @@ export default function ResetRoom() {
         </motion.div>
       </section>
 
-      {/* ── 1.5 PRESS MARQUEE ───────────────────────────────────────────── */}
-      <PressMarquee />
-
-      {/* ── 2. DARK INTEGRATED ──────────────────────────────────────────── */}
+      {/* ── 3. DARK INTEGRATED ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: "#1A1A1A", minHeight: "80vh" }}>
         {/* Full-width background image */}
         <div className="absolute inset-0">

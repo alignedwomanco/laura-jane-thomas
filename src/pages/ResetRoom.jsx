@@ -285,7 +285,7 @@ export default function ResetRoom() {
         {/* Background image */}
         <div className="absolute inset-0">
           <img
-            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/92fc7f53d_63cd67f9137a5dc29d667e503875ab27.jpg"
+            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/b2c063548_370e8bc03b7ff18652cfa8bfcd4aafef.jpg"
             alt=""
             className="w-full h-full object-cover"
             style={{ opacity: 0.4 }}

@@ -89,6 +89,20 @@ export default function OfferingsAccordion() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "16px", paddingTop: "48px", paddingBottom: "96px" }}>
+      <div style={{ marginBottom: "48px", textAlign: "center" }}>
+        <h2
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: "clamp(3rem, 6vw, 6rem)",
+            lineHeight: "0.95",
+            letterSpacing: "-0.02em",
+            color: "#1A1A1A",
+            margin: "0",
+          }}
+        >
+          Offerings
+        </h2>
+      </div>
       {offerings.map((offering) => {
         const isExpanded = expanded === offering.id;
         const isDark = offering.textColor === "rgba(242,235,224,1)";

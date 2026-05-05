@@ -333,7 +333,7 @@ export default function ResetRoom() {
           position: "sticky",
           top: 64,
           zIndex: 2,
-          minHeight: "100vh",
+          minHeight: "250vh",
           borderTopLeftRadius: 24,
           borderTopRightRadius: 24,
           overflow: "hidden",

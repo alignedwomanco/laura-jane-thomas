@@ -142,7 +142,7 @@ export default function Consulting() {
       </section>
 
       {/* SMB */}
-      <section className="bg-foreground text-ivory py-24 md:py-36">
+      <section className="bg-foreground text-ivory py-36 md:py-48">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">— For Small to Medium Sized Businesses</p>
           <div className="grid lg:grid-cols-2 gap-16">

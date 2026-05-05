@@ -97,6 +97,32 @@ const stats = [
 export default function About() {
   return (
     <div className="bg-ivory">
+      <style>{`
+        @media (max-width: 768px) {
+          .about-sticky-card {
+            position: static !important;
+            top: auto !important;
+            min-height: auto !important;
+            margin-bottom: 0 !important;
+          }
+          .about-card-content {
+            overflow: visible !important;
+          }
+          .about-card-body {
+            padding-top: 48px !important;
+            padding-bottom: 48px !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+          .about-card-title {
+            font-size: 32px !important;
+          }
+          .about-card-text {
+            font-size: 15px !important;
+            line-height: 1.65 !important;
+          }
+        }
+      `}</style>
       <Navbar />
 
       {/* Hero */}
@@ -175,18 +201,19 @@ export default function About() {
       {/* Sticky cards */}
       <div className="relative">
         {aboutCards.map((s) =>
-        <div
-          key={s.label}
-          style={{
-            backgroundColor: s.bg,
-            position: "sticky",
-            top: `${s.top}px`,
-            zIndex: s.zIndex,
-            minHeight: "100vh",
-            borderTopLeftRadius: "24px",
-            borderTopRightRadius: "24px",
-            overflow: "visible"
-          }}>
+          <div
+            key={s.label}
+            className="about-sticky-card"
+            style={{
+              backgroundColor: s.bg,
+              position: "sticky",
+              top: `${s.top}px`,
+              zIndex: s.zIndex,
+              minHeight: "100vh",
+              borderTopLeftRadius: "24px",
+              borderTopRightRadius: "24px",
+              overflow: "visible"
+            }}>
           
             {/* Top bar */}
             <div style={{ height: "64px", padding: "0 64px", display: "flex", alignItems: "center" }}>
@@ -196,7 +223,7 @@ export default function About() {
             </div>
 
             {/* Body */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "100%", margin: "0 auto", paddingTop: "48px", paddingBottom: s.label === "CHAPTER THREE" ? "0px" : "40px", paddingLeft: "24px", paddingRight: "24px" }}>
+            <div className="about-card-body" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "100%", margin: "0 auto", paddingTop: "48px", paddingBottom: s.label === "CHAPTER THREE" ? "0px" : "40px", paddingLeft: "24px", paddingRight: "24px" }}>
               <h2 style={{ color: cream, lineHeight: 0.95, letterSpacing: "-0.02em", marginBottom: "32px", fontSize: "clamp(44px, 7vw, 88px)" }}>
                 {s.titleLines.map((line, li) =>
               <span key={li} style={{ display: "block" }}>

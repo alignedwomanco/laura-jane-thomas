@@ -228,8 +228,7 @@ export default function Speaking() {
           <div>
             <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Hi, I'm Laura</p>
             <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8">
-              Keynote Speaker <span className="italic block">Leadership Strategist</span>
-              <span className="block text-3xl md:text-4xl font-light mt-2">Brand & Performance Expert</span>
+              Keynote Speaker, Leadership Strategist & Brand Expert
             </h2>
             <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
               I am a Brand Strategist, Fractional CMO and leadership coach with more than 15 years of experience working with global brands, fast-scaling start-ups and executive teams.
@@ -257,7 +256,7 @@ export default function Speaking() {
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
               <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-8">
-                where <span className="italic block">I speak</span>
+                Where I Speak
               </h2>
               <p className="text-ivory/80 text-lg leading-relaxed mb-8">
                 My work translates across multiple audiences because the core themes are universal:
@@ -312,7 +311,7 @@ export default function Speaking() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-10">— Keynote Topics</p>
           <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-20">
-            Keynote <span className="italic">Topics</span>
+            Keynote Topics
           </h2>
           <div className="space-y-0 divide-y divide-foreground/15">
             {speakingTopics.map((t, i) => (
@@ -353,7 +352,7 @@ export default function Speaking() {
             <div>
               <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-8">— The Aligned Woman Podcast</p>
               <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8">
-                The Aligned <span className="italic block">Woman Podcast</span>
+                The Aligned Woman Podcast
               </h2>
               <p className="text-ivory/80 text-lg leading-relaxed mb-10">
                 The Aligned Woman Podcast is where ambition meets alignment. Hosted by Laura Thomas, this show brings together extraordinary women to explore leadership, burnout, identity, wealth and joy. These are the conversations women are craving but rarely given space to have.

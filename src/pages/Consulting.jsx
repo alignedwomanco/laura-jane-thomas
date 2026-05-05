@@ -89,7 +89,7 @@ export default function Consulting() {
               I work with founders, CEOs, and senior teams who suspect their growth problem is upstream of their marketing.
             </p>
             <p className="text-ivory/70 text-[15px] leading-relaxed mb-5">
-              Instead of the cost and commitment of a full-time CMO, you get a senior strategic partner calibrated to your scope. Productised engagements, longer retainers, or embedded advisory — structured to what the business actually needs.
+              Instead of the cost and commitment of a full-time CMO, you get a senior strategic partner calibrated to your scope. Productised engagements, longer retainers, or embedded advisory, structured to what the business actually needs.
             </p>
             <p className="text-ivory/70 text-[15px] leading-relaxed mb-10">
               One brain holding brand, strategy, and creative direction together. The work has been done at the level you need it done at, and it is built so your team can run it long after I leave the room.

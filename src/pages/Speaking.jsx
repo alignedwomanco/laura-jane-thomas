@@ -60,7 +60,7 @@ export default function Speaking() {
         >
           <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-oxblood/20" />
+        <div className="absolute inset-x-0 top-0 h-[60vh] md:inset-0 bg-oxblood/20" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">
             — Speaking
@@ -69,7 +69,7 @@ export default function Speaking() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight mb-8"
+            className="font-serif text-4xl md:text-5xl lg:text-7xl leading-[0.92] tracking-tight mb-8"
           >
             Keynote Speaker
           </motion.h1>
@@ -77,7 +77,7 @@ export default function Speaking() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2 }}
-            className="font-serif italic text-xl md:text-2xl text-ivory/85 mb-12 max-w-2xl"
+            className="font-serif italic text-base md:text-xl lg:text-2xl text-ivory/85 mb-12 max-w-2xl"
           >
             For organisations serious about developing female leadership, building healthier performance cultures, and having the conversations most stages avoid.
           </motion.p>

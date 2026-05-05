@@ -98,11 +98,12 @@ export default function SpeakingAccordion() {
             {/* Card Header */}
             <div
               style={{
-                padding: "24px 64px",
+                padding: "24px clamp(20px, 5vw, 64px)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 minHeight: "100px",
+                flexWrap: "wrap",
               }}
             >
               <div style={{ flex: 1 }}>
@@ -178,7 +179,7 @@ export default function SpeakingAccordion() {
                 transition: "max-height 400ms cubic-bezier(0.2, 0.6, 0.2, 1), opacity 300ms ease",
               }}
             >
-              <div style={{ padding: "48px 64px 96px", textAlign: "center" }}>
+              <div style={{ padding: "clamp(24px, 5vw, 48px) clamp(20px, 5vw, 64px) clamp(48px, 8vw, 96px)", textAlign: "center" }}>
                 {/* Body Text */}
                 {dropdown.body && (
                   <div style={{ maxWidth: "640px", margin: "0 auto 24px" }}>

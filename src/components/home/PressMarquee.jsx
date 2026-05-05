@@ -35,7 +35,7 @@ export default function PressMarquee({ isDark = false }) {
           — As Seen In
         </p>
       )}
-      <div className={`overflow-hidden ${isDark ? 'bg-gradient-to-t from-black/40 to-black/0' : 'bg-transparent'}`}>
+      <div className="overflow-hidden bg-transparent">
         <div className="marquee whitespace-nowrap">
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex items-center gap-32 md:gap-48 pr-32 md:pr-48 py-6 md:py-6">

@@ -302,30 +302,12 @@ export default function ResetRoom() {
       {offers.map((offer, i) => (
         <section key={offer.title} className="py-24 md:py-36" style={{ backgroundColor: offer.bg }}>
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-            <div className={`grid lg:grid-cols-2 gap-16 lg:gap-28 items-center ${offer.reverse ? "direction-rtl" : ""}`}
-              style={{ direction: offer.reverse ? "rtl" : "ltr" }}
-            >
-              <motion.div
-                initial={{ opacity: 0, x: offer.reverse ? 40 : -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.1 }}
-                className="aspect-[3/4] overflow-hidden"
-                style={{ direction: "ltr" }}
-              >
-                <img
-                  src={offer.image}
-                  alt={offer.title}
-                  className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[1.4s]"
-                />
-              </motion.div>
-
+            <div className="max-w-2xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, x: offer.reverse ? -40 : 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.1, delay: 0.15 }}
-                style={{ direction: "ltr" }}
               >
                 <div className="mb-8" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
                 <h2

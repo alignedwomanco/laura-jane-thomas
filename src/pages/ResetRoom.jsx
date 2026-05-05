@@ -478,27 +478,37 @@ export default function ResetRoom() {
             className="text-white leading-[1.1] tracking-tight mb-6"
             style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.5rem, 5vw, 5rem)" }}
           >
-            You already know something needs to change.
+            You already know.
+            <br />
+            <span style={{ color: "#F2EBE0", fontStyle: "italic" }}>Something has to change.</span>
           </p>
           <p
             className="italic text-white/75 mb-10"
             style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.4rem, 2.5vw, 2.2rem)" }}
           >
-            You can feel it.
+            You can feel it. You have been feeling it for a while.
           </p>
           <div className="space-y-3 mb-16 text-white/65 text-base md:text-lg leading-relaxed">
             <p>The version of you that built this life</p>
-            <p>is not the version that will take you further.</p>
-            <p className="mt-5">The question is</p>
-            <p>how much longer you stay where you are.</p>
+            <p>is not the version that will build the next one.</p>
+            <p>The way you got here was the way you got here.</p>
+            <p>It is not the way forward.</p>
           </div>
+          <p
+            className="italic text-white/85 mb-10"
+            style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.2rem, 2vw, 1.6rem)" }}
+          >
+            The question is not whether something has to change.
+            <br />
+            The question is whether you are ready to be the woman who changes it.
+          </p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-3 border border-white/60 text-white px-12 py-5 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
             onMouseEnter={e => { e.currentTarget.style.backgroundColor = "white"; e.currentTarget.style.color = BRAND; }}
             onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "white"; }}
           >
-            I'm Ready To Do This Differently
+            Apply For The Senior Advisory
             <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </motion.div>

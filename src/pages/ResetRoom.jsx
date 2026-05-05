@@ -281,23 +281,23 @@ export default function ResetRoom() {
               </span>
             </div>
             {/* Body */}
-            <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 24px 96px", textAlign: "center" }}>
-              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: 0.85, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 32, textTransform: "uppercase" }}>
+            <div style={{ maxWidth: 880, margin: "0 auto", padding: "28px 24px 56px", textAlign: "center" }}>
+              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: 0.85, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 24, textTransform: "uppercase" }}>
                 The Alignment{" "}
                 <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Audit</span>
               </h2>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: 1.2, maxWidth: 640, margin: "0 auto 32px", color: "rgba(242,235,224,0.85)" }}>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: 1.1, maxWidth: 640, margin: "0 auto 24px", color: "rgba(242,235,224,0.85)" }}>
                 You do not need another program. You need to see what is actually going on.
               </p>
-              <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)", marginBottom: 16 }}>
+              <div style={{ maxWidth: 640, margin: "0 auto 24px" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.5, color: "rgba(242,235,224,0.78)", marginBottom: 12 }}>
                   A 60-minute structured diagnostic session for the woman who needs to know exactly what is costing her, before she decides what to do about it.
                 </p>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.5, color: "rgba(242,235,224,0.78)" }}>
                   Most women at this threshold do not need more inspiration. They need a senior set of eyes on the actual situation, named clearly and held without judgement. The Alignment Audit is the lowest-commitment way to start.
                 </p>
               </div>
-              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>
+              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "24px 0 16px" }}>
                 What's Included
               </p>
               <div style={{ maxWidth: 640, margin: "0 auto 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
@@ -313,7 +313,7 @@ export default function ResetRoom() {
                   </p>
                 ))}
               </div>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "rgba(242,235,224,1)", maxWidth: 640, margin: "0 auto 40px" }}>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "rgba(242,235,224,1)", maxWidth: 640, margin: "0 auto 28px" }}>
                 This is the diagnostic that decides whether the rest of the work is for you. It is also a complete piece of work in itself.
               </p>
               <Link

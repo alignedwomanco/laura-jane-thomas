@@ -86,10 +86,13 @@ export default function Consulting() {
           </div>
           <div>
             <p className="font-serif text-2xl md:text-3xl lg:text-[32px] leading-[1.3] text-ivory mb-8">
-              I support companies and founders who need a senior strategic leader to bring alignment, direction and momentum to their brand and marketing.
+              I work with founders, CEOs, and senior teams who suspect their growth problem is upstream of their marketing.
+            </p>
+            <p className="text-ivory/70 text-[15px] leading-relaxed mb-5">
+              Instead of the cost and commitment of a full-time CMO, you get a senior strategic partner calibrated to your scope. Productised engagements, longer retainers, or embedded advisory — structured to what the business actually needs.
             </p>
             <p className="text-ivory/70 text-[15px] leading-relaxed mb-10">
-              Instead of the overhead of a permanent hire, you get the clarity, structure and creative leadership of a Fractional CMO who sees the whole picture. I help you reposition your brand, refine your strategy, strengthen your customer journey and guide your team toward work that drives genuine commercial impact.
+              One brain holding brand, strategy, and creative direction together. The work has been done at the level you need it done at, and it is built so your team can run it long after I leave the room.
             </p>
             <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all duration-300 group">
               Apply To Work With Me

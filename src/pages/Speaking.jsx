@@ -346,7 +346,7 @@ export default function Speaking() {
       </section>
 
       {/* Speaking Testimonials */}
-      <section className="bg-ivory py-24 md:py-36">
+      <section className="bg-ivory py-12 md:py-16">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             {/* Testimonial 1 */}

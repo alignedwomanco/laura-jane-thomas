@@ -108,7 +108,6 @@ export default function Speaking() {
             <video
               className="w-full h-full object-cover"
               controls
-              poster="https://laurajanethomas.biz/wp-content/uploads/2026/02/C39D33B6-CEBB-4963-9550-4913F3A54680-1024x997.png"
             >
               <source src="https://pub-a5b7b5d795624ffe98c7799d0aa110c1.r2.dev/laura-reduced.mp4" type="video/mp4" />
             </video>

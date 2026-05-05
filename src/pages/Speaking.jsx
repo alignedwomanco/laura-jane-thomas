@@ -203,28 +203,29 @@ export default function Speaking() {
       </section>
 
       {/* Who I am */}
-      <section className="bg-ivory py-24 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+      <section className="bg-ivory py-24 md:py-36 relative">
+        <div className="absolute inset-0 bg-oxblood/5" />
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+          <div className="aspect-[4/5] overflow-hidden">
+            <img src="https://laurajanethomas.biz/wp-content/uploads/2026/02/C39D33B6-CEBB-4963-9550-4913F3A54680-1024x997.png" alt="Laura speaking" className="w-full h-full object-cover" />
+          </div>
           <div>
             <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Hi, I'm Laura</p>
             <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8">
-              Keynote Speaker, Leadership Strategist & Brand Expert
+              The honest version.
             </h2>
             <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
-              I am a Brand Strategist, Fractional CMO and leadership coach with more than 15 years of experience working with global brands, fast-scaling start-ups and executive teams.
+              I have spent fifteen years inside the rooms where senior commercial decisions get made. I founded and ran a multi-seven-figure creative agency, and I burned out in the middle of all of it, which forced me to rebuild what I thought success was, and how it should be built.
             </p>
             <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
-              My work sits at the intersection of leadership, psychology and strategy. I speak about power, perception, performance and the invisible dynamics that shape how women experience authority across workplaces, communities and society at large.
+              That rebuild is what I speak about now. Not the polished version. The honest one.
             </p>
             <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
-              After building and scaling businesses, advising leadership teams and navigating my own experience of burnout, I became deeply committed to one central question:
+              I speak about why female leadership keeps stalling between mid-level and senior, despite a decade of pipeline programmes. Why high-performing women keep arriving at the top exhausted rather than energised. Why the systems we work inside reward output and punish sustainability. And what it actually takes to build success that is honest, structured, and built to last.
             </p>
             <p className="font-serif italic text-xl text-foreground">
-              How do we build success that is powerful, sustainable and human?
+              I have stood on both sides of the conversation. The building, and the rebuild. That is what audiences hear.
             </p>
-          </div>
-          <div className="aspect-[4/5] overflow-hidden">
-            <img src="https://laurajanethomas.biz/wp-content/uploads/2026/02/C39D33B6-CEBB-4963-9550-4913F3A54680-1024x997.png" alt="Laura speaking" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>

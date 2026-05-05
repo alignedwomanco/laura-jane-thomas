@@ -337,28 +337,28 @@ export default function ResetRoom() {
         }}>
             {/* Top bar */}
             <div style={{ height: 64, padding: "0 40px", display: "flex", alignItems: "center" }}>
-              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.7)" }}>
+              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "#333" }}>
                 The Recalibration Intensive
               </span>
             </div>
             {/* Body */}
             <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 24px 96px", textAlign: "center" }}>
-              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 5vw, 5rem)", lineHeight: 0.95, letterSpacing: "-0.02em", color: "rgba(242,235,224,1)", marginBottom: 32, textTransform: "uppercase" }}>
+              <h2 style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 5vw, 5rem)", lineHeight: 0.95, letterSpacing: "-0.02em", color: "#000", marginBottom: 32, textTransform: "uppercase" }}>
                 The Recalibration{" "}
                 <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, textTransform: "none" }}>Intensive</span>
               </h2>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: 1.3, maxWidth: 640, margin: "0 auto 32px", color: "rgba(242,235,224,0.85)" }}>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: 1.3, maxWidth: 640, margin: "0 auto 32px", color: "#333" }}>
                 Some decisions are too important to figure out slowly.
               </p>
               <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)", marginBottom: 16 }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "#555", marginBottom: 16 }}>
                   A private one-day intensive for the woman who already knows what is not working, and needs to make her next move with senior strategic clarity rather than another six months of trying to figure it out alone.
                 </p>
-                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "rgba(242,235,224,0.78)" }}>
+                <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.65, color: "#555" }}>
                   This is the offering for the threshold moment. The decision about whether to leave. The decision about what to build. The decision about which version of the next chapter is the one to commit to. Held in one structured day, with the senior strategic and embodied work running in the same conversation.
                 </p>
               </div>
-              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(242,235,224,0.6)", margin: "32px 0 20px" }}>
+              <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.28em", textTransform: "uppercase", color: "#666", margin: "32px 0 20px" }}>
                 What's Included
               </p>
               <div style={{ maxWidth: 640, margin: "0 auto 32px" }}>
@@ -368,17 +368,17 @@ export default function ResetRoom() {
                   "A written Recalibration Map delivered within five days, capturing the decision architecture, the priorities, and the next 90 days of action.",
                   "A 30-day strategic check-in, so the work holds when you are back in your life.",
                 ].map((item, i) => (
-                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "rgba(242,235,224,0.78)", marginBottom: 4 }}>{item}</p>
+                  <p key={i} style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 14, lineHeight: 1.85, color: "#555", marginBottom: 4 }}>{item}</p>
                 ))}
               </div>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "rgba(242,235,224,1)", maxWidth: 640, margin: "0 auto 40px" }}>
+              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.5vw, 1.2rem)", color: "#000", maxWidth: 640, margin: "0 auto 40px" }}>
                 The Recalibration Intensive is for the woman who is ready to move. Not ready to commit to a 90-day engagement. Ready to make the next decision properly.
               </p>
               <Link
                 to="/contact"
-                style={{ display: "inline-flex", alignItems: "center", gap: 12, border: "1px solid rgba(242,235,224,0.4)", color: "rgba(242,235,224,1)", background: "transparent", padding: "14px 28px", fontFamily: "Inter, system-ui, sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)" }}
-                onMouseEnter={e => { e.currentTarget.style.background = "rgba(242,235,224,1)"; e.currentTarget.style.color = "#3A0E1A"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "rgba(242,235,224,1)"; }}
+                style={{ display: "inline-flex", alignItems: "center", gap: 12, border: "1px solid #333", color: "#000", background: "transparent", padding: "14px 28px", fontFamily: "Inter, system-ui, sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#000"; e.currentTarget.style.color = "#F2EBE0"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#000"; }}
               >
                 Book Your Recalibration Intensive <span style={{ display: "inline-block" }}>→</span>
               </Link>

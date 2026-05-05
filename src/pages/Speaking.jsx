@@ -238,13 +238,6 @@ export default function Speaking() {
         </div>
       </section>
 
-      {/* Where I speak */}
-      <section className="bg-ivory py-24 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <SpeakingAccordion />
-        </div>
-      </section>
-
       {/* Keynote Topics */}
       <section className="bg-ivory pt-0 pb-24 md:pb-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -257,6 +250,13 @@ export default function Speaking() {
               <KeynoteTopic key={t.num} topic={t} index={i} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Where I speak */}
+      <section className="bg-ivory py-24 md:py-36">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <SpeakingAccordion />
         </div>
       </section>
 

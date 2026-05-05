@@ -362,7 +362,7 @@ export default function ResetRoom() {
             className="text-white leading-[1.1] tracking-tight mb-6"
             style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.5rem, 5vw, 5rem)" }}
           >
-            You already know.
+            You already know
             <br />
             <span style={{ color: "#F2EBE0", fontStyle: "italic" }}>Something has to change.</span>
           </p>

@@ -337,8 +337,8 @@ export default function ResetRoom() {
 
       {/* ── 6. FINAL CLOSE ──────────────────────────────────────────────── */}
       <section
-        className="relative py-16 md:py-32 lg:py-52 px-6 text-center overflow-hidden"
-        style={{ backgroundColor: BRAND }}
+        className="relative px-6 text-center overflow-hidden"
+        style={{ backgroundColor: BRAND, paddingTop: "clamp(32px, 8vw, 208px)", paddingBottom: "clamp(64px, 10vw, 208px)" }}
       >
         {/* Background image */}
         <div className="absolute inset-0">

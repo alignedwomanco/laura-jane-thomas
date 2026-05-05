@@ -29,7 +29,7 @@ const outlets = [
 
 export default function PressMarquee() {
   return (
-    <section className="bg-ivory text-foreground border-y border-foreground/15 py-12">
+    <section className="text-foreground border-y border-foreground/15 py-12">
       <p className="text-center text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">
         — As Seen In
       </p>

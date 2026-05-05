@@ -98,12 +98,22 @@ export default function ResourcesSection() {
                 <span className="text-[10px] tracking-editorial uppercase text-foreground/60">
                   {resource.specs}
                 </span>
-                <Link
-                  to="/contact"
-                  className="text-[11px] tracking-editorial uppercase border-b border-foreground hover:text-accent transition-colors"
-                >
-                  {resource.cta} →
-                </Link>
+                {idx === 0 ? (
+                  <a
+                    href="https://media.base44.com/files/public/69e1e7f05d39205bc001ea00/847f6fdb1_The-5-Tools-That-Saved-Me-eBook-LJT-1.pdf"
+                    download
+                    className="text-[11px] tracking-editorial uppercase border-b border-foreground hover:text-accent transition-colors"
+                  >
+                    {resource.cta} →
+                  </a>
+                ) : (
+                  <Link
+                    to="/contact"
+                    className="text-[11px] tracking-editorial uppercase border-b border-foreground hover:text-accent transition-colors"
+                  >
+                    {resource.cta} →
+                  </Link>
+                )}
               </div>
             </motion.div>
           ))}

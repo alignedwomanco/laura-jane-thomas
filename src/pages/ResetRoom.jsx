@@ -28,18 +28,6 @@ const offers = [
     reverse: true,
     bg: "#FFFFFF",
   },
-  {
-    title: "Recalibration Day",
-    lines: [
-      "Some decisions are too important to figure out slowly.",
-      "This is a private intensive focused entirely on your business, your direction, and your next level.",
-      "We identify what is not working, what needs to shift, and what actually matters.",
-    ],
-    cta: "Book Your Re-Calibration Day",
-    image: "https://laurajanethomas.biz/wp-content/uploads/2025/11/room2.png",
-    reverse: false,
-    bg: "#EAE4DC",
-  },
 ];
 
 const fadeUp = (delay = 0) => ({
@@ -344,7 +332,66 @@ export default function ResetRoom() {
         </div>
       </section>
 
-      {/* ── 5b. OFFERS ───────────────────────────────────────────────────── */}
+      {/* ── 5b. RECALIBRATION INTENSIVE ─────────────────────────────────── */}
+      <section className="py-24 md:py-36" style={{ backgroundColor: "#EAE4DC" }}>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="max-w-2xl mx-auto">
+            <motion.div {...fadeUp(0)}>
+              <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— The Offering / Mid-Tier</p>
+              <div className="mb-8" style={{ width: 48, height: 2, backgroundColor: BRAND }} />
+              <h2
+                className="leading-[0.95] tracking-tight mb-4"
+                style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 4vw, 4rem)", color: "#1A1A1A" }}
+              >
+                The Recalibration Intensive
+              </h2>
+              <p
+                className="text-xl italic mb-8 leading-snug"
+                style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}
+              >
+                Some decisions are too important to figure out slowly.
+              </p>
+              <div className="space-y-4 mb-10">
+                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                  A private one-day intensive for the woman who already knows what is not working, and needs to make her next move with senior strategic clarity rather than another six months of trying to figure it out alone.
+                </p>
+                <p className="text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                  This is the offering for the threshold moment. The decision about whether to leave. The decision about what to build. The decision about which version of the next chapter is the one to commit to. Held in one structured day, with the senior strategic and embodied work running in the same conversation.
+                </p>
+              </div>
+              <p className="text-[11px] tracking-editorial uppercase mb-4" style={{ color: "#1A1A1A" }}>What's Included</p>
+              <ul className="space-y-3 mb-10">
+                {[
+                  "A pre-intensive intake so the day opens at depth, not at introductions.",
+                  "A full day of private strategic work, structured around the specific decision or threshold you are sitting in.",
+                  "A written Recalibration Map delivered within five days, capturing the decision architecture, the priorities, and the next 90 days of action.",
+                  "A 30-day strategic check-in, so the work holds when you are back in your life.",
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>
+                    <span className="mt-1.5 flex-shrink-0" style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: BRAND, display: "inline-block" }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-base leading-relaxed italic mb-10" style={{ fontFamily: "var(--font-serif)", color: "rgba(26,26,26,0.70)" }}>
+                The Recalibration Intensive is for the woman who is ready to move. Not ready to commit to a 90-day engagement. Ready to make the next decision properly.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 border px-8 py-4 text-[11px] tracking-editorial uppercase transition-all duration-300 group"
+                style={{ borderColor: "#1A1A1A", color: "#1A1A1A" }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#1A1A1A"; e.currentTarget.style.color = "white"; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#1A1A1A"; }}
+              >
+                Book Your Recalibration Intensive
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5c. OFFERS ───────────────────────────────────────────────────── */}
       {offers.map((offer, i) => (
         <section key={offer.title} className="py-24 md:py-36" style={{ backgroundColor: offer.bg }}>
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12">

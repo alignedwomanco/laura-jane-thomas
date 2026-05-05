@@ -29,7 +29,7 @@ export default function ClientsSection({ dark = false }) {
         </h2>
       </div>
 
-      <div className={`overflow-hidden border-y py-8 ${dark ? "border-ivory/15" : "border-current/10"}`}>
+      <div className="overflow-hidden py-8">
         <div className="marquee whitespace-nowrap">
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="inline-flex items-center">

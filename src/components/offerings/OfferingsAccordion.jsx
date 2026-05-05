@@ -97,11 +97,14 @@ export default function OfferingsAccordion() {
             lineHeight: "0.95",
             letterSpacing: "-0.02em",
             color: "#1A1A1A",
-            margin: "0",
+            margin: "0 0 16px 0",
           }}
         >
           Offerings
         </h2>
+        <p style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1rem, 1.6vw, 1.35rem)", lineHeight: "1.1", maxWidth: "640px", margin: "0 auto", color: "#1A1A1A", fontStyle: "italic" }}>
+          Whether you need a senior set of eyes for a single decision, a structured day, or a 90-day private engagement, the work meets you where you are.
+        </p>
       </div>
       {offerings.map((offering) => {
         const isExpanded = expanded === offering.id;

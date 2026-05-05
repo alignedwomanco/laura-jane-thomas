@@ -7,83 +7,7 @@ import Footer from "@/components/site/Footer";
 import ClientsSection from "@/components/shared/ClientsSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import CtaBanner from "@/components/shared/CtaBanner";
-
-const aboutCards = [
-{
-  label: "CHAPTER ONE",
-  bg: "#3A0E1A",
-  top: 0,
-  zIndex: 1,
-  titleLines: [
-  { text: "MY" },
-  { text: "EXPERTISE &" },
-  { parts: [{ text: "Credentials", italic: true }] }],
-
-  body: null,
-  bodyElement:
-  <>
-      <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
-        I have spent fifteen years leading brand strategy, creative direction, and high-level marketing across global organisations and fast-growing start-ups. I founded and ran a multi-seven-figure creative agency. I have sat in the boardrooms where the decisions actually got made, and I have led the senior teams who had to deliver against them. I am a published author, a keynote speaker on female leadership, and the former Chair of the{" "}
-        <a href="https://30percentclub.org/" target="_blank" rel="noopener noreferrer" style={{ color: `rgba(242,235,224,0.95)`, textDecoration: "underline" }}>30 Percent Club</a>
-        , the collective of senior executives advancing women into leadership. The work has been featured in Forbes, TechCrunch, Glamour, Business Day, and The Times. I hold a specialised degree in Brand Communications and I am a Certified Director. I am also internationally accredited by the American Board of NLP as both an NLP Practitioner and a Timeline Therapy Coach. The qualifications support the methodology. They are not the methodology.
-      </p>
-      <div style={{ height: "48px" }} />
-      </>
-
-},
-{
-  label: "CHAPTER TWO",
-  bg: "#4A2730",
-  top: 64,
-  zIndex: 2,
-  titleLines: [
-  { text: "WHAT" },
-  { parts: [{ text: "I", italic: false }, { text: " Do", italic: true }] }],
-
-  bodyElement:
-  <>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "32px" }}>
-          Three doors. One conviction underneath.
-        </p>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px", textAlign: "left" }}>
-          <strong style={{ color: `rgba(242,235,224,0.95)`, display: "block", marginBottom: "6px" }}>For Businesses: Fractional CMO and Brand Advisor</strong>
-          Brand, strategy, and creative direction in one senior partner. Built on The Aligned Operating Model.
-        </p>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px", textAlign: "left" }}>
-          <strong style={{ color: `rgba(242,235,224,0.95)`, display: "block", marginBottom: "6px" }}>For Women: Senior Advisory and Coaching</strong>
-          Private engagements for ambitious women building what's next. Built on The A.L.I.V.E. Method.
-        </p>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0", textAlign: "left" }}>
-          <strong style={{ color: `rgba(242,235,224,0.95)`, display: "block", marginBottom: "6px" }}>For Organisations: Speaking and Leadership Programs</strong>
-          Keynotes, workshops, and the Aligned Leader Program. Built on The A.L.I.V.E. Method, at organisational scale.
-        </p>
-      </>
-
-},
-{
-  label: "CHAPTER THREE",
-  bg: "#0D0508",
-  top: 384,
-  zIndex: 3,
-  titleLines: [
-  { text: "THE" },
-  { parts: [{ text: "Aligned Woman", italic: true }, { text: " CO." }] }],
-
-  bodyElement:
-  <>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px" }}>
-          The Aligned Woman Co. is the platform I built to scale the work to women everywhere. It is where the methodology lives outside the private advisory engagement.
-        </p>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "24px" }}>
-          Self-paced courses, masterclasses, and the Aligned Woman Blueprint, the foundational program built on the five stages of The A.L.I.V.E. Method.
-        </p>
-        <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
-          The methodology is the same one I use in private practice. The architecture does not soften when it gets bigger.
-        </p>
-      </>
-
-}];
-
+import AboutServicesAccordion from "@/components/about/AboutServicesAccordion";
 
 const cream = "#F2EBE0";
 
@@ -97,50 +21,7 @@ const stats = [
 export default function About() {
   return (
     <div className="bg-ivory">
-      <style>{`
-        @media (max-width: 768px) {
-          .about-sticky-card {
-            position: sticky !important;
-            overflow: hidden;
-          }
-          
-          .about-sticky-card:nth-of-type(1) {
-            top: 0 !important;
-            min-height: 350vh !important;
-            z-index: 1 !important;
-          }
-          
-          .about-sticky-card:nth-of-type(2) {
-            top: 48px !important;
-            min-height: 350vh !important;
-            z-index: 2 !important;
-          }
-          
-          .about-sticky-card:nth-of-type(3) {
-            top: 96px !important;
-            min-height: 450vh !important;
-            z-index: 3 !important;
-          }
-          
-          .about-card-body {
-            padding-top: 48px !important;
-            padding-bottom: 48px !important;
-            padding-left: 16px !important;
-            padding-right: 16px !important;
-            height: auto !important;
-            overflow: visible !important;
-          }
-          
-          .about-card-title {
-            font-size: 32px !important;
-          }
-          
-          .about-card-text {
-            font-size: 15px !important;
-            line-height: 1.65 !important;
-          }
-        }
-      `}</style>
+
       <Navbar />
 
       {/* Hero */}
@@ -217,93 +98,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* Sticky cards */}
-      <div className="relative">
-        {aboutCards.map((s) =>
-          <div
-            key={s.label}
-            className="about-sticky-card"
-            style={{
-              backgroundColor: s.bg,
-              position: "sticky",
-              top: `${s.top}px`,
-              zIndex: s.zIndex,
-              minHeight: "100vh",
-              borderTopLeftRadius: "24px",
-              borderTopRightRadius: "24px",
-              overflow: "visible"
-            }}>
-          
-            {/* Top bar */}
-            <div style={{ height: "64px", padding: "0 64px", display: "flex", alignItems: "center" }}>
-              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontWeight: 600, fontSize: "11px", letterSpacing: "0.28em", textTransform: "uppercase", color: cream, opacity: 0.7 }}>
-                {s.label}
-              </span>
-            </div>
-
-            {/* Body */}
-            <div className="about-card-body" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "100%", margin: "0 auto", paddingTop: "48px", paddingBottom: s.label === "CHAPTER THREE" ? "0px" : "40px", paddingLeft: "24px", paddingRight: "24px" }}>
-              <h2 style={{ color: cream, lineHeight: 0.95, letterSpacing: "-0.02em", marginBottom: "32px", fontSize: "clamp(44px, 7vw, 88px)" }}>
-                {s.titleLines.map((line, li) =>
-              <span key={li} style={{ display: "block" }}>
-                    {line.parts ?
-                line.parts.map((part, pi) =>
-                part.italic ?
-                <span key={pi} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic", fontWeight: 400, color: cream }}>{part.text}</span> :
-
-                <span key={pi} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, textTransform: "uppercase" }}>{part.text}</span>
-
-                ) :
-
-                <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, textTransform: "uppercase" }}>{line.text}</span>
-                }
-                  </span>
-              )}
-              </h2>
-              {s.bodyElement ? s.bodyElement :
-            <p style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "16px", lineHeight: 1.65, maxWidth: "720px", color: `rgba(242,235,224,0.78)`, marginBottom: "0" }}>
-                  {s.body}
-                </p>
-            }
-              {s.label === "CHAPTER THREE" &&
-            <div style={{ marginTop: "48px" }}>
-                  <a
-                href="https://alignedwomanco.com/blueprint"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  border: `1px solid rgba(242,235,224,0.4)`,
-                  color: `rgba(242,235,224,0.95)`,
-                  background: "transparent",
-                  padding: "14px 28px",
-                  fontFamily: "Inter, system-ui, sans-serif",
-                  fontSize: "11px",
-                  fontWeight: 600,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  transition: "background 200ms cubic-bezier(0.2,0.6,0.2,1), color 200ms cubic-bezier(0.2,0.6,0.2,1)"
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = `rgba(242,235,224,0.95)`;
-                  e.currentTarget.style.color = "#0d0508";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = `rgba(242,235,224,0.95)`;
-                }}>
-                
-                    Visit The Aligned Woman Co. →
-                  </a>
-                </div>
-            }
-            </div>
-          </div>
-        )}
-      </div>
+      {/* About Services Accordion */}
+      <AboutServicesAccordion />
 
       {/* Why work with me */}
       <section className="bg-oxblood text-ivory py-24 md:py-36">

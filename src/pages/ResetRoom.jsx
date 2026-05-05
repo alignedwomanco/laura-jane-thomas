@@ -270,7 +270,7 @@ export default function ResetRoom() {
           .offerings-arrow.expanded { animation: none; }
         `}</style>
         
-        <section style={{ backgroundColor: "rgba(245,241,236,0.5)", maxWidth: "1400px", margin: "0 auto", padding: "0 24px", paddingTop: "24px", paddingBottom: "96px" }}>
+        <section style={{ backgroundColor: "transparent", maxWidth: "1400px", margin: "0 auto", padding: "0 24px", paddingTop: "24px", paddingBottom: "96px" }}>
           <OfferingsAccordion />
         </section>
 

@@ -535,9 +535,9 @@ export default function ClaritySpring() {
             </h2>
             <p className="text-ivory/70 text-[15px]">The Clarity Sprint is built for a specific kind of woman. Read these honestly.</p>
           </motion.div>
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20 mb-16">
-            <motion.div {...fadeUp(0.1)}>
-              <p className="text-[10px] tracking-editorial uppercase font-bold text-ivory/60 mb-8">This is for you if:</p>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-16">
+            <motion.div {...fadeUp(0.1)} className="rounded-lg p-8 md:p-12" style={{ backgroundColor: "hsla(36, 33%, 94%, 0.92)" }}>
+              <p className="text-[10px] tracking-editorial uppercase font-bold text-foreground mb-8">This is for you if:</p>
               <ul className="space-y-5">
                 {[
                   "You are starting out, building, or repositioning what's next, and you need clarity on what to actually do.",
@@ -549,14 +549,14 @@ export default function ClaritySpring() {
                   "You are ready to make decisions and follow through, not just talk about possibilities.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
-                    <Check className="w-5 h-5 text-ivory/60 flex-shrink-0 mt-0.5" />
-                    <span className="text-ivory/85 text-[14px] leading-relaxed">{item}</span>
+                    <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND }} />
+                    <span className="text-foreground text-[14px] leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
             </motion.div>
-            <motion.div {...fadeUp(0.2)}>
-              <p className="text-[10px] tracking-editorial uppercase font-bold text-ivory/60 mb-8">This is not for you if:</p>
+            <motion.div {...fadeUp(0.2)} className="rounded-lg p-8 md:p-12" style={{ backgroundColor: "hsla(36, 33%, 94%, 0.92)" }}>
+              <p className="text-[10px] tracking-editorial uppercase font-bold text-foreground mb-8">This is not for you if:</p>
               <ul className="space-y-5">
                 {[
                   "You are looking for a hype coach who will tell you everything you want to hear.",
@@ -567,15 +567,15 @@ export default function ClaritySpring() {
                   "You are looking for the cheapest version of senior coaching. The Clarity Sprint is calibrated, not discounted. If price is your primary filter, this is not the right offer.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
-                    <X className="w-5 h-5 text-ivory/40 flex-shrink-0 mt-0.5" />
-                    <span className="text-ivory/70 text-[14px] leading-relaxed">{item}</span>
+                    <X className="w-5 h-5 flex-shrink-0 mt-0.5 text-foreground/60" />
+                    <span className="text-foreground text-[14px] leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
             </motion.div>
           </div>
           <motion.div {...fadeUp(0.3)} className="text-center space-y-8">
-            <p className="font-serif italic text-xl md:text-2xl" style={{ color: "rgba(255,200,180,0.85)" }}>
+            <p className="font-serif italic text-xl md:text-2xl text-ivory/85">
               If you have read both columns and you are still here, you already know which one applies to you.
             </p>
             <div>

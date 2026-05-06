@@ -16,6 +16,7 @@ import Questionnaire from './pages/Questionnaire';
 import StrategyReport from './pages/StrategyReport.jsx';
 import Submissions from './pages/Submissions.jsx';
 import ClaritySpring from './pages/ClaritySpring.jsx';
+import ClaritySprintIntake from './pages/ClaritySprintIntake.jsx';
 
 // Allow all pages to be accessible
 const PublicOnlyRoute = ({ children }) => {
@@ -56,6 +57,7 @@ const AuthenticatedApp = () => {
       <Route path="/speaking" element={<PublicOnlyRoute><Speaking /></PublicOnlyRoute>} />
       <Route path="/services" element={<PublicOnlyRoute><ResetRoom /></PublicOnlyRoute>} />
       <Route path="/claritysprint" element={<ClaritySpring />} />
+      <Route path="/claritysprint-intake" element={<ClaritySprintIntake />} />
       <Route path="/contact" element={<PublicOnlyRoute><Contact /></PublicOnlyRoute>} />
       <Route path="/submissions" element={<PublicOnlyRoute><Submissions /></PublicOnlyRoute>} />
       <Route path="*" element={<PageNotFound />} />

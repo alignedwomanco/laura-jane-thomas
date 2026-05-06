@@ -274,8 +274,8 @@ export default function ClaritySpring() {
           </p>
           <BookBtn dark />
           <div className="mt-8 max-w-xl mx-auto space-y-1">
-            <p className="text-white/55 text-[11px] tracking-wide">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
-            <p className="font-serif italic text-[13px]" style={{ color: "rgba(255,200,180,0.70)" }}>
+            <p className="text-white/55 text-[13px] md:text-[15px] tracking-wide">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
+            <p className="font-serif italic text-[13px] md:text-[15px]" style={{ color: "rgba(255,200,180,0.70)" }}>
               Usually I work at senior advisory rates. The Clarity Sprint is calibrated for women earlier in their journey, because that is where I actually love spending my time.
             </p>
           </div>

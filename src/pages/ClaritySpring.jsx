@@ -227,7 +227,8 @@ function SprintCarousel({ testimonials }) {
 const BookBtn = ({ dark = false, className = "" }) => (
   <Link
     to="/claritysprint-intake"
-    className={`inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group btn-pulse ${dark ? "bg-ivory text-oxblood hover:bg-ivory/90" : "bg-foreground text-ivory hover:bg-oxblood"} ${className}`}
+    className={`inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group btn-pulse ${dark ? "bg-ivory text-oxblood hover:bg-ivory/90" : "text-ivory"} ${className}`}
+    style={!dark ? { backgroundColor: "#C2858B" } : {}}
   >
     Book Your Clarity Sprint, R12,500
     <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
@@ -484,9 +485,8 @@ export default function ClaritySpring() {
 
       {/* SECTION 6: OBJECTION HANDLING */}
       <section className="bg-ivory py-16 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
           <motion.div {...fadeUp(0)} className="mb-12">
-            <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Objections</p>
             <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-4">
               What you might be thinking right now.
             </h2>
@@ -494,7 +494,7 @@ export default function ClaritySpring() {
               The honest answers to the objections most women have at this point on the page.
             </p>
           </motion.div>
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-left">
             <ObjectionAccordion items={objections} />
           </div>
           <motion.div {...fadeUp(0.2)} className="mt-12 space-y-4">
@@ -629,7 +629,8 @@ export default function ClaritySpring() {
                 href="https://calendly.com/placeholder"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full gap-3 border border-foreground/80 px-8 py-4 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold hover:bg-foreground hover:text-ivory transition-all duration-300"
+                className="inline-flex items-center justify-center w-full gap-3 px-8 py-4 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold text-ivory transition-all duration-300 btn-pulse"
+                style={{ backgroundColor: "#C2858B" }}
               >
                 Book a Discovery Call
               </a>

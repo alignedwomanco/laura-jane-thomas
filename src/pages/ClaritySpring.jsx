@@ -288,21 +288,30 @@ export default function ClaritySpring() {
       </section>
 
       {/* SECTION 2: THE PROBLEM */}
-      <section className="bg-ivory py-16 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="max-w-3xl mx-auto">
-            <motion.h2 {...fadeUp(0)} className="font-serif text-4xl md:text-6xl leading-[0.92] tracking-tight mb-12">
+      <section className="relative overflow-hidden py-16 md:py-28" style={{ backgroundColor: "#1A1A1A", minHeight: "60vh" }}>
+        <div className="absolute inset-0">
+          <img
+            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/4d61a4013_Extend_the_existing_image_hori_Nano_Banana_2_79564.jpg"
+            alt=""
+            className="w-full h-full object-cover object-center"
+            style={{ opacity: 0.4 }}
+          />
+          <div className="absolute inset-0" style={{ background: "rgba(26,26,26,0.65)" }} />
+        </div>
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h2 {...fadeUp(0)} className="font-serif text-4xl md:text-6xl leading-[0.92] tracking-tight mb-12 text-white">
               Let's be honest about where you are right now.
             </motion.h2>
             <motion.div {...fadeUp(0.1)} className="space-y-5 text-[15px] leading-relaxed">
-              <p className="text-muted-foreground">You wake up and the first thing you feel isn't excitement. It's heaviness.</p>
-              <p className="text-muted-foreground">You've built something. A career. A business. A life that looks good from the outside.</p>
-              <p className="text-muted-foreground">But inside? You're running on empty. You're making decisions from a place of exhaustion, not clarity. And the question that keeps circling your mind at 2am is always the same.</p>
-              <p className="font-serif italic text-xl md:text-2xl" style={{ color: BRAND }}>"What am I actually doing with my life?"</p>
-              <p className="text-muted-foreground">Maybe your business has stalled and you cannot figure out why. Maybe you are stuck in a role that is slowly draining you. Maybe you have been so busy holding everything together for everyone else that you have completely lost sight of what you want.</p>
-              <p className="text-muted-foreground">You have Googled. You have journaled. You have had the late-night conversations with friends who mean well but cannot give you what you actually need.</p>
-              <p className="text-muted-foreground">And you are still stuck.</p>
-              <p className="text-foreground font-medium text-base md:text-lg leading-relaxed pt-2">
+              <p className="text-white/70">You wake up and the first thing you feel isn't excitement. It's heaviness.</p>
+              <p className="text-white/70">You've built something. A career. A business. A life that looks good from the outside.</p>
+              <p className="text-white/70">But inside? You're running on empty. You're making decisions from a place of exhaustion, not clarity. And the question that keeps circling your mind at 2am is always the same.</p>
+              <p className="font-serif italic text-xl md:text-2xl" style={{ color: "rgba(255,200,180,0.85)" }}>"What am I actually doing with my life?"</p>
+              <p className="text-white/70">Maybe your business has stalled and you cannot figure out why. Maybe you are stuck in a role that is slowly draining you. Maybe you have been so busy holding everything together for everyone else that you have completely lost sight of what you want.</p>
+              <p className="text-white/70">You have Googled. You have journaled. You have had the late-night conversations with friends who mean well but cannot give you what you actually need.</p>
+              <p className="text-white/70">And you are still stuck.</p>
+              <p className="text-white font-medium text-base md:text-lg leading-relaxed pt-2">
                 Here is what nobody tells you. <span className="font-semibold">Being stuck isn't a mindset problem. It is a strategy problem.</span> You don't need more inspiration. You need someone who has been where you are, who understands the real pressure you are under, and who can help you think clearly enough to make your next move.
               </p>
             </motion.div>
@@ -311,16 +320,7 @@ export default function ClaritySpring() {
       </section>
 
       {/* SECTION 3: THE BRIDGE */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: "#1A1A1A", minHeight: "80vh" }}>
-        <div className="absolute inset-0">
-          <img
-            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/4d61a4013_Extend_the_existing_image_hori_Nano_Banana_2_79564.jpg"
-            alt=""
-            className="w-full h-full object-cover object-center"
-            style={{ opacity: 0.4 }}
-          />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(26,26,26,0.15) 0%, rgba(26,26,26,0.82) 55%, rgba(26,26,26,0.97) 100%)" }} />
-        </div>
+      <section className="relative overflow-hidden bg-ivory" style={{ minHeight: "80vh" }}>
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-16 md:py-36">
           <div className="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -344,19 +344,19 @@ export default function ClaritySpring() {
               transition={{ duration: 1.1, delay: 0.15 }}
               className="space-y-5"
             >
-              <h2 className="font-serif text-4xl md:text-5xl leading-[0.95] text-white tracking-tight">
+              <h2 className="font-serif text-4xl md:text-5xl leading-[0.95] tracking-tight" style={{ color: "#1A1A1A" }}>
                 I know what stuck feels like.{" "}
-                <span className="italic" style={{ color: "rgba(255,200,180,0.8)" }}>I lived it.</span>
+                <span className="italic" style={{ color: BRAND }}>I lived it.</span>
               </h2>
-              <p className="text-white/75 text-[14px] leading-relaxed">At 33, I was on top of the world. I had built and run a successful marketing agency for over a decade. I was consulting for global brands, travelling internationally, chairing organisations, and hitting goals I once thought were impossible.</p>
-              <p className="text-white/75 text-[14px] leading-relaxed">By 36, I was in full-blown burnout.</p>
-              <p className="text-white/75 text-[14px] leading-relaxed">Hormones depleted. Cortisol through the floor. My nervous system was constantly on alert. My doctor could not understand how I was still functioning.</p>
-              <p className="text-white/75 text-[14px] leading-relaxed">On paper, I was thriving. <span className="font-serif italic" style={{ color: "rgba(255,200,180,0.75)" }}>Behind the scenes, my exhausted was exhausted.</span></p>
-              <p className="text-white/75 text-[14px] leading-relaxed">So I shut everything down. I spent a year and thousands of rands on doctors, therapists, functional medicine specialists, and nervous system work. And I rebuilt. Not just my health, but my entire understanding of what it means to succeed without self-destructing.</p>
-              <p className="text-white/75 text-[14px] leading-relaxed">That journey became The Aligned Woman Co. and The A.L.I.V.E. Method.</p>
-              <p className="text-white/75 text-[14px] leading-relaxed">But before all of that? I was exactly where you are right now. Stuck. Overwhelmed. Knowing something had to change but unable to see the path.</p>
-              <p className="text-white/85 text-[14px] leading-relaxed font-medium">I am Laura Jane Thomas. Senior strategist. Former agency owner. Brand advisor. Speaker. And someone who had to learn the hard way that willpower alone will eventually break you.</p>
-              <p className="text-white/75 text-[14px] leading-relaxed">Now I help women like you find clarity, build a real plan, and move forward, <span className="font-serif italic" style={{ color: "rgba(255,200,180,0.75)" }}>without burning out in the process.</span></p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">At 33, I was on top of the world. I had built and run a successful marketing agency for over a decade. I was consulting for global brands, travelling internationally, chairing organisations, and hitting goals I once thought were impossible.</p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">By 36, I was in full-blown burnout.</p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">Hormones depleted. Cortisol through the floor. My nervous system was constantly on alert. My doctor could not understand how I was still functioning.</p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">On paper, I was thriving. <span className="font-serif italic" style={{ color: BRAND }}>Behind the scenes, my exhausted was exhausted.</span></p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">So I shut everything down. I spent a year and thousands of rands on doctors, therapists, functional medicine specialists, and nervous system work. And I rebuilt. Not just my health, but my entire understanding of what it means to succeed without self-destructing.</p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">That journey became The Aligned Woman Co. and The A.L.I.V.E. Method.</p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">But before all of that? I was exactly where you are right now. Stuck. Overwhelmed. Knowing something had to change but unable to see the path.</p>
+              <p className="text-foreground text-[14px] leading-relaxed font-medium">I am Laura Jane Thomas. Senior strategist. Former agency owner. Brand advisor. Speaker. And someone who had to learn the hard way that willpower alone will eventually break you.</p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">Now I help women like you find clarity, build a real plan, and move forward, <span className="font-serif italic" style={{ color: BRAND }}>without burning out in the process.</span></p>
             </motion.div>
           </div>
         </div>

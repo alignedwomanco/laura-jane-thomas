@@ -277,7 +277,7 @@ export default function Speaking() {
                 </a>
               </div>
             </div>
-            <div className="aspect-square">
+            <div className="flex items-center justify-center">
               <iframe
                 src="https://open.spotify.com/embed/show/0TdHPtBVdT9setqlPZUimi"
                 width="100%"

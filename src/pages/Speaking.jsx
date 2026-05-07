@@ -278,7 +278,15 @@ export default function Speaking() {
               </div>
             </div>
             <div className="aspect-square">
-              <img src="https://laurajanethomas.biz/wp-content/uploads/2026/02/mockupapp-1.png" alt="Podcast" className="w-full h-full object-contain" />
+              <iframe
+                src="https://open.spotify.com/embed/show/0TdHPtBVdT9setqlPZUimi"
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                className="rounded-lg"
+              />
             </div>
           </div>
         </div>

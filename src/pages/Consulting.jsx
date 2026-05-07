@@ -84,7 +84,7 @@ export default function Consulting() {
       <section className="bg-oxblood text-ivory py-24 md:py-32">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
           <div className="aspect-[4/5] overflow-hidden">
-            <img src="https://laurajanethomas.biz/wp-content/uploads/2025/11/LauraJaneThomas_ABout.jpg" alt="Laura consulting" className="w-full h-full object-cover" />
+            <img src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/61b35f8db_Facetune_17-04-2026-20-36-52.jpg" alt="Laura consulting" className="w-full h-full object-cover" />
           </div>
           <div>
             <p className="font-serif text-2xl md:text-3xl lg:text-[32px] leading-[1.3] text-ivory mb-8">

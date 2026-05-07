@@ -225,14 +225,28 @@ function SprintCarousel({ testimonials }) {
 }
 
 const BookBtn = ({ dark = false, className = "" }) => (
-  <Link
-    to="/claritysprint-intake"
-    className={`inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group btn-pulse ${dark ? "bg-ivory text-oxblood hover:bg-ivory/90" : "text-ivory"} ${className}`}
-    style={!dark ? { backgroundColor: "#C2858B" } : {}}
+  <form
+    name="PayFastPayNowForm"
+    action="https://payment.payfast.io/eng/process"
+    method="post"
+    className="inline-block"
   >
-    Book Your Clarity Sprint, R12,500
-    <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-  </Link>
+    <input type="hidden" name="cmd" value="_paynow" />
+    <input type="hidden" name="receiver" value="32598411" />
+    <input type="hidden" name="return_url" value="https://laurajanethomas.biz/claritysprint" />
+    <input type="hidden" name="cancel_url" value="https://laurajanethomas.biz/claritysprint" />
+    <input type="hidden" name="notify_url" value="https://laurajanethomas.biz/claritysprint" />
+    <input type="hidden" name="amount" value="12500" />
+    <input type="hidden" name="item_name" value="Clarity Sprint" />
+    <button
+      type="submit"
+      className={`inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group btn-pulse ${dark ? "bg-ivory text-oxblood hover:bg-ivory/90" : "text-ivory"} ${className}`}
+      style={!dark ? { backgroundColor: "#C2858B" } : {}}
+    >
+      Book Your Clarity Sprint, R12,500
+      <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+    </button>
+  </form>
 );
 
 export default function ClaritySpring() {

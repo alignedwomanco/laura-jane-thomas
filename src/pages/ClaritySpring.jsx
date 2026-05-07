@@ -224,6 +224,19 @@ function SprintCarousel({ testimonials }) {
   );
 }
 
+const DiscoveryBtn = ({ dark = false, className = "" }) => (
+  <a
+    href="https://calendly.com/hello-alignedwomanco/30min"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group btn-pulse text-ivory ${className}`}
+    style={{ backgroundColor: "#C2858B" }}
+  >
+    Book a Discovery Call
+    <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+  </a>
+);
+
 const BookBtn = ({ dark = false, className = "" }) => (
   <form
     name="PayFastPayNowForm"
@@ -287,7 +300,10 @@ export default function ClaritySpring() {
           <p className="text-white/75 text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
             4 weeks. 4 strategic coaching calls. 1 clear direction forward, so you can stop spinning and start moving.
           </p>
-          <BookBtn dark />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <BookBtn dark />
+            <DiscoveryBtn />
+          </div>
           <div className="mt-8 max-w-xl mx-auto space-y-1">
             <p className="text-white/55 text-[13px] md:text-[15px] tracking-wide">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
             <p className="font-serif italic text-[13px] md:text-[15px]" style={{ color: "rgba(255,200,180,0.70)" }}>
@@ -489,7 +505,10 @@ export default function ClaritySpring() {
                 <p className="font-serif italic text-[14px] mb-8" style={{ color: BRAND }}>
                   That is not a discount. It is a calibrated rate, because building businesses with women starting out is where I actually love spending my time. The Aligned Woman Blueprint is included because the work continues long after the four weeks end, and I want every woman who sprints with me to have a full year of access to the methodology that built it.
                 </p>
-                <BookBtn />
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <BookBtn />
+                  <DiscoveryBtn />
+                </div>
                 <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-4">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
               </motion.div>
             </div>
@@ -516,7 +535,10 @@ export default function ClaritySpring() {
               If you have read this far and you are still here, you already know what you are going to do.
             </p>
             <div>
-              <BookBtn />
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <BookBtn />
+                <DiscoveryBtn />
+              </div>
               <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-4">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
             </div>
           </motion.div>
@@ -593,7 +615,10 @@ export default function ClaritySpring() {
               If you have read both columns and you are still here, you already know which one applies to you.
             </p>
             <div>
-              <BookBtn dark />
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <BookBtn dark />
+                <DiscoveryBtn />
+              </div>
               <p className="text-[10px] tracking-editorial uppercase text-ivory/50 mt-4">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
             </div>
           </motion.div>

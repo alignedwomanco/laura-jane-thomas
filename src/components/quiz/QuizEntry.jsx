@@ -39,7 +39,7 @@ export default function QuizEntry({ onBegin }) {
           className="text-base md:text-lg leading-relaxed mb-6"
           style={{ color: "rgba(26,10,14,0.65)", fontFamily: "'Inter', sans-serif" }}
         >
-          There are six ways to work with me. Each one is built for a specific moment in a woman's journey, and some women need more than one.
+          There are various ways to work with me. Each one is built for a specific moment in a woman's journey, and some women need more than one.
         </p>
 
         <p

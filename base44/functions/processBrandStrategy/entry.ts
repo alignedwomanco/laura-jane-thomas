@@ -254,7 +254,40 @@ ${emailBody}`;
       }
     }
 
-    // ── Step 6: Return the record ID to the frontend ──────────────────
+    // ── Step 6: Notify Laura of new submission ────────────────────────
+    try {
+      const origin = req.headers.get("origin") || "https://laurajanethomas.biz";
+      const reportUrl = `${origin}/strategy-report/${savedId}`;
+      const notifyMime = `From: hello@laurajanethomas.biz
+To: hello@laurajanethomas.biz
+Subject: New Brand Strategy Submission: ${record.fullName || "Unknown"} (${record.company || "No company"})
+Content-Type: text/plain; charset="UTF-8"
+
+New Brand Strategy Diagnostic submission received.
+
+Name: ${record.fullName}
+Email: ${record.email}
+Company: ${record.company}
+Position: ${record.position}
+Phone: ${record.phone}
+Submitted: ${record.submittedAt}
+
+View the full report here:
+${reportUrl}`;
+
+      const base64Notify = btoa(notifyMime).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+      const { accessToken: notifyToken } = await base44.asServiceRole.connectors.getConnection('gmail');
+      await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${notifyToken}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ raw: base64Notify }),
+      });
+      console.log("[processBrandStrategy] Notification email sent to hello@laurajanethomas.biz");
+    } catch (notifyError) {
+      console.warn("[processBrandStrategy] Notification email failed (non-fatal):", notifyError.message);
+    }
+
+    // ── Step 7: Return the record ID to the frontend ──────────────────
     return Response.json({ success: true, id: savedId });
 
   } catch (error) {

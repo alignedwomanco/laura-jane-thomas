@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { base44 } from "@/api/base44Client";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 
@@ -39,9 +40,19 @@ const textareaClass = `${inputClass} resize-none min-h-[100px]`;
 export default function Contact() {
   const [enquiry, setEnquiry] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    const data = Object.fromEntries(new FormData(e.target));
+    const lines = Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n");
+    await base44.integrations.Core.SendEmail({
+      to: "hello@laurajanethomas.biz",
+      subject: `New Contact Form Submission: ${data.name || "Unknown"} — ${enquiry}`,
+      body: `New contact form submission received.\n\nEnquiry type: ${enquiry}\n\n${lines}`,
+    });
+    setLoading(false);
     setSubmitted(true);
   };
 
@@ -97,16 +108,16 @@ export default function Contact() {
                 <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8 border-b border-foreground/15 pb-4">— The Basics</p>
                 <div className="grid md:grid-cols-2 gap-8">
                   <FormField label="Name" required>
-                    <input required className={inputClass} placeholder="Your full name" />
+                    <input name="name" required className={inputClass} placeholder="Your full name" />
                   </FormField>
                   <FormField label="Email Address" required>
-                    <input required type="email" className={inputClass} placeholder="your@email.com" />
+                    <input name="email" required type="email" className={inputClass} placeholder="your@email.com" />
                   </FormField>
                   <FormField label="Phone" required>
-                    <input required className={inputClass} placeholder="+44..." />
+                    <input name="phone" required className={inputClass} placeholder="+44..." />
                   </FormField>
                   <FormField label="Company Name" required>
-                    <input required className={inputClass} placeholder="Your company" />
+                    <input name="company" required className={inputClass} placeholder="Your company" />
                   </FormField>
                 </div>
               </div>
@@ -296,10 +307,11 @@ export default function Contact() {
                 <div className="pt-6">
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-3 bg-foreground text-ivory px-10 py-5 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group"
+                    disabled={loading}
+                    className="inline-flex items-center gap-3 bg-foreground text-ivory px-10 py-5 text-[11px] tracking-editorial uppercase hover:bg-oxblood transition-all duration-300 group disabled:opacity-60"
                   >
-                    Send It. Let's Begin.
-                    <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                    {loading ? "Sending..." : "Send It. Let's Begin."}
+                    {!loading && <span className="inline-block transition-transform group-hover:translate-x-1">→</span>}
                   </button>
                 </div>
               )}

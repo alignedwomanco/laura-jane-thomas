@@ -274,12 +274,12 @@ export default function QuizResult({ primaryResult, secondaryResult, firstName, 
           ))}
         </motion.div>
 
-        {/* Primary CTA */}
+        {/* Primary CTA + Discovery Call */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.7 }}
-          className="mb-16"
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-16"
         >
           <a
             href={result.ctaHref}
@@ -294,6 +294,22 @@ export default function QuizResult({ primaryResult, secondaryResult, firstName, 
             }}
           >
             {result.ctaLabel}
+            <span>&#8594;</span>
+          </a>
+          <a
+            href="https://calendly.com/hello-alignedwomanco/30min?month=2026-05"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onDiscoveryClick}
+            className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-semibold transition-all duration-300 hover:opacity-60"
+            style={{
+              color: BURGUNDY,
+              fontFamily: "'Inter', sans-serif",
+              borderBottom: `1px solid ${BURGUNDY}`,
+              paddingBottom: "2px",
+            }}
+          >
+            Book a Free Discovery Call
             <span>&#8594;</span>
           </a>
         </motion.div>
@@ -347,37 +363,7 @@ export default function QuizResult({ primaryResult, secondaryResult, firstName, 
           </motion.div>
         )}
 
-        {/* Universal footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.7 }}
-          className="mt-16 pt-10"
-          style={{ borderTop: "1px solid rgba(92,31,46,0.12)" }}
-        >
-          <p
-            className="text-[10px] tracking-[0.2em] uppercase mb-5"
-            style={{ color: "rgba(26,10,14,0.35)", fontFamily: "'Inter', sans-serif" }}
-          >
-            Not quite right?
-          </p>
-          <a
-            href="https://calendly.com/hello-alignedwomanco/30min?month=2026-05"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onDiscoveryClick}
-            className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase font-semibold transition-all duration-300 hover:opacity-70"
-            style={{
-              color: BURGUNDY,
-              fontFamily: "'Inter', sans-serif",
-              borderBottom: `1px solid ${BURGUNDY}`,
-              paddingBottom: "2px",
-            }}
-          >
-            Book a Free Discovery Call
-            <span>&#8594;</span>
-          </a>
-        </motion.div>
+
       </div>
     </motion.div>
   );

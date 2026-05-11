@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const BURGUNDY = "#5C1F2E";
 const CREAM = "#F5EDE0";
@@ -97,9 +98,14 @@ export default function QuizAdmin() {
           <p className="text-[10px] tracking-[0.22em] uppercase mb-4 font-semibold" style={{ color: BURGUNDY }}>
             Quiz Analytics
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1A0A0E" }}>
-            Quiz Dashboard
-          </h1>
+          <div className="flex items-end justify-between gap-4 flex-wrap">
+            <h1 className="font-serif text-4xl md:text-5xl" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1A0A0E" }}>
+              Quiz Dashboard
+            </h1>
+            <Link to="/quiz-admin/emails" style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: BURGUNDY, borderBottom: `1px solid ${BURGUNDY}`, textDecoration: "none", paddingBottom: 2, fontFamily: "'Inter',sans-serif", fontWeight: 600 }}>
+              View Email Queue →
+            </Link>
+          </div>
         </div>
 
         {/* Top stats */}

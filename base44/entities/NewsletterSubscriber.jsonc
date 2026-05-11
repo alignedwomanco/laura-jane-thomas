@@ -1,0 +1,31 @@
+{
+  "name": "NewsletterSubscriber",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "Subscriber first name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Subscriber email address"
+    },
+    "source": {
+      "type": "string",
+      "description": "How they subscribed (e.g. quiz_completion, contact_form)",
+      "default": "quiz_completion"
+    },
+    "subscribedAt": {
+      "type": "string",
+      "description": "ISO timestamp of subscription"
+    },
+    "primaryResult": {
+      "type": "string",
+      "description": "Quiz primary result, if subscribed via quiz"
+    }
+  },
+  "required": [
+    "email",
+    "subscribedAt"
+  ]
+}

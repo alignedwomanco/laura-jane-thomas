@@ -46,6 +46,24 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target));
+
+    // Save to ContactSubmission entity
+    const nameParts = (data.name || "").trim().split(" ");
+    const firstName = nameParts[0] || "";
+    const lastName = nameParts.slice(1).join(" ") || "";
+    await base44.entities.ContactSubmission.create({
+      firstName,
+      lastName,
+      email: data.email || "",
+      phone: data.phone || "",
+      subject: enquiry,
+      message: JSON.stringify({ enquiryType: enquiry, ...data }, null, 2),
+      source: "contact_page",
+      status: "new",
+      submittedAt: new Date().toISOString(),
+    });
+
+    // Also send email notification
     const lines = Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n");
     await base44.integrations.Core.SendEmail({
       to: "hello@laurajanethomas.biz",

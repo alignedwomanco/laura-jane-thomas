@@ -1,5 +1,5 @@
 // Triggered by entity automation when a QuizSubmission is created.
-// Builds and schedules all emails for the correct nurture sequence.
+// Immediately sends Email 1 via Gmail, then creates ScheduledEmail records for the rest.
 
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
@@ -8,6 +8,8 @@ const BLUEPRINT_URL = "https://alignedwomanco.com/blueprint";
 const SERVICES_URL = "https://laurajanethomas.biz/services";
 const CONSULTING_URL = "https://laurajanethomas.biz/consulting";
 const SPRINT_URL = "https://laurajanethomas.biz/claritysprint";
+const FROM_EMAIL = "hello@laurajanethomas.biz";
+const FROM_NAME = "Laura Jane Thomas";
 
 // ─── HTML helpers ─────────────────────────────────────────────────────────────
 
@@ -120,12 +122,6 @@ function buildSecondaryBlock(primaryResult, secondaryResult) {
     </table>`;
 }
 
-function discoverySection() {
-  return `
-    ${p('Not quite sure? If you want to talk through the right path first, book a free discovery call.')}
-    ${btn("BOOK A FREE DISCOVERY CALL", DISCOVERY_URL, "#C2858B", "#F5EDE0")}`;
-}
-
 // ─── Email body builders ──────────────────────────────────────────────────────
 
 function buildClaritySprint(emailNum, firstName, primaryResult, secondaryResult) {
@@ -139,7 +135,7 @@ function buildClaritySprint(emailNum, firstName, primaryResult, secondaryResult)
         ${p("It is limited to three women at a time. Currently open.")}
         ${btn("LEARN MORE ABOUT THE CLARITY SPRINT", SPRINT_URL)}
         ${buildSecondaryBlock(primaryResult, secondaryResult)}
-        ${discoverySection()}
+        ${p('Not quite sure? <a href="' + DISCOVERY_URL + '" style="color:#5C1F2E;">Book a free discovery call.</a>')}
         ${signOff("Warmly, Laura")}
       `)
     };
@@ -203,8 +199,7 @@ function buildBlueprint(emailNum, firstName, primaryResult, secondaryResult) {
         ${p("The founding member offer is open now.")}
         ${btn("JOIN THE BLUEPRINT", BLUEPRINT_URL)}
         ${buildSecondaryBlock(primaryResult, secondaryResult)}
-        ${p("Not quite sure? If you want to talk through whether the self-paced path is right for you, book a free discovery call.")}
-        ${btn("BOOK A FREE DISCOVERY CALL", DISCOVERY_URL, "#C2858B", "#F5EDE0")}
+        ${p('Not quite sure? <a href="' + DISCOVERY_URL + '" style="color:#5C1F2E;">Book a free discovery call.</a>')}
         ${signOff("Warmly, Laura")}
       `)
     };
@@ -250,8 +245,7 @@ function buildAlignmentAudit(emailNum, firstName, primaryResult, secondaryResult
         ${p("This is the senior advisory equivalent of a strategic consultation. You leave knowing exactly what you are working with and what to do next, with no obligation to continue.")}
         ${btn("BOOK THE ALIGNMENT AUDIT", SERVICES_URL)}
         ${buildSecondaryBlock(primaryResult, secondaryResult)}
-        ${p("Not quite sure?")}
-        ${btn("BOOK A FREE DISCOVERY CALL", DISCOVERY_URL, "#C2858B", "#F5EDE0")}
+        ${p('Not quite sure? <a href="' + DISCOVERY_URL + '" style="color:#5C1F2E;">Book a free discovery call.</a>')}
         ${signOff("Warmly, Laura")}
       `)
     };
@@ -309,8 +303,7 @@ function buildRecalibrationIntensive(emailNum, firstName, primaryResult, seconda
         ${p("This is the right fit for the woman who knows the issue, is ready to move on it, and wants depth without a 90-day timeline.")}
         ${btn("BOOK THE RECALIBRATION INTENSIVE", SERVICES_URL)}
         ${buildSecondaryBlock(primaryResult, secondaryResult)}
-        ${p("Not quite sure?")}
-        ${btn("BOOK A FREE DISCOVERY CALL", DISCOVERY_URL, "#C2858B", "#F5EDE0")}
+        ${p('Not quite sure? <a href="' + DISCOVERY_URL + '" style="color:#5C1F2E;">Book a free discovery call.</a>')}
         ${signOff("Warmly, Laura")}
       `)
     };
@@ -367,8 +360,7 @@ function buildSeniorAdvisory(emailNum, firstName, primaryResult, secondaryResult
         ${p("You get a senior diagnostic, two strategic sessions per month, the 90-day priority structure, the renegotiated standards document, the system renegotiation session, strategic async support, the forward roadmap session, and three seats inside The Aligned Woman Blueprint.")}
         ${btn("APPLY FOR THE SENIOR ADVISORY", SERVICES_URL)}
         ${buildSecondaryBlock(primaryResult, secondaryResult)}
-        ${p("Not quite sure?")}
-        ${btn("BOOK A FREE DISCOVERY CALL", DISCOVERY_URL, "#C2858B", "#F5EDE0")}
+        ${p('Not quite sure? <a href="' + DISCOVERY_URL + '" style="color:#5C1F2E;">Book a free discovery call.</a>')}
         ${signOff("Warmly, Laura")}
       `)
     };
@@ -427,8 +419,7 @@ function buildBusinessConsulting(emailNum, firstName, primaryResult, secondaryRe
         ${p("The work covers brand foundation and build, brand and business review, marketing strategy, brand development and creative direction, content and communication frameworks, team alignment and leadership support, and a custom growth playbook calibrated to your business.")}
         ${btn("INQUIRE ABOUT CONSULTING", CONSULTING_URL)}
         ${buildSecondaryBlock(primaryResult, secondaryResult)}
-        ${p("Not quite sure?")}
-        ${btn("BOOK A FREE DISCOVERY CALL", DISCOVERY_URL, "#C2858B", "#F5EDE0")}
+        ${p('Not quite sure? <a href="' + DISCOVERY_URL + '" style="color:#5C1F2E;">Book a free discovery call.</a>')}
         ${signOff("Warmly, Laura")}
       `)
     };
@@ -494,15 +485,62 @@ const RESULT_TO_SEQUENCE = {
   "Business Consulting": { key: "business_consulting", count: 4 },
 };
 
-// Days offset for each email number (0 = immediate)
+// Days offset for each email number index (0 = immediate, 1 = day 2, 2 = day 4, 3 = day 7)
 const EMAIL_DELAYS_DAYS = [0, 2, 4, 7];
+
+// ─── Send via Gmail connector ─────────────────────────────────────────────────
+
+async function sendViaGmail(base44, toEmail, subject, htmlBody) {
+  const { accessToken } = await base44.asServiceRole.connectors.getConnection("gmail");
+
+  // Build RFC 2822 MIME message
+  const boundary = "boundary_" + Date.now();
+  const mimeMessage = [
+    `From: ${FROM_NAME} <${FROM_EMAIL}>`,
+    `To: ${toEmail}`,
+    `Subject: ${subject}`,
+    `MIME-Version: 1.0`,
+    `Content-Type: multipart/alternative; boundary="${boundary}"`,
+    ``,
+    `--${boundary}`,
+    `Content-Type: text/html; charset="UTF-8"`,
+    `Content-Transfer-Encoding: base64`,
+    ``,
+    btoa(unescape(encodeURIComponent(htmlBody))),
+    `--${boundary}--`,
+  ].join("\r\n");
+
+  const encodedMessage = btoa(unescape(encodeURIComponent(mimeMessage)))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+
+  const res = await fetch("https://gmail.googleapis.com/gmail/v1/users/me/messages/send", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ raw: encodedMessage }),
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Gmail send failed: ${err}`);
+  }
+
+  return await res.json();
+}
+
+// ─── Main handler ─────────────────────────────────────────────────────────────
 
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
     const body = await req.json();
 
-    const submissionId = body?.event?.entity_id || body?.submissionId;
+    // Support both entity automation payload and direct invocation
+    const submissionId = body?.event?.entity_id || body?.data?.id || body?.submissionId;
     if (!submissionId) {
       return Response.json({ error: "No submissionId provided" }, { status: 400 });
     }
@@ -512,15 +550,20 @@ Deno.serve(async (req) => {
       return Response.json({ error: "Submission not found" }, { status: 404 });
     }
 
+    // Idempotency: skip if already processed
+    if (submission.emailSent === true) {
+      return Response.json({ success: true, skipped: true, reason: "emailSent already true" });
+    }
+
     const { firstName, email, primaryResult, secondaryResult, created_date } = submission;
     const seqConfig = RESULT_TO_SEQUENCE[primaryResult];
     if (!seqConfig) {
       return Response.json({ error: `Unknown primaryResult: ${primaryResult}` }, { status: 400 });
     }
 
-    const baseTime = new Date(created_date);
-
+    const baseTime = new Date(created_date || new Date().toISOString());
     const scheduled = [];
+
     for (let i = 0; i < seqConfig.count; i++) {
       const emailNum = i + 1;
       const delayDays = EMAIL_DELAYS_DAYS[i] || 0;
@@ -529,21 +572,51 @@ Deno.serve(async (req) => {
       const built = buildEmail(seqConfig.key, emailNum, firstName, primaryResult, secondaryResult || null);
       if (!built) continue;
 
-      await base44.asServiceRole.entities.ScheduledEmail.create({
-        submissionId,
-        toEmail: email,
-        firstName,
-        sequence: seqConfig.key,
-        emailNumber: emailNum,
-        subject: built.subject,
-        htmlBody: built.html,
-        scheduledAt: sendAt.toISOString(),
-        status: "scheduled",
-        primaryResult,
-        secondaryResult: secondaryResult || null,
-      });
+      if (emailNum === 1) {
+        // Send Email 1 immediately via Gmail
+        await sendViaGmail(base44, email, built.subject, built.html);
 
-      scheduled.push({ emailNum, sendAt: sendAt.toISOString() });
+        // Save it as sent in ScheduledEmail
+        await base44.asServiceRole.entities.ScheduledEmail.create({
+          submissionId,
+          toEmail: email,
+          firstName,
+          sequence: seqConfig.key,
+          emailNumber: 1,
+          subject: built.subject,
+          htmlBody: built.html,
+          scheduledAt: sendAt.toISOString(),
+          sentAt: new Date().toISOString(),
+          status: "sent",
+          primaryResult,
+          secondaryResult: secondaryResult || null,
+        });
+
+        // Mark emailSent=true and nurtureEmailsSent=1 on the submission
+        await base44.asServiceRole.entities.QuizSubmission.update(submissionId, {
+          emailSent: true,
+          nurtureEmailsSent: 1,
+        });
+
+        scheduled.push({ emailNum: 1, status: "sent_immediately" });
+      } else {
+        // Queue remaining emails
+        await base44.asServiceRole.entities.ScheduledEmail.create({
+          submissionId,
+          toEmail: email,
+          firstName,
+          sequence: seqConfig.key,
+          emailNumber: emailNum,
+          subject: built.subject,
+          htmlBody: built.html,
+          scheduledAt: sendAt.toISOString(),
+          status: "scheduled",
+          primaryResult,
+          secondaryResult: secondaryResult || null,
+        });
+
+        scheduled.push({ emailNum, scheduledAt: sendAt.toISOString() });
+      }
     }
 
     return Response.json({ success: true, scheduled });

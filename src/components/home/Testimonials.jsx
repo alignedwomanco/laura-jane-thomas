@@ -52,6 +52,18 @@ const testimonials = [
     company: "Founder, Carmella Consulting",
   },
   {
+    headline: "Laura will leave you feeling empowered.",
+    quote: "Laura provides actionable support to help you thrive. If you're considering her for consulting or coaching, I can hands down say you're getting your moneys worth! And if you're attending her events like her aligned masterclass, you will leave with valuable insights and practical easy techniques to help navigate and reconnect with what truly drives you, all while protecting your energy so you don't end up overworked and burnt out. Especially ideal for women in the workplace! One session Laura will leave you feeling empowered. I highly recommend her services!",
+    name: "Tharunisa Reddy",
+    company: "",
+  },
+  {
+    headline: "She taught me to back myself more.",
+    quote: "Laura is just phenomenal. She's helped me connect to my core and feel more confident about what I do and the value I provide to others. I feel far less uncomfortable or awkward selling myself or my services. She taught me to back myself more, and to detach my sense of self-worth from how much I make. It's set me free, and I'm excited for the next chapter in my career!",
+    name: "Iris Smyth",
+    company: "",
+  },
+  {
     headline: "Working with Laura and her team has been an amazing experience.",
     quote: "I would recommend 100%, very hands on, professional and understanding. I wished I had found her sooner. Continue being such an amazing company!!",
     name: "Christelle Dossous",

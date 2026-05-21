@@ -163,7 +163,8 @@ export default function StrategyReport() {
         summaryLength: found.emailSummary?.length || 0,
       });
 
-          setReport(found);
+      setReport(found);
+      setLoading(false);
     } catch (e) {
       setError("Failed: " + e.message);
       setLoading(false);

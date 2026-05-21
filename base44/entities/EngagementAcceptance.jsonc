@@ -8,7 +8,11 @@
     },
     "company_name": {
       "type": "string",
-      "description": "Company or brand name"
+      "description": "Name of business"
+    },
+    "registration_number": {
+      "type": "string",
+      "description": "Business registration number"
     },
     "email": {
       "type": "string",
@@ -17,6 +21,10 @@
     "accepted_at": {
       "type": "string",
       "description": "ISO timestamp of acceptance"
+    },
+    "place_of_acceptance": {
+      "type": "string",
+      "description": "Place/location of acceptance"
     },
     "status": {
       "type": "string",

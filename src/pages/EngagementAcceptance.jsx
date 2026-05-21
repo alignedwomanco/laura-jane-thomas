@@ -8,7 +8,7 @@ const DARK = "#2C2C2C";
 const BORDER = "#D6C4B0";
 
 export default function EngagementAcceptance() {
-  const [form, setForm] = useState({ full_name: "", company_name: "", email: "" });
+  const [form, setForm] = useState({ full_name: "", company_name: "", registration_number: "", email: "", place_of_acceptance: "" });
   const [accepted, setAccepted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [confirmation, setConfirmation] = useState(null);
@@ -22,6 +22,25 @@ export default function EngagementAcceptance() {
       accepted_at,
       status: "accepted",
     });
+
+    const bankingDetails = `Account holder: Miss LJ Thomas\nAccount number: 10012596596\nBank: Investec Bank Limited\nBranch name: Investec Bank Grayston Drive\nSWIFT code: IVESZAJJXXX\nBranch code: 580105`;
+    const acceptanceDetails = `Full Name: ${form.full_name}\nBusiness Name: ${form.company_name}\nRegistration Number: ${form.registration_number || "N/A"}\nEmail: ${form.email}\nPlace of Acceptance: ${form.place_of_acceptance || "N/A"}\nTime of Acceptance: ${new Date(accepted_at).toLocaleString("en-ZA", { timeZone: "Africa/Johannesburg", weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", timeZoneName: "short" })}`;
+
+    // Email to Laura
+    await base44.integrations.Core.SendEmail({
+      to: "hello@laurajanethomas.biz",
+      subject: `New Engagement Acceptance — ${form.full_name} (${form.company_name})`,
+      body: `A new engagement has been accepted.\n\n${acceptanceDetails}\n\n---\nOption S: Foundations Strategy\nTotal: R11 000 | Deposit due: R6 600`,
+    });
+
+    // Email to client
+    await base44.integrations.Core.SendEmail({
+      to: form.email,
+      from_name: "Laura Jane Thomas",
+      subject: "Your Engagement Acceptance — Laura Jane Thomas",
+      body: `Dear ${form.full_name},\n\nThank you for accepting the terms of your engagement with Laura Jane Thomas.\n\nYour acceptance has been recorded with the following details:\n\n${acceptanceDetails}\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the 60% deposit of R6 600 using the banking details below. Use your brand name as the payment reference.\n\n${bankingDetails}\n\nIf you have any questions, please don't hesitate to reach out.\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`,
+    });
+
     setConfirmation({ ...form, accepted_at });
     setSubmitting(false);
   };
@@ -174,8 +193,13 @@ export default function EngagementAcceptance() {
           <form onSubmit={handleSubmit}>
             <div style={{ display: "grid", gap: 16, marginBottom: 16 }}>
               <Field label="Full Name *" value={form.full_name} onChange={(v) => setForm({ ...form, full_name: v })} required />
-              <Field label="Company / Brand Name *" value={form.company_name} onChange={(v) => setForm({ ...form, company_name: v })} required />
+              <Field label="Name of Business *" value={form.company_name} onChange={(v) => setForm({ ...form, company_name: v })} required />
+              <Field label="Registration Number" value={form.registration_number} onChange={(v) => setForm({ ...form, registration_number: v })} />
               <Field label="Email Address *" type="email" value={form.email} onChange={(v) => setForm({ ...form, email: v })} required />
+              <Field label="Place of Acceptance" value={form.place_of_acceptance} onChange={(v) => setForm({ ...form, place_of_acceptance: v })} placeholder="e.g. Johannesburg, South Africa" />
+            </div>
+            <div style={{ backgroundColor: "rgba(92,31,46,0.04)", border: `1px solid ${BORDER}`, padding: "12px 16px", marginBottom: 16, fontSize: 13, color: "#777" }}>
+              <strong style={{ color: DARK }}>Time of Acceptance</strong> will be automatically recorded at the moment you submit.
             </div>
 
             <label style={{ display: "flex", alignItems: "flex-start", gap: 12, cursor: "pointer", marginBottom: 28, fontSize: 14, lineHeight: 1.6 }}>
@@ -254,7 +278,7 @@ function InvestmentRow({ label, value, highlight, last }) {
   );
 }
 
-function Field({ label, value, onChange, type = "text", required }) {
+function Field({ label, value, onChange, type = "text", required, placeholder }) {
   return (
     <div>
       <label style={{ display: "block", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "#777", marginBottom: 6 }}>{label}</label>
@@ -263,6 +287,7 @@ function Field({ label, value, onChange, type = "text", required }) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         required={required}
+        placeholder={placeholder || ""}
         style={{
           width: "100%",
           padding: "11px 14px",

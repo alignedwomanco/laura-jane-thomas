@@ -163,13 +163,19 @@ export default function ClientPortal() {
                   to={`/strategy-report/${submission.id}`}
                   style={{ backgroundColor: BURGUNDY, color: "#fff", textDecoration: "none", padding: "10px 24px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600 }}
                 >
-                  View Your Answers →
+                  View Saved Answers →
                 </Link>
                 <button
                   onClick={() => generateAnswersPDF(submission)}
                   style={{ backgroundColor: "transparent", color: BURGUNDY, border: `1px solid ${BURGUNDY}`, padding: "10px 24px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600, cursor: "pointer", fontFamily: "'Inter',sans-serif" }}
                 >
                   Download PDF
+                </button>
+                <button
+                  onClick={() => setShowCollabModal(true)}
+                  style={{ backgroundColor: "transparent", color: "rgba(44,44,44,0.5)", border: `1px solid ${BORDER}`, padding: "10px 24px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600, cursor: "pointer", fontFamily: "'Inter',sans-serif" }}
+                >
+                  Invite a Partner
                 </button>
               </div>
             </div>
@@ -181,7 +187,6 @@ export default function ClientPortal() {
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <button
                   onClick={() => {
-                    // Pre-fill Section 0 from engagement acceptance data
                     if (engagement) {
                       const prefill = {
                         fullName: engagement.full_name || "",

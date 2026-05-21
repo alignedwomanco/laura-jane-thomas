@@ -1,0 +1,255 @@
+import React, { useEffect, useState } from "react";
+import { base44 } from "@/api/base44Client";
+import { Link } from "react-router-dom";
+import { generateAnswersPDF } from "@/lib/generateAnswersPDF";
+
+const BURGUNDY = "#5C1F2E";
+const CREAM = "#F5EDE0";
+const DUSTY_ROSE = "#C2858B";
+const DARK = "#2C2C2C";
+const BORDER = "#D6C4B0";
+
+export default function ClientPortal() {
+  const [user, setUser] = useState(null);
+  const [submission, setSubmission] = useState(null);
+  const [engagement, setEngagement] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [authed, setAuthed] = useState(false);
+
+  useEffect(() => {
+    base44.auth.isAuthenticated().then(async (isAuth) => {
+      if (!isAuth) {
+        setAuthed(false);
+        setLoading(false);
+        return;
+      }
+      setAuthed(true);
+      const me = await base44.auth.me();
+      setUser(me);
+
+      // Fetch data matching the user's email
+      const [subs, engs] = await Promise.all([
+        base44.entities.BrandStrategySubmission.filter({ email: me.email }),
+        base44.entities.EngagementAcceptance.filter({ email: me.email }),
+      ]);
+
+      // Most recent submission
+      if (subs.length > 0) {
+        const sorted = subs.sort((a, b) => new Date(b.submittedAt || b.created_date) - new Date(a.submittedAt || a.created_date));
+        setSubmission(sorted[0]);
+      }
+
+      if (engs.length > 0) {
+        setEngagement(engs[0]);
+      }
+
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <div style={{ backgroundColor: CREAM, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: 32, height: 32, borderRadius: "50%", border: `2px solid ${BORDER}`, borderTopColor: BURGUNDY, animation: "spin 1s linear infinite" }} />
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      </div>
+    );
+  }
+
+  if (!authed) {
+    return (
+      <div style={{ backgroundColor: CREAM, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Inter',sans-serif" }}>
+        <div style={{ textAlign: "center", maxWidth: 400, padding: "0 24px" }}>
+          <Header />
+          <p style={{ fontSize: 14, color: "rgba(44,44,44,0.6)", marginBottom: 32, lineHeight: 1.7 }}>
+            Please sign in to access your client portal.
+          </p>
+          <button
+            onClick={() => base44.auth.redirectToLogin(window.location.href)}
+            style={{ backgroundColor: BURGUNDY, color: "#fff", border: "none", padding: "14px 40px", fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", cursor: "pointer", fontFamily: "'Inter',sans-serif", fontWeight: 600 }}
+          >
+            Sign In
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ backgroundColor: CREAM, minHeight: "100vh", fontFamily: "'Inter',sans-serif", color: DARK }}>
+      <div style={{ maxWidth: 800, margin: "0 auto", padding: "60px 24px 80px" }}>
+        <Header />
+
+        {/* Welcome */}
+        <div style={{ marginBottom: 48 }}>
+          <p style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: DUSTY_ROSE, marginBottom: 8 }}>Welcome back</p>
+          <h1 style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 32, color: BURGUNDY, margin: "0 0 4px" }}>
+            {user?.full_name || user?.email}
+          </h1>
+          <p style={{ fontSize: 12, color: "rgba(44,44,44,0.5)" }}>{user?.email}</p>
+        </div>
+
+        {/* Brand Strategy Submission */}
+        <Section title="Brand Strategy Diagnostic">
+          {submission ? (
+            <div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
+                <div>
+                  <p style={{ fontSize: 13, color: DARK, fontWeight: 600, marginBottom: 2 }}>
+                    {submission.company || submission.fullName || "Your Submission"}
+                  </p>
+                  <p style={{ fontSize: 11, color: "rgba(44,44,44,0.5)" }}>
+                    Submitted {submission.submittedAt ? new Date(submission.submittedAt).toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric" }) : "—"}
+                  </p>
+                </div>
+                <StatusBadge status={submission.status || "complete"} />
+              </div>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <Link
+                  to={`/strategy-report/${submission.id}`}
+                  style={{ backgroundColor: BURGUNDY, color: "#fff", textDecoration: "none", padding: "10px 24px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600 }}
+                >
+                  View Your Answers →
+                </Link>
+                <button
+                  onClick={() => generateAnswersPDF(submission)}
+                  style={{ backgroundColor: "transparent", color: BURGUNDY, border: `1px solid ${BURGUNDY}`, padding: "10px 24px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600, cursor: "pointer", fontFamily: "'Inter',sans-serif" }}
+                >
+                  Download PDF
+                </button>
+              </div>
+            </div>
+          ) : (
+            <EmptyState
+              message="You haven't completed the Brand Strategy Diagnostic yet."
+              action={{ label: "Start Questionnaire →", href: "/questionnaire" }}
+            />
+          )}
+        </Section>
+
+        {/* Engagement Acceptance */}
+        <Section title="Engagement Agreement">
+          {engagement ? (
+            <div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 16 }}>
+                <div>
+                  <p style={{ fontSize: 13, color: DARK, fontWeight: 600, marginBottom: 2 }}>{engagement.company_name}</p>
+                  <p style={{ fontSize: 11, color: "rgba(44,44,44,0.5)" }}>
+                    Accepted {engagement.accepted_at ? new Date(engagement.accepted_at).toLocaleString("en-ZA", { dateStyle: "medium", timeStyle: "short" }) : "—"}
+                    {engagement.place_of_acceptance && ` · ${engagement.place_of_acceptance}`}
+                  </p>
+                </div>
+                <StatusBadge status={engagement.status || "accepted"} />
+              </div>
+
+              {/* Banking reminder */}
+              <div style={{ backgroundColor: "rgba(92,31,46,0.04)", border: `1px solid ${BORDER}`, borderLeft: `3px solid ${DUSTY_ROSE}`, padding: "16px 20px" }}>
+                <p style={{ fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: BURGUNDY, fontWeight: 600, marginBottom: 8 }}>Deposit Payment Details</p>
+                <table style={{ fontSize: 12, borderCollapse: "collapse" }}>
+                  <tbody>
+                    {[
+                      ["Account holder", "Miss LJ Thomas"],
+                      ["Account number", "10012596596"],
+                      ["Bank", "Investec Bank Limited"],
+                      ["Branch code", "580105"],
+                      ["SWIFT", "IVESZAJJXXX"],
+                      ["Reference", "Your brand name"],
+                    ].map(([k, v]) => (
+                      <tr key={k}>
+                        <td style={{ padding: "3px 16px 3px 0", color: "rgba(44,44,44,0.5)" }}>{k}</td>
+                        <td style={{ padding: "3px 0", color: DARK, fontWeight: 500 }}>{v}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ) : (
+            <EmptyState
+              message="No engagement agreement on file yet."
+              action={{ label: "View Engagement Terms →", href: "/accept" }}
+            />
+          )}
+        </Section>
+
+        {/* Contact */}
+        <Section title="Need Help?">
+          <p style={{ fontSize: 13, color: "rgba(44,44,44,0.6)", lineHeight: 1.7, marginBottom: 16 }}>
+            Reach out to Laura directly with any questions about your project.
+          </p>
+          <a
+            href="mailto:hello@laurajanethomas.biz"
+            style={{ fontSize: 12, color: BURGUNDY, textDecoration: "none", borderBottom: `1px solid ${BURGUNDY}`, paddingBottom: 2 }}
+          >
+            hello@laurajanethomas.biz
+          </a>
+        </Section>
+
+        <div style={{ marginTop: 48, paddingTop: 24, borderTop: `1px solid ${BORDER}`, display: "flex", justifyContent: "flex-end" }}>
+          <button
+            onClick={() => base44.auth.logout("/")}
+            style={{ fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(44,44,44,0.4)", background: "none", border: "none", cursor: "pointer", fontFamily: "'Inter',sans-serif" }}
+          >
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Header() {
+  return (
+    <div style={{ textAlign: "center", marginBottom: 48 }}>
+      <h1 style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 22, color: BURGUNDY, letterSpacing: "0.08em", textTransform: "uppercase", margin: "0 0 6px" }}>
+        Laura Jane Thomas
+      </h1>
+      <p style={{ fontSize: 11, color: DUSTY_ROSE, letterSpacing: "0.12em", textTransform: "uppercase", margin: 0 }}>Client Portal</p>
+    </div>
+  );
+}
+
+function Section({ title, children }) {
+  return (
+    <div style={{ marginBottom: 40 }}>
+      <p style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(44,44,44,0.4)", fontWeight: 600, marginBottom: 16, paddingBottom: 10, borderBottom: `1px solid ${BORDER}`, fontFamily: "'Inter',sans-serif" }}>
+        {title}
+      </p>
+      <div style={{ backgroundColor: "#fff", border: `1px solid ${BORDER}`, padding: "24px 28px" }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function StatusBadge({ status }) {
+  const colors = {
+    accepted: { bg: "rgba(92,31,46,0.08)", color: BURGUNDY },
+    complete: { bg: "rgba(92,31,46,0.08)", color: BURGUNDY },
+    processing: { bg: "rgba(194,133,139,0.15)", color: DUSTY_ROSE },
+    pending: { bg: "rgba(194,133,139,0.15)", color: DUSTY_ROSE },
+    error: { bg: "rgba(180,50,50,0.08)", color: "#B43232" },
+  };
+  const s = colors[status] || { bg: "rgba(44,44,44,0.05)", color: DARK };
+  return (
+    <span style={{ ...s, fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", padding: "3px 10px", fontFamily: "'Inter',sans-serif", fontWeight: 600 }}>
+      {status}
+    </span>
+  );
+}
+
+function EmptyState({ message, action }) {
+  return (
+    <div style={{ textAlign: "center", padding: "20px 0" }}>
+      <p style={{ fontSize: 13, color: "rgba(44,44,44,0.4)", marginBottom: 16 }}>{message}</p>
+      {action && (
+        <Link
+          to={action.href}
+          style={{ fontSize: 10, color: BURGUNDY, textDecoration: "none", letterSpacing: "0.15em", textTransform: "uppercase", borderBottom: `1px solid ${BURGUNDY}`, paddingBottom: 2, fontWeight: 600 }}
+        >
+          {action.label}
+        </Link>
+      )}
+    </div>
+  );
+}

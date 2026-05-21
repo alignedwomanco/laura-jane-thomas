@@ -23,6 +23,7 @@ import ScheduledEmailAdmin from './pages/ScheduledEmailAdmin.jsx';
 import ContactSubmissions from './pages/ContactSubmissions.jsx';
 import EngagementAcceptance from './pages/EngagementAcceptance.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import ClientPortal from './pages/ClientPortal.jsx';
 
 // Allow all pages to be accessible
 const PublicOnlyRoute = ({ children }) => {
@@ -72,6 +73,7 @@ const AuthenticatedApp = () => {
       <Route path="/contact-submissions" element={<ContactSubmissions />} />
       <Route path="/accept" element={<EngagementAcceptance />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/portal" element={<ClientPortal />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

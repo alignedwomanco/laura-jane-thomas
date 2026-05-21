@@ -493,7 +493,7 @@ function Section8({ data, set }) {
   );
 }
 
-function Section9({ data, set }) {
+function Section9({ data = {}, set }) {
   const q = [
     "What would people say about your brand if you were not in the room?",
     "What do you want to be known for in 10 years?",

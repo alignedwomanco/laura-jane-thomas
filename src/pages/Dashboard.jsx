@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import NewClientEngagementModal from "@/components/dashboard/NewClientEngagementModal";
 
 const BURGUNDY = "#5C1F2E";
 const CREAM = "#F5EDE0";
@@ -66,6 +67,7 @@ export default function Dashboard() {
   const [engagements, setEngagements] = useState([]);
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showNewEngagement, setShowNewEngagement] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -93,6 +95,12 @@ export default function Dashboard() {
 
   return (
     <div style={{ backgroundColor: CREAM, minHeight: "100vh", fontFamily: "'Inter',sans-serif", color: DARK }}>
+      {showNewEngagement && (
+        <NewClientEngagementModal
+          onClose={() => setShowNewEngagement(false)}
+          onCreated={() => setShowNewEngagement(false)}
+        />
+      )}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px 80px" }}>
 
         {/* Header */}
@@ -102,7 +110,13 @@ export default function Dashboard() {
               <p style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: DUSTY_ROSE, marginBottom: 8 }}>Laura Jane Thomas</p>
               <h1 style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 36, color: BURGUNDY, margin: 0 }}>Client Dashboard</h1>
             </div>
-            <div style={{ display: "flex", gap: 12 }}>
+            <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+              <button
+                onClick={() => setShowNewEngagement(true)}
+                style={{ backgroundColor: BURGUNDY, color: "#fff", border: "none", padding: "10px 20px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", cursor: "pointer", fontFamily: "'Inter',sans-serif", fontWeight: 600 }}
+              >
+                + New Client Engagement
+              </button>
               <Link to="/quiz-admin" style={{ fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", color: BURGUNDY, borderBottom: `1px solid ${BURGUNDY}`, textDecoration: "none", paddingBottom: 2, fontWeight: 600 }}>Quiz Analytics →</Link>
               <Link to="/submissions" style={{ fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", color: DUSTY_ROSE, borderBottom: `1px solid ${DUSTY_ROSE}`, textDecoration: "none", paddingBottom: 2, fontWeight: 600 }}>Strategy Reports →</Link>
             </div>

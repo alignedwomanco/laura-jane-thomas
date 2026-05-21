@@ -1,0 +1,93 @@
+{
+  "name": "ClientEngagement",
+  "type": "object",
+  "properties": {
+    "client_name": {
+      "type": "string",
+      "description": "Client full name"
+    },
+    "client_email": {
+      "type": "string",
+      "description": "Client email address"
+    },
+    "company_name": {
+      "type": "string",
+      "description": "Client company / brand name"
+    },
+    "package_template": {
+      "type": "string",
+      "enum": [
+        "Option S: Foundations Strategy",
+        "The Clarity Sprint",
+        "Custom"
+      ],
+      "description": "Which engagement package template to use"
+    },
+    "package_title": {
+      "type": "string",
+      "description": "Display title of the package (editable)"
+    },
+    "scope_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of scope/deliverable line items"
+    },
+    "total_investment": {
+      "type": "string",
+      "description": "Total investment amount e.g. R11 000"
+    },
+    "deposit_amount": {
+      "type": "string",
+      "description": "Deposit amount e.g. R6 600"
+    },
+    "balance_amount": {
+      "type": "string",
+      "description": "Balance on delivery e.g. R4 400"
+    },
+    "deposit_percent": {
+      "type": "string",
+      "description": "Deposit percentage e.g. 60%"
+    },
+    "process_notes": {
+      "type": "string",
+      "description": "Custom process or delivery notes for this client"
+    },
+    "include_questionnaire": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether client should complete the Brand Strategy Diagnostic"
+    },
+    "invite_sent": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the portal invite email has been sent"
+    },
+    "invite_sent_at": {
+      "type": "string",
+      "description": "ISO timestamp when invite was sent"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "invited",
+        "active",
+        "complete"
+      ],
+      "default": "draft",
+      "description": "Status of the engagement"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal notes (not visible to client)"
+    }
+  },
+  "required": [
+    "client_name",
+    "client_email",
+    "company_name",
+    "package_template"
+  ]
+}

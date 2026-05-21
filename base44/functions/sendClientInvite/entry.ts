@@ -156,6 +156,7 @@ Deno.serve(async (req) => {
 
     const mimeMessage = `From: hello@laurajanethomas.biz
 To: ${eng.client_email}
+Bcc: hello@laurajanethomas.biz
 Subject: Your Client Portal is Ready — Laura Jane Thomas
 MIME-Version: 1.0
 Content-Type: text/html; charset="UTF-8"

@@ -1,0 +1,37 @@
+{
+  "name": "EngagementAcceptance",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "description": "Client full name"
+    },
+    "company_name": {
+      "type": "string",
+      "description": "Company or brand name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Client email address"
+    },
+    "accepted_at": {
+      "type": "string",
+      "description": "ISO timestamp of acceptance"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "accepted",
+        "pending"
+      ],
+      "default": "accepted",
+      "description": "Status of the engagement acceptance"
+    }
+  },
+  "required": [
+    "full_name",
+    "company_name",
+    "email",
+    "accepted_at"
+  ]
+}

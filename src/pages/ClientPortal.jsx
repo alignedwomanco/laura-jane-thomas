@@ -17,8 +17,12 @@ export default function ClientPortal() {
   const [loading, setLoading] = useState(true);
   const [authed, setAuthed] = useState(false);
   const [showCollabModal, setShowCollabModal] = useState(false);
+  const [isAdminPreview, setIsAdminPreview] = useState(false);
 
   useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const adminEmail = urlParams.get("adminEmail");
+
     base44.auth.isAuthenticated().then(async (isAuth) => {
       if (!isAuth) {
         setAuthed(false);
@@ -29,10 +33,14 @@ export default function ClientPortal() {
       const me = await base44.auth.me();
       setUser(me);
 
+      // Admin preview: fetch data for the specified client email
+      const lookupEmail = (adminEmail && me.role === "admin") ? adminEmail : me.email;
+      if (adminEmail && me.role === "admin") setIsAdminPreview(true);
+
       // Fetch data matching the user's email
       const [subs, engs] = await Promise.all([
-        base44.entities.BrandStrategySubmission.filter({ email: me.email }),
-        base44.entities.EngagementAcceptance.filter({ email: me.email }),
+        base44.entities.BrandStrategySubmission.filter({ email: lookupEmail }),
+        base44.entities.EngagementAcceptance.filter({ email: lookupEmail }),
       ]);
 
       // Most recent submission
@@ -79,6 +87,14 @@ export default function ClientPortal() {
 
   return (
     <div style={{ backgroundColor: CREAM, minHeight: "100vh", fontFamily: "'Inter',sans-serif", color: DARK }}>
+      {isAdminPreview && (
+        <div style={{ backgroundColor: BURGUNDY, color: "#fff", padding: "10px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+          <p style={{ margin: 0, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600 }}>
+            Admin Preview — {new URLSearchParams(window.location.search).get("adminEmail")}
+          </p>
+          <Link to="/dashboard" style={{ fontSize: 10, color: "rgba(245,237,224,0.7)", letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", borderBottom: "1px solid rgba(245,237,224,0.4)" }}>← Back to Dashboard</Link>
+        </div>
+      )}
       {showCollabModal && (
         <CollabInviteModal
           user={user}

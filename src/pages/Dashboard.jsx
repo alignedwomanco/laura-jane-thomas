@@ -10,7 +10,7 @@ const DUSTY_ROSE = "#C2858B";
 const DARK = "#2C2C2C";
 const BORDER = "#D6C4B0";
 
-const TABS = ["Overview", "Brand Strategy", "Engagements", "Contact Messages"];
+const TABS = ["Overview", "Client Portals", "Brand Strategy", "Engagements", "Contact Messages"];
 
 function StatCard({ label, value, color = BURGUNDY }) {
   return (
@@ -66,6 +66,7 @@ export default function Dashboard() {
   const [submissions, setSubmissions] = useState([]);
   const [engagements, setEngagements] = useState([]);
   const [contacts, setContacts] = useState([]);
+  const [clientEngagements, setClientEngagements] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showNewEngagement, setShowNewEngagement] = useState(false);
 
@@ -74,10 +75,12 @@ export default function Dashboard() {
       base44.entities.BrandStrategySubmission.list("-created_date", 100),
       base44.entities.EngagementAcceptance.list("-created_date", 100),
       base44.entities.ContactSubmission.list("-created_date", 100),
-    ]).then(([subs, engs, cons]) => {
+      base44.entities.ClientEngagement.list("-created_date", 100),
+    ]).then(([subs, engs, cons, clients]) => {
       setSubmissions(subs);
       setEngagements(engs);
       setContacts(cons);
+      setClientEngagements(clients);
       setLoading(false);
     });
   }, []);
@@ -186,8 +189,44 @@ export default function Dashboard() {
           </motion.div>
         )}
 
-        {/* Brand Strategy Tab */}
+        {/* Client Portals Tab */}
         {activeTab === 1 && (
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+            <SectionHeader title={`${clientEngagements.length} Client Engagements`} />
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {clientEngagements.map((eng) => {
+                const portalLink = `/portal?adminEmail=${encodeURIComponent(eng.client_email)}`;
+                return (
+                  <div key={eng.id} style={{ border: `1px solid ${BORDER}`, backgroundColor: "#fff", padding: "20px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+                    <div style={{ flex: 1, minWidth: 200 }}>
+                      <p style={{ fontSize: 14, color: DARK, fontWeight: 600, marginBottom: 3, fontFamily: "'Playfair Display',Georgia,serif" }}>{eng.client_name}</p>
+                      <p style={{ fontSize: 12, color: "rgba(44,44,44,0.55)", marginBottom: 2 }}>{eng.company_name}</p>
+                      <p style={{ fontSize: 11, color: "rgba(44,44,44,0.4)" }}>{eng.client_email}</p>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
+                      <div style={{ textAlign: "right" }}>
+                        <p style={{ fontSize: 11, color: "rgba(44,44,44,0.4)", marginBottom: 4 }}>{eng.package_title || eng.package_template}</p>
+                        <StatusBadge status={eng.status || "draft"} />
+                      </div>
+                      <Link
+                        to={portalLink}
+                        style={{ backgroundColor: BURGUNDY, color: "#fff", textDecoration: "none", padding: "10px 20px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600, whiteSpace: "nowrap" }}
+                      >
+                        View Portal →
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+              {clientEngagements.length === 0 && (
+                <p style={{ textAlign: "center", color: "rgba(44,44,44,0.35)", fontSize: 13, padding: "40px 0" }}>No client engagements yet.</p>
+              )}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Brand Strategy Tab */}
+        {activeTab === 2 && (
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
             <SectionHeader title={`${submissions.length} Submissions`} />
             <div style={{ overflowX: "auto" }}>
@@ -220,7 +259,7 @@ export default function Dashboard() {
         )}
 
         {/* Engagements Tab */}
-        {activeTab === 2 && (
+        {activeTab === 3 && (
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
             <SectionHeader title={`${engagements.length} Acceptances`} />
             <div style={{ overflowX: "auto" }}>
@@ -254,7 +293,7 @@ export default function Dashboard() {
         )}
 
         {/* Contact Messages Tab */}
-        {activeTab === 3 && (
+        {activeTab === 4 && (
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
             <SectionHeader title={`${contacts.length} Messages`} />
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>

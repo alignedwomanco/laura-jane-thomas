@@ -54,9 +54,48 @@ export default function EngagementAcceptance() {
 
             <div style={{ backgroundColor: "#fff", border: `1px solid ${BORDER}`, padding: "28px 32px", textAlign: "left", borderLeft: `4px solid ${DUSTY_ROSE}` }}>
               <p style={{ fontSize: 13, fontWeight: 600, color: BURGUNDY, marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.1em" }}>Next Step — Deposit Payment</p>
-              <p style={{ fontSize: 14, color: DARK, lineHeight: 1.7 }}>
-                Please proceed with the 60% deposit of <strong>R6 600</strong> using the banking details above. Use your brand name as the payment reference.
+              <p style={{ fontSize: 14, color: DARK, lineHeight: 1.7, marginBottom: 16 }}>
+                Please proceed with the 60% deposit of <strong>R6 600</strong> using the banking details below. Use your brand name as the payment reference.
               </p>
+              <table style={{ fontSize: 13, borderCollapse: "collapse", width: "100%" }}>
+                <tbody>
+                  {[
+                    ["Account holder", "Miss LJ Thomas"],
+                    ["Account number", "10012596596"],
+                    ["Bank", "Investec Bank Limited"],
+                    ["Branch name", "Investec Bank Grayston Drive"],
+                    ["SWIFT code", "IVESZAJJXXX"],
+                    ["Branch code", "580105"],
+                  ].map(([k, v]) => (
+                    <tr key={k}>
+                      <td style={{ padding: "4px 12px 4px 0", color: "#888", whiteSpace: "nowrap" }}>{k}</td>
+                      <td style={{ padding: "4px 0", color: DARK, fontWeight: 500 }}>{v}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Actions */}
+            <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28 }}>
+              <button
+                onClick={() => {
+                  const subject = encodeURIComponent("Engagement Acceptance – Laura Jane Thomas");
+                  const body = encodeURIComponent(
+                    `Dear ${confirmation.full_name},\n\nThank you for accepting the engagement terms.\n\nYour acceptance was recorded on ${formatDate(confirmation.accepted_at)}.\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the 60% deposit of R6 600 using the banking details below. Use your brand name as the payment reference.\n\nAccount holder: Miss LJ Thomas\nAccount number: 10012596596\nBank: Investec Bank Limited\nBranch name: Investec Bank Grayston Drive\nSWIFT code: IVESZAJJXXX\nBranch code: 580105\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`
+                  );
+                  window.location.href = `mailto:${confirmation.email}?subject=${subject}&body=${body}`;
+                }}
+                style={{ backgroundColor: DUSTY_ROSE, color: "#fff", border: "none", padding: "12px 28px", fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", cursor: "pointer", fontFamily: "'Inter', sans-serif", fontWeight: 600 }}
+              >
+                Email to Myself
+              </button>
+              <button
+                onClick={() => window.print()}
+                style={{ backgroundColor: "transparent", color: BURGUNDY, border: `1px solid ${BURGUNDY}`, padding: "12px 28px", fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", cursor: "pointer", fontFamily: "'Inter', sans-serif", fontWeight: 600 }}
+              >
+                Print
+              </button>
             </div>
           </div>
           <Footer />

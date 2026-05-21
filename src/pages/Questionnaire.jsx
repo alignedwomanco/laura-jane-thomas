@@ -533,7 +533,20 @@ export default function Questionnaire() {
   const [formData, setFormData] = useState(() => {
     try {
       const saved = localStorage.getItem("bsd_form");
-      return saved ? JSON.parse(saved) : Array(10).fill({});
+      const base = saved ? JSON.parse(saved) : Array(10).fill({});
+
+      // Apply prefill from portal (only if section 0 is mostly empty)
+      const prefill = localStorage.getItem("bsd_prefill");
+      if (prefill) {
+        const p = JSON.parse(prefill);
+        const s0 = base[0] || {};
+        const hasData = s0.fullName || s0.email || s0.company;
+        if (!hasData) {
+          base[0] = { ...s0, ...p };
+        }
+        localStorage.removeItem("bsd_prefill");
+      }
+      return base;
     } catch { return Array(10).fill({}); }
   });
   const [processing, setProcessing] = useState(false);

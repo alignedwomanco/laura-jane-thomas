@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { generateAnswersPDF } from "@/lib/generateAnswersPDF";
 
 const BURGUNDY = "#5C1F2E";
@@ -10,11 +10,13 @@ const DARK = "#2C2C2C";
 const BORDER = "#D6C4B0";
 
 export default function ClientPortal() {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [submission, setSubmission] = useState(null);
   const [engagement, setEngagement] = useState(null);
   const [loading, setLoading] = useState(true);
   const [authed, setAuthed] = useState(false);
+  const [showCollabModal, setShowCollabModal] = useState(false);
 
   useEffect(() => {
     base44.auth.isAuthenticated().then(async (isAuth) => {
@@ -77,6 +79,13 @@ export default function ClientPortal() {
 
   return (
     <div style={{ backgroundColor: CREAM, minHeight: "100vh", fontFamily: "'Inter',sans-serif", color: DARK }}>
+      {showCollabModal && (
+        <CollabInviteModal
+          user={user}
+          engagement={engagement}
+          onClose={() => setShowCollabModal(false)}
+        />
+      )}
       <div style={{ maxWidth: 800, margin: "0 auto", padding: "60px 24px 80px" }}>
         <Header />
 
@@ -169,12 +178,31 @@ export default function ClientPortal() {
               <p style={{ fontSize: 13, color: "rgba(44,44,44,0.6)", lineHeight: 1.7, marginBottom: 20 }}>
                 Once your deposit is received, please complete the Brand Strategy Diagnostic. Your answers form the foundation of your brand strategy work with Laura.
               </p>
-              <Link
-                to="/questionnaire"
-                style={{ backgroundColor: BURGUNDY, color: "#fff", textDecoration: "none", padding: "12px 28px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600, display: "inline-block" }}
-              >
-                Complete the Questionnaire →
-              </Link>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <button
+                  onClick={() => {
+                    // Pre-fill Section 0 from engagement acceptance data
+                    if (engagement) {
+                      const prefill = {
+                        fullName: engagement.full_name || "",
+                        company: engagement.company_name || "",
+                        email: engagement.email || "",
+                      };
+                      try { localStorage.setItem("bsd_prefill", JSON.stringify(prefill)); } catch {}
+                    }
+                    navigate("/questionnaire");
+                  }}
+                  style={{ backgroundColor: BURGUNDY, color: "#fff", border: "none", padding: "12px 28px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600, cursor: "pointer", fontFamily: "'Inter',sans-serif" }}
+                >
+                  Complete the Questionnaire →
+                </button>
+                <button
+                  onClick={() => setShowCollabModal(true)}
+                  style={{ backgroundColor: "transparent", color: BURGUNDY, border: `1px solid ${BURGUNDY}`, padding: "12px 28px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600, cursor: "pointer", fontFamily: "'Inter',sans-serif" }}
+                >
+                  Invite a Partner to Collab
+                </button>
+              </div>
             </div>
           )}
         </Section>
@@ -257,6 +285,88 @@ function EmptyState({ message, action }) {
           {action.label}
         </Link>
       )}
+    </div>
+  );
+}
+
+function CollabInviteModal({ user, engagement, onClose }) {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSend = async () => {
+    if (!email.trim()) return;
+    setSending(true);
+    setError("");
+    const portalUrl = `${window.location.origin}/portal`;
+    const from = user?.full_name || user?.email || "your colleague";
+    const company = engagement?.company_name || "";
+
+    await base44.integrations.Core.SendEmail({
+      to: email.trim(),
+      from_name: "Laura Jane Thomas",
+      subject: `${from} has invited you to collaborate${company ? ` on ${company}` : ""}`,
+      body: `Hi${name ? ` ${name}` : ""},\n\n${from} has invited you to collaborate on the brand strategy project${company ? ` for ${company}` : ""} with Laura Jane Thomas.\n\nYou can access the shared client portal here:\n${portalUrl}\n\nYou'll need to sign in or create an account to get started.\n\nLooking forward to working with you.\n\nLaura Jane Thomas\nlaurajanethomas.biz`,
+    });
+
+    setSent(true);
+    setSending(false);
+  };
+
+  const inputStyle = {
+    width: "100%", padding: "10px 12px", border: `1px solid ${BORDER}`,
+    backgroundColor: "#fff", fontSize: 13, color: DARK, outline: "none",
+    fontFamily: "'Inter',sans-serif", boxSizing: "border-box",
+  };
+
+  return (
+    <div style={{ position: "fixed", inset: 0, backgroundColor: "rgba(0,0,0,0.4)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 16px" }}>
+      <div style={{ backgroundColor: CREAM, width: "100%", maxWidth: 440, fontFamily: "'Inter',sans-serif" }}>
+        <div style={{ padding: "24px 28px", borderBottom: `1px solid ${BORDER}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div>
+            <p style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: DUSTY_ROSE, marginBottom: 4 }}>Collaboration</p>
+            <h3 style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 20, color: BURGUNDY, margin: 0 }}>Invite a Partner</h3>
+          </div>
+          <button onClick={onClose} style={{ background: "none", border: "none", fontSize: 22, color: "rgba(44,44,44,0.4)", cursor: "pointer" }}>×</button>
+        </div>
+
+        <div style={{ padding: "28px" }}>
+          {sent ? (
+            <div style={{ textAlign: "center", padding: "16px 0" }}>
+              <div style={{ width: 48, height: 48, borderRadius: "50%", backgroundColor: DUSTY_ROSE, margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+              </div>
+              <p style={{ fontSize: 14, color: DARK, marginBottom: 6 }}>Invite sent to <strong>{email}</strong></p>
+              <p style={{ fontSize: 12, color: "rgba(44,44,44,0.5)", marginBottom: 24 }}>They'll receive a link to the client portal.</p>
+              <button onClick={onClose} style={{ backgroundColor: BURGUNDY, color: "#fff", border: "none", padding: "10px 28px", fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", cursor: "pointer", fontWeight: 600, fontFamily: "'Inter',sans-serif" }}>Done</button>
+            </div>
+          ) : (
+            <div style={{ display: "grid", gap: 14 }}>
+              <p style={{ fontSize: 13, color: "rgba(44,44,44,0.6)", lineHeight: 1.7, marginBottom: 4 }}>
+                Send a collaborator a link to this portal so they can contribute to the questionnaire.
+              </p>
+              <div>
+                <label style={{ display: "block", fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(44,44,44,0.5)", marginBottom: 5 }}>Their Name</label>
+                <input style={inputStyle} value={name} onChange={e => setName(e.target.value)} placeholder="e.g. Sarah" />
+              </div>
+              <div>
+                <label style={{ display: "block", fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(44,44,44,0.5)", marginBottom: 5 }}>Their Email *</label>
+                <input style={inputStyle} type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="partner@company.com" />
+              </div>
+              {error && <p style={{ fontSize: 12, color: "#B43232" }}>{error}</p>}
+              <button
+                onClick={handleSend}
+                disabled={sending || !email.trim()}
+                style={{ backgroundColor: sending || !email.trim() ? BORDER : BURGUNDY, color: "#fff", border: "none", padding: "12px 28px", fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", cursor: sending || !email.trim() ? "not-allowed" : "pointer", fontWeight: 600, fontFamily: "'Inter',sans-serif", marginTop: 4 }}
+              >
+                {sending ? "Sending…" : "Send Invite →"}
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

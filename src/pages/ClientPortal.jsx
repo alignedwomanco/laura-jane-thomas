@@ -89,44 +89,6 @@ export default function ClientPortal() {
           <p style={{ fontSize: 12, color: "rgba(44,44,44,0.5)" }}>{user?.email}</p>
         </div>
 
-        {/* Brand Strategy Submission */}
-        <Section title="Brand Strategy Diagnostic">
-          {submission ? (
-            <div>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
-                <div>
-                  <p style={{ fontSize: 13, color: DARK, fontWeight: 600, marginBottom: 2 }}>
-                    {submission.company || submission.fullName || "Your Submission"}
-                  </p>
-                  <p style={{ fontSize: 11, color: "rgba(44,44,44,0.5)" }}>
-                    Submitted {submission.submittedAt ? new Date(submission.submittedAt).toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric" }) : "—"}
-                  </p>
-                </div>
-                <StatusBadge status={submission.status || "complete"} />
-              </div>
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <Link
-                  to={`/strategy-report/${submission.id}`}
-                  style={{ backgroundColor: BURGUNDY, color: "#fff", textDecoration: "none", padding: "10px 24px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600 }}
-                >
-                  View Your Answers →
-                </Link>
-                <button
-                  onClick={() => generateAnswersPDF(submission)}
-                  style={{ backgroundColor: "transparent", color: BURGUNDY, border: `1px solid ${BURGUNDY}`, padding: "10px 24px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600, cursor: "pointer", fontFamily: "'Inter',sans-serif" }}
-                >
-                  Download PDF
-                </button>
-              </div>
-            </div>
-          ) : (
-            <EmptyState
-              message="You haven't completed the Brand Strategy Diagnostic yet."
-              action={{ label: "Start Questionnaire →", href: "/questionnaire" }}
-            />
-          )}
-        </Section>
-
         {/* Engagement Acceptance */}
         <Section title="Engagement Agreement">
           {engagement ? (
@@ -167,8 +129,53 @@ export default function ClientPortal() {
           ) : (
             <EmptyState
               message="No engagement agreement on file yet."
-              action={{ label: "View Engagement Terms →", href: "/accept" }}
+              action={{ label: "View & Accept Engagement Terms →", href: "/accept" }}
             />
+          )}
+        </Section>
+
+        {/* Brand Strategy Questionnaire */}
+        <Section title="Brand Strategy Diagnostic">
+          {submission ? (
+            <div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
+                <div>
+                  <p style={{ fontSize: 13, color: DARK, fontWeight: 600, marginBottom: 2 }}>
+                    {submission.company || submission.fullName || "Your Submission"}
+                  </p>
+                  <p style={{ fontSize: 11, color: "rgba(44,44,44,0.5)" }}>
+                    Submitted {submission.submittedAt ? new Date(submission.submittedAt).toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric" }) : "—"}
+                  </p>
+                </div>
+                <StatusBadge status={submission.status || "complete"} />
+              </div>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <Link
+                  to={`/strategy-report/${submission.id}`}
+                  style={{ backgroundColor: BURGUNDY, color: "#fff", textDecoration: "none", padding: "10px 24px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600 }}
+                >
+                  View Your Answers →
+                </Link>
+                <button
+                  onClick={() => generateAnswersPDF(submission)}
+                  style={{ backgroundColor: "transparent", color: BURGUNDY, border: `1px solid ${BURGUNDY}`, padding: "10px 24px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600, cursor: "pointer", fontFamily: "'Inter',sans-serif" }}
+                >
+                  Download PDF
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div>
+              <p style={{ fontSize: 13, color: "rgba(44,44,44,0.6)", lineHeight: 1.7, marginBottom: 20 }}>
+                Once your deposit is received, please complete the Brand Strategy Diagnostic. Your answers form the foundation of your brand strategy work with Laura.
+              </p>
+              <Link
+                to="/questionnaire"
+                style={{ backgroundColor: BURGUNDY, color: "#fff", textDecoration: "none", padding: "12px 28px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600, display: "inline-block" }}
+              >
+                Complete the Questionnaire →
+              </Link>
+            </div>
           )}
         </Section>
 

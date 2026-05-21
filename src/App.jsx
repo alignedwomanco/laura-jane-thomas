@@ -22,6 +22,7 @@ import QuizAdmin from './pages/QuizAdmin.jsx';
 import ScheduledEmailAdmin from './pages/ScheduledEmailAdmin.jsx';
 import ContactSubmissions from './pages/ContactSubmissions.jsx';
 import EngagementAcceptance from './pages/EngagementAcceptance.jsx';
+import Dashboard from './pages/Dashboard.jsx';
 
 // Allow all pages to be accessible
 const PublicOnlyRoute = ({ children }) => {
@@ -70,6 +71,7 @@ const AuthenticatedApp = () => {
       <Route path="/quiz-admin/emails" element={<ScheduledEmailAdmin />} />
       <Route path="/contact-submissions" element={<ContactSubmissions />} />
       <Route path="/accept" element={<EngagementAcceptance />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

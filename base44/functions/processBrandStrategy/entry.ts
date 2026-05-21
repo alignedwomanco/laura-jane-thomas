@@ -147,44 +147,11 @@ Deno.serve(async (req) => {
     const savedId = saved.id;
     console.log("[processBrandStrategy] Record created:", savedId);
 
-    // ── Step 2: Build prompt from saved record values ─────────────────
-    const prompt = buildPrompt(record);
-    console.log("[processBrandStrategy] Prompt length:", prompt.length);
-
-    // ── Step 3: Call LLM ──────────────────────────────────────────────
-    let fullReport = "";
-    let emailSummary = "";
-    try {
-      console.log("[processBrandStrategy] Calling LLM...");
-      const llmResult = await base44.asServiceRole.integrations.Core.InvokeLLM({
-        prompt,
-        response_json_schema: {
-          type: "object",
-          properties: {
-            fullReport: { type: "string" },
-            emailSummary: { type: "string" },
-          },
-          required: ["fullReport", "emailSummary"],
-        },
-      });
-      console.log("[processBrandStrategy] LLM raw result keys:", JSON.stringify(Object.keys(llmResult || {})));
-      console.log("[processBrandStrategy] LLM fullReport type:", typeof llmResult?.fullReport, "length:", String(llmResult?.fullReport || "").length);
-      fullReport = llmResult?.fullReport || llmResult?.full_report || "";
-      emailSummary = llmResult?.emailSummary || llmResult?.email_summary || "";
-      console.log("[processBrandStrategy] LLM returned fullReport length:", fullReport.length, "emailSummary length:", emailSummary.length);
-    } catch (llmError) {
-      console.error("[processBrandStrategy] LLM error:", llmError.message);
-      await base44.asServiceRole.entities.BrandStrategySubmission.update(savedId, { status: "error" });
-      return Response.json({ error: "LLM failed: " + llmError.message, id: savedId }, { status: 500 });
-    }
-
-    // ── Step 4: Write LLM output back to the record ───────────────────
+    // ── Step 2: Mark as complete (no LLM — answers summary only) ────────
     await base44.asServiceRole.entities.BrandStrategySubmission.update(savedId, {
-      generatedReport: fullReport,
-      emailSummary,
       status: "complete",
     });
-    console.log("[processBrandStrategy] Record updated with report.");
+    console.log("[processBrandStrategy] Record saved as complete.");
 
     // ── Step 5: Send email via Gmail (non-blocking — don't fail on email error) ─
     if (record.email) {
@@ -193,28 +160,14 @@ Deno.serve(async (req) => {
         const reportUrl = `${origin}/strategy-report/${savedId}`;
         const emailBody = `Hi ${record.firstName},
 
-Thank you for completing the Brand Strategy Diagnostic. Your honesty and clarity throughout the questionnaire have given us everything we need to create a meaningful strategy for ${record.company}.
+Thank you for completing the Brand Strategy Diagnostic. Your responses have been saved and are ready for review.
 
-Your Brand Strategy Report: A comprehensive analysis of your business, positioning, audience, and the strategic priorities that will move the needle. This is the strategic roadmap.
-
-Your Questionnaire Answers: A complete record of everything you shared. Reference this as you review the strategy, and share it with your team.
-
-Both are yours to keep, review, and act on at your own pace.
-
-What's next?
-
-This report is most valuable when we walk through it together. Book a strategy session to:
-
-Dive deep into the key findings
-Clarify any recommendations
-Map out your first 90 days of execution
-
-Download both PDFs here:
+You can view a summary of your answers here:
 ${reportUrl}
 
-The clarity is already here. Now comes the action.
+Laura will be in touch to discuss your responses and next steps.
 
-Look forward to hearing from you,
+Look forward to speaking with you,
 Laura.
 
 www.laurajanethomas.biz

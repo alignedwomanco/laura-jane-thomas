@@ -4,17 +4,133 @@ import { motion } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import NavbarMinimal from "@/components/site/NavbarMinimal";
 import FooterMinimal from "@/components/site/FooterMinimal";
-import ReportContent from "@/components/report/ReportContent";
-import { generateBrandStrategyPDF } from "@/lib/generatePDF";
 import { generateAnswersPDF } from "@/lib/generateAnswersPDF";
 
 const ACCENT = "#4A3728";
+
+const SECTIONS_MAP = [
+  { key: "businessFoundation", title: "Business Foundation", questions: [
+    "What are you actually selling — not the category, but the outcome?",
+    "If someone paid you tomorrow, what exactly would they receive?",
+    "What would someone Google to find you, honestly?",
+    "What problem are you solving that people are already paying to fix?",
+    "Where does your business make money first, and where does it scale later?",
+    "If this business worked perfectly, how would it generate revenue?",
+    "If you could not sell your current offer, what would you sell instead?",
+  ]},
+  { key: "audienceInsight", title: "Audience Insight", questions: [
+    "Who frustrates you the most in your audience and why?",
+    "Who do you want more of?",
+    "What do your best clients have in common?",
+    "What does your audience say they want vs. what they actually need?",
+    "What are they tired of hearing in your industry?",
+    "If your audience was in a room, what would they be too embarrassed to admit?",
+  ]},
+  { key: "positioning", title: "Positioning & Differentiation", questions: [
+    "What do you do that others technically do, but not like you?",
+    "What do you believe your industry gets wrong?",
+    "Where are you playing small to stay palatable?",
+    "If you removed 80% of your offer, what would remain?",
+    "What are you over-explaining that should be obvious?",
+    "If a competitor copied you, what could they never replicate?",
+  ]},
+  { key: "brandTruth", title: "Brand Truth", questions: [
+    "What part of your brand is performative?",
+    "Where are you trying to sound like someone else?",
+    "What are you afraid to say publicly?",
+    "What would your brand say if it had nothing to lose?",
+    "What do people misunderstand about your brand?",
+    "If your business became wildly successful overnight, what would you lose?",
+  ]},
+  { key: "brandEssence", title: "Brand Essence", questions: [
+    "If your brand were a character or guide, who would it be?",
+    "What deeper truth does your brand stand for?",
+    "What do you want people to feel when they interact with your brand?",
+  ]},
+  { key: "visionGrowth", title: "Vision & Growth", questions: [
+    "What future are you building through this brand?",
+    "What needs to change to get there?",
+    "What opportunities are you not pursuing but should be?",
+  ]},
+  { key: "legacyValues", title: "Legacy & Values", questions: [
+    "What would people say about your brand if you were not in the room?",
+    "What do you want to be known for in 10 years?",
+    "What would make your brand irreplaceable?",
+    "What would matter most if you had to teach this business to someone else?",
+    "What does your brand protect?",
+  ]},
+];
+
+function AnswersSummary({ report }) {
+  return (
+    <div className="space-y-12">
+      {/* Operations snapshot */}
+      {report.operationsBudget && Object.keys(report.operationsBudget).length > 0 && (
+        <div>
+          <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-6 pb-3 border-b border-[#ece8e3]" style={{ color: ACCENT }}>
+            Operations & Budget
+          </p>
+          <div className="space-y-4">
+            {report.operationsBudget.budget && <AnswerItem q="Budget" a={report.operationsBudget.budget} />}
+            {report.operationsBudget.support?.length > 0 && <AnswerItem q="Support needed" a={report.operationsBudget.support.join(", ")} />}
+            {report.operationsBudget.workingModel && <AnswerItem q="Working model" a={report.operationsBudget.workingModel} />}
+            {report.operationsBudget.agencyExp && <AnswerItem q="Past agency experience" a={report.operationsBudget.agencyExp} />}
+            {report.operationsBudget.different && <AnswerItem q="What needs to be different" a={report.operationsBudget.different} />}
+          </div>
+        </div>
+      )}
+
+      {SECTIONS_MAP.map(({ key, title, questions }) => {
+        const data = report[key];
+        if (!data) return null;
+        const hasAnswers = questions.some((_, i) => data[`q${i}`]?.trim());
+        if (!hasAnswers) return null;
+        return (
+          <div key={key}>
+            <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-6 pb-3 border-b border-[#ece8e3]" style={{ color: ACCENT }}>
+              {title}
+            </p>
+            <div className="space-y-6">
+              {questions.map((q, i) => {
+                const answer = data[`q${i}`];
+                if (!answer?.trim()) return null;
+                return <AnswerItem key={i} q={q} a={answer} />;
+              })}
+            </div>
+          </div>
+        );
+      })}
+
+      {/* Core values */}
+      {report.legacyValues?.values?.length > 0 && (
+        <div>
+          <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-4 pb-3 border-b border-[#ece8e3]" style={{ color: ACCENT }}>
+            Core Values
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {report.legacyValues.values.map(v => (
+              <span key={v} className="px-4 py-2 text-sm font-sans border border-[#d0cac4] text-[#141414]">{v}</span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function AnswerItem({ q, a }) {
+  return (
+    <div>
+      <p className="text-sm font-sans text-[#141414]/50 mb-1 italic">{q}</p>
+      <p className="text-base font-sans text-[#141414] leading-relaxed">{a}</p>
+    </div>
+  );
+}
 
 export default function StrategyReport() {
   const { id } = useParams();
   const [report, setReport] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [generating, setGenerating] = useState(false);
   const [error, setError] = useState(null);
   const [debug, setDebug] = useState(null);
 
@@ -47,42 +163,18 @@ export default function StrategyReport() {
         summaryLength: found.emailSummary?.length || 0,
       });
 
-      // If report already exists, show it
-      if (found.generatedReport) {
-        setReport(found);
-        setLoading(false);
-        return;
-      }
-
-      // No report yet — trigger generation from the existing saved answers
-      setLoading(false);
-      setGenerating(true);
-      const res = await base44.functions.invoke("generateReportFromExisting", { recordId: found.id });
-      const genDebug = res.data?.debug;
-      if (genDebug) setDebug(prev => ({ ...prev, ...genDebug }));
-
-      // Re-fetch the record now that it should have the report
-      const all2 = await base44.entities.BrandStrategySubmission.list();
-      const updated = all2.find(r => r.id === found.id);
-      if (updated?.generatedReport) {
-        setReport(updated);
-      } else {
-        setError("Report generation ran but generatedReport is still empty. The questionnaire data in this record may be missing — please submit the questionnaire again.");
-      }
-      setGenerating(false);
+          setReport(found);
     } catch (e) {
       setError("Failed: " + e.message);
       setLoading(false);
-      setGenerating(false);
     }
   }
 
   const handlePrint = () => window.print();
-  const handleDownloadPDF = () => generateBrandStrategyPDF(report);
   const handleDownloadAnswers = () => generateAnswersPDF(report);
 
   // ── Loading ────────────────────────────────────────────────────────
-  if (loading || generating) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-white flex flex-col">
         <NavbarMinimal />
@@ -91,8 +183,7 @@ export default function StrategyReport() {
             <div className="w-12 h-12 border-2 border-[#ece8e3] rounded-full mx-auto mb-8" style={{ borderTopColor: ACCENT, animation: "spin 1.2s linear infinite" }} />
             <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-4" style={{ color: ACCENT }}>Brand Strategy Diagnostic</p>
             <h2 className="font-serif text-3xl md:text-4xl text-[#141414] leading-tight mb-3">
-              {generating ? "Generating your strategy report…" : "Loading your report…"}<br />
-              <span className="italic font-normal">This takes about 30 seconds.</span>
+              Loading your answers…
             </h2>
           </div>
         </div>
@@ -169,31 +260,13 @@ export default function StrategyReport() {
             <div className="mt-8 h-px bg-[#ece8e3] print:mt-4" />
           </motion.div>
 
-          {/* Key insights summary */}
-          {report.emailSummary && (
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1 }}
-              className="mb-14 p-8 bg-[#141414] print:border print:border-[#ece8e3] print:bg-white print:p-6 print:mb-8" data-insights
-            >
-              <p className="text-[11px] tracking-[0.2em] uppercase font-sans mb-5 print:text-[10px] print:mb-3" style={{ color: "#d0cac4" }}>
-                Key Strategic Insights
-              </p>
-              <div className="space-y-3 print:space-y-2">
-                {report.emailSummary.split("\n").filter(l => l.trim()).map((line, i) => (
-                  <p key={i} className="text-white print:text-[#141414] text-sm font-sans leading-relaxed print:text-xs print:leading-snug">
-                    {line.startsWith("•") ? line : `• ${line}`}
-                  </p>
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {/* Full report content */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2 }}>
-            <ReportContent content={report.generatedReport} />
+          {/* Answers Summary */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1 }}>
+            <AnswersSummary report={report} />
           </motion.div>
 
           {/* CTA */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.3 }}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2 }}
             className="mt-20 pt-12 border-t border-[#ece8e3] print:hidden"
           >
             <p className="font-serif text-2xl md:text-3xl text-[#141414] leading-tight mb-3">Ready to act on this?</p>
@@ -202,9 +275,7 @@ export default function StrategyReport() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://laurajanethomas.biz/contact-us/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://laurajanethomas.biz/contact"
                 className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans text-white transition-all duration-300"
                 style={{ backgroundColor: ACCENT }}
                 onMouseEnter={e => { e.currentTarget.style.opacity = "0.85"; }}
@@ -212,12 +283,6 @@ export default function StrategyReport() {
               >
                 Book a Strategy Session →
               </a>
-              <button
-                onClick={handleDownloadPDF}
-                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans border border-[#d0cac4] text-[#141414] hover:border-[#141414] transition-all duration-300"
-              >
-                Download Report PDF
-              </button>
               <button
                 onClick={handleDownloadAnswers}
                 className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.2em] uppercase font-sans border border-[#d0cac4] text-[#141414] hover:border-[#141414] transition-all duration-300"

@@ -583,10 +583,8 @@ export default function Questionnaire() {
               Brand Strategy Diagnostic
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-[#141414] leading-tight mb-4">
-              We are analyzing your responses<br />
-              <span className="italic font-normal">and building your strategy.</span>
+              Saving your responses…
             </h2>
-            <p className="text-[#141414]/45 text-sm font-sans">This takes about 30 seconds.</p>
           </motion.div>
         </div>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import { generateBrandStrategyPDF } from "@/lib/generatePDF";
+import { generateAnswersPDF } from "@/lib/generateAnswersPDF";
 import { Link } from "react-router-dom";
 import { Download, ExternalLink, FileText, Mail } from "lucide-react";
 import NavbarMinimal from "@/components/site/NavbarMinimal";
@@ -106,6 +107,15 @@ export default function Submissions() {
                     )}
 
                     <button
+                      onClick={() => generateAnswersPDF(sub)}
+                      className="flex items-center gap-1.5 px-4 py-2 text-[11px] tracking-wide uppercase font-sans border border-[#d0cac4] text-[#141414] hover:border-[#141414] transition-colors"
+                      title="Download questionnaire answers"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Answers
+                    </button>
+
+                    <button
                       onClick={() => handleDownload(sub)}
                       disabled={!sub.generatedReport || downloading === sub.id}
                       className="flex items-center gap-1.5 px-4 py-2 text-[11px] tracking-wide uppercase font-sans text-white transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
@@ -113,7 +123,7 @@ export default function Submissions() {
                       title={!sub.generatedReport ? "Report not yet generated" : "Download PDF"}
                     >
                       <Download className="w-3.5 h-3.5" />
-                      {downloading === sub.id ? "…" : "PDF"}
+                      {downloading === sub.id ? "…" : "Report"}
                     </button>
                   </div>
                 </div>

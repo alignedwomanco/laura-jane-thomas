@@ -88,6 +88,13 @@ export default function Quiz() {
         primaryCtaClicked: false,
         discoveryCallCtaClicked: false,
       });
+
+      // Notify Laura of new quiz submission
+      await base44.integrations.Core.SendEmail({
+        to: "hello@laurajanethomas.biz",
+        subject: `New Quiz Submission: ${firstName} — ${computed.primaryResult}`,
+        body: `New quiz submission received.\n\nName: ${firstName}\nEmail: ${email}\nPrimary Result: ${computed.primaryResult}${computed.secondaryResult ? `\nSecondary Result: ${computed.secondaryResult}` : ""}\nSubmitted: ${new Date().toLocaleString("en-ZA", { timeZone: "Africa/Johannesburg" })}`,
+      });
     } catch {}
 
     trackEvent("result_view", {

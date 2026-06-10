@@ -1,0 +1,54 @@
+{
+  "name": "ContactSubmission",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "Submitter's first name"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Submitter's last name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Submitter's email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Submitter's phone number"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Message subject or inquiry type"
+    },
+    "message": {
+      "type": "string",
+      "description": "Full message content"
+    },
+    "source": {
+      "type": "string",
+      "description": "Which page or form the submission came from",
+      "default": "contact_page"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "read",
+        "replied",
+        "archived"
+      ],
+      "default": "new",
+      "description": "Current status of the inquiry"
+    },
+    "submittedAt": {
+      "type": "string",
+      "description": "Timestamp of submission"
+    }
+  },
+  "required": [
+    "email",
+    "message"
+  ]
+}

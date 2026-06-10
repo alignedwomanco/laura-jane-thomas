@@ -1,0 +1,45 @@
+{
+  "name": "QuizEvent",
+  "properties": {
+    "eventType": {
+      "type": "string",
+      "enum": [
+        "quiz_start",
+        "question_view",
+        "question_answer",
+        "email_capture",
+        "result_view",
+        "primary_cta_click",
+        "secondary_cta_click",
+        "discovery_call_click"
+      ],
+      "description": "Type of quiz event tracked"
+    },
+    "questionNumber": {
+      "type": "number",
+      "description": "Question number for question-level events"
+    },
+    "resultName": {
+      "type": "string",
+      "description": "Result offer name for result-level events"
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "Unique session identifier to group events from same quiz attempt"
+    },
+    "timestamp": {
+      "type": "string",
+      "description": "Event timestamp"
+    },
+    "userEmail": {
+      "type": "string",
+      "description": "User email, populated after email capture"
+    }
+  },
+  "required": [
+    "eventType",
+    "sessionId",
+    "timestamp"
+  ],
+  "type": "object"
+}

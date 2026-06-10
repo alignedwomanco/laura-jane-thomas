@@ -1,0 +1,77 @@
+{
+  "name": "QuizSubmission",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "User's first name"
+    },
+    "email": {
+      "type": "string",
+      "description": "User's email address"
+    },
+    "answers": {
+      "type": "object",
+      "description": "All quiz answers keyed by question number, each containing array of selected option letters"
+    },
+    "scores": {
+      "type": "object",
+      "description": "Calculated scores for each offer: claritySprint, blueprint, alignmentAudit, recalibrationIntensive, seniorAdvisory, businessConsulting"
+    },
+    "primaryResult": {
+      "type": "string",
+      "description": "Primary result offer name",
+      "enum": [
+        "The Clarity Sprint",
+        "The Aligned Woman Blueprint",
+        "The Alignment Audit",
+        "The Recalibration Intensive",
+        "The Senior Advisory",
+        "Business Consulting"
+      ]
+    },
+    "secondaryResult": {
+      "type": "string",
+      "description": "Secondary result offer name, if above 50% threshold of primary score. Null if no secondary."
+    },
+    "quizStartedAt": {
+      "type": "string",
+      "description": "Timestamp when user clicked BEGIN QUIZ"
+    },
+    "submittedAt": {
+      "type": "string",
+      "description": "Timestamp when email capture form was submitted"
+    },
+    "primaryCtaClicked": {
+      "type": "boolean",
+      "description": "Whether user clicked the primary CTA on result page",
+      "default": false
+    },
+    "discoveryCallCtaClicked": {
+      "type": "boolean",
+      "description": "Whether user clicked the discovery call CTA",
+      "default": false
+    },
+    "lastQuestionReached": {
+      "type": "number",
+      "description": "Last question number the user reached, for drop-off tracking"
+    },
+    "emailSent": {
+      "type": "boolean",
+      "description": "Whether the immediate result email was sent",
+      "default": false
+    },
+    "nurtureEmailsSent": {
+      "type": "number",
+      "description": "Number of nurture emails sent (0-3)",
+      "default": 0
+    }
+  },
+  "required": [
+    "firstName",
+    "email",
+    "answers",
+    "scores",
+    "primaryResult"
+  ]
+}

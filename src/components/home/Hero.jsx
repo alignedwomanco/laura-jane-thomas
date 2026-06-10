@@ -13,7 +13,10 @@ export default function Hero() {
         loop
         playsInline
         preload="auto"
+        x-webkit-airplay="allow"
+        data-wf-ignore="true"
         className="absolute inset-0 w-full h-full object-cover"
+        style={{ WebkitTransform: "translateZ(0)" }}
       >
         <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/LauraThomas_HeroVideo.mp4" type="video/mp4" />
       </video>

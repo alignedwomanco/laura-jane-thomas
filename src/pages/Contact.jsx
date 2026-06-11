@@ -72,6 +72,9 @@ export default function Contact() {
     });
     setLoading(false);
     setSubmitted(true);
+
+    // Meta Pixel: track Contact event on successful submission
+    if (typeof window.fbq === "function") window.fbq("track", "Contact");
   };
 
   return (

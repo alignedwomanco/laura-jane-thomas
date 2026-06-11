@@ -65,6 +65,11 @@
       "type": "number",
       "description": "Number of nurture emails sent (0-3)",
       "default": 0
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional notes or summary for this quiz submission",
+      "maxLength": 1000
     }
   },
   "required": [

@@ -34,6 +34,11 @@
       ],
       "default": "accepted",
       "description": "Status of the engagement acceptance"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional notes about this engagement acceptance",
+      "maxLength": 1000
     }
   },
   "required": [

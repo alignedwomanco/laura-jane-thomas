@@ -1,5 +1,6 @@
 {
   "name": "QuizEvent",
+  "type": "object",
   "properties": {
     "eventType": {
       "type": "string",
@@ -34,12 +35,16 @@
     "userEmail": {
       "type": "string",
       "description": "User email, populated after email capture"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional notes or context for this event",
+      "maxLength": 1000
     }
   },
   "required": [
     "eventType",
     "sessionId",
     "timestamp"
-  ],
-  "type": "object"
+  ]
 }

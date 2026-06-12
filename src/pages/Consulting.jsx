@@ -7,6 +7,7 @@ import Footer from "@/components/site/Footer";
 import ClientsSection from "@/components/shared/ClientsSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import CtaBanner from "@/components/shared/CtaBanner";
+import ConsultingFAQ from "@/components/consulting/ConsultingFAQ";
 
 function AccordionItem({ title, children }) {
   const [open, setOpen] = useState(false);
@@ -186,6 +187,7 @@ export default function Consulting() {
 
       <ClientsSection dark={true} />
       <TestimonialsSection />
+      <ConsultingFAQ />
       <CtaBanner headline={<>Ready to build<br /><span className="italic">with clarity?</span></>} href="/contact" />
       <Footer />
     </div>

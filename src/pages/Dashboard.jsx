@@ -121,6 +121,7 @@ export default function Dashboard() {
                 + New Client Engagement
               </button>
               <Link to="/quiz-admin" style={{ fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", color: BURGUNDY, borderBottom: `1px solid ${BURGUNDY}`, textDecoration: "none", paddingBottom: 2, fontWeight: 600 }}>Quiz Analytics →</Link>
+              <Link to="/submissions-dashboard" style={{ fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", color: BURGUNDY, borderBottom: `1px solid ${BURGUNDY}`, textDecoration: "none", paddingBottom: 2, fontWeight: 600 }}>Submissions →</Link>
               <Link to="/submissions" style={{ fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", color: DUSTY_ROSE, borderBottom: `1px solid ${DUSTY_ROSE}`, textDecoration: "none", paddingBottom: 2, fontWeight: 600 }}>Strategy Reports →</Link>
             </div>
           </div>

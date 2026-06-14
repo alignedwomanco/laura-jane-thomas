@@ -97,6 +97,71 @@ function downloadAllBrandCSV(submissions) {
   downloadCSV("brand-strategy-submissions.csv", [header, ...rows]);
 }
 
+function downloadAllContactCSV(submissions) {
+  const header = ["First Name", "Last Name", "Email", "Phone", "Subject", "Message", "Source", "Status", "Submitted"];
+  const rows = submissions.map(s => [
+    s.firstName || "",
+    s.lastName || "",
+    s.email || "",
+    s.phone || "",
+    s.subject || "",
+    s.message || "",
+    s.source || "",
+    s.status || "",
+    s.submittedAt ? new Date(s.submittedAt).toLocaleDateString("en-ZA") : "",
+  ]);
+  downloadCSV("contact-submissions.csv", [header, ...rows]);
+}
+
+// --- Contact Card ---
+function ContactCard({ sub }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div style={{ border: `1px solid ${BORDER}`, backgroundColor: sub.status === "new" ? "#fff" : "transparent", marginBottom: 8 }}>
+      <div
+        onClick={() => setOpen(o => !o)}
+        style={{ padding: "16px 20px", cursor: "pointer", display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}
+      >
+        <div style={{ flex: 1, minWidth: 180 }}>
+          <p style={{ fontSize: 14, fontWeight: sub.status === "new" ? 600 : 400, color: DARK, marginBottom: 2, fontFamily: "'Playfair Display',Georgia,serif" }}>
+            {`${sub.firstName || ""} ${sub.lastName || ""}`.trim() || sub.email}
+          </p>
+          <p style={{ fontSize: 11, color: "rgba(44,44,44,0.5)" }}>{sub.email}</p>
+        </div>
+        <p style={{ fontSize: 12, color: "rgba(44,44,44,0.6)", flex: 2 }}>{sub.subject || "No subject"}</p>
+        <span style={{ fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", padding: "3px 10px", backgroundColor: sub.status === "new" ? "rgba(194,133,139,0.15)" : "rgba(92,31,46,0.08)", color: sub.status === "new" ? DUSTY_ROSE : BURGUNDY, fontWeight: 600, fontFamily: "'Inter',sans-serif" }}>{sub.status || "new"}</span>
+        <p style={{ fontSize: 11, color: "rgba(44,44,44,0.4)", minWidth: 80 }}>{sub.submittedAt ? new Date(sub.submittedAt).toLocaleDateString("en-ZA") : "—"}</p>
+        {open ? <ChevronUp size={16} color={BURGUNDY} /> : <ChevronDown size={16} color={BURGUNDY} />}
+      </div>
+      <AnimatePresence>
+        {open && (
+          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }} style={{ overflow: "hidden" }}>
+            <div style={{ padding: "4px 20px 20px", borderTop: `1px solid rgba(214,196,176,0.5)` }}>
+              {sub.phone && (
+                <div style={{ padding: "10px 0", borderBottom: "1px solid rgba(214,196,176,0.3)" }}>
+                  <p style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(44,44,44,0.4)", marginBottom: 4 }}>Phone</p>
+                  <p style={{ fontSize: 13, color: DARK }}>{sub.phone}</p>
+                </div>
+              )}
+              {sub.source && (
+                <div style={{ padding: "10px 0", borderBottom: "1px solid rgba(214,196,176,0.3)" }}>
+                  <p style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(44,44,44,0.4)", marginBottom: 4 }}>Source</p>
+                  <p style={{ fontSize: 13, color: DARK }}>{sub.source}</p>
+                </div>
+              )}
+              <div style={{ padding: "10px 0" }}>
+                <p style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(44,44,44,0.4)", marginBottom: 4 }}>Message</p>
+                <p style={{ fontSize: 13, color: DARK, lineHeight: 1.7, whiteSpace: "pre-wrap" }}>{sub.message || "—"}</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 // --- Quiz Submission Card ---
 function QuizCard({ sub }) {
   const [open, setOpen] = useState(false);
@@ -294,15 +359,18 @@ export default function SubmissionsDashboard() {
   const [activeTab, setActiveTab] = useState(0);
   const [quizSubs, setQuizSubs] = useState([]);
   const [brandSubs, setBrandSubs] = useState([]);
+  const [contactSubs, setContactSubs] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
       base44.entities.QuizSubmission.list("-created_date", 200),
       base44.entities.BrandStrategySubmission.list("-created_date", 200),
-    ]).then(([quiz, brand]) => {
+      base44.entities.ContactSubmission.list("-created_date", 200),
+    ]).then(([quiz, brand, contacts]) => {
       setQuizSubs(quiz);
       setBrandSubs(brand);
+      setContactSubs(contacts);
       setLoading(false);
     });
   }, []);
@@ -316,7 +384,7 @@ export default function SubmissionsDashboard() {
     );
   }
 
-  const TABS = [`Quiz Submissions (${quizSubs.length})`, `Brand Strategy Questionnaires (${brandSubs.length})`];
+  const TABS = [`Quiz Submissions (${quizSubs.length})`, `Brand Strategy Questionnaires (${brandSubs.length})`, `Contact Messages (${contactSubs.length})`];
 
   return (
     <div style={{ backgroundColor: CREAM, minHeight: "100vh", fontFamily: "'Inter',sans-serif", color: DARK }}>
@@ -349,6 +417,14 @@ export default function SubmissionsDashboard() {
                   <Download size={14} /> Export All Brand CSV
                 </button>
               )}
+              {activeTab === 2 && (
+                <button
+                  onClick={() => downloadAllContactCSV(contactSubs)}
+                  style={{ display: "flex", alignItems: "center", gap: 8, backgroundColor: BURGUNDY, color: "#fff", border: "none", padding: "10px 20px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", cursor: "pointer", fontFamily: "'Inter',sans-serif", fontWeight: 600 }}
+                >
+                  <Download size={14} /> Export All Contacts CSV
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -360,6 +436,7 @@ export default function SubmissionsDashboard() {
             { label: "Brand Strategy Questionnaires", value: brandSubs.length },
             { label: "Quiz Primary CTA Clicks", value: quizSubs.filter(s => s.primaryCtaClicked).length },
             { label: "Discovery Call Clicks", value: quizSubs.filter(s => s.discoveryCallCtaClicked).length },
+            { label: "Contact Messages", value: contactSubs.length },
           ].map(({ label, value }) => (
             <div key={label} style={{ backgroundColor: "rgba(92,31,46,0.05)", border: `1px solid ${BORDER}`, padding: "24px 28px" }}>
               <p style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(44,44,44,0.45)", marginBottom: 8, fontFamily: "'Inter',sans-serif" }}>{label}</p>
@@ -412,6 +489,17 @@ export default function SubmissionsDashboard() {
               <p style={{ textAlign: "center", color: "rgba(44,44,44,0.35)", fontSize: 13, padding: "60px 0" }}>No brand strategy questionnaires yet.</p>
             ) : (
               brandSubs.map(s => <BrandCard key={s.id} sub={s} />)
+            )}
+          </motion.div>
+        )}
+
+        {/* Contact Messages tab */}
+        {activeTab === 2 && (
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
+            {contactSubs.length === 0 ? (
+              <p style={{ textAlign: "center", color: "rgba(44,44,44,0.35)", fontSize: 13, padding: "60px 0" }}>No contact submissions yet.</p>
+            ) : (
+              contactSubs.map(s => <ContactCard key={s.id} sub={s} />)
             )}
           </motion.div>
         )}

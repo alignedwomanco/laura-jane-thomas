@@ -140,6 +140,7 @@ Deno.serve(async (req) => {
 
     const mimeMessage = `From: hello@laurajanethomas.biz
 To: ${submission.email}
+Bcc: hello@laurajanethomas.biz
 Subject: ${subject}
 Content-Type: text/plain; charset="UTF-8"
 

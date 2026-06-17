@@ -168,10 +168,10 @@ export default function Contact() {
                   <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8 border-b border-foreground/15 pb-4">— Tell Me More</p>
                   <div className="space-y-8">
                     <FormField label="What area of your life feels most stuck right now?" required>
-                      <textarea className={textareaClass} placeholder="Share openly..." />
+                      <textarea name="stuck_area" className={textareaClass} placeholder="Share openly..." />
                     </FormField>
                     <FormField label="What would feeling unstuck look like for you six months from now?" required>
-                      <textarea className={textareaClass} placeholder="Paint the picture..." />
+                      <textarea name="unstuck_vision" className={textareaClass} placeholder="Paint the picture..." />
                     </FormField>
                     <FormField label="Have you ever worked with a coach before?" required>
                       <div className="flex gap-4 mt-2">
@@ -183,10 +183,10 @@ export default function Contact() {
                       </div>
                     </FormField>
                     <FormField label="Tell me about your business. What stage are you in?" required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="business_stage" className={textareaClass} placeholder="..." />
                     </FormField>
                     <FormField label="What are you hoping to gain clarity on?" required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="clarity_goal" className={textareaClass} placeholder="..." />
                     </FormField>
                     <FormField label="Are you currently operating solo or with a team?" required>
                       <div className="flex gap-4 mt-2">
@@ -198,7 +198,7 @@ export default function Contact() {
                       </div>
                     </FormField>
                     <FormField label="What would success look like after working together?" required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="success_looks_like" className={textareaClass} placeholder="..." />
                     </FormField>
                   </div>
                 </motion.div>
@@ -210,10 +210,10 @@ export default function Contact() {
                   <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8 border-b border-foreground/15 pb-4">— About Your Business</p>
                   <div className="space-y-8">
                     <FormField label="What industry are you in and what are your growth goals?">
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="industry" className={textareaClass} placeholder="..." />
                     </FormField>
                     <FormField label="Do you have an internal team or agency partners?" required>
-                      <input className={inputClass} placeholder="..." />
+                      <input name="team_partners" className={inputClass} placeholder="..." />
                     </FormField>
                     <FormField label="What kind of engagement are you looking for?">
                       <div className="flex flex-col gap-3 mt-2">
@@ -225,10 +225,10 @@ export default function Contact() {
                       </div>
                     </FormField>
                     <FormField label="What does success look like for you from this engagement?" required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="success_engagement" className={textareaClass} placeholder="..." />
                     </FormField>
                     <FormField label="What is your ideal timeline for getting started?">
-                      <input className={inputClass} placeholder="e.g. Immediately, Q2 2026..." />
+                      <input name="timeline" className={inputClass} placeholder="e.g. Immediately, Q2 2026..." />
                     </FormField>
                   </div>
                 </motion.div>
@@ -240,13 +240,13 @@ export default function Contact() {
                   <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8 border-b border-foreground/15 pb-4">— Event Details</p>
                   <div className="space-y-8">
                     <FormField label="What is the event name?" required>
-                      <input required className={inputClass} placeholder="..." />
+                      <input name="event_name" required className={inputClass} placeholder="..." />
                     </FormField>
                     <FormField label="Event Date" required>
-                      <input required type="date" className={inputClass} />
+                      <input name="event_date" required type="date" className={inputClass} />
                     </FormField>
                     <FormField label="Who is the audience and what topic would you like me to speak on?" required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="audience_topic" className={textareaClass} placeholder="..." />
                     </FormField>
                     <FormField label="Is this a paid or sponsored engagement?" required>
                       <div className="flex gap-4 mt-2">
@@ -258,7 +258,7 @@ export default function Contact() {
                       </div>
                     </FormField>
                     <FormField label="Where will the event take place?" required>
-                      <input required className={inputClass} placeholder="City, Country or Virtual" />
+                      <input name="event_location" required className={inputClass} placeholder="City, Country or Virtual" />
                     </FormField>
                   </div>
                 </motion.div>
@@ -270,16 +270,16 @@ export default function Contact() {
                   <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8 border-b border-foreground/15 pb-4">— Podcast Details</p>
                   <div className="space-y-8">
                     <FormField label="What is your podcast name and focus?" required>
-                      <input required className={inputClass} placeholder="..." />
+                      <input name="podcast_name" required className={inputClass} placeholder="..." />
                     </FormField>
                     <FormField label="Who is your audience?" required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="podcast_audience" className={textareaClass} placeholder="..." />
                     </FormField>
                     <FormField label="What topic or theme would you like to explore together?" required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="podcast_topic" className={textareaClass} placeholder="..." />
                     </FormField>
                     <FormField label="How can I best add value to your listeners?" required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="podcast_value" className={textareaClass} placeholder="..." />
                     </FormField>
                   </div>
                 </motion.div>
@@ -291,10 +291,10 @@ export default function Contact() {
                   <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8 border-b border-foreground/15 pb-4">— Tell Me More</p>
                   <div className="space-y-8">
                     <FormField label="Tell me more about what you are navigating or dreaming up right now." required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="navigating" className={textareaClass} placeholder="..." />
                     </FormField>
                     <FormField label="What kind of support do you feel would help most?" required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="support_needed" className={textareaClass} placeholder="..." />
                     </FormField>
                   </div>
                 </motion.div>
@@ -315,10 +315,10 @@ export default function Contact() {
                       </div>
                     </FormField>
                     <FormField label="What are you hoping to walk away with from our time together?" required>
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="hoping_outcome" className={textareaClass} placeholder="..." />
                     </FormField>
                     <FormField label="Is there anything else you would like to share before we connect?">
-                      <textarea className={textareaClass} placeholder="..." />
+                      <textarea name="extra_notes" className={textareaClass} placeholder="..." />
                     </FormField>
                   </div>
                 </motion.div>

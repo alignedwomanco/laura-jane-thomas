@@ -96,6 +96,29 @@ export default function FractionalCMO() {
           >
             Fractional CMO and Brand Strategy for businesses that want commercial clarity and elevated brand expression in one partner.
           </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col sm:flex-row gap-4 mt-10"
+          >
+            <a
+              href="https://calendly.com/hello-laurajanethomas/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-ivory text-foreground px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory/90 transition-all duration-300 group btn-pulse"
+            >
+              Book a 15-minute call
+              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </a>
+            <button
+              onClick={() => setQuizOpen(true)}
+              className="inline-flex items-center justify-center gap-3 border border-ivory/70 text-ivory px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-foreground transition-all duration-300 group"
+            >
+              Find Your Fit
+              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </button>
+          </motion.div>
         </div>
       </section>
 

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import { base44 } from "@/api/base44Client";
 
 const CALENDLY_15MIN_LINK = "https://calendly.com/hello-laurajanethomas/15min";
 const BUSINESS_SPRINT_LINK = "/claritysprint";
@@ -115,25 +114,16 @@ const variants = {
 export default function FindYourFitModal({ open, onClose }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [selected, setSelected] = useState(null);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [result, setResult] = useState(null);
-  const [submitting, setSubmitting] = useState(false);
 
   const totalQuestions = questions.length;
   const isQuestion = step < totalQuestions;
-  const isCapture = step === totalQuestions;
-  const isResult = step === totalQuestions + 1;
+  const isResult = step === totalQuestions;
 
   function reset() {
     setStep(0);
     setAnswers({});
-    setSelected(null);
-    setName("");
-    setEmail("");
     setResult(null);
-    setSubmitting(false);
   }
 
   function handleClose() {
@@ -141,46 +131,23 @@ export default function FindYourFitModal({ open, onClose }) {
     setTimeout(reset, 300);
   }
 
-  function handleNext() {
-    if (selected === null) return;
+  function handleAnswer(label) {
     const qid = questions[step].id;
-    setAnswers((prev) => ({ ...prev, [qid]: selected }));
-    setSelected(null);
-    setStep((s) => s + 1);
+    const newAnswers = { ...answers, [qid]: label };
+    setAnswers(newAnswers);
+    if (step === totalQuestions - 1) {
+      // Last question — compute and show result immediately
+      const computed = computeResult(newAnswers);
+      setResult(computed);
+      setStep(totalQuestions);
+    } else {
+      setStep((s) => s + 1);
+    }
   }
 
   function handleBack() {
     if (step === 0) return;
-    setSelected(null);
-    if (isCapture) {
-      setStep(totalQuestions - 1);
-      const lastQ = questions[totalQuestions - 1].id;
-      setSelected(answers[lastQ] || null);
-    } else {
-      setStep((s) => s - 1);
-      const prevQ = questions[step - 1].id;
-      setSelected(answers[prevQ] || null);
-    }
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setSubmitting(true);
-    const computed = computeResult(answers);
-    setResult(computed);
-    await base44.entities.QuizLead.create({
-      name,
-      email,
-      q1: answers.q1 || "",
-      q2: answers.q2 || "",
-      q3: answers.q3 || "",
-      q4: answers.q4 || "",
-      q5: answers.q5 || "",
-      result: computed,
-      submittedAt: new Date().toISOString(),
-    });
-    setSubmitting(false);
-    setStep(totalQuestions + 1);
+    setStep((s) => s - 1);
   }
 
   const resultData = result ? results[result] : null;
@@ -241,103 +208,29 @@ export default function FindYourFitModal({ open, onClose }) {
                   {questions[step].options.map((opt) => (
                     <button
                       key={opt.label}
-                      onClick={() => setSelected(opt.label)}
-                      className={`w-full text-left px-5 py-4 md:px-6 md:py-5 border transition-all duration-200 font-sans text-[14px] md:text-[15px] leading-relaxed ${
-                        selected === opt.label
-                          ? "border-[#5C1F2E] bg-[#5C1F2E] text-[#F5EDE0]"
-                          : "border-[#5C1F2E]/25 bg-white/50 text-[#5C1F2E] hover:border-[#5C1F2E]/60 hover:bg-white/80"
-                      }`}
+                      onClick={() => handleAnswer(opt.label)}
+                      className="w-full text-left px-5 py-4 md:px-6 md:py-5 border border-[#5C1F2E]/25 bg-white/50 text-[#5C1F2E] hover:border-[#5C1F2E] hover:bg-[#5C1F2E] hover:text-[#F5EDE0] transition-all duration-200 font-sans text-[14px] md:text-[15px] leading-relaxed"
                     >
                       <span className="font-serif italic text-[#C2858B] mr-3 text-base">{opt.label}.</span>
                       {opt.text}
                     </button>
                   ))}
                 </div>
-                <div className="flex items-center justify-between mt-8 md:mt-10">
-                  {step > 0 ? (
+                {step > 0 && (
+                  <div className="mt-8">
                     <button
                       onClick={handleBack}
                       className="text-[11px] tracking-[0.18em] uppercase text-[#5C1F2E]/50 hover:text-[#5C1F2E] transition-colors font-sans"
                     >
-                      Back
-                    </button>
-                  ) : (
-                    <span />
-                  )}
-                  <button
-                    onClick={handleNext}
-                    disabled={selected === null}
-                    className="inline-flex items-center gap-3 bg-[#5C1F2E] text-[#F5EDE0] px-7 py-3.5 md:px-8 md:py-4 text-[11px] tracking-[0.18em] uppercase font-sans hover:bg-[#3d1420] transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
-                  >
-                    {step === totalQuestions - 1 ? "Continue" : "Next"}
-                    <span>→</span>
-                  </button>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Capture */}
-            {isCapture && (
-              <motion.div
-                key="capture"
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <p className="text-[10px] tracking-[0.2em] uppercase text-[#5C1F2E]/50 font-sans mb-6">Almost there.</p>
-                <h2 className="font-serif text-xl md:text-3xl leading-[1.2] text-[#5C1F2E] mb-8 md:mb-10 pr-8">
-                  Where should I send your diagnosis?
-                </h2>
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                  <div className="flex flex-col gap-2">
-                    <label className="text-[10px] tracking-[0.18em] uppercase text-[#5C1F2E]/60 font-sans">Name</label>
-                    <input
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className="bg-transparent border-b border-[#5C1F2E]/30 py-3 text-[#5C1F2E] placeholder-[#5C1F2E]/30 text-[15px] focus:outline-none focus:border-[#5C1F2E] transition-colors font-sans"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="text-[10px] tracking-[0.18em] uppercase text-[#5C1F2E]/60 font-sans">Email</label>
-                    <input
-                      required
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="bg-transparent border-b border-[#5C1F2E]/30 py-3 text-[#5C1F2E] placeholder-[#5C1F2E]/30 text-[15px] focus:outline-none focus:border-[#5C1F2E] transition-colors font-sans"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                  <p className="text-[13px] text-[#5C1F2E]/55 leading-relaxed font-sans">
-                    I will show you what your answers reveal and your best-fit next step now, and send a short breakdown to keep. You can leave any time.
-                  </p>
-                  <div className="flex items-center justify-between mt-4">
-                    <button
-                      type="button"
-                      onClick={handleBack}
-                      className="text-[11px] tracking-[0.18em] uppercase text-[#5C1F2E]/50 hover:text-[#5C1F2E] transition-colors font-sans"
-                    >
-                      Back
-                    </button>
-                    <button
-                      type="submit"
-                      disabled={submitting}
-                      className="inline-flex items-center gap-3 bg-[#5C1F2E] text-[#F5EDE0] px-7 py-3.5 md:px-8 md:py-4 text-[11px] tracking-[0.18em] uppercase font-sans hover:bg-[#3d1420] transition-all duration-200 disabled:opacity-50"
-                    >
-                      {submitting ? "Calculating..." : "See My Diagnosis"}
-                      {!submitting && <span>→</span>}
+                      ← Back
                     </button>
                   </div>
-                </form>
+                )}
               </motion.div>
             )}
 
             {/* Result */}
-            {isResult && resultData && (
+            {isResult && result && resultData && (
               <motion.div
                 key="result"
                 initial={{ opacity: 0, y: 30 }}

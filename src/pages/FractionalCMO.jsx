@@ -5,7 +5,6 @@ import { Plus, Minus } from "lucide-react";
 import Footer from "@/components/site/Footer";
 import ClientsSection from "@/components/shared/ClientsSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
-import CtaBanner from "@/components/shared/CtaBanner";
 import ConsultingFAQ from "@/components/consulting/ConsultingFAQ";
 import FindYourFitModal from "@/components/shared/FindYourFitModal";
 
@@ -264,7 +263,81 @@ export default function FractionalCMO() {
       </section>
 
       <ConsultingFAQ />
-      <CtaBanner headline={<>Ready to build<br /><span className="italic">with clarity?</span></>} href="/contact" />
+
+      {/* CTA Section */}
+      <section className="bg-foreground text-ivory py-24 md:py-36 overflow-hidden relative">
+        <div className="absolute inset-0">
+          <img
+            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/e2710ea5b_89a312eb131a146172728691bff76edc.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black opacity-80" />
+        </div>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center relative z-10">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-[10px] tracking-editorial uppercase text-ivory/50 mb-8"
+          >
+            — Find out exactly where your growth is stuck.
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-8 max-w-3xl mx-auto"
+          >
+            Book a call. <span className="italic">15 minutes,</span> no pitch.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-ivory/65 text-[15px] max-w-lg mx-auto mb-12 leading-relaxed"
+          >
+            You will leave knowing what is actually broken and what to do about it.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.25 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <a
+              href="https://calendly.com/hello-laurajanethomas/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-ivory text-foreground px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-ivory/90 transition-all duration-300 group btn-pulse"
+            >
+              Book a 15-minute call
+              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </a>
+            <button
+              onClick={() => setQuizOpen(true)}
+              className="inline-flex items-center gap-3 border border-ivory/50 text-ivory px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-foreground transition-all duration-300 group"
+            >
+              Take the 2-minute fit quiz
+              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </button>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-ivory/40 text-[12px] tracking-wide mt-10 italic"
+          >
+            I take on a limited number of new clients each quarter.
+          </motion.p>
+        </div>
+      </section>
+
       <Footer />
       <FindYourFitModal open={quizOpen} onClose={() => setQuizOpen(false)} />
     </div>

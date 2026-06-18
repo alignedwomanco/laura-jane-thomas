@@ -530,7 +530,7 @@ export default function ClaritySpring() {
                 <BookBtn />
                 <DiscoveryBtn />
               </div>
-              <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-4">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
+
             </div>
           </motion.div>
         </div>

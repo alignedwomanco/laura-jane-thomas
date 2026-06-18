@@ -224,7 +224,7 @@ function SprintCarousel({ testimonials }) {
 
 const DiscoveryBtn = ({ dark = false, className = "" }) => (
   <a
-    href="https://calendly.com/hello-alignedwomanco/30min"
+    href="https://calendly.com/hello-laurajanethomas/30min"
     target="_blank"
     rel="noopener noreferrer"
     className={`inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group btn-pulse text-ivory ${className}`}
@@ -656,7 +656,7 @@ export default function ClaritySpring() {
               <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Option 2: Book a discovery call.</p>
               <p className="text-[13px] text-muted-foreground mb-6">You want to hear my voice and ask a few questions before committing. Book a complimentary 20-minute call. No coaching, no pressure. A fit conversation only.</p>
               <a
-                href="https://calendly.com/placeholder"
+                href="https://calendly.com/hello-laurajanethomas/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full gap-3 px-8 py-4 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold text-ivory transition-all duration-300 btn-pulse"

@@ -264,14 +264,6 @@ export default function FractionalCMO() {
 
       {/* CTA Section */}
       <section className="bg-foreground text-ivory py-24 md:py-36 overflow-hidden relative">
-        <div className="absolute inset-0">
-          <img
-            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/e2710ea5b_89a312eb131a146172728691bff76edc.jpg"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black opacity-80" />
-        </div>
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center relative z-10">
           <motion.p
             initial={{ opacity: 0 }}

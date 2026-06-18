@@ -107,8 +107,16 @@ function FAQItem({ q, a }) {
 
 export default function ConsultingFAQ() {
   return (
-    <section className="bg-ivory py-24 md:py-36">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section className="bg-ivory py-24 md:py-36 relative overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/e2710ea5b_89a312eb131a146172728691bff76edc.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-ivory opacity-90" />
+      </div>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

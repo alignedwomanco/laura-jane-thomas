@@ -454,10 +454,10 @@ export default function ClaritySpring() {
               <motion.div {...fadeUp(0)} className="text-center mb-16">
                 <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— What You Get</p>
                 <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-4" style={{ color: "#1A1A1A" }}>
-                  What you get inside <span className="italic" style={{ color: BRAND }}>The Clarity Sprint.</span>
+                  What you get inside <span className="italic" style={{ color: BRAND }}>The Business Sprint.</span>
                 </h2>
                 <p className="text-muted-foreground text-[15px] max-w-2xl mx-auto">
-                  A complete senior coaching engagement, structured for women who need clarity fast and a plan they can execute.
+                  A complete senior engagement, structured for founders who need clarity fast and a plan they can execute.
                 </p>
               </motion.div>
 

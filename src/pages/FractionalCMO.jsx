@@ -298,7 +298,7 @@ export default function FractionalCMO() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-ivory/65 text-[15px] max-w-lg mx-auto mb-12 leading-relaxed"
           >
-            You will leave knowing what is actually broken and what to do about it.
+            I take on a limited number of new clients each quarter.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

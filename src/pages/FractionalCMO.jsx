@@ -202,7 +202,7 @@ export default function FractionalCMO() {
             </div>
 
             {/* Box 3 */}
-            <div className="border border-ivory/20 p-8 flex flex-col">
+            <div className="border border-ivory/20 p-8 flex flex-col" style={{backgroundColor: '#26030F'}}>
               <p className="text-[10px] tracking-editorial uppercase text-ivory/40 mb-4">03</p>
               <h3 className="font-serif text-xl md:text-2xl leading-tight mb-5 text-ivory">Fractional CMO for corporates</h3>
               <p className="text-[14px] text-ivory/70 leading-relaxed mb-5">

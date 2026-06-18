@@ -135,6 +135,100 @@ export default function FractionalCMO() {
 
 
 
+      {/* Three Ways to Work With Me */}
+      <section className="bg-ivory py-24 md:py-32">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <p className="text-[10px] tracking-editorial uppercase text-foreground/50 mb-4">— 6.</p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tight max-w-xl">
+              Three ways to work with me
+            </h2>
+          </div>
+          <p className="text-[14px] text-foreground/60 mb-16">
+            Not sure which is you?{" "}
+            <Link to="/find-your-fit" className="underline underline-offset-4 hover:text-oxblood transition-colors">
+              Take the 2-minute quiz →
+            </Link>{" "}
+            and I will point you to the right one.
+          </p>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Box 1 */}
+            <div className="border border-foreground/15 p-8 flex flex-col">
+              <p className="text-[10px] tracking-editorial uppercase text-foreground/40 mb-4">01</p>
+              <h3 className="font-serif text-xl md:text-2xl leading-tight mb-5">The Business Sprint</h3>
+              <p className="text-[14px] text-foreground/60 leading-relaxed mb-6 flex-1">
+                For founders who need a clear plan, fast.<br /><br />
+                Six weeks, four sessions, a fixed price. You leave with your positioning, your offer and model, your brand and message, and a 90-day plan you can run. You do the building, I do the guiding. The fastest way to get a senior strategic look at your business.
+              </p>
+              <a
+                href="https://calendly.com/hello-laurajanethomas/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase border border-foreground/30 px-5 py-3 hover:bg-foreground hover:text-ivory transition-all duration-300 group self-start mt-auto"
+              >
+                See the Business Sprint
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+
+            {/* Box 2 */}
+            <div className="border border-foreground/15 p-8 flex flex-col bg-foreground text-ivory">
+              <p className="text-[10px] tracking-editorial uppercase text-ivory/40 mb-4">02</p>
+              <h3 className="font-serif text-xl md:text-2xl leading-tight mb-5">Fractional CMO for a growing business</h3>
+              <p className="text-[14px] text-ivory/70 leading-relaxed mb-5">
+                For a small or growing business that needs senior marketing leadership without a full-time hire.
+              </p>
+              <ul className="space-y-2 mb-6 flex-1">
+                {["Brand foundation and build", "Marketing strategy", "Brand and business review", "Brand development and creative direction", "Content and communication frameworks", "Team alignment and leadership support", "Custom growth playbook"].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-[13px] text-ivory/70">
+                    <span className="mt-1.5 w-1 h-1 rounded-full bg-ivory/40 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[13px] text-ivory/50 italic mb-6">Ongoing and scoped to what the business actually needs.</p>
+              <a
+                href="https://calendly.com/hello-laurajanethomas/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase border border-ivory/40 px-5 py-3 hover:bg-ivory hover:text-foreground transition-all duration-300 group self-start mt-auto"
+              >
+                Book a 15-minute call
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+
+            {/* Box 3 */}
+            <div className="border border-foreground/15 p-8 flex flex-col">
+              <p className="text-[10px] tracking-editorial uppercase text-foreground/40 mb-4">03</p>
+              <h3 className="font-serif text-xl md:text-2xl leading-tight mb-5">Fractional CMO for corporates</h3>
+              <p className="text-[14px] text-foreground/60 leading-relaxed mb-5">
+                For bigger teams that have lost the strategy inside the day-to-day.
+              </p>
+              <ul className="space-y-2 mb-6 flex-1">
+                {["Fractional and stand-in CMO", "Strategic leadership", "Revenue-aligned strategy", "Customer journey mapping", "Creative direction", "Team alignment and integration", "Custom growth playbook"].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-[13px] text-foreground/60">
+                    <span className="mt-1.5 w-1 h-1 rounded-full bg-foreground/30 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[13px] text-foreground/50 italic mb-6">A senior partner who names what is actually wrong and equips your team to fix it without dismantling what already works.</p>
+              <a
+                href="https://calendly.com/hello-laurajanethomas/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase border border-foreground/30 px-5 py-3 hover:bg-foreground hover:text-ivory transition-all duration-300 group self-start mt-auto"
+              >
+                Book a 15-minute call
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ConsultingFAQ />
       <CtaBanner headline={<>Ready to build<br /><span className="italic">with clarity?</span></>} href="/contact" />
       <Footer />

@@ -7,6 +7,7 @@ import ClientsSection from "@/components/shared/ClientsSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import CtaBanner from "@/components/shared/CtaBanner";
 import ConsultingFAQ from "@/components/consulting/ConsultingFAQ";
+import FindYourFitModal from "@/components/shared/FindYourFitModal";
 
 function AccordionItem({ title, children }) {
   const [open, setOpen] = useState(false);
@@ -48,6 +49,7 @@ const smbOffering = [
 ];
 
 export default function FractionalCMO() {
+  const [quizOpen, setQuizOpen] = useState(false);
   return (
     <div className="bg-ivory">
       {/* Minimal header */}
@@ -155,9 +157,9 @@ export default function FractionalCMO() {
           </div>
           <p className="text-[14px] text-ivory/70 mb-16">
             Not sure which is you?{" "}
-            <Link to="/find-your-fit" className="underline underline-offset-4 hover:text-ivory transition-colors">
+            <button onClick={() => setQuizOpen(true)} className="underline underline-offset-4 hover:text-ivory transition-colors">
               Take the 2-minute quiz →
-            </Link>{" "}
+            </button>{" "}
             and I will point you to the right one.
           </p>
 
@@ -241,6 +243,7 @@ export default function FractionalCMO() {
       <ConsultingFAQ />
       <CtaBanner headline={<>Ready to build<br /><span className="italic">with clarity?</span></>} href="/contact" />
       <Footer />
+      <FindYourFitModal open={quizOpen} onClose={() => setQuizOpen(false)} />
     </div>
   );
 }

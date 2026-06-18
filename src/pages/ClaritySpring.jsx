@@ -639,27 +639,7 @@ export default function ClaritySpring() {
         </motion.div>
       </section>
 
-      {/* SECTION 10: PS */}
-      <section className="bg-ivory py-16 md:py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="max-w-2xl mx-auto">
-            <motion.div {...fadeUp(0)}>
-              <p className="font-serif italic text-2xl mb-10" style={{ color: BRAND }}>PS, A Personal Note</p>
-              <div className="space-y-5 text-[15px] leading-relaxed text-muted-foreground">
-                <p>If you have made it to the bottom of this page, I want to say something to you directly.</p>
-                <p>I built the Clarity Sprint because I remember being where you are now.</p>
-                <p>I remember the spinning. The Googling at midnight. The conversations with people who meant well but could not see what I could not see. I remember the hormones depleted, the cortisol gone, the body that finally said no when I had been ignoring it for years.</p>
-                <p>I also remember what it felt like to find the right person at the right moment. Someone who could see what I could not. Someone who told me the truth even when the truth was uncomfortable. Someone who gave me a structure to hold onto when everything else felt like sand.</p>
-                <p>That is what I am offering you. Not a transformation. Not a breakthrough. Not a quick fix. A structure. A senior strategist who will tell you the truth. Four weeks of focused work designed to give you exactly what I needed when I was where you are.</p>
-                <p>If you are ready, I will be honoured to do this work with you.</p>
-                <p>If you are not ready yet, I will be here when you are.</p>
-                <p>Either way, I am genuinely glad you read this far.</p>
-              </div>
-              <p className="font-serif italic text-2xl mt-8" style={{ color: BRAND }}>Laura Jane Thomas</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+
 
       <ResourcesSection />
       <Footer />

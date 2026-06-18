@@ -235,30 +235,7 @@ const DiscoveryBtn = ({ dark = false, className = "" }) => (
   </a>
 );
 
-const BookBtn = ({ dark = false, className = "" }) => (
-  <form
-    name="PayFastPayNowForm"
-    action="https://payment.payfast.io/eng/process"
-    method="post"
-    className="inline-block"
-  >
-    <input type="hidden" name="cmd" value="_paynow" />
-    <input type="hidden" name="receiver" value="32598411" />
-    <input type="hidden" name="return_url" value="https://laurajanethomas.biz/claritysprint" />
-    <input type="hidden" name="cancel_url" value="https://laurajanethomas.biz/claritysprint" />
-    <input type="hidden" name="notify_url" value="https://laurajanethomas.biz/claritysprint" />
-    <input type="hidden" name="amount" value="12500" />
-    <input type="hidden" name="item_name" value="Clarity Sprint" />
-    <button
-      type="submit"
-      className={`inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group btn-pulse ${dark ? "bg-ivory text-oxblood hover:bg-ivory/90" : "text-ivory"} ${className}`}
-      style={!dark ? { backgroundColor: "#C2858B" } : {}}
-    >
-      Book Your Clarity Sprint, R12,500
-      <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-    </button>
-  </form>
-);
+
 
 export default function ClaritySpring() {
   return (
@@ -527,7 +504,6 @@ export default function ClaritySpring() {
             </p>
             <div>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <BookBtn />
                 <DiscoveryBtn />
               </div>
 
@@ -607,7 +583,6 @@ export default function ClaritySpring() {
             </p>
             <div>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <BookBtn dark />
                 <DiscoveryBtn />
               </div>
               <p className="text-[10px] tracking-editorial uppercase text-ivory/50 mt-4">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
@@ -646,14 +621,9 @@ export default function ClaritySpring() {
             <p className="font-serif italic" style={{ color: BRAND }}>You do not have to be certain. You only have to be ready to begin.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12 text-left">
+          <div className="grid gap-8 mb-12 text-left max-w-lg mx-auto">
             <div className="border border-foreground/20 p-8" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
-              <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Option 1: Book directly.</p>
-              <p className="text-[13px] text-muted-foreground mb-6">You know the Clarity Sprint is right for you. Click below, complete the intake, and I will be in touch within 48 hours to schedule your first call.</p>
-              <BookBtn className="w-full text-center" />
-            </div>
-            <div className="border border-foreground/20 p-8" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
-              <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Option 2: Book a discovery call.</p>
+              <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Book a discovery call.</p>
               <p className="text-[13px] text-muted-foreground mb-6">You want to hear my voice and ask a few questions before committing. Book a complimentary 20-minute call. No coaching, no pressure. A fit conversation only.</p>
               <a
                 href="https://calendly.com/hello-laurajanethomas/30min"

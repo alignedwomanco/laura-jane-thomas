@@ -516,9 +516,7 @@ export default function ClaritySpring() {
             <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-4">
               What you might be thinking right now.
             </h2>
-            <p className="text-muted-foreground text-[15px]">
-              The honest answers to the objections most women have at this point on the page.
-            </p>
+
           </motion.div>
           <div className="max-w-3xl mx-auto text-left">
             <ObjectionAccordion items={objections} />

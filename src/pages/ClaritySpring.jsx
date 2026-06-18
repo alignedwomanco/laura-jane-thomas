@@ -443,7 +443,7 @@ export default function ClaritySpring() {
               </div>
 
               <motion.p {...fadeUp(0.3)} className="text-center font-serif italic text-2xl md:text-3xl mt-16" style={{ color: BRAND }}>
-                Six weeks. Four sessions. One plan you can run.
+                Six weeks. Four sessions. The work in between is where it happens.
               </motion.p>
             </div>
           </section>

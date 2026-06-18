@@ -608,7 +608,7 @@ export default function ClaritySpring() {
           <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8" style={{ color: "#1A1A1A" }}>
             This is the moment.
           </h2>
-          <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground mb-12 text-left max-w-2xl mx-auto">
+          <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground mb-12 text-center max-w-2xl mx-auto">
             <p>You have read the page. You know what is being offered, what it costs, and what you walk away with after six weeks. The only question left is whether you are ready.</p>
             <p className="font-serif italic" style={{ color: BRAND }}>You do not have to be certain. You only have to be ready to begin.</p>
           </div>

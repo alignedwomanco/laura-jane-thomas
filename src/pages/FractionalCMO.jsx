@@ -273,15 +273,33 @@ export default function FractionalCMO() {
           <div className="absolute inset-0 bg-black opacity-80" />
         </div>
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center relative z-10">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-[10px] tracking-editorial uppercase text-ivory/50 mb-8"
+          >
+            — Find out exactly where your growth is stuck.
+          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-12 max-w-3xl mx-auto"
+            className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-8 max-w-3xl mx-auto"
           >
-            I take on a limited number of new clients each quarter.
+            Book a call. <span className="italic">15 minutes,</span> no pitch.
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-ivory/65 text-[15px] max-w-lg mx-auto mb-12 leading-relaxed"
+          >
+            You will leave knowing what is actually broken and what to do about it.
+          </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -306,7 +324,15 @@ export default function FractionalCMO() {
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </button>
           </motion.div>
-
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-ivory/40 text-[12px] tracking-wide mt-10 italic"
+          >
+            I take on a limited number of new clients each quarter.
+          </motion.p>
         </div>
       </section>
 

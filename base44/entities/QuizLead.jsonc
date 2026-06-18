@@ -1,0 +1,71 @@
+{
+  "name": "QuizLead",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Lead full name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Lead email address"
+    },
+    "q1": {
+      "type": "string",
+      "description": "Answer to Question 1: Where is your business right now?"
+    },
+    "q2": {
+      "type": "string",
+      "description": "Answer to Question 2: Could you say why someone should choose you?"
+    },
+    "q3": {
+      "type": "string",
+      "description": "Answer to Question 3: What is most broken right now?"
+    },
+    "q4": {
+      "type": "string",
+      "description": "Answer to Question 4: When growth slows down, what do you reach for?"
+    },
+    "q5": {
+      "type": "string",
+      "description": "Answer to Question 5: What kind of help are you actually after?"
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "SPRINT",
+        "ADVISORY",
+        "CMO"
+      ],
+      "description": "Diagnostic result"
+    },
+    "submittedAt": {
+      "type": "string",
+      "description": "ISO timestamp of submission"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "result",
+    "submittedAt"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -338,7 +338,7 @@ export default function FractionalCMO() {
         </div>
       </section>
 
-      <Footer />
+      <Footer ctaLabel="Send me an email" ctaHref="mailto:hello@laurajanethomas.biz" />
       <FindYourFitModal open={quizOpen} onClose={() => setQuizOpen(false)} />
     </div>
   );

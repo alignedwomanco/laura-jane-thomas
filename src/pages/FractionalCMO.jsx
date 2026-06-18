@@ -262,8 +262,6 @@ export default function FractionalCMO() {
         </div>
       </section>
 
-      <ConsultingFAQ />
-
       {/* CTA Section */}
       <section className="bg-foreground text-ivory py-24 md:py-36 overflow-hidden relative">
         <div className="absolute inset-0">
@@ -337,6 +335,8 @@ export default function FractionalCMO() {
           </motion.p>
         </div>
       </section>
+
+      <ConsultingFAQ />
 
       <Footer ctaLabel="Send me an email" ctaHref="mailto:hello@laurajanethomas.biz" />
       <FindYourFitModal open={quizOpen} onClose={() => setQuizOpen(false)} />

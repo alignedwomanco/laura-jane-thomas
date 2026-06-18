@@ -126,6 +126,13 @@ export default function FractionalCMO() {
               Book a 15-minute call
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </a>
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all duration-300 group mt-4"
+            >
+              About Me
+              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </Link>
           </div>
         </div>
       </section>

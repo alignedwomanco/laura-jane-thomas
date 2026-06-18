@@ -22,6 +22,7 @@ import QuizAdmin from './pages/QuizAdmin.jsx';
 import ScheduledEmailAdmin from './pages/ScheduledEmailAdmin.jsx';
 import ContactSubmissions from './pages/ContactSubmissions.jsx';
 import EngagementAcceptance from './pages/EngagementAcceptance.jsx';
+import FractionalCMO from './pages/FractionalCMO.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import SubmissionsDashboard from './pages/SubmissionsDashboard.jsx';
 import ClientPortal from './pages/ClientPortal.jsx';
@@ -62,6 +63,7 @@ const AuthenticatedApp = () => {
       <Route path="/" element={<PublicOnlyRoute><Home /></PublicOnlyRoute>} />
       <Route path="/about" element={<PublicOnlyRoute><About /></PublicOnlyRoute>} />
       <Route path="/consulting" element={<PublicOnlyRoute><Consulting /></PublicOnlyRoute>} />
+      <Route path="/fractional-cmo" element={<PublicOnlyRoute><FractionalCMO /></PublicOnlyRoute>} />
       <Route path="/speaking" element={<PublicOnlyRoute><Speaking /></PublicOnlyRoute>} />
       <Route path="/services" element={<PublicOnlyRoute><ResetRoom /></PublicOnlyRoute>} />
       <Route path="/claritysprint" element={<ClaritySpring />} />

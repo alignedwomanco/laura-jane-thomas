@@ -130,6 +130,9 @@ export default function FractionalCMO() {
         </div>
       </section>
 
+      <ClientsSection dark={true} />
+      <TestimonialsSection />
+
       {/* Corporates */}
       <section className="bg-ivory py-24 md:py-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -210,8 +213,6 @@ export default function FractionalCMO() {
         </div>
       </section>
 
-      <ClientsSection dark={true} />
-      <TestimonialsSection />
       <ConsultingFAQ />
       <CtaBanner headline={<>Ready to build<br /><span className="italic">with clarity?</span></>} href="/contact" />
       <Footer />

@@ -522,9 +522,7 @@ export default function ClaritySpring() {
             <p className="text-muted-foreground text-[14px]">Senior receipts from the wider practice. Real outcomes. Named voices.</p>
           </motion.div>
           <SprintCarousel testimonials={sprintTestimonials} />
-          <motion.p {...fadeUp(0.2)} className="text-center text-[13px] text-muted-foreground max-w-2xl mx-auto mt-16 leading-relaxed">
-            The Clarity Sprint sits inside a senior strategy practice that has worked with founders, CEOs, and senior teams across financial services, retail, luxury, wellness, marketing, and professional services. Speaker engagements include EY, Oracle, and corporate Women's Day programs across South Africa.
-          </motion.p>
+
         </div>
       </section>
 

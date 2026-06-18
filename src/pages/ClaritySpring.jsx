@@ -635,12 +635,7 @@ export default function ClaritySpring() {
           </div>
 
 
-          <p className="text-[12px] text-muted-foreground mt-6">
-            Not ready for either option yet?{" "}
-            <a href="https://alignedwomanco.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-oxblood transition-colors">
-              Explore my free resources instead.
-            </a>
-          </p>
+
         </motion.div>
       </section>
 

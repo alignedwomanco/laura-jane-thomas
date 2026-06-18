@@ -581,7 +581,7 @@ export default function ClaritySpring() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <DiscoveryBtn />
               </div>
-              <p className="text-[10px] tracking-editorial uppercase text-ivory/50 mt-4">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
+
             </div>
           </motion.div>
         </div>

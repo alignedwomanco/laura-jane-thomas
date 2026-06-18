@@ -330,18 +330,15 @@ export default function ClaritySpring() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h2 {...fadeUp(0)} className="font-serif text-4xl md:text-6xl leading-[0.92] tracking-tight mb-12 text-foreground">
-              Let's be honest about where you are right now.
+              Let's be honest about where you actually are.
             </motion.h2>
             <motion.div {...fadeUp(0.1)} className="space-y-5 text-[15px] leading-relaxed">
-              <p className="text-foreground">You wake up and the first thing you feel isn't excitement. It's heaviness.</p>
-              <p className="text-foreground">You've built something. A career. A business. A life that looks good from the outside.</p>
-              <p className="text-foreground">But inside, you're running on empty. You're making decisions from a place of exhaustion, not clarity, and the question that keeps circling your mind at 2am is always the same.</p>
-              <p className="font-serif italic text-xl md:text-2xl" style={{ color: BRAND }}>"What am I actually doing with my life?"</p>
-              <p className="text-foreground">Maybe your business has stalled, and you cannot figure out why. Maybe you are stuck in a role that is slowly draining you. Maybe you have been so busy holding everything together for everyone else that you have completely lost sight of what you want.</p>
-              <p className="text-foreground">You've Googled, journaled, cried, had the late-night conversations with friends who mean well but cannot give you what you actually need.</p>
-              <p className="text-foreground">And you are still stuck!</p>
+              <p className="text-foreground">Maybe you are at the start. You have the idea, maybe a name, maybe a domain you registered at 11pm to prove to yourself you were serious, maybe stock already sitting in a cupboard. And then you stalled, because you do not actually know how to begin.</p>
+              <p className="text-foreground">Or maybe you are further along. You built something real. It works, more or less. But it has plateaued, or lost the thread of what made it different, or started running you instead of the other way around. You are busier than ever and the growth does not match the effort.</p>
+              <p className="text-foreground">Either way, the problem is the same. You are capable. You are not short on drive, you have built and carried things most people would not attempt. What you are missing is a clear next move, and a senior set of eyes on the actual situation.</p>
+              <p className="text-foreground">So you research. You take the free course. You ask ChatGPT. You end up with more information and somehow less clarity. <span className="font-serif italic" style={{ color: BRAND }}>(Yes, close the tab.)</span></p>
               <p className="text-foreground text-base md:text-lg leading-relaxed pt-2">
-                <span className="font-semibold">Being stuck isn't a mindset problem. It is so much deeper than that.</span> You don't need more inspiration and information. (Yes, get off ChatGPT.) What you need is someone who has been where you are, who understands the real pressure you are under, and who can help you work with the mind, body, and subconscious blocks holding you back, so you can think clearly enough to make your next move.
+                Information is not what is missing. A plan is. And someone who has actually built the thing, not just talked about building it, to help you make the calls that only experience can make.
               </p>
             </motion.div>
           </div>

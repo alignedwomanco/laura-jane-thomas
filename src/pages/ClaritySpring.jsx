@@ -563,7 +563,6 @@ export default function ClaritySpring() {
                   "You want reassurance more than the truth. I will tell you when something needs work.",
                   "You are looking for the cheapest business coaching on the internet. This is calibrated, not discounted.",
                   "You are not actually ready to act.",
-                  "You need clinical or mental health support right now. This is business strategy, not therapy. If that is what you need, the right move is to get it first.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <X className="w-5 h-5 flex-shrink-0 mt-0.5 text-foreground/60" />

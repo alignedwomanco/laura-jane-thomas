@@ -104,19 +104,28 @@ export default function FractionalCMO() {
             <img src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/61b35f8db_Facetune_17-04-2026-20-36-52.jpg" alt="Laura consulting" className="w-full h-full object-cover" />
           </div>
           <div>
+            <p className="text-[10px] tracking-editorial uppercase text-ivory/50 mb-6">— Why me</p>
             <p className="font-serif text-2xl md:text-3xl lg:text-[32px] leading-[1.3] text-ivory mb-8">
-              I work with founders, CEOs, and senior teams who suspect their growth problem is upstream of their marketing.
+              Most fractional CMOs are former marketing managers. I am not.
             </p>
             <p className="text-ivory/70 text-[15px] leading-relaxed mb-5">
-              Instead of the cost and commitment of a full-time CMO, you get a senior strategic partner calibrated to your scope. Productised engagements, longer retainers, or embedded advisory, structured to what the business actually needs.
+              I built and ran my own marketing agency for over a decade, grew it, and led brand and marketing work for some of the biggest names in the market, including HBO, British Airways, Coca-Cola and Ubank.
+            </p>
+            <p className="text-ivory/70 text-[15px] leading-relaxed mb-5">
+              You are not hiring someone who has read about how this works. You are hiring someone who has done it, at the top, with real money on the line, many times over.
             </p>
             <p className="text-ivory/70 text-[15px] leading-relaxed mb-10">
-              One brain holding brand, strategy, and creative direction together. The work has been done at the level you need it done at, and it is built so your team can run it long after I leave the room.
+              One senior brain holding brand, strategy, and creative direction together, calibrated to your scope, and built so you or your team can run it long after I leave the room.
             </p>
-            <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all duration-300 group btn-pulse">
-            Apply To Work With Me
+            <a
+              href="https://calendly.com/hello-laurajanethomas/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all duration-300 group btn-pulse"
+            >
+              Book a 15-minute call
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

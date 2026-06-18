@@ -133,28 +133,7 @@ export default function FractionalCMO() {
       <ClientsSection dark={true} />
       <TestimonialsSection />
 
-      {/* SMB */}
-      <section className="bg-foreground text-ivory py-24 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div></div>
-            <div>
-              <p className="text-[11px] tracking-editorial uppercase text-ivory/50 mb-6 border-b border-ivory/20 pb-4">The Offering</p>
-              {smbOffering.map((item, i) => (
-                <AccordionItem key={i} title={item.title}>
-                  <p className="text-[14px] text-ivory/70 leading-relaxed">{item.body}</p>
-                </AccordionItem>
-              ))}
-              <div className="mt-10">
-                <Link to="/contact" className="inline-flex items-center gap-3 border border-ivory/70 px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-foreground transition-all duration-300 group">
-                  Apply To Work With Me
-                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <ConsultingFAQ />
       <CtaBanner headline={<>Ready to build<br /><span className="italic">with clarity?</span></>} href="/contact" />

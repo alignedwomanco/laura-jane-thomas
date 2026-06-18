@@ -65,24 +65,24 @@ const bonuses = [
 
 const objections = [
   {
-    q: '"I have tried coaching before and it did not work for me."',
-    a: "I understand. Most coaching does not work, and the reason is structural. Generic coaching is open-ended. You go in with a vague problem, you talk it through, you leave feeling slightly better, nothing changes in your life. That is not a coaching problem. That is a strategy problem.\n\nThe Clarity Sprint is structured differently. Four weeks. Four sessions with a defined methodology. Written diagnostics. A 30-day plan you walk away with. You are not paying for unlimited talking. You are paying for senior strategic clarity delivered in a format that produces an outcome.\n\nIf you have tried coaching that did not work, this is not the same thing.",
+    q: '"I have tried business courses and coaches before, and nothing changed."',
+    a: "Most are information with no plan, or a coach who has never built a business. This is one to one, it produces written outputs you keep, and it comes from someone who has built and run the real thing.",
   },
   {
-    q: '"R12,500 is a lot of money for me right now."',
-    a: "It is. I know it is. And I am not going to tell you to put it on a credit card or trust the universe.\n\nHere is the honest answer. The Clarity Sprint is calibrated for women earlier in their journey, but it is still a senior engagement. If R12,500 is a stretch you cannot make right now, the right move is to wait until it is not a stretch, or start with my free resources at The Aligned Woman Co. There is a free path into this work and you should take it if the paid path is not the right one for you yet.\n\nIf R12,500 is a stretch but a possible one, here is what I would say. The cost of staying stuck for another six months is almost always higher than the cost of getting clear in four weeks. But you have to make that calculation honestly, not as a way to convince yourself.",
+    q: '"Is four sessions really enough?"',
+    a: "Yes, because the sessions are not the whole of it. Each one ends with a clear, structured plan and a defined next move, so between calls you always know exactly what you are working toward. The sessions are where the senior decisions get made, and the structured plan in between is what keeps you moving. You are not paying for four hours of my time. You are paying for that judgement on every call that matters, the documents you keep, and a plan that actually works.",
   },
   {
-    q: '"I do not have time for another commitment."',
-    a: "Then you are exactly the woman this is built for.\n\nFour sessions over four weeks. Three of them are 60 minutes. One is 90 minutes. Total time commitment from you is about five and a half hours over a month, plus the workbook (which is structured to take 20 minutes a week, not hours).\n\nThe women who feel they do not have time for the Clarity Sprint are the women who cannot afford not to take it. Time pressure is usually the symptom of strategic misalignment, not the reason to avoid working on it.",
+    q: '"R25,000 is a lot for me right now."',
+    a: "It is a serious investment, calibrated well below advisory or CMO rates. If it is a stretch rather than out of reach, payment plans are available. If it is genuinely out of reach, start with my free resources and come back when the timing is right.",
   },
   {
-    q: '"How do I know this will actually work for me?"',
-    a: "I cannot promise it will. Anyone who promises you a guaranteed outcome from coaching is either lying or has not done this work seriously.\n\nWhat I can tell you is this. Every woman who has done The A.L.I.V.E. Method in any tier of my work has left with more clarity than she came in with. Every Clarity Sprint client to date has walked away with a written 30-day plan she is still using. The methodology produces results because it is structured, not because of magic.\n\nWhat I can also tell you is that the women for whom this does not work are usually the women who book it without being ready to do the work. If you are reading this page hoping someone will fix you, this is not the right offer. If you are reading this page knowing you have to do something and looking for the right structure to do it inside, this is built for you.",
+    q: '"I am already flat out. I do not have time for this."',
+    a: "You are already spending the time, on research, second-guessing, and starting things you do not finish. The Business Sprint takes that scattered effort and gives it structure and a clear direction to move in. An hour at a time, four times, with a plan that means you stop spinning and start moving. It is built to fit a real life and a real job.",
   },
   {
-    q: '"What if I want to keep working with you after the four weeks?"',
-    a: "You can. The Clarity Sprint is designed as a complete engagement, but many women move into the Senior Advisory after they finish. The Clarity Sprint fee is credited toward any Senior Advisory engagement booked within 60 days of the sprint closing.\n\nThat is not a hook. It is a structural way to make the Clarity Sprint a genuine on-ramp rather than a trap.",
+    q: '"What if I want to keep working with you after the six weeks?"',
+    a: "Many founders do. There is a clear path into ongoing advisory if it is the right fit, discussed only if and when you want it.",
   },
 ];
 

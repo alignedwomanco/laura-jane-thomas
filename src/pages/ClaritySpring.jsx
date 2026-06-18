@@ -613,7 +613,7 @@ export default function ClaritySpring() {
             <p className="font-serif italic" style={{ color: BRAND }}>You do not have to be certain. You only have to be ready to begin.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-12 text-left max-w-2xl mx-auto">
+          <div className="mb-12 text-left max-w-2xl mx-auto">
             <div className="border border-foreground/20 p-8" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
               <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Book directly.</p>
               <p className="text-[13px] text-muted-foreground mb-6">Complete a short intake so I understand where you are starting from. I review it within 48 hours and we schedule your first session within 7 days.</p>
@@ -625,18 +625,6 @@ export default function ClaritySpring() {
                 style={{ backgroundColor: "#C2858B" }}
               >
                 Book Now →
-              </a>
-            </div>
-            <div className="border border-foreground/20 p-8" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
-              <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Book a discovery call.</p>
-              <p className="text-[13px] text-muted-foreground mb-6">Hear my voice and ask a few questions first. A complimentary 20-minute call. No pitch. A fit conversation only.</p>
-              <a
-                href="https://calendly.com/hello-laurajanethomas/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full gap-3 px-8 py-4 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold border border-foreground/30 text-foreground hover:bg-foreground hover:text-ivory transition-all duration-300"
-              >
-                Book a Discovery Call →
               </a>
             </div>
           </div>

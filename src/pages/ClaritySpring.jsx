@@ -517,7 +517,7 @@ export default function ClaritySpring() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
             <h2 className="font-serif italic text-4xl md:text-6xl leading-[0.95] tracking-tight mb-4">
-              What women say after working with me.
+              What people say after working with me.
             </h2>
             <p className="text-muted-foreground text-[14px]">Senior receipts from the wider practice. Real outcomes. Named voices.</p>
           </motion.div>

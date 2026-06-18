@@ -324,15 +324,7 @@ export default function FractionalCMO() {
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </button>
           </motion.div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-ivory/40 text-[12px] tracking-wide mt-10 italic"
-          >
-            I take on a limited number of new clients each quarter.
-          </motion.p>
+
         </div>
       </section>
 

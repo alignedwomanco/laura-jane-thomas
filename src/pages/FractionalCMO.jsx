@@ -138,26 +138,7 @@ export default function FractionalCMO() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">— For Small to Medium Sized Businesses</p>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-8">
-                for small to <span className="italic block">medium businesses</span>
-              </h2>
-              <p className="font-serif italic text-xl text-ivory/85 mb-6 leading-relaxed">
-                The strongest brands are built on the right foundations, not the loudest launch.
-              </p>
-              <p className="text-[15px] text-ivory/70 leading-relaxed mb-6">
-                Whether you are launching something new or scaling something already built, the question is the same. Is the foundation underneath strong enough to hold what comes next.
-              </p>
-              <p className="text-[15px] text-ivory/70 leading-relaxed mb-6">
-                If you are starting out, the work is to build it properly the first time. Brand, strategy, customer journey, and messaging architected before the noise of execution takes over.
-              </p>
-              <p className="text-[15px] text-ivory/70 leading-relaxed mb-6">
-                If you are already in motion, the work is different. The numbers are real, but the marketing function is doing too much of the work the founder used to do. The work that gets you to the next stage is not more of the work that got you here.
-              </p>
-              <p className="text-[15px] text-ivory/70 leading-relaxed">
-                Either way, what you are buying is the senior brain that sets the foundation up properly. So when you launch, you launch into something built. When you scale, you scale on something that holds.
-              </p>
-            </div>
+            <div></div>
             <div>
               <p className="text-[11px] tracking-editorial uppercase text-ivory/50 mb-6 border-b border-ivory/20 pb-4">The Offering</p>
               {smbOffering.map((item, i) => (

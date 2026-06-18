@@ -400,19 +400,24 @@ export default function ClaritySpring() {
               <motion.div {...fadeUp(0)} className="mb-12 text-center max-w-3xl mx-auto">
                 <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— The Offer</p>
                 <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-6" style={{ color: "#1A1A1A" }}>
-                  Introducing <span className="italic" style={{ color: BRAND }}>The Clarity Sprint.</span>
+                  Introducing <span className="italic" style={{ color: BRAND }}>The Business Sprint.</span>
                 </h2>
                 <p className="text-base md:text-lg leading-relaxed text-muted-foreground mb-6">
-                  A 4-week, high-touch coaching engagement designed to take you from stuck and overwhelmed to clear, focused, and moving forward with intention.
+                  A six-week engagement that takes you from stuck on your next move to clear, with a position, an offer, a brand, a way to reach people, and a plan you can run. Whether that means building the first version or fixing the version you already have.
                 </p>
                 <p className="font-serif italic text-lg md:text-xl" style={{ color: BRAND }}>
-                  This is not therapy. It is not generic life coaching. It is strategic coaching from a senior practitioner who has built businesses, advised global brands, and rebuilt herself from burnout. You bring the situation. I bring the framework, the questions, and the plan.
+                  This is not a course. It is not generic business coaching. It is senior strategy, one to one, from someone who has built businesses and brands at the top end.
+                </p>
+                <p className="text-base md:text-lg leading-relaxed text-muted-foreground mt-6">
+                  You bring the business. I bring the plan.
                 </p>
               </motion.div>
 
-              <motion.p {...fadeUp(0.1)} className="text-center text-[14px] text-muted-foreground mb-16 max-w-2xl mx-auto">
-                Over four weeks, we work through The A.L.I.V.E. Method together. One stage per week. Each week builds on the last, so by the end you are not just clearer on what you want. You have a plan to actually go and get it.
-              </motion.p>
+              <motion.div {...fadeUp(0.1)} className="text-center text-[14px] text-muted-foreground mb-16 max-w-2xl mx-auto space-y-4">
+                <p>We meet four times across the six weeks, an hour at a time. In each session I do the senior thinking with you, the positioning calls, the offer and pricing decisions, the strategy that usually takes years and expensive mistakes to work out alone. You leave each one knowing exactly what your next move is and why.</p>
+                <p>By the end you do not have a folder of advice. You have a positioned business, a clear offer, a way to reach the right people, and a 90-day plan you are already running. The workbook keeps it structured between sessions, and I am on Voxer whenever you want a steer.</p>
+                <p>And because we build it on your actual business, it is genuinely yours. You walk out with the thing built and the ability to keep building it, not a dependency on me or anyone else. It runs on my A.L.I.V.E. Method underneath.</p>
+              </motion.div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
                 {weeks.map((item, i) => (

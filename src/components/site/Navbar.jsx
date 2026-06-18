@@ -45,7 +45,7 @@ export default function Navbar() {
           <div
             className="relative"
             onMouseEnter={() => setCoachingOpen(true)}
-            onMouseLeave={() => setCoachingOpen(false)}
+            onMouseLeave={() => setTimeout(() => setCoachingOpen(false), 150)}
           >
             <button
               className={`flex items-center gap-1 text-[11px] tracking-editorial uppercase transition-colors duration-300 ${isCoachingActive ? "text-oxblood" : "text-foreground/80 hover:text-oxblood"}`}

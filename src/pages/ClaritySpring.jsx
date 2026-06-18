@@ -18,36 +18,36 @@ const fadeUp = (delay = 0) => ({
 
 const weeks = [
   {
-    letter: "A",
-    week: "WEEK 1",
-    label: "AWARENESS",
-    sub: "Where are you actually, and what is really going on?",
-    body: "Most women skip this step. They jump straight to action because action feels productive. But action without awareness is how you end up exhausted and going nowhere.\n\nIn our first 60-minute call, we go beneath the surface. We map where you are right now across the areas that matter. Career, business, energy, relationships, identity. We name the patterns. We name the cost of staying where you are. And we get honest about what you have been avoiding.",
-    leave: "a clear, written diagnostic of your current state and the specific misalignments that are keeping you stuck.",
+    letter: "1",
+    week: "SESSION 1",
+    label: "POSITION",
+    sub: "What you are really building, and who it is for.",
+    body: "The gap only you can own, and the message that makes you the obvious choice. If you are established, we pressure-test a position that may have gone fuzzy.",
+    leave: "a written positioning and opportunity diagnostic.",
   },
   {
-    letter: "L",
-    week: "WEEK 2",
-    label: "LIBERATION",
-    sub: "What is in your way, and how do we move it?",
-    body: "Now we work on what is holding you back. The beliefs you inherited. The patterns you keep repeating. The \"shoulds\" you have never questioned. The fears dressed up as practicality.\n\nIn our second 60-minute call, we use NLP and strategic questioning to surface and dismantle the specific blocks keeping you stuck. This is not a vague mindset session. We name the block, we work it, and you leave the call lighter and clearer.",
-    leave: "a written list of the specific blocks we worked on, plus the reframes and tools to manage them when they show up again.",
+    letter: "2",
+    week: "SESSION 2",
+    label: "OFFER AND MODEL",
+    sub: "How it actually makes money, and where it is leaking.",
+    body: "Your core offer, your pricing, where the revenue comes from. If you are starting, we build the model. If you are established, we find the money you are leaving on the table.",
+    leave: "your offer and revenue model on a page.",
   },
   {
-    letter: "I",
-    week: "WEEK 3",
-    label: "INTENTIONAL ACTION",
-    sub: "What do you actually want, and what is the plan to get there?",
-    body: "This is the strategy week. By now you are clearer on where you are and what has been in the way. So we build the plan.\n\nIn our third 60-minute call, we get specific about what you want next. Not the vague \"more freedom\" or \"more impact\" version. The concrete version. Then we reverse-engineer it. We map the priorities, the milestones, and the first 30 days of action.",
-    leave: "a written 30-day action plan with prioritised next steps, calibrated to your actual capacity.",
+    letter: "3",
+    week: "SESSION 3",
+    label: "BRAND AND MARKET",
+    sub: "Why people choose you, and how they find you.",
+    body: "We sharpen the story and the way you show up, then build how you reach your people, on terms you can live with.",
+    leave: "your brand and messaging direction, and a go-to-market plan built around you.",
   },
   {
-    letter: "V",
-    week: "WEEK 4",
-    label: "VISION + EMBODIMENT",
-    sub: "Who do you need to become, and how do you hold this once I am gone?",
-    body: "The final week is the longest call (90 minutes) because it does the most work. We zoom out to the bigger vision. We anchor the plan inside who you are becoming, not just what you are doing. And we install the practices that will keep you on track when life gets loud again.",
-    leave: "a written vision document, your personal alignment practices, and the structure to hold all of this without me in your inbox.",
+    letter: "4",
+    week: "SESSION 4",
+    label: "ENGINE AND PLAN",
+    sub: "How it grows without consuming you, and what you do next.",
+    body: "What to systemise, simplify, or hand off, then everything pulled into a sequenced 90-day plan.",
+    leave: "a simple operating model, and a written 90-day growth plan you can run without me.",
   },
 ];
 
@@ -443,7 +443,7 @@ export default function ClaritySpring() {
               </div>
 
               <motion.p {...fadeUp(0.3)} className="text-center font-serif italic text-2xl md:text-3xl mt-16" style={{ color: BRAND }}>
-                Four weeks. Four calls. One clear path forward.
+                Six weeks. Four sessions. One plan you can run.
               </motion.p>
             </div>
           </section>

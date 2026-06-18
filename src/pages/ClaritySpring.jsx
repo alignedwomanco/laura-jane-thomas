@@ -534,7 +534,7 @@ export default function ClaritySpring() {
             <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-4">
               Is this the right offer for you?
             </h2>
-            <p className="text-ivory/70 text-[15px]">The Clarity Sprint is built for a specific kind of woman. Read these honestly.</p>
+
           </motion.div>
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-16">
             <motion.div {...fadeUp(0.1)} className="rounded-lg p-8 md:p-12" style={{ backgroundColor: "hsla(36, 33%, 94%, 0.92)" }}>

@@ -371,18 +371,13 @@ export default function ClaritySpring() {
               className="space-y-5"
             >
               <h2 className="font-serif text-4xl md:text-5xl leading-[0.95] tracking-tight" style={{ color: "#1A1A1A" }}>
-                I know what stuck feels like.{" "}
-                <span className="italic" style={{ color: BRAND }}>I lived it.</span>
+                I have built <span className="italic" style={{ color: BRAND }}>the real thing.</span>
               </h2>
-              <p className="text-muted-foreground text-[14px] leading-relaxed">At 33, I was on top of the world. I had built and run a successful marketing agency for over a decade. I was consulting for global brands, travelling internationally, chairing organisations, and hitting goals I once thought were impossible.</p>
-              <p className="text-muted-foreground text-[14px] leading-relaxed">By 36, I was in full-blown burnout.</p>
-              <p className="text-muted-foreground text-[14px] leading-relaxed">Hormones depleted. Cortisol through the floor. My nervous system was constantly on alert. My doctor could not understand how I was still functioning.</p>
-              <p className="text-muted-foreground text-[14px] leading-relaxed">On paper, I was thriving. <span className="font-serif italic" style={{ color: BRAND }}>Behind the scenes, my exhausted was exhausted.</span></p>
-              <p className="text-muted-foreground text-[14px] leading-relaxed">So I shut everything down. I spent a year and thousands of rands on doctors, therapists, functional medicine specialists, and nervous system work. And I rebuilt. Not just my health, but my entire understanding of what it means to succeed without self-destructing.</p>
-              <p className="text-muted-foreground text-[14px] leading-relaxed">That journey became The Aligned Woman Co. and The A.L.I.V.E. Method.</p>
-              <p className="text-muted-foreground text-[14px] leading-relaxed">But before all of that? I was exactly where you are right now. Stuck. Overwhelmed. Knowing something had to change but unable to see the path.</p>
-              <p className="text-foreground text-[14px] leading-relaxed font-medium">I am Laura Jane Thomas. Senior strategist. Former agency owner. Brand advisor. Speaker. And someone who had to learn the hard way that willpower alone will eventually break you.</p>
-              <p className="text-muted-foreground text-[14px] leading-relaxed">Now I help women like you find clarity, build a real plan, and move forward, <span className="font-serif italic" style={{ color: BRAND }}>without burning out in the process.</span></p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">Before I advised anyone, I built and ran my own marketing agency for over a decade and led brand and marketing work for some of the biggest names in the market.</p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">I have built a business from nothing, and I have been the strategist brought in to fix and grow ones that were already established. I have sat on both sides of the problem you are bringing me.</p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">So when we work on your positioning, your offer, and your plan, you are not getting theory or a borrowed framework off the internet. You are getting someone who has made these exact decisions with real money on the line, many times over.</p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">I also learned the hard way what it costs to build something while running yourself into the ground. After a decade at full tilt, my body called it. I rebuilt, and I changed how I work and how I help the people I work with. So we get the business right, the position, the offer, the plan, and we do it in a way you can actually sustain.</p>
+              <p className="text-foreground text-[14px] leading-relaxed font-medium font-serif italic" style={{ color: BRAND }}>That is the difference. Operator experience, without the burnout most business advice runs on.</p>
             </motion.div>
           </div>
         </div>

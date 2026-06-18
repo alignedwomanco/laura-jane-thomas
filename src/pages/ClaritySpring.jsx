@@ -52,17 +52,15 @@ const weeks = [
 ];
 
 const coreItems = [
-  { title: "4 Strategic Coaching Calls", value: "R20,000", desc: "Three 60-minute sessions plus one 90-minute final session with me directly. Conducted online, scheduled around your real life. Recorded so you can revisit them." },
-  { title: "The A.L.I.V.E. Method Workbook", value: "R3,500", desc: "A structured 40-page workbook that runs alongside the four weeks. Pre-call prompts to make our time together sharper, post-call exercises to embed what we work on." },
-  { title: "Written Diagnostic and 30-Day Action Plan", value: "R7,500", desc: "At the end of Week 1, a written diagnostic of your current state. At the end of Week 3, a written 30-day action plan calibrated to your actual capacity. These are working documents you keep, not session notes." },
-  { title: "Voxer Access Between Sessions", value: "R5,000", desc: "Voice and text support between our weekly calls, Monday to Friday. For the moments you need a sounding board, a reframe, or a steady voice before you make a decision." },
-  { title: "Vision and Alignment Document", value: "R4,000", desc: "At the close of Week 4, a written vision document anchoring the work we have done and the practices that will keep you on track once the engagement ends." },
+  { title: "4 Strategic Sessions", value: "R20,000", desc: "Four one-hour sessions with me directly, across the six weeks. Online, recorded so you can revisit them." },
+  { title: "Your Written Strategy Documents", value: "R32,000", desc: "Your positioning diagnostic, offer and revenue model, brand and messaging direction, and go-to-market plan, written up as working documents you keep." },
+  { title: "Voxer Access Between Sessions", value: "R7,500", desc: "Voice and text support between sessions, Monday to Friday, for all six weeks." },
+  { title: "90-Day Growth Plan", value: "R5,000", desc: "A written 90-day growth plan and the rhythm to run it, so you keep moving after the six weeks." },
 ];
 
 const bonuses = [
-  { title: "Tailored Resource Pack", value: "R3,500", desc: "Curated reading, exercises, and frameworks pulled from fifteen years of practice and matched to what you are actually working on. No generic resource library. The right tools for your situation." },
-  { title: "30-Day Recalibration Call", value: "R3,500", desc: "Thirty days after the engagement ends, a 30-minute call to review progress and recalibrate if needed. Most coaches end the relationship at the close. I do not. This call is built in." },
-  { title: "The Aligned Woman Blueprint", value: "R116,000", desc: "One full year of access to The Aligned Woman Blueprint, the complete course built on The A.L.I.V.E. Method. The methodology, the practices, the full toolkit, every module, every resource. A year to use, integrate, and apply long after the Clarity Sprint ends." },
+  { title: "30-Day Recalibration Call", value: "R5,000", desc: "A call thirty days after we finish, to check traction and adjust." },
+  { title: "The Aligned Blueprint", value: "R116,000", desc: "One full year of access to the complete course built on my A.L.I.V.E. Method, so the way you build is something you can keep up." },
 ];
 
 const objections = [
@@ -465,7 +463,7 @@ export default function ClaritySpring() {
                 <p className="text-[10px] tracking-editorial uppercase mb-6 font-semibold" style={{ color: BRAND }}>The Core Engagement</p>
               </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-px mb-4" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-px mb-4" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
                 {coreItems.map((item, i) => (
                   <motion.div key={i} {...fadeUp(i * 0.06)} className="p-6 md:p-8" style={{ backgroundColor: "rgba(245,238,228,0.97)" }}>
                     <div className="flex items-start justify-between mb-3">
@@ -481,7 +479,7 @@ export default function ClaritySpring() {
                 <p className="text-[10px] tracking-editorial uppercase font-semibold" style={{ color: BRAND }}>Plus These Bonuses</p>
               </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-px mb-16" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-16" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
                 {bonuses.map((item, i) => (
                   <motion.div key={i} {...fadeUp(i * 0.08)} className="p-6 md:p-8 relative" style={{ backgroundColor: "rgba(38,3,15,0.95)" }}>
                     <span className="inline-block mb-4 px-3 py-1 text-[9px] tracking-editorial uppercase font-bold border border-white/30 text-white/70">BONUS {i + 1}</span>
@@ -495,17 +493,16 @@ export default function ClaritySpring() {
               {/* Total */}
               <motion.div {...fadeUp(0.2)} className="border border-foreground/20 p-8 md:p-12 text-center max-w-2xl mx-auto mb-10" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
                 <p className="text-[14px] text-muted-foreground mb-2">If you booked each element separately at standard rates:</p>
-                <p className="font-serif text-4xl font-bold mb-4 line-through text-muted-foreground">R163,000</p>
-                <p className="text-[14px] text-muted-foreground mb-6">The Clarity Sprint is calibrated for women earlier in their journey, at</p>
-                <p className="font-serif text-6xl md:text-7xl font-bold mb-6" style={{ color: BRAND }}>R12,500</p>
+                <p className="font-serif text-4xl font-bold mb-4 line-through text-muted-foreground">R185,500</p>
+                <p className="text-[14px] text-muted-foreground mb-6">The Business Sprint is a defined six-week engagement, at</p>
+                <p className="font-serif text-6xl md:text-7xl font-bold mb-6" style={{ color: BRAND }}>R25,000</p>
                 <p className="font-serif italic text-[14px] mb-8" style={{ color: BRAND }}>
-                  That is not a discount. It is a calibrated rate, because building businesses with women starting out is where I actually love spending my time. The Aligned Woman Blueprint is included because the work continues long after the four weeks end, and I want every woman who sprints with me to have a full year of access to the methodology that built it.
+                  That is not a discount. It is a calibrated rate, because this is focused, six-week work rather than an ongoing retainer, and because doing this work with founders on their own businesses is what I love most.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <BookBtn />
                   <DiscoveryBtn />
                 </div>
-                <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-4">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
+                <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-4">Limited to 3 places per month. Online only. Starts within 7 days of booking.</p>
               </motion.div>
             </div>
           </section>

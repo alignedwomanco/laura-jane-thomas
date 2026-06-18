@@ -259,6 +259,19 @@ export default function FractionalCMO() {
               </a>
             </div>
           </div>
+
+          <div className="mt-14 pt-10 border-t border-ivory/20 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <p className="text-ivory/60 text-[14px] font-sans">
+              Not sure where to start? Take a quick quiz to find your fit.
+            </p>
+            <button
+              onClick={() => setQuizOpen(true)}
+              className="inline-flex items-center gap-3 border border-ivory/50 text-ivory px-7 py-3.5 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-foreground transition-all duration-300 group self-start sm:self-auto"
+            >
+              Find Your Fit
+              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </button>
+          </div>
         </div>
       </section>
 

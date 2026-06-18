@@ -612,17 +612,14 @@ export default function ClaritySpring() {
             This is the moment.
           </h2>
           <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground mb-12 text-left max-w-2xl mx-auto">
-            <p>You have read the page. You know what is being offered. You know what it costs. You know what you would walk away with at the end of four weeks.</p>
-            <p>The only question left is whether you are ready.</p>
-            <p>You click the button below. You complete a short intake form so I understand where you are starting from. I review it within 48 hours. We schedule your first call within 7 days of confirmation.</p>
-            <p>Four weeks later, you have a written diagnostic, a 30-day action plan, a vision document, and a year of access to The Aligned Woman Blueprint to keep the work alive.</p>
+            <p>You have read the page. You know what is being offered, what it costs, and what you walk away with after six weeks. The only question left is whether you are ready.</p>
             <p className="font-serif italic" style={{ color: BRAND }}>You do not have to be certain. You only have to be ready to begin.</p>
           </div>
 
-          <div className="grid gap-8 mb-12 text-left max-w-lg mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 mb-12 text-left max-w-2xl mx-auto">
             <div className="border border-foreground/20 p-8" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
-              <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Book a discovery call.</p>
-              <p className="text-[13px] text-muted-foreground mb-6">You want to hear my voice and ask a few questions before committing. Book a complimentary 20-minute call. No coaching, no pressure. A fit conversation only.</p>
+              <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Book directly.</p>
+              <p className="text-[13px] text-muted-foreground mb-6">Complete a short intake so I understand where you are starting from. I review it within 48 hours and we schedule your first session within 7 days.</p>
               <a
                 href="https://calendly.com/hello-laurajanethomas/30min"
                 target="_blank"
@@ -630,7 +627,19 @@ export default function ClaritySpring() {
                 className="inline-flex items-center justify-center w-full gap-3 px-8 py-4 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold text-ivory transition-all duration-300 btn-pulse"
                 style={{ backgroundColor: "#C2858B" }}
               >
-                Book a Discovery Call
+                Book Now →
+              </a>
+            </div>
+            <div className="border border-foreground/20 p-8" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
+              <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Book a discovery call.</p>
+              <p className="text-[13px] text-muted-foreground mb-6">Hear my voice and ask a few questions first. A complimentary 20-minute call. No pitch. A fit conversation only.</p>
+              <a
+                href="https://calendly.com/hello-laurajanethomas/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full gap-3 px-8 py-4 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold border border-foreground/30 text-foreground hover:bg-foreground hover:text-ivory transition-all duration-300"
+              >
+                Book a Discovery Call →
               </a>
             </div>
           </div>
@@ -638,18 +647,18 @@ export default function ClaritySpring() {
           <div className="border-t border-foreground/15 pt-8 text-left max-w-xl mx-auto">
             <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-3 font-semibold">The Practical Details</p>
             <ul className="space-y-1 text-[13px] text-muted-foreground">
-              <li>Three women per month. No exceptions, no overflow.</li>
-              <li>Online sessions, scheduled around your real life.</li>
+              <li>Three places per month. No exceptions, no overflow.</li>
+              <li>Four one-hour sessions across six weeks.</li>
+              <li>Online, scheduled around your real life.</li>
               <li>Starts within 7 days of booking confirmation.</li>
-              <li>R12,500, payable in full at booking. Payment in 2 instalments available on request.</li>
+              <li>R25,000, payable in full at booking. Payment plans available on request.</li>
             </ul>
           </div>
           <p className="text-[12px] text-muted-foreground mt-6">
-            Or if you are not yet ready for either option,{" "}
+            Not ready for either option yet?{" "}
             <a href="https://alignedwomanco.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-oxblood transition-colors">
-              explore my free resources at The Aligned Woman Co.
-            </a>{" "}
-            instead.
+              Explore my free resources instead.
+            </a>
           </p>
         </motion.div>
       </section>

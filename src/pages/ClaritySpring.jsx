@@ -629,16 +629,7 @@ export default function ClaritySpring() {
             </div>
           </div>
 
-          <div className="border-t border-foreground/15 pt-8 text-left max-w-xl mx-auto">
-            <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-3 font-semibold">The Practical Details</p>
-            <ul className="space-y-1 text-[13px] text-muted-foreground">
-              <li>Three places per month. No exceptions, no overflow.</li>
-              <li>Four one-hour sessions across six weeks.</li>
-              <li>Online, scheduled around your real life.</li>
-              <li>Starts within 7 days of booking confirmation.</li>
-              <li>R25,000, payable in full at booking. Payment plans available on request.</li>
-            </ul>
-          </div>
+
           <p className="text-[12px] text-muted-foreground mt-6">
             Not ready for either option yet?{" "}
             <a href="https://alignedwomanco.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-oxblood transition-colors">

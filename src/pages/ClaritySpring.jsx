@@ -290,7 +290,7 @@ export default function ClaritySpring() {
           className="relative z-10 max-w-4xl mx-auto"
         >
           <p className="text-[10px] tracking-editorial uppercase text-white/50 mb-8">
-            A limited engagement for women starting out, building, or repositioning what's next.
+            A limited engagement for anyone starting, growing, or repositioning a business.
           </p>
           <h1 className="font-serif text-white leading-[1.0] tracking-tight mb-8" style={{ fontSize: "clamp(2.4rem, 6vw, 6.5rem)" }}>
             <span className="block">You don't need another</span>
@@ -298,16 +298,15 @@ export default function ClaritySpring() {
             <span className="block font-serif italic" style={{ color: "rgba(255,200,180,0.85)" }}>You need a plan.</span>
           </h1>
           <p className="text-white/75 text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            4 weeks. 4 strategic coaching calls. 1 clear direction forward, so you can stop spinning and start moving.
+            Six weeks. Four strategic sessions. One clear plan to build a business that actually works, with a senior brain to guide you.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <BookBtn dark />
             <DiscoveryBtn />
           </div>
-          <div className="mt-8 max-w-xl mx-auto space-y-1">
-            <p className="text-white/55 text-[13px] md:text-[15px] tracking-wide">Limited to 3 women per month. Online only. Starts within 7 days of booking.</p>
+          <div className="mt-8 max-w-xl mx-auto space-y-2">
+            <p className="text-white/55 text-[13px] md:text-[15px] tracking-wide">Limited to 3 places per month. Online. Starts within 7 days of booking.</p>
             <p className="font-serif italic text-[13px] md:text-[15px]" style={{ color: "rgba(255,200,180,0.70)" }}>
-              Usually I work at senior advisory rates. The Clarity Sprint is calibrated for women earlier in their journey, because that is where I actually love spending my time.
+              Usually I work at fractional CMO and advisory rates. The Business Sprint is a defined six-week engagement, calibrated below those rates, because doing this work with founders on their own businesses is what I love most.
             </p>
           </div>
         </motion.div>

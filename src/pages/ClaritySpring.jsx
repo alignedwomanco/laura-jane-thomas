@@ -543,13 +543,12 @@ export default function ClaritySpring() {
               <p className="text-[10px] tracking-editorial uppercase font-bold text-foreground mb-8">This is for you if:</p>
               <ul className="space-y-5">
                 {[
-                  "You are starting out, building, or repositioning what's next, and you need clarity on what to actually do.",
-                  "You have done some of the inner work already (therapy, journaling, books) and the work has stopped producing new insight without structure to act on.",
-                  "You are a high-functioning woman who looks fine on paper and knows something underneath is not working.",
-                  "You have tried coaching that did not stick, and you are willing to try a different format that is structured, time-bound, and produces written outputs.",
-                  "You can commit to four 60 to 90 minute sessions over four weeks plus 20 minutes of weekly workbook reflection.",
-                  "You want senior strategic clarity, not motivational support.",
-                  "You are ready to make decisions and follow through, not just talk about possibilities.",
+                  "You are starting, growing, or repositioning a business, and you need clarity on the actual next move.",
+                  "You are capable and have done hard things, and what you are missing is the plan, not the drive.",
+                  "You have an idea you cannot seem to start, or an established business that has stalled, plateaued, or lost its edge.",
+                  "You want to stay hands-on and own the result, with a senior brain guiding the calls, rather than handing it over and hoping.",
+                  "You want senior strategy from someone who has built the thing, not motivation.",
+                  "You can commit to four one-hour sessions over six weeks, plus the work in between.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND }} />
@@ -562,12 +561,11 @@ export default function ClaritySpring() {
               <p className="text-[10px] tracking-editorial uppercase font-bold text-foreground mb-8">This is not for you if:</p>
               <ul className="space-y-5">
                 {[
-                  "You are looking for a hype coach who will tell you everything you want to hear.",
-                  "You are in the middle of an active mental health crisis. The Clarity Sprint is strategic coaching, not therapy. If you need clinical support, the right move is to find a therapist or psychologist before doing this work.",
-                  "You want unlimited access to me at this price point. The Voxer support inside the Clarity Sprint is meaningful but it is not 24/7 advisory. Senior advisory is a separate engagement.",
-                  "You want to be told what to do without having to participate in finding the answers. This work is collaborative. I bring the framework, you bring the situation, we build the plan together.",
-                  "You are not yet ready to make changes in your life. If you book this hoping it will move you when you are not ready to be moved, the work will not produce what you are paying for.",
-                  "You are looking for the cheapest version of senior coaching. The Clarity Sprint is calibrated, not discounted. If price is your primary filter, this is not the right offer.",
+                  "You want it fully done for you while you step back. This is collaborative. I bring the senior thinking, you bring your business, and you own what we build.",
+                  "You want reassurance more than the truth. I will tell you when something needs work.",
+                  "You are looking for the cheapest business coaching on the internet. This is calibrated, not discounted.",
+                  "You are not actually ready to act.",
+                  "You need clinical or mental health support right now. This is business strategy, not therapy. If that is what you need, the right move is to get it first.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <X className="w-5 h-5 flex-shrink-0 mt-0.5 text-foreground/60" />

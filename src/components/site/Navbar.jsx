@@ -13,7 +13,7 @@ const links = [
 
 
 const coachingDropdown = [
-  { label: "Full Coaching Suite", to: "/services" },
+  { label: "Coaching", to: "/services" },
   { label: "The Clarity Sprint", to: "/businesssprint" },
 ];
 

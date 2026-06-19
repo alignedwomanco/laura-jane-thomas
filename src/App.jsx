@@ -12,6 +12,7 @@ import Consulting from './pages/Consulting';
 import Speaking from './pages/Speaking';
 import ResetRoom from './pages/ResetRoom';
 import Contact from './pages/Contact';
+import ContactSuccess from './pages/ContactSuccess';
 import Questionnaire from './pages/Questionnaire';
 import StrategyReport from './pages/StrategyReport.jsx';
 import Submissions from './pages/Submissions.jsx';
@@ -71,6 +72,7 @@ const AuthenticatedApp = () => {
       <Route path="/businesssprint" element={<ClaritySpring />} />
       <Route path="/businesssprint-intake" element={<ClaritySprintIntake />} />
       <Route path="/contact" element={<PublicOnlyRoute><Contact /></PublicOnlyRoute>} />
+      <Route path="/contact/success" element={<PublicOnlyRoute><ContactSuccess /></PublicOnlyRoute>} />
       <Route path="/submissions" element={<PublicOnlyRoute><Submissions /></PublicOnlyRoute>} />
       <Route path="/quiz" element={<Quiz />} />
       <Route path="/quiz-admin" element={<QuizAdmin />} />

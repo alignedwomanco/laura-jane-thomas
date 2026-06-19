@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
@@ -39,8 +40,8 @@ const textareaClass = `${inputClass} resize-none min-h-[100px]`;
 
 export default function Contact() {
   const [enquiry, setEnquiry] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -71,10 +72,10 @@ export default function Contact() {
       body: `New contact form submission received.\n\nEnquiry type: ${enquiry}\n\n${lines}`,
     });
     setLoading(false);
-    setSubmitted(true);
 
     // Meta Pixel: track Contact event on successful submission
     if (typeof window.fbq === "function") window.fbq("track", "Contact");
+    navigate("/contact/success");
   };
 
   return (
@@ -113,17 +114,7 @@ export default function Contact() {
       {/* Form */}
       <section className="bg-ivory py-24 md:py-36">
         <div className="max-w-[900px] mx-auto px-6 lg:px-12">
-          {submitted ? (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center py-20"
-            >
-              <h2 className="font-serif text-5xl md:text-7xl italic mb-6">Thank you.</h2>
-              <p className="text-lg text-muted-foreground">I'll be in touch soon.</p>
-            </motion.div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-12">
+          <form onSubmit={handleSubmit} className="space-y-12">
               {/* Personal */}
               <div>
                 <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8 border-b border-foreground/15 pb-4">— The Basics</p>
@@ -337,8 +328,8 @@ export default function Contact() {
                 </div>
               )}
             </form>
-          )}
         </div>
+
       </section>
 
       <Footer />

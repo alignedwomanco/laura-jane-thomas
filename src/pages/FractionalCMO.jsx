@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Plus, Minus, X } from "lucide-react";
 import Footer from "@/components/site/Footer";
+import Navbar from "@/components/site/Navbar";
 import ClientsSection from "@/components/shared/ClientsSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import ConsultingFAQ from "@/components/consulting/ConsultingFAQ";
@@ -137,32 +138,7 @@ export default function FractionalCMO() {
   const [smbOfferingOpen, setSmbOfferingOpen] = useState(false);
   return (
     <div className="bg-ivory">
-      {/* Minimal header */}
-      <header className="fixed top-0 inset-x-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-foreground/10">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-          <a href="https://laurajanethomas.biz" target="_blank" rel="noopener noreferrer" className="flex flex-col leading-none hover:opacity-80 transition-opacity duration-300">
-            <span className="font-serif text-xl md:text-2xl tracking-tight text-foreground">
-              laura<span className="italic">jane</span>thomas
-            </span>
-          </a>
-          <div className="flex items-center gap-3">
-            <Link
-              to="/contact"
-              className="hidden sm:inline-flex text-[11px] tracking-editorial uppercase border border-foreground/80 px-4 py-2 hover:bg-foreground hover:text-ivory transition-all duration-300"
-            >
-              Get in touch
-            </Link>
-            <a
-              href="https://calendly.com/hello-laurajanethomas/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[11px] tracking-editorial uppercase bg-foreground text-ivory px-4 py-2 hover:bg-oxblood transition-all duration-300 btn-pulse"
-            >
-              Book a Call →
-            </a>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero */}
       <section className="relative text-ivory pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden min-h-[60vh] flex items-center">

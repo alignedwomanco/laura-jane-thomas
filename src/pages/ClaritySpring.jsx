@@ -473,6 +473,9 @@ export default function ClaritySpring() {
                 <p className="font-serif text-4xl font-bold mb-4 line-through text-muted-foreground">R185,500</p>
                 <p className="text-[14px] text-muted-foreground mb-6">The Business Sprint is a defined six-week engagement, at</p>
                 <p className="font-serif text-6xl md:text-7xl font-bold mb-6" style={{ color: BRAND }}>R24,997</p>
+                <p className="font-serif italic text-[14px] mb-2" style={{ color: BRAND }}>
+                  That is under R4,200 a week, for senior strategy and a plan you keep for good. Less than a single month of most marketing retainers, paid once.
+                </p>
                 <p className="font-serif italic text-[14px] mb-8" style={{ color: BRAND }}>
                   That is not a discount. It is a calibrated rate, because this is focused, six-week work rather than an ongoing retainer, and because doing this work with founders on their own businesses is what I love most.
                 </p>

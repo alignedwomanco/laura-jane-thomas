@@ -313,12 +313,15 @@ export default function ClaritySpring() {
               <p className="text-foreground">Either way, the problem is the same. You are capable. You are not short on drive, you have built and carried things most people would not attempt. What you are missing is a clear next move, and a senior set of eyes on the actual situation.</p>
               <p className="text-foreground">So you research. You take the free course. You ask ChatGPT. You end up with more information and somehow less clarity. <span className="font-serif italic" style={{ color: BRAND }}>(Yes, close the tab.)</span></p>
               <p className="text-foreground text-base md:text-lg leading-relaxed pt-2">
-                Information is not what is missing. A plan is. And someone who has actually built the thing, not just talked about building it, to help you make the calls that only experience can make.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+                  Information is not what is missing. A plan is. And someone who has actually built the thing, not just talked about building it, to help you make the calls that only experience can make.
+                </p>
+              </motion.div>
+              <div className="flex justify-center mt-10">
+              <DiscoveryBtn />
+              </div>
+              </div>
+              </div>
+              </section>
 
       {/* SECTION 3: THE BRIDGE */}
       <section className="relative overflow-hidden bg-ivory" style={{ minHeight: "80vh" }}>

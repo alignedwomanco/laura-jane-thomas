@@ -332,7 +332,7 @@ export default function ClaritySpring() {
               className="aspect-[3/4] overflow-hidden hidden lg:block"
             >
               <img
-                src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/16e609620_Facetune_17-04-2026-20-07-04.jpg"
+                src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/210a58178_LJT.png"
                 alt="Laura Jane Thomas"
                 className="w-full h-full object-cover"
                 style={{ opacity: 0.75 }}

@@ -74,7 +74,7 @@ const objections = [
   },
   {
     q: '"R25,000 is a lot for me right now."',
-    a: "It is a serious investment, calibrated well below advisory or CMO rates. If it is a stretch rather than out of reach, payment plans are available. If it is genuinely out of reach, start with my free resources and come back when the timing is right.",
+    a: "It is a serious investment, calibrated well below advisory or CMO rates. If it is genuinely out of reach, start with my free resources and come back when the timing is right.",
   },
   {
     q: '"I am already flat out. I do not have time for this."',

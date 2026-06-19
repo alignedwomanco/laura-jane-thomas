@@ -15,16 +15,12 @@ const fractionalDropdown = [
   { label: "The Business Sprint", to: "/businesssprint" },
 ];
 
-const coachingDropdown = [
-  { label: "Coaching", to: "/services" },
-];
+
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [mobileCoachingOpen, setMobileCoachingOpen] = useState(false);
   const [mobileFractionalOpen, setMobileFractionalOpen] = useState(false);
   const location = useLocation();
-  const isCoachingActive = location.pathname === "/services";
   const isFractionalActive = location.pathname === "/fractional-cmo" || location.pathname === "/businesssprint";
 
   return (
@@ -96,30 +92,13 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
-              {/* Coaching Dropdown */}
-              <div>
-                <button
-                  onClick={() => setMobileCoachingOpen(!mobileCoachingOpen)}
-                  className={`flex items-center gap-2 text-sm tracking-editorial uppercase w-full ${isCoachingActive ? "text-oxblood" : "text-foreground/80"}`}
-                >
-                  Coaching
-                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${mobileCoachingOpen ? "rotate-180" : ""}`} />
-                </button>
-                {mobileCoachingOpen && (
-                  <div className="mt-3 pl-4 flex flex-col gap-3 border-l border-foreground/15">
-                    {coachingDropdown.map((item) => (
-                      <Link
-                        key={item.label}
-                        to={item.to}
-                        onClick={() => setOpen(false)}
-                        className={`text-xs tracking-editorial uppercase transition-colors ${location.pathname === item.to ? "text-oxblood" : "text-foreground/60"}`}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <Link
+                to="/services"
+                onClick={() => setOpen(false)}
+                className={`text-sm tracking-editorial uppercase transition-colors ${location.pathname === "/services" ? "text-oxblood" : "text-foreground/80 hover:text-oxblood"}`}
+              >
+                Coaching
+              </Link>
               {links.slice(3).map((l) => (
                 <Link
                   key={l.label}

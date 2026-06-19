@@ -12,7 +12,7 @@ const links = [
 
 const coachingDropdown = [
   { label: "Full Coaching Suite", to: "/services" },
-  { label: "The Clarity Sprint", to: "/claritysprint" },
+  { label: "The Clarity Sprint", to: "/businesssprint" },
 ];
 
 export default function Navbar() {
@@ -20,7 +20,7 @@ export default function Navbar() {
   const [coachingOpen, setCoachingOpen] = useState(false);
   const [mobileCoachingOpen, setMobileCoachingOpen] = useState(false);
   const location = useLocation();
-  const isCoachingActive = location.pathname === "/services" || location.pathname === "/claritysprint";
+  const isCoachingActive = location.pathname === "/services" || location.pathname === "/businesssprint";
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-foreground/10">

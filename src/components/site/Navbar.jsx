@@ -5,7 +5,7 @@ import { Menu, X, Linkedin, ChevronDown } from "lucide-react";
 const links = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Consulting", to: "/consulting" },
+  { label: "Consulting", to: "/fractional-cmo" },
   { label: "Speaking", to: "/speaking" },
   { label: "Contact", to: "/contact" },
 ];

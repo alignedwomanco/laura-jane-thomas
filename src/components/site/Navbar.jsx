@@ -11,6 +11,7 @@ const links = [
   { label: "Contact", to: "/contact" },
 ];
 
+
 const coachingDropdown = [
   { label: "Full Coaching Suite", to: "/services" },
   { label: "The Clarity Sprint", to: "/businesssprint" },
@@ -51,7 +52,7 @@ export default function Navbar() {
             className="bg-ivory border-t border-foreground/10"
           >
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-8 flex flex-col gap-5">
-              {links.map((l) => (
+              {links.slice(0, 3).map((l) => (
                 <Link
                   key={l.label}
                   to={l.to}
@@ -61,7 +62,7 @@ export default function Navbar() {
                   {l.label}
                 </Link>
               ))}
-              {/* Coaching Dropdown */}
+              {/* Coaching Dropdown — sits under Consulting */}
               <div>
                 <button
                   onClick={() => setMobileCoachingOpen(!mobileCoachingOpen)}
@@ -85,6 +86,16 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
+              {links.slice(3).map((l) => (
+                <Link
+                  key={l.label}
+                  to={l.to}
+                  onClick={() => setOpen(false)}
+                  className="text-sm tracking-editorial uppercase text-foreground/80 hover:text-oxblood transition-colors"
+                >
+                  {l.label}
+                </Link>
+              ))}
               <div className="flex items-center gap-6 pt-2 border-t border-foreground/10 mt-2">
                 <a
                   href="https://www.linkedin.com/in/ljthomas/"

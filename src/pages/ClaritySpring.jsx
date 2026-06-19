@@ -458,7 +458,7 @@ export default function ClaritySpring() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-16" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
                 {bonuses.map((item, i) => (
-                  <motion.div key={i} {...fadeUp(i * 0.08)} className="p-6 md:p-8 relative" style={{ backgroundColor: "rgba(38,3,15,0.95)" }}>
+                  <motion.div key={i} {...fadeUp(i * 0.08)} className={`p-6 md:p-8 relative ${i === 1 ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''}`} style={{ backgroundColor: "rgba(38,3,15,0.95)" }} onClick={i === 1 ? () => window.open('https://www.alignedwomanco.com/blueprint', '_blank') : undefined}>
                     <span className="inline-block mb-4 px-3 py-1 text-[9px] tracking-editorial uppercase font-bold border border-white/30 text-white/70">BONUS {i + 1}</span>
                     <p className="font-serif font-bold text-sm md:text-base mb-2 text-white">{item.title}</p>
                     <p className="text-[10px] tracking-editorial uppercase mb-3 line-through text-white/40">Value: {item.value}</p>

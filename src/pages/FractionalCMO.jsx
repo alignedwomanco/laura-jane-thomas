@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, X } from "lucide-react";
 import Footer from "@/components/site/Footer";
 import ClientsSection from "@/components/shared/ClientsSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
@@ -47,8 +47,51 @@ const smbOffering = [
   { title: "Custom Growth Playbook", body: "A written plan your team can run after the engagement ends. Strategy, brand direction, content plan, and priority actions, sequenced and named. Built to be referenced quarterly and to survive the team changes that small businesses go through as they grow." },
 ];
 
+function CorporateOfferingModal({ open, onClose }) {
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-6"
+          onClick={onClose}
+        >
+          <div className="absolute inset-0 bg-black/70" />
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto bg-ivory"
+            style={{ backgroundColor: '#26030F' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="sticky top-0 flex items-center justify-between px-6 sm:px-10 py-5 border-b border-ivory/15" style={{ backgroundColor: '#26030F' }}>
+              <p className="text-[10px] tracking-editorial uppercase text-ivory/50">— The Offering</p>
+              <button onClick={onClose} className="text-ivory/60 hover:text-ivory transition-colors">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="px-6 sm:px-10 py-8 space-y-8">
+              {corporateOffering.map((item) => (
+                <div key={item.title}>
+                  <h3 className="font-serif text-lg text-ivory mb-2">{item.title}</h3>
+                  <p className="text-[14px] text-ivory/65 leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export default function FractionalCMO() {
   const [quizOpen, setQuizOpen] = useState(false);
+  const [offeringOpen, setOfferingOpen] = useState(false);
   return (
     <div className="bg-ivory">
       {/* Minimal header */}
@@ -245,7 +288,13 @@ export default function FractionalCMO() {
                   </li>
                 ))}
               </ul>
-              <p className="text-[13px] text-ivory/50 italic mb-6">A senior partner who names what is actually wrong and equips your team to fix it without dismantling what already works.</p>
+              <p className="text-[13px] text-ivory/50 italic mb-4">A senior partner who names what is actually wrong and equips your team to fix it without dismantling what already works.</p>
+              <button
+                onClick={() => setOfferingOpen(true)}
+                className="inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase text-ivory/60 hover:text-ivory transition-colors mb-6 underline underline-offset-4"
+              >
+                Read the detail →
+              </button>
               <a
                 href="https://calendly.com/hello-laurajanethomas/30min"
                 target="_blank"
@@ -335,6 +384,7 @@ export default function FractionalCMO() {
 
       <Footer ctaLabel="Send me an email" ctaHref="mailto:hello@laurajanethomas.biz" />
       <FindYourFitModal open={quizOpen} onClose={() => setQuizOpen(false)} />
+      <CorporateOfferingModal open={offeringOpen} onClose={() => setOfferingOpen(false)} />
     </div>
   );
 }

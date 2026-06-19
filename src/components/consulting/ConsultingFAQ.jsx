@@ -125,14 +125,14 @@ export default function ConsultingFAQ() {
         >
           — Frequently Asked Questions
         </motion.p>
-        <div className="grid lg:grid-cols-[1fr_2fr] gap-16 items-start">
+        <div className="grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-serif text-5xl md:text-6xl leading-[0.95] tracking-tight">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight">
               What you<br />want to <span className="italic">know</span>
             </h2>
           </motion.div>

@@ -94,14 +94,14 @@ export default function Contact() {
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="font-serif leading-[0.92] tracking-tight"
           >
-            <span className="block text-[14vw] md:text-[10vw] lg:text-[8vw] font-medium">Let's build</span>
-            <span className="block text-[10vw] md:text-[7.5vw] lg:text-[6.5vw] italic font-normal">something real</span>
+            <span className="block text-[11vw] md:text-[10vw] lg:text-[8vw] font-medium">Let's build</span>
+            <span className="block text-[9vw] md:text-[7.5vw] lg:text-[6.5vw] italic font-normal">something real</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3 }}
-            className="mt-10 text-xl text-ivory/75 max-w-2xl leading-relaxed"
+            className="mt-8 text-base md:text-xl text-ivory/75 max-w-2xl leading-relaxed"
           >
             Whether you are here to evolve your business, elevate your brand, or step into your next chapter, this is where it begins. Every collaboration starts with a conversation.
           </motion.p>

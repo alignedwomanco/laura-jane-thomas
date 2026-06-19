@@ -35,7 +35,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-              className="font-serif text-[18vw] md:text-[12vw] lg:text-[9vw] leading-[0.9] tracking-tight pb-12">
+              className="font-serif text-[13vw] md:text-[12vw] lg:text-[9vw] leading-[0.9] tracking-tight pb-8 md:pb-12">
               
               get to <span className="italic block">know me</span>
             </motion.h1>
@@ -104,12 +104,12 @@ export default function About() {
       {/* Why work with me */}
       <section className="bg-oxblood text-ivory py-24 md:py-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="order-2 lg:order-1">
               <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-8">— Why work with me</p>
-              <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-8">
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl leading-[0.92] tracking-tight mb-8">
                 why work <span className="italic block">with me</span>
-              </h2>
+            </h2>
               <p className="text-ivory/80 text-lg leading-relaxed mb-6">
                 Fifteen years. Multi-seven-figure agency founder. 500+ brands across luxury, wellness, tech, and lifestyle. Former Chair of the 30 Percent Club. Featured in Forbes, TechCrunch, Glamour, Business Day, and The Times.
               </p>
@@ -127,7 +127,7 @@ export default function About() {
                 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
               </Link>
             </div>
-            <div className="aspect-[4/5] overflow-hidden">
+            <div className="aspect-[4/5] overflow-hidden order-1 lg:order-2">
               <img
                 src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/44ad00c70_LJT_17-04-2026-21-30-39.jpg"
                 alt="Why work with Laura"

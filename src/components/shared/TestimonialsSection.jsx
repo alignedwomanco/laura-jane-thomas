@@ -137,8 +137,7 @@ export default function TestimonialsSection({ dark = false }) {
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-3 gap-8 md:gap-12 pb-4 md:pb-0 flex-1 px-4">
-            <div className="hidden md:contents"></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 flex-1">
             {visibleTestimonials.map((testimonial, idx) => (
             <motion.div
               key={idx}
@@ -146,7 +145,7 @@ export default function TestimonialsSection({ dark = false }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: idx * 0.1 }}
-              className="text-center flex-shrink-0 w-full md:w-auto"
+              className="text-center w-full"
             >
               <h3 className="font-serif font-bold text-lg md:text-3xl leading-[1.05] tracking-tight uppercase mb-6">
                 {testimonial.headline}

@@ -44,9 +44,9 @@ export default function MeetLaura() {
             transition={{ duration: 1, delay: 0.15 }}
             className="lg:col-span-7"
           >
-            <h2 className="font-serif leading-[0.9] tracking-tight mb-12">
-              <span className="block text-6xl md:text-8xl lg:text-9xl">Hi,</span>
-              <span className="block text-6xl md:text-8xl lg:text-9xl italic">
+            <h2 className="font-serif leading-[0.9] tracking-tight mb-8 md:mb-12">
+              <span className="block text-5xl md:text-8xl lg:text-9xl">Hi,</span>
+              <span className="block text-5xl md:text-8xl lg:text-9xl italic">
                 I'm laura
               </span>
             </h2>

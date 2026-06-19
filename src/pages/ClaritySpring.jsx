@@ -188,19 +188,19 @@ function SprintCarousel({ testimonials }) {
   }, []);
 
   return (
-    <div className="flex items-center gap-6 md:gap-8">
-      <button onClick={prev} aria-label="Previous" className="flex flex-shrink-0 items-center justify-center hover:text-primary transition-all">
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-3 gap-8 md:gap-12 pb-4 md:pb-0 flex-1">
-        {visible.map((t, i) =>
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: i * 0.1 }}
-          className="text-center flex-shrink-0 w-full md:w-auto">
+    <div className="flex items-center gap-4 md:gap-8">
+    <button onClick={prev} aria-label="Previous" className="flex flex-shrink-0 items-center justify-center hover:text-primary transition-all">
+      <ChevronLeft className="w-5 h-5" />
+    </button>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 flex-1">
+      {visible.map((t, i) =>
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: i * 0.1 }}
+        className="text-center w-full">
           
             <h3 className="font-serif font-bold text-lg md:text-2xl leading-[1.05] tracking-tight uppercase mb-6">
               {t.headline}
@@ -324,7 +324,7 @@ export default function ClaritySpring() {
               </section>
 
       {/* SECTION 3: THE BRIDGE */}
-      <section className="relative overflow-hidden bg-ivory" style={{ minHeight: "80vh" }}>
+      <section className="relative overflow-hidden bg-ivory">
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-16 md:py-36">
           <div className="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <motion.div

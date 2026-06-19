@@ -168,7 +168,7 @@ export default function OfferingsAccordion() {
             <div
               className="offerings-card-header"
               style={{
-                padding: "24px 64px",
+                padding: "20px 24px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
@@ -250,7 +250,7 @@ export default function OfferingsAccordion() {
                 transition: "max-height 400ms cubic-bezier(0.2, 0.6, 0.2, 1), opacity 300ms ease",
               }}
             >
-              <div className="offerings-card-content" style={{ padding: "48px 64px 96px", textAlign: "center" }}>
+              <div className="offerings-card-content" style={{ padding: "32px 24px 64px", textAlign: "center" }}>
                 {/* Subtitle */}
                 <p
                   className="offerings-subtitle"

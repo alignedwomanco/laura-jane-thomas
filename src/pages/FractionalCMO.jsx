@@ -193,13 +193,13 @@ export default function FractionalCMO() {
 
       {/* Intro */}
       <section className="bg-oxblood text-ivory py-24 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
-          <div className="aspect-[4/5] overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="aspect-[4/5] overflow-hidden order-2 lg:order-1">
             <img src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/61b35f8db_Facetune_17-04-2026-20-36-52.jpg" alt="Laura consulting" className="w-full h-full object-cover" />
           </div>
-          <div>
+          <div className="order-1 lg:order-2">
             <p className="text-[10px] tracking-editorial uppercase text-ivory/50 mb-6">— Why me</p>
-            <p className="font-serif text-2xl md:text-3xl lg:text-[32px] leading-[1.3] text-ivory mb-8">
+            <p         className="font-serif text-xl md:text-2xl lg:text-[32px] leading-[1.3] text-ivory mb-8">
               Most fractional CMOs are former marketing managers. I am not.
             </p>
             <p className="text-ivory/70 text-[15px] leading-relaxed mb-5">
@@ -243,7 +243,7 @@ export default function FractionalCMO() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
           <p className="text-[10px] tracking-editorial uppercase text-ivory/50 mb-4">— 6.</p>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4">
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tight max-w-xl text-ivory">
+            <h2           className="font-serif text-2xl md:text-3xl lg:text-5xl leading-[1.1] tracking-tight max-w-xl text-ivory">
               Three ways to work with me
             </h2>
           </div>
@@ -255,7 +255,7 @@ export default function FractionalCMO() {
             and I will point you to the right one.
           </p>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Box 1 */}
             <div className="border border-ivory/20 p-8 flex flex-col" style={{backgroundColor: '#26030F'}}>
               <p className="text-[10px] tracking-editorial uppercase text-ivory/40 mb-4">01</p>
@@ -371,7 +371,7 @@ export default function FractionalCMO() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-8 max-w-3xl mx-auto"
+            className="font-serif text-3xl md:text-5xl lg:text-7xl leading-[1.05] tracking-tight mb-8 max-w-3xl mx-auto"
           >
             Book a call. <span className="italic">15 minutes,</span> no pitch.
           </motion.h2>

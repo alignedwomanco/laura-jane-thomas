@@ -24,7 +24,7 @@ export default function AboutIntro() {
             transition={{ duration: 1 }}
             className="lg:col-span-7"
           >
-            <h2 className="font-serif text-[13vw] md:text-[9vw] lg:text-[6.5vw] leading-[0.9] tracking-tight">
+            <h2             className="font-serif text-[11vw] sm:text-[9vw] md:text-[7vw] lg:text-[6.5vw] leading-[0.95] tracking-tight">
               Most growth strategies fail because something underneath is <span className="italic font-normal">misaligned.</span>
             </h2>
           </motion.div>

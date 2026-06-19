@@ -85,7 +85,7 @@ export default function Speaking() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3 }}
-            className="mt-12 flex gap-5"
+            className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-5 w-full sm:w-auto items-center"
           >
             <Link to="/contact" className="inline-flex items-center gap-3 bg-ivory text-oxblood px-8 py-4 text-[11px] tracking-editorial uppercase hover:bg-ivory/90 transition-all group btn-pulse">
               Book Me →
@@ -126,7 +126,7 @@ export default function Speaking() {
       {/* Speaking Testimonials */}
       <section className="bg-ivory py-24 md:py-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid md:grid-cols-3 gap-12 mb-16">
+          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
             {/* Testimonial 1 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -215,7 +215,7 @@ export default function Speaking() {
           <source src="https://pub-ae72b52a458f4edc81594565a9362d8e.r2.dev/talking%20short.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-oxblood/85" />
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex justify-center relative z-10">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex justify-center relative z-10 py-4">
 
           <div className="text-center max-w-3xl">
             <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-8">— Hi, I'm Laura</p>
@@ -241,7 +241,7 @@ export default function Speaking() {
       {/* Keynote Topics */}
       <section className="bg-ivory pt-24 md:pt-40 pb-24 md:pb-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-20 text-center">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl leading-[0.92] tracking-tight mb-12 md:mb-20 text-center">
             Keynote Topics
           </h2>
           <div className="space-y-4">
@@ -262,16 +262,16 @@ export default function Speaking() {
       {/* Podcast */}
       <section className="bg-oxblood text-ivory py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-8">— The Aligned Woman Podcast</p>
-              <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8">
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[0.92] tracking-tight mb-8">
                 The Aligned Woman Podcast
               </h2>
               <p className="text-ivory/80 text-lg leading-relaxed mb-10">
                 The Aligned Woman Podcast is where ambition meets alignment. Hosted by Laura Thomas, this show brings together extraordinary women to explore leadership, burnout, identity, wealth and joy. These are the conversations women are craving but rarely given space to have.
               </p>
-              <div className="flex justify-center">
+              <div className="flex justify-center lg:justify-start">
                 <a href="https://open.spotify.com/show/0TdHPtBVdT9setqlPZUimi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-ivory/70 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all btn-pulse">
                   Listen on Spotify
                 </a>

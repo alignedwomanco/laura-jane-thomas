@@ -68,7 +68,7 @@ export default function Services() {
           <div
             style={{
               height: "64px",
-              padding: "0 64px",
+              padding: "0 24px",
               display: "flex",
               alignItems: "center",
             }}
@@ -110,7 +110,7 @@ export default function Services() {
                 lineHeight: 0.95,
                 letterSpacing: "-0.02em",
                 marginBottom: "32px",
-                fontSize: "clamp(44px, 7vw, 88px)",
+                fontSize: "clamp(36px, 7vw, 88px)",
               }}
             >
               {s.titleLines.map((line, li) => (

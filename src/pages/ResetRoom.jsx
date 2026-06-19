@@ -173,7 +173,7 @@ export default function ResetRoom() {
             style={{ opacity: 0.45 }}
           />
           {/* Dark gradient overlay — heavier on right so text is readable */}
-          <div className="dark-overlay-mobile absolute inset-0" style={{ background: "linear-gradient(to right, rgba(26,26,26,0.15) 0%, rgba(26,26,26,0.82) 55%, rgba(26,26,26,0.97) 100%)" }} />
+          <div className="dark-overlay-mobile absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0.6) 0%, rgba(26,26,26,0.85) 50%, rgba(26,26,26,0.97) 100%)" }} />
           {/* Grainy texture overlay */}
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`,
@@ -182,7 +182,7 @@ export default function ResetRoom() {
         </div>
 
         {/* Content — centred */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-16 md:py-28 lg:py-44 flex justify-center">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-16 md:py-28 lg:py-44 flex justify-center items-center">
           <div className="w-full max-w-3xl text-center">
             <motion.p
               {...fadeUp(0)}

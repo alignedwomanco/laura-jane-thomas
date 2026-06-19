@@ -13,163 +13,163 @@ const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
-  transition: { duration: 1.0, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 1.0, delay, ease: [0.22, 1, 0.36, 1] }
 });
 
 const weeks = [
-  {
-    letter: "1",
-    week: "SESSION 1",
-    label: "POSITION",
-    sub: "What you are really building, and who it is for.",
-    body: "The gap only you can own, and the message that makes you the obvious choice. If you are established, we pressure-test a position that may have gone fuzzy.",
-    leave: "a written positioning and opportunity diagnostic.",
-  },
-  {
-    letter: "2",
-    week: "SESSION 2",
-    label: "OFFER AND MODEL",
-    sub: "How it actually makes money, and where it is leaking.",
-    body: "Your core offer, your pricing, where the revenue comes from. If you are starting, we build the model. If you are established, we find the money you are leaving on the table.",
-    leave: "your offer and revenue model on a page.",
-  },
-  {
-    letter: "3",
-    week: "SESSION 3",
-    label: "BRAND AND MARKET",
-    sub: "Why people choose you, and how they find you.",
-    body: "We sharpen the story and the way you show up, then build how you reach your people, on terms you can live with.",
-    leave: "your brand and messaging direction, and a go-to-market plan built around you.",
-  },
-  {
-    letter: "4",
-    week: "SESSION 4",
-    label: "ENGINE AND PLAN",
-    sub: "How it grows without consuming you, and what you do next.",
-    body: "What to systemise, simplify, or hand off, then everything pulled into a sequenced 90-day plan.",
-    leave: "a simple operating model, and a written 90-day growth plan you can run without me.",
-  },
-];
+{
+  letter: "1",
+  week: "SESSION 1",
+  label: "POSITION",
+  sub: "What you are really building, and who it is for.",
+  body: "The gap only you can own, and the message that makes you the obvious choice. If you are established, we pressure-test a position that may have gone fuzzy.",
+  leave: "a written positioning and opportunity diagnostic."
+},
+{
+  letter: "2",
+  week: "SESSION 2",
+  label: "OFFER AND MODEL",
+  sub: "How it actually makes money, and where it is leaking.",
+  body: "Your core offer, your pricing, where the revenue comes from. If you are starting, we build the model. If you are established, we find the money you are leaving on the table.",
+  leave: "your offer and revenue model on a page."
+},
+{
+  letter: "3",
+  week: "SESSION 3",
+  label: "BRAND AND MARKET",
+  sub: "Why people choose you, and how they find you.",
+  body: "We sharpen the story and the way you show up, then build how you reach your people, on terms you can live with.",
+  leave: "your brand and messaging direction, and a go-to-market plan built around you."
+},
+{
+  letter: "4",
+  week: "SESSION 4",
+  label: "ENGINE AND PLAN",
+  sub: "How it grows without consuming you, and what you do next.",
+  body: "What to systemise, simplify, or hand off, then everything pulled into a sequenced 90-day plan.",
+  leave: "a simple operating model, and a written 90-day growth plan you can run without me."
+}];
+
 
 const coreItems = [
-  { title: "4 Strategic Sessions", value: "R20,000", desc: "Four one-hour sessions with me directly, across the six weeks. Online, recorded so you can revisit them." },
-  { title: "Your Written Strategy Documents", value: "R32,000", desc: "Your positioning diagnostic, offer and revenue model, brand and messaging direction, and go-to-market plan, written up as working documents you keep." },
-  { title: "Voxer Access Between Sessions", value: "R7,500", desc: "Voice and text support between sessions, Monday to Friday, for all six weeks." },
-  { title: "90-Day Growth Plan", value: "R5,000", desc: "A written 90-day growth plan and the rhythm to run it, so you keep moving after the six weeks." },
-];
+{ title: "4 Strategic Sessions", value: "R20,000", desc: "Four one-hour sessions with me directly, across the six weeks. Online, recorded so you can revisit them." },
+{ title: "Your Written Strategy Documents", value: "R32,000", desc: "Your positioning diagnostic, offer and revenue model, brand and messaging direction, and go-to-market plan, written up as working documents you keep." },
+{ title: "Voxer Access Between Sessions", value: "R7,500", desc: "Voice and text support between sessions, Monday to Friday, for all six weeks." },
+{ title: "90-Day Growth Plan", value: "R5,000", desc: "A written 90-day growth plan and the rhythm to run it, so you keep moving after the six weeks." }];
+
 
 const bonuses = [
-  { title: "30-Day Recalibration Call", value: "R5,000", desc: "A call thirty days after we finish, to check traction and adjust." },
-  { title: "The Aligned Blueprint", value: "R116,000", desc: "One full year of access to the complete course built on my A.L.I.V.E. Method, so the way you build is something you can keep up." },
-];
+{ title: "30-Day Recalibration Call", value: "R5,000", desc: "A call thirty days after we finish, to check traction and adjust." },
+{ title: "The Aligned Blueprint", value: "R116,000", desc: "One full year of access to the complete course built on my A.L.I.V.E. Method, so the way you build is something you can keep up." }];
+
 
 const objections = [
-  {
-    q: '"I have tried business courses and coaches before, and nothing changed."',
-    a: "Most are information with no plan, or a coach who has never built a business. This is one to one, it produces written outputs you keep, and it comes from someone who has built and run the real thing.",
-  },
-  {
-    q: '"Is four sessions really enough?"',
-    a: "Yes, because the sessions are not the whole of it. Each one ends with a clear, structured plan and a defined next move, so between calls you always know exactly what you are working toward. The sessions are where the senior decisions get made, and the structured plan in between is what keeps you moving. You are not paying for four hours of my time. You are paying for that judgement on every call that matters, the documents you keep, and a plan that actually works.",
-  },
-  {
-    q: '"R24,997 is a lot for me right now."',
-    a: "It is a serious investment, calibrated well below advisory or CMO rates. If it is genuinely out of reach, start with my free resources and come back when the timing is right.",
-  },
-  {
-    q: '"I am already flat out. I do not have time for this."',
-    a: "You are already spending the time, on research, second-guessing, and starting things you do not finish. The Business Sprint takes that scattered effort and gives it structure and a clear direction to move in. An hour at a time, four times, with a plan that means you stop spinning and start moving. It is built to fit a real life and a real job.",
-  },
-  {
-    q: '"What if I want to keep working with you after the six weeks?"',
-    a: "Many founders do. There is a clear path into ongoing advisory if it is the right fit, discussed only if and when you want it.",
-  },
-];
+{
+  q: '"I have tried business courses and coaches before, and nothing changed."',
+  a: "Most are information with no plan, or a coach who has never built a business. This is one to one, it produces written outputs you keep, and it comes from someone who has built and run the real thing."
+},
+{
+  q: '"Is four sessions really enough?"',
+  a: "Yes, because the sessions are not the whole of it. Each one ends with a clear, structured plan and a defined next move, so between calls you always know exactly what you are working toward. The sessions are where the senior decisions get made, and the structured plan in between is what keeps you moving. You are not paying for four hours of my time. You are paying for that judgement on every call that matters, the documents you keep, and a plan that actually works."
+},
+{
+  q: '"R24,997 is a lot for me right now."',
+  a: "It is a serious investment, calibrated well below advisory or CMO rates. If it is genuinely out of reach, start with my free resources and come back when the timing is right."
+},
+{
+  q: '"I am already flat out. I do not have time for this."',
+  a: "You are already spending the time, on research, second-guessing, and starting things you do not finish. The Business Sprint takes that scattered effort and gives it structure and a clear direction to move in. An hour at a time, four times, with a plan that means you stop spinning and start moving. It is built to fit a real life and a real job."
+},
+{
+  q: '"What if I want to keep working with you after the six weeks?"',
+  a: "Many founders do. There is a clear path into ongoing advisory if it is the right fit, discussed only if and when you want it."
+}];
+
 
 const sprintTestimonials = [
-  {
-    headline: "FOR THE FIRST TIME IN MY BUSINESS, EVERYTHING FEELS ALIGNED.",
-    quote: "I came to Laura overwhelmed and unclear about how to position my brand. Within a matter of weeks, she helped me articulate exactly what I do, who I do it for, and how to confidently show up as a leader. For the first time in my business, everything feels aligned, and the results speak for themselves.",
-    name: "Tasha Berrings",
-    company: "Founder, Clean Beauty Startup",
-  },
-  {
-    headline: "LAURA PROVIDES ACTIONABLE SUPPORT TO HELP YOU THRIVE.",
-    quote: "Laura provides actionable support to help you thrive. If you're considering her for consulting or coaching, I can hands down say you're getting your money's worth. You leave with valuable insights and practical techniques to help navigate and reconnect with what truly drives you, all while protecting your energy so you don't end up overworked and burnt out. One session and Laura will leave you feeling empowered. I highly recommend her services.",
-    name: "Tharunisa Reddy",
-    company: "",
-  },
-  {
-    headline: "WORKING WITH LAURA WAS LIKE PLUGGING MY BUSINESS INTO POWER.",
-    quote: "Working with Laura was like plugging my business into power. She pulled the strategy, story, and messaging out of me in a way that felt effortless. The outcome was anything but. I now have a clear roadmap, a stronger offer, and marketing that finally makes sense and feels like me.",
-    name: "Vanessa Rathbone",
-    company: "Founder, Wellness Consultancy",
-  },
-  {
-    headline: "SHE TAUGHT ME TO BACK MYSELF.",
-    quote: "Laura is just phenomenal. She helped me connect to my core and feel more confident about what I do and the value I provide to others. I feel far less awkward selling myself or my services. She taught me to back myself, and to detach my sense of self-worth from how much I make. It set me free, and I am excited for the next chapter in my career.",
-    name: "Iris Smyth",
-    company: "",
-  },
-  {
-    headline: "BRAND THERAPIST, COACH, AND VISIONARY ALL IN ONE.",
-    quote: "Laura isn't just a strategist. She's a brand therapist, coach, and visionary all in one. Her ability to combine mindset work with razor-sharp strategy is unmatched. I walked away with more than a brand. I walked away with confidence, direction, and a business that is finally growing.",
-    name: "Elena Sterling",
-    company: "CEO, Luxury Wellness Brand",
-  },
-  {
-    headline: "ZOOM OUT AND ZOOM IN WITH EQUAL BRILLIANCE.",
-    quote: "I have worked with other consultants before, but no one has Laura's ability to zoom out and zoom in with equal brilliance. Her mind is next level.",
-    name: "Ashleigh Carter",
-    company: "Founder, Thee Lux Retreat Co.",
-  },
-];
+{
+  headline: "FOR THE FIRST TIME IN MY BUSINESS, EVERYTHING FEELS ALIGNED.",
+  quote: "I came to Laura overwhelmed and unclear about how to position my brand. Within a matter of weeks, she helped me articulate exactly what I do, who I do it for, and how to confidently show up as a leader. For the first time in my business, everything feels aligned, and the results speak for themselves.",
+  name: "Tasha Berrings",
+  company: "Founder, Clean Beauty Startup"
+},
+{
+  headline: "LAURA PROVIDES ACTIONABLE SUPPORT TO HELP YOU THRIVE.",
+  quote: "Laura provides actionable support to help you thrive. If you're considering her for consulting or coaching, I can hands down say you're getting your money's worth. You leave with valuable insights and practical techniques to help navigate and reconnect with what truly drives you, all while protecting your energy so you don't end up overworked and burnt out. One session and Laura will leave you feeling empowered. I highly recommend her services.",
+  name: "Tharunisa Reddy",
+  company: ""
+},
+{
+  headline: "WORKING WITH LAURA WAS LIKE PLUGGING MY BUSINESS INTO POWER.",
+  quote: "Working with Laura was like plugging my business into power. She pulled the strategy, story, and messaging out of me in a way that felt effortless. The outcome was anything but. I now have a clear roadmap, a stronger offer, and marketing that finally makes sense and feels like me.",
+  name: "Vanessa Rathbone",
+  company: "Founder, Wellness Consultancy"
+},
+{
+  headline: "SHE TAUGHT ME TO BACK MYSELF.",
+  quote: "Laura is just phenomenal. She helped me connect to my core and feel more confident about what I do and the value I provide to others. I feel far less awkward selling myself or my services. She taught me to back myself, and to detach my sense of self-worth from how much I make. It set me free, and I am excited for the next chapter in my career.",
+  name: "Iris Smyth",
+  company: ""
+},
+{
+  headline: "BRAND THERAPIST, COACH, AND VISIONARY ALL IN ONE.",
+  quote: "Laura isn't just a strategist. She's a brand therapist, coach, and visionary all in one. Her ability to combine mindset work with razor-sharp strategy is unmatched. I walked away with more than a brand. I walked away with confidence, direction, and a business that is finally growing.",
+  name: "Elena Sterling",
+  company: "CEO, Luxury Wellness Brand"
+},
+{
+  headline: "ZOOM OUT AND ZOOM IN WITH EQUAL BRILLIANCE.",
+  quote: "I have worked with other consultants before, but no one has Laura's ability to zoom out and zoom in with equal brilliance. Her mind is next level.",
+  name: "Ashleigh Carter",
+  company: "Founder, Thee Lux Retreat Co."
+}];
+
 
 function ObjectionAccordion({ items }) {
   const [open, setOpen] = useState(null);
   return (
     <div className="space-y-0">
-      {items.map((item, i) => (
-        <div key={i} className="border-b border-foreground/15">
+      {items.map((item, i) =>
+      <div key={i} className="border-b border-foreground/15">
           <button
-            onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-center justify-between py-6 text-left group"
-          >
+          onClick={() => setOpen(open === i ? null : i)}
+          className="w-full flex items-center justify-between py-6 text-left group">
+          
             <span
-              className="font-serif italic text-lg md:text-xl leading-snug"
-              style={{ color: BRAND }}
-            >
+            className="font-serif italic text-lg md:text-xl leading-snug"
+            style={{ color: BRAND }}>
+            
               {item.q}
             </span>
-            {open === i ? (
-              <Minus className="w-4 h-4 flex-shrink-0 ml-4 text-foreground/50" />
-            ) : (
-              <Plus className="w-4 h-4 flex-shrink-0 ml-4 text-foreground/50" />
-            )}
+            {open === i ?
+          <Minus className="w-4 h-4 flex-shrink-0 ml-4 text-foreground/50" /> :
+
+          <Plus className="w-4 h-4 flex-shrink-0 ml-4 text-foreground/50" />
+          }
           </button>
           <AnimatePresence>
-            {open === i && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.35 }}
-                className="overflow-hidden"
-              >
+            {open === i &&
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            className="overflow-hidden">
+            
                 <div className="pb-6 pr-6">
-                  {item.a.split("\n\n").map((para, j) => (
-                    <p key={j} className="text-[14px] text-muted-foreground leading-relaxed mb-4 last:mb-0">
+                  {item.a.split("\n\n").map((para, j) =>
+              <p key={j} className="text-[14px] text-muted-foreground leading-relaxed mb-4 last:mb-0">
                       {para}
                     </p>
-                  ))}
+              )}
                 </div>
               </motion.div>
-            )}
+          }
           </AnimatePresence>
         </div>
-      ))}
-    </div>
-  );
+      )}
+    </div>);
+
 }
 
 function SprintCarousel({ testimonials }) {
@@ -193,15 +193,15 @@ function SprintCarousel({ testimonials }) {
         <ChevronLeft className="w-5 h-5" />
       </button>
       <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-3 gap-8 md:gap-12 pb-4 md:pb-0 flex-1">
-        {visible.map((t, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: i * 0.1 }}
-            className="text-center flex-shrink-0 w-full md:w-auto"
-          >
+        {visible.map((t, i) =>
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: i * 0.1 }}
+          className="text-center flex-shrink-0 w-full md:w-auto">
+          
             <h3 className="font-serif font-bold text-lg md:text-2xl leading-[1.05] tracking-tight uppercase mb-6">
               {t.headline}
             </h3>
@@ -213,27 +213,27 @@ function SprintCarousel({ testimonials }) {
               {t.company ? ` | ${t.company}` : ""}
             </p>
           </motion.div>
-        ))}
+        )}
       </div>
       <button onClick={next} aria-label="Next" className="flex flex-shrink-0 items-center justify-center hover:text-primary transition-all">
         <ChevronRight className="w-5 h-5" />
       </button>
-    </div>
-  );
+    </div>);
+
 }
 
-const DiscoveryBtn = ({ dark = false, className = "" }) => (
-  <a
-    href="https://calendly.com/hello-laurajanethomas/30min"
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group btn-pulse text-ivory ${className}`}
-    style={{ backgroundColor: "#C2858B" }}
-  >
+const DiscoveryBtn = ({ dark = false, className = "" }) =>
+<a
+  href="https://calendly.com/hello-laurajanethomas/30min"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group btn-pulse text-ivory ${className}`}
+  style={{ backgroundColor: "#C2858B" }}>
+  
     Book a Discovery Call
     <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-  </a>
-);
+  </a>;
+
 
 
 
@@ -246,15 +246,15 @@ export default function ClaritySpring() {
       {/* HERO */}
       <section
         className="relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 pb-20 md:pt-40 md:pb-40"
-        style={{ backgroundColor: BRAND }}
-      >
+        style={{ backgroundColor: BRAND }}>
+        
         <div className="absolute inset-0">
           <img
             src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/9c5ae9111_efca8aa6761e6e74544ba4e9681156c9.jpg"
             alt=""
             className="w-full h-full object-cover object-center"
-            style={{ opacity: 0.18 }}
-          />
+            style={{ opacity: 0.18 }} />
+          
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(194, 133, 139, 0.3)" }} />
         </div>
 
@@ -262,8 +262,8 @@ export default function ClaritySpring() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 max-w-4xl mx-auto"
-        >
+          className="relative z-10 max-w-4xl mx-auto">
+          
           <p className="text-[10px] tracking-editorial uppercase text-white/50 mb-8">
             A limited engagement for anyone starting, growing, or repositioning a business.
           </p>
@@ -298,8 +298,8 @@ export default function ClaritySpring() {
           <img
             src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/f055eaddd_DTS_In_Focus_Daniel_Faro_Photos_ID4973.jpg"
             alt=""
-            className="w-full h-full object-cover object-center"
-          />
+            className="w-full h-full object-cover object-center" />
+          
           <div className="absolute inset-0" style={{ backgroundColor: "hsla(36, 33%, 94%, 0.85)" }} />
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -332,22 +332,22 @@ export default function ClaritySpring() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.1 }}
-              className="aspect-[3/4] overflow-hidden hidden lg:block"
-            >
+              className="aspect-[3/4] overflow-hidden hidden lg:block">
+              
               <img
                 src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/210a58178_LJT.png"
                 alt="Laura Jane Thomas"
                 className="w-full h-full object-cover"
-                style={{ opacity: 0.75 }}
-              />
+                style={{ opacity: 0.75 }} />
+              
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.1, delay: 0.15 }}
-              className="space-y-5"
-            >
+              className="space-y-5">
+              
               <h2 className="font-serif text-4xl md:text-5xl leading-[0.95] tracking-tight" style={{ color: "#1A1A1A" }}>
                 I have built <span className="italic" style={{ color: BRAND }}>the real thing.</span>
               </h2>
@@ -368,10 +368,10 @@ export default function ClaritySpring() {
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
+          backgroundRepeat: "no-repeat"
         }}
-        className="fixed-bg-wrapper"
-      >
+        className="fixed-bg-wrapper">
+        
         <div style={{ backgroundColor: "rgba(245,241,236,0.88)" }}>
           <section className="py-16 md:py-28 px-6">
             <div className="max-w-[1200px] mx-auto">
@@ -398,26 +398,26 @@ export default function ClaritySpring() {
               </motion.div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
-                {weeks.map((item, i) => (
-                  <motion.div
-                    key={item.letter}
-                    {...fadeUp(i * 0.08)}
-                    className="p-8 md:p-10 transition-transform duration-500 hover:scale-105 hover:z-10 relative"
-                    style={{ backgroundColor: "rgba(245,238,228,0.97)" }}
-                  >
+                {weeks.map((item, i) =>
+                <motion.div
+                  key={item.letter}
+                  {...fadeUp(i * 0.08)}
+                  className="p-8 md:p-10 transition-transform duration-500 hover:scale-105 hover:z-10 relative"
+                  style={{ backgroundColor: "rgba(245,238,228,0.97)" }}>
+                  
                     <div className="flex items-start justify-between mb-4">
                       <span className="font-serif italic leading-none" style={{ fontSize: "5rem", color: BRAND, lineHeight: 1 }}>{item.letter}</span>
                       <span className="text-[9px] tracking-editorial uppercase text-muted-foreground mt-2">{item.week}</span>
                     </div>
                     <p className="text-lg font-serif font-bold mb-2" style={{ color: "#1A1A1A" }}>{item.label}</p>
                     <p className="text-sm italic leading-snug mb-3 font-serif" style={{ color: BRAND }}>{item.sub}</p>
-                    {item.body.split("\n\n").map((p, j) => (
-                      <p key={j} className="text-xs leading-relaxed mb-3" style={{ color: "rgba(26,26,26,0.55)" }}>{p}</p>
-                    ))}
+                    {item.body.split("\n\n").map((p, j) =>
+                  <p key={j} className="text-xs leading-relaxed mb-3" style={{ color: "rgba(26,26,26,0.55)" }}>{p}</p>
+                  )}
                     <p className="text-xs font-semibold mt-3" style={{ color: "#1A1A1A" }}>You leave with:</p>
                     <p className="text-xs leading-relaxed italic" style={{ color: "rgba(26,26,26,0.60)" }}>{item.leave}</p>
                   </motion.div>
-                ))}
+                )}
               </div>
 
               <motion.p {...fadeUp(0.3)} className="text-center font-serif italic text-2xl md:text-3xl mt-16" style={{ color: BRAND }}>
@@ -444,15 +444,15 @@ export default function ClaritySpring() {
               </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 gap-px mb-4" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
-                {coreItems.map((item, i) => (
-                  <motion.div key={i} {...fadeUp(i * 0.06)} className="p-6 md:p-8" style={{ backgroundColor: "rgba(245,238,228,0.97)" }}>
+                {coreItems.map((item, i) =>
+                <motion.div key={i} {...fadeUp(i * 0.06)} className="p-6 md:p-8" style={{ backgroundColor: "rgba(245,238,228,0.97)" }}>
                     <div className="flex items-start justify-between mb-3">
                       <p className="font-serif font-bold text-sm md:text-base leading-tight" style={{ color: "#1A1A1A" }}>{item.title}</p>
                     </div>
                     <p className="text-[10px] tracking-editorial uppercase mb-3 font-semibold" style={{ color: BRAND }}>{item.value}</p>
                     <p className="text-xs leading-relaxed" style={{ color: "rgba(26,26,26,0.55)" }}>{item.desc}</p>
                   </motion.div>
-                ))}
+                )}
               </div>
 
               <motion.div {...fadeUp(0.1)} className="mt-12 mb-6">
@@ -460,14 +460,14 @@ export default function ClaritySpring() {
               </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-16" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
-                {bonuses.map((item, i) => (
-                  <motion.div key={i} {...fadeUp(i * 0.08)} className={`p-6 md:p-8 relative ${i === 1 ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''}`} style={{ backgroundColor: "rgba(38,3,15,0.95)" }} onClick={i === 1 ? () => window.open('https://www.alignedwomanco.com/blueprint', '_blank') : undefined}>
+                {bonuses.map((item, i) =>
+                <motion.div key={i} {...fadeUp(i * 0.08)} className={`p-6 md:p-8 relative ${i === 1 ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''}`} style={{ backgroundColor: "rgba(38,3,15,0.95)" }} onClick={i === 1 ? () => window.open('https://www.alignedwomanco.com/blueprint', '_blank') : undefined}>
                     <span className="inline-block mb-4 px-3 py-1 text-[9px] tracking-editorial uppercase font-bold border border-white/30 text-white/70">BONUS {i + 1}</span>
                     <p className="font-serif font-bold text-sm md:text-base mb-2 text-white">{item.title}</p>
                     <p className="text-[10px] tracking-editorial uppercase mb-3 line-through text-white/40">Value: {item.value}</p>
                     <p className="text-xs leading-relaxed text-white/65">{item.desc}</p>
                   </motion.div>
-                ))}
+                )}
               </div>
 
               {/* Total */}
@@ -547,34 +547,34 @@ export default function ClaritySpring() {
               <p className="text-[10px] tracking-editorial uppercase font-bold text-foreground mb-8">This is for you if:</p>
               <ul className="space-y-5">
                 {[
-                  "You are starting, growing, or repositioning a business, and you need clarity on the actual next move.",
-                  "You are capable and have done hard things, and what you are missing is the plan, not the drive.",
-                  "You have an idea you cannot seem to start, or an established business that has stalled, plateaued, or lost its edge.",
-                  "You want to stay hands-on and own the result, with a senior brain guiding the calls, rather than handing it over and hoping.",
-                  "You want senior strategy from someone who has built the thing, not motivation.",
-                  "You can commit to four one-hour sessions over six weeks, plus the work in between.",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-4">
+                "You are starting, growing, or repositioning a business, and you need clarity on the actual next move.",
+                "You are capable and have done hard things, and what you are missing is the plan, not the drive.",
+                "You have an idea you cannot seem to start, or an established business that has stalled, plateaued, or lost its edge.",
+                "You want to stay hands-on and own the result, with a senior brain guiding the calls, rather than handing it over and hoping.",
+                "You want senior strategy from someone who has built the thing, not motivation.",
+                "You can commit to four one-hour sessions over six weeks, plus the work in between."].
+                map((item, i) =>
+                <li key={i} className="flex items-start gap-4">
                     <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND }} />
                     <span className="text-foreground text-[14px] leading-relaxed">{item}</span>
                   </li>
-                ))}
+                )}
               </ul>
             </motion.div>
             <motion.div {...fadeUp(0.2)} className="rounded-lg p-8 md:p-12" style={{ backgroundColor: "hsla(36, 33%, 94%, 0.92)" }}>
               <p className="text-[10px] tracking-editorial uppercase font-bold text-foreground mb-8">This is not for you if:</p>
               <ul className="space-y-5">
                 {[
-                  "You want it fully done for you while you step back. This is collaborative. I bring the senior thinking, you bring your business, and you own what we build.",
-                  "You want reassurance more than the truth. I will tell you when something needs work.",
-                  "You are looking for the cheapest business coaching on the internet. This is calibrated, not discounted.",
-                  "You are not actually ready to act.",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-4">
+                "You want it fully done for you while you step back. This is collaborative. I bring the senior thinking, you bring your business, and you own what we build.",
+                "You want reassurance more than the truth. I will tell you when something needs work.",
+                "You are looking for the cheapest business coaching on the internet. This is calibrated, not discounted.",
+                "You are not actually ready to act."].
+                map((item, i) =>
+                <li key={i} className="flex items-start gap-4">
                     <X className="w-5 h-5 flex-shrink-0 mt-0.5 text-foreground/60" />
                     <span className="text-foreground text-[14px] leading-relaxed">{item}</span>
                   </li>
-                ))}
+                )}
               </ul>
             </motion.div>
           </div>
@@ -599,8 +599,8 @@ export default function ClaritySpring() {
             src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/b2c063548_370e8bc03b7ff18652cfa8bfcd4aafef.jpg"
             alt=""
             className="w-full h-full object-cover"
-            style={{ opacity: 0.35 }}
-          />
+            style={{ opacity: 0.35 }} />
+          
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(245,238,228,0.92)" }} />
         </div>
         <motion.div
@@ -608,9 +608,9 @@ export default function ClaritySpring() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
-          className="relative z-10 max-w-3xl mx-auto"
-        >
-          <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Two Ways To Start</p>
+          className="relative z-10 max-w-3xl mx-auto">
+          
+          <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Let's begin </p>
           <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8" style={{ color: "#1A1A1A" }}>
             This is the moment.
           </h2>
@@ -633,8 +633,8 @@ export default function ClaritySpring() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full gap-3 px-8 py-4 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold text-ivory transition-all duration-300 btn-pulse"
-                style={{ backgroundColor: "#C2858B" }}
-              >
+                style={{ backgroundColor: "#C2858B" }}>
+                
                 Book a Discovery Call →
               </a>
             </div>
@@ -649,6 +649,6 @@ export default function ClaritySpring() {
 
       <ResourcesSection />
       <Footer />
-    </div>
-  );
+    </div>);
+
 }

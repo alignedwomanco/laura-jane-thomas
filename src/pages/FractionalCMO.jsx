@@ -195,9 +195,7 @@ export default function FractionalCMO() {
                 Six weeks, four sessions, a fixed price. You leave with your positioning, your offer and model, your brand and message, and a 90-day plan you can run. You do the building, I do the guiding. The fastest way to get a senior strategic look at your business.
               </p>
               <a
-                href="https://calendly.com/hello-laurajanethomas/30min"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/businesssprint"
                 className="inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase border border-ivory/40 px-5 py-3 hover:bg-ivory hover:text-foreground transition-all duration-300 group self-start mt-auto text-ivory"
               >
                 See the Business Sprint

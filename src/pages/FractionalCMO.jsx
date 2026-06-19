@@ -145,14 +145,22 @@ export default function FractionalCMO() {
               laura<span className="italic">jane</span>thomas
             </span>
           </a>
-          <a
-            href="https://calendly.com/hello-laurajanethomas/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[11px] tracking-editorial uppercase border border-foreground/80 px-5 py-2.5 hover:bg-foreground hover:text-ivory transition-all duration-300 btn-pulse"
-          >
-            Book a Call →
-          </a>
+          <div className="flex items-center gap-3">
+            <Link
+              to="/contact"
+              className="hidden sm:inline-flex text-[11px] tracking-editorial uppercase border border-foreground/80 px-4 py-2 hover:bg-foreground hover:text-ivory transition-all duration-300"
+            >
+              Get in touch
+            </Link>
+            <a
+              href="https://calendly.com/hello-laurajanethomas/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] tracking-editorial uppercase bg-foreground text-ivory px-4 py-2 hover:bg-oxblood transition-all duration-300 btn-pulse"
+            >
+              Book a Call →
+            </a>
+          </div>
         </div>
       </header>
 

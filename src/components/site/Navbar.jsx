@@ -32,13 +32,29 @@ export default function Navbar() {
           </span>
         </a>
 
-        <button
-          className="text-foreground"
-          onClick={() => setOpen(!open)}
-          aria-label="Menu"
-        >
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="flex items-center gap-3">
+          <Link
+            to="/contact"
+            className="hidden sm:inline-flex text-[11px] tracking-editorial uppercase border border-foreground/80 px-4 py-2 hover:bg-foreground hover:text-ivory transition-all duration-300"
+          >
+            Get in touch
+          </Link>
+          <a
+            href="https://calendly.com/hello-laurajanethomas/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex text-[11px] tracking-editorial uppercase bg-foreground text-ivory px-4 py-2 hover:bg-oxblood transition-all duration-300"
+          >
+            Book a call
+          </a>
+          <button
+            className="text-foreground ml-1"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

@@ -21,7 +21,7 @@ export default function Footer({ ctaLabel, ctaHref }) {
             </p>
             <ul className="space-y-3 font-serif text-lg">
               <li><Link to="/about" className="hover:italic transition-all">About</Link></li>
-              <li><Link to="/fractional-cmo" className="hover:italic transition-all">Consulting</Link></li>
+              <li><Link to="/fractional-cmo" className="hover:italic transition-all">Fractional CMO</Link></li>
               <li><Link to="/speaking" className="hover:italic transition-all">Speaking</Link></li>
               <li><Link to="/services" className="hover:italic transition-all">Coaching</Link></li>
               <li><Link to="/contact" className="hover:italic transition-all">Contact</Link></li>

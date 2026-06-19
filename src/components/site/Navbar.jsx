@@ -6,23 +6,26 @@ import { AnimatePresence, motion } from "framer-motion";
 const links = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Fractional CMO", to: "/fractional-cmo" },
   { label: "Speaking", to: "/speaking" },
   { label: "Contact", to: "/contact" },
 ];
 
 
+const fractionalDropdown = [
+  { label: "The Business Sprint", to: "/businesssprint" },
+];
+
 const coachingDropdown = [
   { label: "Coaching", to: "/services" },
-  { label: "The Clarity Sprint", to: "/businesssprint" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [coachingOpen, setCoachingOpen] = useState(false);
   const [mobileCoachingOpen, setMobileCoachingOpen] = useState(false);
+  const [mobileFractionalOpen, setMobileFractionalOpen] = useState(false);
   const location = useLocation();
-  const isCoachingActive = location.pathname === "/services" || location.pathname === "/businesssprint";
+  const isCoachingActive = location.pathname === "/services";
+  const isFractionalActive = location.pathname === "/fractional-cmo" || location.pathname === "/businesssprint";
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-foreground/10">
@@ -52,7 +55,7 @@ export default function Navbar() {
             className="bg-ivory border-t border-foreground/10"
           >
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-8 flex flex-col gap-5">
-              {links.slice(0, 3).map((l) => (
+              {links.slice(0, 2).map((l) => (
                 <Link
                   key={l.label}
                   to={l.to}
@@ -62,7 +65,38 @@ export default function Navbar() {
                   {l.label}
                 </Link>
               ))}
-              {/* Coaching Dropdown — sits under Consulting */}
+              {/* Fractional CMO Dropdown */}
+              <div>
+                <button
+                  onClick={() => setMobileFractionalOpen(!mobileFractionalOpen)}
+                  className={`flex items-center gap-2 text-sm tracking-editorial uppercase w-full ${isFractionalActive ? "text-oxblood" : "text-foreground/80"}`}
+                >
+                  Fractional CMO
+                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${mobileFractionalOpen ? "rotate-180" : ""}`} />
+                </button>
+                {mobileFractionalOpen && (
+                  <div className="mt-3 pl-4 flex flex-col gap-3 border-l border-foreground/15">
+                    <Link
+                      to="/fractional-cmo"
+                      onClick={() => setOpen(false)}
+                      className={`text-xs tracking-editorial uppercase transition-colors ${location.pathname === "/fractional-cmo" ? "text-oxblood" : "text-foreground/60"}`}
+                    >
+                      Fractional CMO
+                    </Link>
+                    {fractionalDropdown.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.to}
+                        onClick={() => setOpen(false)}
+                        className={`text-xs tracking-editorial uppercase transition-colors ${location.pathname === item.to ? "text-oxblood" : "text-foreground/60"}`}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+              {/* Coaching Dropdown */}
               <div>
                 <button
                   onClick={() => setMobileCoachingOpen(!mobileCoachingOpen)}

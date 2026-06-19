@@ -45,7 +45,7 @@ export default function ChooseExperience() {
               className="bg-ivory"
             >
               <Link
-                to={i === 0 || i === 1 ? "/consulting" : i === 2 ? "/reset-room" : "/speaking"}
+                to={i === 0 || i === 1 ? "/fractional-cmo" : i === 2 ? "/reset-room" : "/speaking"}
                 className="group block h-full p-8 md:p-12 hover:bg-oxblood hover:text-ivory transition-colors duration-500"
               >
                 <span className="block text-[10px] tracking-editorial uppercase text-muted-foreground group-hover:text-ivory/60 mb-5">

@@ -14,7 +14,7 @@ const services = [
     ],
     body: "Senior brand and marketing strategy for businesses that want commercial clarity and elevated brand expression in one partner. Productised 90-day engagements. Built on the Aligned Operating Model.",
     cta: "LEARN MORE",
-    href: "/consulting",
+    href: "/fractional-cmo",
   },
   {
     label: "SERVICE TWO",
@@ -28,7 +28,7 @@ const services = [
     ],
     body: "Private advisory engagements for women at the threshold of their next chapter. Whether you're stepping out of corporate, evolving the business you've built, or building the life that finally matches your resources. Built on The A.L.I.V.E. Method.",
     cta: "EXPLORE THE ADVISORY",
-    href: "/consulting",
+    href: "/fractional-cmo",
   },
   {
     label: "SERVICE THREE",

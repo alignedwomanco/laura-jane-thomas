@@ -296,7 +296,7 @@ export default function ClaritySpring() {
       <section className="relative overflow-hidden py-16 md:py-28" style={{ minHeight: "60vh" }}>
         <div className="absolute inset-0">
           <img
-            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/4d61a4013_Extend_the_existing_image_hori_Nano_Banana_2_79564.jpg"
+            src="https://media.base44.com/images/public/69e1e7f05d39205bc001ea00/f055eaddd_DTS_In_Focus_Daniel_Faro_Photos_ID4973.jpg"
             alt=""
             className="w-full h-full object-cover object-center"
           />

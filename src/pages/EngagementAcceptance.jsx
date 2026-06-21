@@ -50,10 +50,29 @@ export default function EngagementAcceptance() {
     e.preventDefault();
     setSubmitting(true);
     const accepted_at = new Date().toISOString();
+
     await base44.entities.EngagementAcceptance.create({
       ...form,
       accepted_at,
       status: "accepted",
+    });
+
+    // Generate invoice
+    const existingInvoices = await base44.entities.Invoice.list();
+    const seq = String(existingInvoices.length + 1).padStart(3, "0");
+    const invoice_number = `INV-${new Date().getFullYear()}-${seq}`;
+    const invoice = await base44.entities.Invoice.create({
+      invoice_number,
+      client_name: form.full_name,
+      company_name: form.company_name,
+      registration_number: form.registration_number || "",
+      email: form.email,
+      package_title: engagement?.package_title || "Engagement",
+      subtotal: "R78 000",
+      vat: "R11 700",
+      total: "R89 700",
+      issued_at: accepted_at,
+      status: "issued",
     });
 
     const bankingDetails = `Account holder: Miss LJ Thomas\nAccount number: 10012596596\nBank: Investec Bank Limited\nBranch name: Investec Bank Grayston Drive\nSWIFT code: IVESZAJJXXX\nBranch code: 580105`;
@@ -67,7 +86,7 @@ export default function EngagementAcceptance() {
     await base44.integrations.Core.SendEmail({
       to: "hello@laurajanethomas.biz",
       subject: `New Engagement Acceptance — ${form.full_name} (${form.company_name})`,
-      body: `A new engagement has been accepted.\n\n${acceptanceDetails}\n\n---\n${pkgTitle}\nTotal: ${total} | Deposit due: ${deposit}`,
+      body: `A new engagement has been accepted.\n\n${acceptanceDetails}\n\n---\n${pkgTitle}\nTotal: ${total} | Deposit due: ${deposit}\n\nInvoice ${invoice_number} has been generated.\nSubtotal: R78 000 + VAT\nTotal: R89 700`,
     });
 
     // Email to client
@@ -75,10 +94,10 @@ export default function EngagementAcceptance() {
       to: form.email,
       from_name: "Laura Jane Thomas",
       subject: "Your Engagement Acceptance — Laura Jane Thomas",
-      body: `Dear ${form.full_name},\n\nThank you for accepting the terms of your engagement with Laura Jane Thomas.\n\nYour acceptance has been recorded with the following details:\n\n${acceptanceDetails}\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the deposit of ${deposit} using the banking details below. Use your brand name as the payment reference.\n\n${bankingDetails}\n\nIf you have any questions, please don't hesitate to reach out.\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`,
+      body: `Dear ${form.full_name},\n\nThank you for accepting the terms of your engagement with Laura Jane Thomas.\n\nYour acceptance has been recorded with the following details:\n\n${acceptanceDetails}\n\nINVOICE ${invoice_number}\nSubtotal: R78 000 + VAT\nTotal: R89 700\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the deposit of ${deposit} using the banking details below. Use your brand name as the payment reference.\n\n${bankingDetails}\n\nIf you have any questions, please don't hesitate to reach out.\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`,
     });
 
-    setConfirmation({ ...form, accepted_at });
+    setConfirmation({ ...form, accepted_at, invoice });
     setSubmitting(false);
   };
 
@@ -117,6 +136,37 @@ export default function EngagementAcceptance() {
               <strong style={{ color: DARK }}>{confirmation.full_name}</strong> — {confirmation.company_name}
             </p>
             <p style={{ fontSize: 13, color: "#888", marginBottom: 40 }}>Accepted on {formatDate(confirmation.accepted_at)}</p>
+
+            {confirmation.invoice && (
+              <div style={{ backgroundColor: "#fff", border: `1px solid ${BORDER}`, padding: "28px 32px", textAlign: "left", marginBottom: 24 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 20, borderBottom: `1px solid ${BORDER}`, paddingBottom: 12 }}>
+                  <p style={{ fontSize: 13, fontWeight: 600, color: BURGUNDY, textTransform: "uppercase", letterSpacing: "0.1em", margin: 0 }}>Invoice</p>
+                  <p style={{ fontFamily: "Georgia, serif", fontSize: 15, color: DARK, margin: 0 }}>{confirmation.invoice.invoice_number}</p>
+                </div>
+                <div style={{ fontSize: 13, color: "#666", marginBottom: 20, lineHeight: 1.7 }}>
+                  <p style={{ margin: 0, fontWeight: 600, color: DARK }}>{confirmation.invoice.client_name}</p>
+                  <p style={{ margin: 0 }}>{confirmation.invoice.company_name}</p>
+                  {confirmation.invoice.registration_number && <p style={{ margin: 0 }}>Reg: {confirmation.invoice.registration_number}</p>}
+                  <p style={{ margin: 0 }}>{confirmation.invoice.email}</p>
+                </div>
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+                  <tbody>
+                    <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
+                      <td style={{ padding: "10px 0", color: "#666" }}>Subtotal</td>
+                      <td style={{ padding: "10px 0", textAlign: "right", color: DARK }}>R78 000 + VAT</td>
+                    </tr>
+                    <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
+                      <td style={{ padding: "10px 0", color: "#666" }}>VAT (15%)</td>
+                      <td style={{ padding: "10px 0", textAlign: "right", color: DARK }}>R11 700</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: "14px 0 4px", fontWeight: 700, color: BURGUNDY, fontFamily: "Georgia, serif", fontSize: 16 }}>Total</td>
+                      <td style={{ padding: "14px 0 4px", textAlign: "right", fontWeight: 700, color: BURGUNDY, fontFamily: "Georgia, serif", fontSize: 18 }}>R89 700</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            )}
 
             <div style={{ backgroundColor: "#fff", border: `1px solid ${BORDER}`, padding: "28px 32px", textAlign: "left", borderLeft: `4px solid ${DUSTY_ROSE}` }}>
               <p style={{ fontSize: 13, fontWeight: 600, color: BURGUNDY, marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.1em" }}>Next Step — Deposit Payment</p>

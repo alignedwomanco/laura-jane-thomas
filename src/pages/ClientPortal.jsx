@@ -87,8 +87,19 @@ export default function ClientPortal() {
 
   return (
     <div style={{ backgroundColor: CREAM, minHeight: "100vh", fontFamily: "'Inter',sans-serif", color: DARK }}>
+      <style>{`
+        @media (max-width: 640px) {
+          .portal-admin-bar { flex-direction: column; align-items: flex-start; gap: 6px !important; }
+          .portal-welcome-title { font-size: 24px !important; }
+          .portal-card { padding: 18px 16px !important; }
+          .portal-container { padding: 40px 16px 60px !important; }
+          .portal-btn-row { width: 100%; }
+          .portal-btn-row > * { flex: 1 1 100%; text-align: center; justify-content: center; }
+          .portal-eng-row { flex-direction: column; align-items: flex-start !important; }
+        }
+      `}</style>
       {isAdminPreview && (
-        <div style={{ backgroundColor: BURGUNDY, color: "#fff", padding: "10px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+        <div className="portal-admin-bar" style={{ backgroundColor: BURGUNDY, color: "#fff", padding: "10px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
           <p style={{ margin: 0, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600 }}>
             Admin Preview — {new URLSearchParams(window.location.search).get("adminEmail")}
           </p>
@@ -102,13 +113,13 @@ export default function ClientPortal() {
           onClose={() => setShowCollabModal(false)}
         />
       )}
-      <div style={{ maxWidth: 800, margin: "0 auto", padding: "60px 24px 80px" }}>
+      <div className="portal-container" style={{ maxWidth: 800, margin: "0 auto", padding: "60px 24px 80px" }}>
         <Header />
 
         {/* Welcome */}
         <div style={{ marginBottom: 48 }}>
           <p style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: DUSTY_ROSE, marginBottom: 8 }}>Welcome back</p>
-          <h1 style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 32, color: BURGUNDY, margin: "0 0 4px" }}>
+          <h1 className="portal-welcome-title" style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 32, color: BURGUNDY, margin: "0 0 4px" }}>
             {user?.full_name || user?.email}
           </h1>
           <p style={{ fontSize: 12, color: "rgba(44,44,44,0.5)" }}>{user?.email}</p>
@@ -118,7 +129,7 @@ export default function ClientPortal() {
         <Section title="Engagement Agreement">
           {engagement ? (
             <div>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 16 }}>
+              <div className="portal-eng-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 16 }}>
                 <div>
                   <p style={{ fontSize: 13, color: DARK, fontWeight: 600, marginBottom: 2 }}>{engagement.company_name}</p>
                   <p style={{ fontSize: 11, color: "rgba(44,44,44,0.5)" }}>
@@ -163,7 +174,7 @@ export default function ClientPortal() {
         <Section title="Brand Strategy Diagnostic">
           {submission ? (
             <div>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
+              <div className="portal-eng-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
                 <div>
                   <p style={{ fontSize: 13, color: DARK, fontWeight: 600, marginBottom: 2 }}>
                     {submission.company || submission.fullName || "Your Submission"}
@@ -174,7 +185,7 @@ export default function ClientPortal() {
                 </div>
                 <StatusBadge status={submission.status || "complete"} />
               </div>
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <div className="portal-btn-row" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <Link
                   to={`/strategy-report/${submission.id}`}
                   style={{ backgroundColor: BURGUNDY, color: "#fff", textDecoration: "none", padding: "10px 24px", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600 }}
@@ -200,7 +211,7 @@ export default function ClientPortal() {
               <p style={{ fontSize: 13, color: "rgba(44,44,44,0.6)", lineHeight: 1.7, marginBottom: 20 }}>
                 Once your deposit is received, please complete the Brand Strategy Diagnostic. Your answers form the foundation of your brand strategy work with Laura.
               </p>
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <div className="portal-btn-row" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <button
                   onClick={() => {
                     if (engagement) {
@@ -271,7 +282,7 @@ function Section({ title, children }) {
       <p style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(44,44,44,0.4)", fontWeight: 600, marginBottom: 16, paddingBottom: 10, borderBottom: `1px solid ${BORDER}`, fontFamily: "'Inter',sans-serif" }}>
         {title}
       </p>
-      <div style={{ backgroundColor: "#fff", border: `1px solid ${BORDER}`, padding: "24px 28px" }}>
+      <div className="portal-card" style={{ backgroundColor: "#fff", border: `1px solid ${BORDER}`, padding: "24px 28px" }}>
         {children}
       </div>
     </div>

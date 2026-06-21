@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
+import { Link } from "react-router-dom";
 
 const BURGUNDY = "#5C1F2E";
 const CREAM = "#F5EDE0";
@@ -12,6 +13,38 @@ export default function EngagementAcceptance() {
   const [accepted, setAccepted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [confirmation, setConfirmation] = useState(null);
+  const [engagement, setEngagement] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [isAdminPreview, setIsAdminPreview] = useState(false);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const adminEmail = urlParams.get("adminEmail");
+
+    base44.auth.isAuthenticated().then(async (isAuth) => {
+      if (!isAuth) {
+        setLoading(false);
+        return;
+      }
+      const me = await base44.auth.me();
+      const lookupEmail = (adminEmail && me.role === "admin") ? adminEmail : me.email;
+      if (adminEmail && me.role === "admin") setIsAdminPreview(true);
+
+      const engs = await base44.entities.ClientEngagement.filter({ client_email: lookupEmail });
+      if (engs.length > 0) {
+        const sorted = engs.sort((a, b) => new Date(b.created_date) - new Date(a.created_date));
+        const eng = sorted[0];
+        setEngagement(eng);
+        setForm(f => ({
+          ...f,
+          full_name: eng.client_name ? eng.client_name.trim() : "",
+          company_name: eng.company_name ? eng.company_name.trim() : "",
+          email: lookupEmail,
+        }));
+      }
+      setLoading(false);
+    });
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,11 +59,15 @@ export default function EngagementAcceptance() {
     const bankingDetails = `Account holder: Miss LJ Thomas\nAccount number: 10012596596\nBank: Investec Bank Limited\nBranch name: Investec Bank Grayston Drive\nSWIFT code: IVESZAJJXXX\nBranch code: 580105`;
     const acceptanceDetails = `Full Name: ${form.full_name}\nBusiness Name: ${form.company_name}\nRegistration Number: ${form.registration_number || "N/A"}\nEmail: ${form.email}\nPlace of Acceptance: ${form.place_of_acceptance || "N/A"}\nTime of Acceptance: ${new Date(accepted_at).toLocaleString("en-ZA", { timeZone: "Africa/Johannesburg", weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", timeZoneName: "short" })}`;
 
+    const pkgTitle = engagement?.package_title || "Engagement";
+    const total = engagement?.total_investment || "—";
+    const deposit = engagement?.deposit_amount || "—";
+
     // Email to Laura
     await base44.integrations.Core.SendEmail({
       to: "hello@laurajanethomas.biz",
       subject: `New Engagement Acceptance — ${form.full_name} (${form.company_name})`,
-      body: `A new engagement has been accepted.\n\n${acceptanceDetails}\n\n---\nOption S: Foundations Strategy\nTotal: R11 000 | Deposit due: R6 600`,
+      body: `A new engagement has been accepted.\n\n${acceptanceDetails}\n\n---\n${pkgTitle}\nTotal: ${total} | Deposit due: ${deposit}`,
     });
 
     // Email to client
@@ -38,7 +75,7 @@ export default function EngagementAcceptance() {
       to: form.email,
       from_name: "Laura Jane Thomas",
       subject: "Your Engagement Acceptance — Laura Jane Thomas",
-      body: `Dear ${form.full_name},\n\nThank you for accepting the terms of your engagement with Laura Jane Thomas.\n\nYour acceptance has been recorded with the following details:\n\n${acceptanceDetails}\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the 60% deposit of R6 600 using the banking details below. Use your brand name as the payment reference.\n\n${bankingDetails}\n\nIf you have any questions, please don't hesitate to reach out.\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`,
+      body: `Dear ${form.full_name},\n\nThank you for accepting the terms of your engagement with Laura Jane Thomas.\n\nYour acceptance has been recorded with the following details:\n\n${acceptanceDetails}\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the deposit of ${deposit} using the banking details below. Use your brand name as the payment reference.\n\n${bankingDetails}\n\nIf you have any questions, please don't hesitate to reach out.\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`,
     });
 
     setConfirmation({ ...form, accepted_at });
@@ -54,7 +91,17 @@ export default function EngagementAcceptance() {
     });
   };
 
+  if (loading) {
+    return (
+      <div style={{ backgroundColor: CREAM, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: 32, height: 32, borderRadius: "50%", border: `2px solid ${BORDER}`, borderTopColor: BURGUNDY, animation: "spin 1s linear infinite" }} />
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      </div>
+    );
+  }
+
   if (confirmation) {
+    const deposit = engagement?.deposit_amount || "R6 600";
     return (
       <div style={{ backgroundColor: CREAM, minHeight: "100vh", fontFamily: "'Inter', system-ui, sans-serif", color: DARK }}>
         <div style={{ maxWidth: 680, margin: "0 auto", padding: "60px 24px 40px" }}>
@@ -74,7 +121,7 @@ export default function EngagementAcceptance() {
             <div style={{ backgroundColor: "#fff", border: `1px solid ${BORDER}`, padding: "28px 32px", textAlign: "left", borderLeft: `4px solid ${DUSTY_ROSE}` }}>
               <p style={{ fontSize: 13, fontWeight: 600, color: BURGUNDY, marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.1em" }}>Next Step — Deposit Payment</p>
               <p style={{ fontSize: 14, color: DARK, lineHeight: 1.7, marginBottom: 16 }}>
-                Please proceed with the 60% deposit of <strong>R6 600</strong> using the banking details below. Use your brand name as the payment reference.
+                Please proceed with the deposit of <strong>{deposit}</strong> using the banking details below. Use your brand name as the payment reference.
               </p>
               <table style={{ fontSize: 13, borderCollapse: "collapse", width: "100%" }}>
                 <tbody>
@@ -101,7 +148,7 @@ export default function EngagementAcceptance() {
                 onClick={() => {
                   const subject = encodeURIComponent("Engagement Acceptance – Laura Jane Thomas");
                   const body = encodeURIComponent(
-                    `Dear ${confirmation.full_name},\n\nThank you for accepting the engagement terms.\n\nYour acceptance was recorded on ${formatDate(confirmation.accepted_at)}.\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the 60% deposit of R6 600 using the banking details below. Use your brand name as the payment reference.\n\nAccount holder: Miss LJ Thomas\nAccount number: 10012596596\nBank: Investec Bank Limited\nBranch name: Investec Bank Grayston Drive\nSWIFT code: IVESZAJJXXX\nBranch code: 580105\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`
+                    `Dear ${confirmation.full_name},\n\nThank you for accepting the engagement terms.\n\nYour acceptance was recorded on ${formatDate(confirmation.accepted_at)}.\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the deposit of ${deposit} using the banking details below. Use your brand name as the payment reference.\n\nAccount holder: Miss LJ Thomas\nAccount number: 10012596596\nBank: Investec Bank Limited\nBranch name: Investec Bank Grayston Drive\nSWIFT code: IVESZAJJXXX\nBranch code: 580105\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`
                   );
                   window.location.href = `mailto:${confirmation.email}?subject=${subject}&body=${body}`;
                 }}
@@ -123,42 +170,85 @@ export default function EngagementAcceptance() {
     );
   }
 
+  if (!engagement) {
+    return (
+      <div style={{ backgroundColor: CREAM, minHeight: "100vh", fontFamily: "'Inter', system-ui, sans-serif", color: DARK }}>
+        <div style={{ maxWidth: 680, margin: "0 auto", padding: "60px 24px 40px" }}>
+          <Header />
+          <div style={{ textAlign: "center", padding: "60px 0" }}>
+            <h2 style={{ fontFamily: "Georgia, serif", fontSize: 24, color: BURGUNDY, marginBottom: 12 }}>No engagement agreement found</h2>
+            <p style={{ fontSize: 14, color: "#666", lineHeight: 1.7, marginBottom: 28, maxWidth: 440, margin: "0 auto" }}>
+              We couldn't find an engagement agreement linked to your account. If you believe this is an error, please contact Laura directly.
+            </p>
+            <a href="mailto:hello@laurajanethomas.biz" style={{ fontSize: 12, color: BURGUNDY, textDecoration: "none", letterSpacing: "0.12em", textTransform: "uppercase", borderBottom: `1px solid ${BURGUNDY}`, paddingBottom: 2, fontWeight: 600 }}>
+              hello@laurajanethomas.biz
+            </a>
+          </div>
+          <Footer />
+        </div>
+      </div>
+    );
+  }
+
+  const pkgTitle = engagement.package_title || "Engagement Letter";
+  const scopeItems = engagement.scope_items || [];
+  const processNotes = engagement.process_notes || "";
+  const clauses = parseClauses(processNotes);
+
   return (
     <div style={{ backgroundColor: CREAM, minHeight: "100vh", fontFamily: "'Inter', system-ui, sans-serif", color: DARK }}>
+      {isAdminPreview && (
+        <div style={{ backgroundColor: BURGUNDY, color: "#fff", padding: "10px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+          <p style={{ margin: 0, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600 }}>
+            Admin Preview — {new URLSearchParams(window.location.search).get("adminEmail")}
+          </p>
+          <Link to="/dashboard" style={{ fontSize: 10, color: "rgba(245,237,224,0.7)", letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", borderBottom: "1px solid rgba(245,237,224,0.4)" }}>← Back to Dashboard</Link>
+        </div>
+      )}
       <div style={{ maxWidth: 680, margin: "0 auto", padding: "60px 24px 40px" }}>
         <Header />
 
         {/* Title */}
         <div style={{ borderTop: `2px solid ${BURGUNDY}`, borderBottom: `1px solid ${BORDER}`, padding: "28px 0", marginBottom: 36, textAlign: "center" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: DUSTY_ROSE, marginBottom: 10 }}>Engagement Letter</p>
-          <h2 style={{ fontFamily: "Georgia, serif", fontSize: 22, color: BURGUNDY, margin: 0 }}>Gold Strategy</h2>
+          <h2 style={{ fontFamily: "Georgia, serif", fontSize: 22, color: BURGUNDY, margin: 0 }}>{pkgTitle}</h2>
+          <p style={{ fontSize: 12, color: "#888", marginTop: 10, fontStyle: "italic" }}>
+            Prepared for {engagement.client_name ? engagement.client_name.trim() : ""}{engagement.company_name ? `, ${engagement.company_name.trim()}` : ""}
+          </p>
         </div>
 
         {/* Scope */}
-        <Section title="Scope of Work">
-          <ol style={{ paddingLeft: 20, margin: 0, lineHeight: 1.9, fontSize: 14 }}>
-            <li><strong>Brand Direction Clarity</strong> — positioning diagnosis</li>
-            <li><strong>Core Customer Snapshot</strong> — one focused customer profile</li>
-            <li><strong>Competitive Snapshot</strong> — light review of key competitors</li>
-            <li><strong>Brand Narrative Essentials</strong> — positioning statement, summary, elevator pitch, tone</li>
-            <li><strong>Messaging Direction</strong> — one lead message + three supporting proof points</li>
-          </ol>
-        </Section>
+        {scopeItems.length > 0 && (
+          <Section title="Scope of Work">
+            <ol style={{ paddingLeft: 20, margin: 0, lineHeight: 1.8, fontSize: 14 }}>
+              {scopeItems.map((item, i) => (
+                <li key={i} style={{ marginBottom: 12 }}>{item}</li>
+              ))}
+            </ol>
+          </Section>
+        )}
 
-        {/* Process */}
-        <Section title="Process">
-          <p style={{ fontSize: 14, lineHeight: 1.8, margin: 0 }}>
-            A detailed brand audit will be delivered before strategic work begins. The client is entitled to one (1) round of revisions on the final strategy document.
-          </p>
-        </Section>
+        {/* Agreement Terms */}
+        {clauses.length > 0 && (
+          <Section title="Agreement Terms">
+            <div style={{ fontSize: 13, lineHeight: 1.8, color: "#444" }}>
+              {clauses.map((c, i) => (
+                <div key={i} style={{ marginBottom: 16 }}>
+                  <p style={{ fontWeight: 600, color: DARK, margin: "0 0 4px" }}>{c.title}</p>
+                  <p style={{ margin: 0 }}>{c.body}</p>
+                </div>
+              ))}
+            </div>
+          </Section>
+        )}
 
         {/* Investment */}
         <Section title="Investment">
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
             <tbody>
-              <InvestmentRow label="Total Investment (excl. VAT)" value="R11 000" />
-              <InvestmentRow label="Deposit due on signature (60%)" value="R6 600" highlight />
-              <InvestmentRow label="Balance due on delivery of final strategy" value="R4 400" last />
+              <InvestmentRow label="Total Investment" value={engagement.total_investment || "—"} />
+              <InvestmentRow label={`Deposit due on signature${engagement.deposit_percent ? ` (${engagement.deposit_percent})` : ""}`} value={engagement.deposit_amount || "—"} highlight />
+              <InvestmentRow label="Balance due on delivery" value={engagement.balance_amount || "—"} last />
             </tbody>
           </table>
         </Section>
@@ -242,6 +332,26 @@ export default function EngagementAcceptance() {
       </div>
     </div>
   );
+}
+
+function parseClauses(text) {
+  if (!text) return [];
+  const lines = text.split("\n");
+  const clauses = [];
+  let current = null;
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    const match = trimmed.match(/^(\d+)\.\s+(.*)$/);
+    if (match) {
+      if (current) clauses.push(current);
+      current = { title: `${match[1]}. ${match[2]}`, body: "" };
+    } else if (current) {
+      current.body = current.body ? `${current.body} ${trimmed}` : trimmed;
+    }
+  }
+  if (current) clauses.push(current);
+  return clauses;
 }
 
 function Header() {

@@ -154,7 +154,7 @@ export default function ClientPortal() {
           ) : (
             <EmptyState
               message="No engagement agreement on file yet."
-              action={{ label: "View & Accept Engagement Terms →", href: "/accept" }}
+              action={{ label: "View & Accept Engagement Terms →", href: isAdminPreview ? `/accept?adminEmail=${encodeURIComponent(new URLSearchParams(window.location.search).get("adminEmail"))}` : "/accept" }}
             />
           )}
         </Section>

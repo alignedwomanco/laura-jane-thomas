@@ -220,11 +220,23 @@ export default function EngagementAcceptance() {
         {/* Scope */}
         {scopeItems.length > 0 && (
           <Section title="Scope of Work">
-            <ol style={{ paddingLeft: 20, margin: 0, lineHeight: 1.8, fontSize: 14 }}>
-              {scopeItems.map((item, i) => (
-                <li key={i} style={{ marginBottom: 12 }}>{item}</li>
-              ))}
-            </ol>
+            <div>
+              {scopeItems.map((item, i) => {
+                const isPhase = /^Phase\s+\d/i.test(item);
+                if (isPhase) {
+                  return (
+                    <p key={i} style={{ fontWeight: 600, color: BURGUNDY, marginTop: i > 0 ? 24 : 0, marginBottom: 10, fontFamily: "Georgia, serif", fontSize: 15 }}>
+                      {item}
+                    </p>
+                  );
+                }
+                return (
+                  <p key={i} style={{ marginBottom: 10, paddingLeft: 14, borderLeft: `2px solid ${BORDER}`, fontSize: 14, lineHeight: 1.7, color: "#444" }}>
+                    {item}
+                  </p>
+                );
+              })}
+            </div>
           </Section>
         )}
 

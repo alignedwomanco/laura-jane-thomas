@@ -1,0 +1,95 @@
+{
+  "name": "Invoice",
+  "type": "object",
+  "properties": {
+    "invoice_number": {
+      "type": "string",
+      "description": "Auto-generated invoice number e.g. INV-2026-001"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Client full name"
+    },
+    "company_name": {
+      "type": "string",
+      "description": "Client business name"
+    },
+    "registration_number": {
+      "type": "string",
+      "description": "Business registration number"
+    },
+    "email": {
+      "type": "string",
+      "description": "Client email address"
+    },
+    "package_title": {
+      "type": "string",
+      "description": "Engagement package title"
+    },
+    "subtotal": {
+      "type": "string",
+      "description": "Subtotal amount e.g. R78 000"
+    },
+    "vat": {
+      "type": "string",
+      "description": "VAT amount e.g. R11 700"
+    },
+    "total": {
+      "type": "string",
+      "description": "Total amount including VAT e.g. R89 700"
+    },
+    "issued_at": {
+      "type": "string",
+      "description": "ISO timestamp invoice was issued"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "issued",
+        "paid",
+        "overdue",
+        "cancelled"
+      ],
+      "default": "issued",
+      "description": "Current invoice status"
+    }
+  },
+  "required": [
+    "invoice_number",
+    "client_name",
+    "company_name",
+    "email",
+    "subtotal",
+    "total",
+    "issued_at"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "$or": [
+        {
+          "data.email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

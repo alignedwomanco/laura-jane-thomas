@@ -131,7 +131,7 @@ export default function EngagementAcceptance() {
         {/* Title */}
         <div style={{ borderTop: `2px solid ${BURGUNDY}`, borderBottom: `1px solid ${BORDER}`, padding: "28px 0", marginBottom: 36, textAlign: "center" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: DUSTY_ROSE, marginBottom: 10 }}>Engagement Letter</p>
-          <h2 style={{ fontFamily: "Georgia, serif", fontSize: 22, color: BURGUNDY, margin: 0 }}>Option S: Foundations Strategy</h2>
+          <h2 style={{ fontFamily: "Georgia, serif", fontSize: 22, color: BURGUNDY, margin: 0 }}>Gold Strategy</h2>
         </div>
 
         {/* Scope */}

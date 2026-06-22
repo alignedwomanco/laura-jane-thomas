@@ -115,85 +115,139 @@ export default function EngagementAcceptance() {
     if (!inv) return;
     const doc = new jsPDF();
     const left = 40;
-    let y = 50;
+    const right = 170;
+    let y = 0;
 
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(20);
-    doc.setTextColor(92, 31, 46);
-    doc.text("Laura Jane Thomas", left, y);
+    const OXBLOOD = [107, 15, 15];
+    const IVORY = [245, 238, 228];
+    const DARK = [44, 44, 44];
+    const MUTED = [140, 130, 120];
+    const BORDER = [214, 196, 176];
+
+    // Cream header band
+    doc.setFillColor(...IVORY);
+    doc.rect(0, 0, 210, 38, "F");
+
+    // Brand name — serif
+    doc.setFont("times", "bold");
+    doc.setFontSize(22);
+    doc.setTextColor(...OXBLOOD);
+    doc.text("Laura Jane Thomas", left, 20);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(8);
+    doc.setTextColor(...MUTED);
+    doc.text("BRAND & MARKETING STRATEGY", left, 27);
+    doc.text("laurajanethomas.biz", left, 32);
+
+    // INVOICE label — right aligned in header
+    doc.setFont("times", "bold");
+    doc.setFontSize(18);
+    doc.setTextColor(...OXBLOOD);
+    doc.text("INVOICE", right, 20, { align: "right" });
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
-    doc.setTextColor(120, 120, 120);
-    doc.text("Brand & Marketing Strategy", left, y + 8);
-    doc.text("laurajanethomas.biz", left, y + 14);
+    doc.setTextColor(...DARK);
+    doc.text(inv.invoice_number, right, 27, { align: "right" });
+    doc.setFontSize(8);
+    doc.setTextColor(...MUTED);
+    doc.text(`ISSUED ${formatDate(inv.issued_at)}`, right, 32, { align: "right" });
 
+    y = 52;
+
+    // Bill to
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(16);
-    doc.setTextColor(92, 31, 46);
-    doc.text("INVOICE", 160, y);
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(11);
-    doc.setTextColor(44, 44, 44);
-    doc.text(inv.invoice_number, 160, y + 8);
-    doc.setFontSize(9);
-    doc.setTextColor(120, 120, 120);
-    doc.text(`Issued: ${formatDate(inv.issued_at)}`, 160, y + 14);
-
-    y += 40;
-    doc.setDrawColor(214, 196, 176);
-    doc.line(left, y, 170, y);
-    y += 14;
-
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(10);
-    doc.setTextColor(120, 120, 120);
+    doc.setFontSize(8);
+    doc.setTextColor(...MUTED);
     doc.text("BILL TO", left, y);
-    y += 7;
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(11);
-    doc.setTextColor(44, 44, 44);
+    y += 8;
+    doc.setFont("times", "normal");
+    doc.setFontSize(12);
+    doc.setTextColor(...DARK);
     doc.text(inv.client_name, left, y); y += 6;
     doc.text(inv.company_name, left, y); y += 6;
-    if (inv.registration_number) { doc.text(`Reg: ${inv.registration_number}`, left, y); y += 6; }
+    if (inv.registration_number) {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      doc.setTextColor(...MUTED);
+      doc.text(`Reg: ${inv.registration_number}`, left, y); y += 6;
+    }
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.setTextColor(...MUTED);
     doc.text(inv.email, left, y);
 
-    y += 16;
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(10);
-    doc.setTextColor(120, 120, 120);
-    doc.text("DESCRIPTION", left, y);
-    doc.text("AMOUNT", 150, y);
-    y += 4;
-    doc.line(left, y, 170, y);
-    y += 10;
+    y += 20;
 
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(11);
-    doc.setTextColor(44, 44, 44);
-    doc.text(inv.package_title || "Engagement", left, y);
-    doc.text("R78 000", 150, y);
-    y += 10;
-    doc.text("VAT (15%)", left, y);
-    doc.text("R11 700", 150, y);
-    y += 6;
-    doc.line(left, y, 170, y);
+    // Table header
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(8);
+    doc.setTextColor(...MUTED);
+    doc.text("DESCRIPTION", left, y);
+    doc.text("AMOUNT", right, y, { align: "right" });
+    y += 4;
+    doc.setDrawColor(...BORDER);
+    doc.setLineWidth(0.3);
+    doc.line(left, y, right, y);
     y += 12;
 
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(14);
-    doc.setTextColor(92, 31, 46);
-    doc.text("TOTAL", left, y);
-    doc.text("R89 700", 150, y);
+    // Line items
+    doc.setFont("times", "normal");
+    doc.setFontSize(11);
+    doc.setTextColor(...DARK);
+    doc.text(inv.package_title || "Engagement", left, y);
+    doc.text("R78 000", right, y, { align: "right" });
+    y += 10;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.setTextColor(...MUTED);
+    doc.text("VAT (15%)", left, y);
+    doc.text("R11 700", right, y, { align: "right" });
+    y += 6;
+    doc.setDrawColor(...BORDER);
+    doc.line(left, y, right, y);
+    y += 14;
 
-    y += 30;
+    // Total
+    doc.setFont("times", "bold");
+    doc.setFontSize(16);
+    doc.setTextColor(...OXBLOOD);
+    doc.text("TOTAL", left, y);
+    doc.text("R89 700", right, y, { align: "right" });
+
+    y += 28;
+
+    // Banking details
+    doc.setDrawColor(...BORDER);
+    doc.line(left, y, right, y);
+    y += 12;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(8);
+    doc.setTextColor(...OXBLOOD);
+    doc.text("BANKING DETAILS", left, y);
+    y += 8;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(9);
-    doc.setTextColor(120, 120, 120);
-    doc.text("Banking Details", left, y); y += 6;
-    doc.text("Account holder: Miss LJ Thomas", left, y); y += 5;
-    doc.text("Bank: Investec Bank Limited", left, y); y += 5;
-    doc.text("Account number: 10012596596", left, y); y += 5;
-    doc.text("Branch code: 580105  |  SWIFT: IVESZAJJXXX", left, y);
+    doc.setTextColor(...DARK);
+    [
+      "Account holder: Miss LJ Thomas",
+      "Bank: Investec Bank Limited",
+      "Account number: 10012596596",
+      "Branch code: 580105  |  SWIFT: IVESZAJJXXX",
+    ].forEach((line) => {
+      doc.text(line, left, y);
+      y += 5;
+    });
+
+    // Footer
+    y = 280;
+    doc.setDrawColor(...BORDER);
+    doc.line(left, y, right, y);
+    y += 6;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(7);
+    doc.setTextColor(...MUTED);
+    doc.text("This document is confidential and intended solely for the named recipient. laurajanethomas.biz", left, y);
 
     doc.save(`${inv.invoice_number}.pdf`);
   };

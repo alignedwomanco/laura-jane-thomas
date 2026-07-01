@@ -472,7 +472,7 @@ export default function ClaritySpring() {
               {/* Total */}
               <motion.div {...fadeUp(0.2)} className="border border-foreground/20 p-8 md:p-12 text-center max-w-2xl mx-auto mb-10" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
                 <p className="text-[14px] text-muted-foreground mb-2">If you booked each element separately at standard rates:</p>
-                <p className="font-serif text-4xl font-bold mb-4 line-through text-muted-foreground">R185,500</p>
+                <p className="font-serif text-4xl font-bold mb-4 line-through text-muted-foreground">R178,000</p>
                 <p className="text-[14px] text-muted-foreground mb-6">The Business Sprint is a defined six-week engagement, at</p>
                 <p className="font-serif text-6xl md:text-7xl font-bold mb-6" style={{ color: BRAND }}>R24,997</p>
                 <p className="font-serif italic text-[14px] mb-2" style={{ color: BRAND }}>

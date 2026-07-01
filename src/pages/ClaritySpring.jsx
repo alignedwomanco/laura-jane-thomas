@@ -54,7 +54,6 @@ const weeks = [
 const coreItems = [
 { title: "4 Strategic Sessions", value: "R20,000", desc: "Four one-hour sessions with me directly, across the six weeks. Online, recorded so you can revisit them." },
 { title: "Your Written Strategy Documents", value: "R32,000", desc: "Your positioning diagnostic, offer and revenue model, brand and messaging direction, and go-to-market plan, written up as working documents you keep." },
-{ title: "Voxer Access Between Sessions", value: "R7,500", desc: "Voice and text support between sessions, Monday to Friday, for all six weeks." },
 { title: "90-Day Growth Plan", value: "R5,000", desc: "A written 90-day growth plan and the rhythm to run it, so you keep moving after the six weeks." }];
 
 
@@ -443,7 +442,7 @@ export default function ClaritySpring() {
                 <p className="text-[10px] tracking-editorial uppercase mb-6 font-semibold" style={{ color: BRAND }}>The Core Engagement</p>
               </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-px mb-4" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-px mb-4" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
                 {coreItems.map((item, i) =>
                 <motion.div key={i} {...fadeUp(i * 0.06)} className="p-6 md:p-8" style={{ backgroundColor: "rgba(245,238,228,0.97)" }}>
                     <div className="flex items-start justify-between mb-3">

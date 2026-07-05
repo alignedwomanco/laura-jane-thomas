@@ -143,9 +143,9 @@ export default function StrategyReport() {
     setLoading(true);
     setError(null);
     try {
-      // Fetch the specific record by ID
-      const all = await base44.entities.BrandStrategySubmission.list();
-      const found = all.find(r => r.id === id);
+      // Fetch the specific record by ID via backend function (bypasses login requirement)
+      const res = await base44.functions.invoke("getBrandStrategyReport", { id });
+      const found = res.data?.record;
 
       if (!found) {
         setError("Record not found for ID: " + id);

@@ -43,6 +43,12 @@ export default function OAEDiagnostic() {
     return () => clearTimeout(timer);
   }, [values, screen]);
 
+  useEffect(() => {
+    if (screen === 'section' || screen === 'welcome') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+  }, [sectionNum, screen]);
+
   async function init() {
     try {
       const authed = await base44.auth.isAuthenticated();
@@ -75,7 +81,7 @@ export default function OAEDiagnostic() {
 
   function handleFieldChange(field, value) { setValues(prev => ({ ...prev, [field]: value })); }
 
-  function handleBegin() { setScreen('section'); setSectionNum(1); window.scrollTo(0, 0); }
+  function handleBegin() { setScreen('section'); setSectionNum(1); }
 
   function handleNext() {
     const missing = validateSection(sectionNum, values);
@@ -87,13 +93,13 @@ export default function OAEDiagnostic() {
       return;
     }
     setErrors({});
-    if (sectionNum < 8) { saveToDB(); setSectionNum(n => n + 1); window.scrollTo(0, 0); }
+    if (sectionNum < 8) { saveToDB(); setSectionNum(n => n + 1); }
     else { setShowConfirm(true); }
   }
 
   function handleBack() {
     setErrors({});
-    if (sectionNum > 1) { saveToDB(); setSectionNum(n => n - 1); window.scrollTo(0, 0); }
+    if (sectionNum > 1) { saveToDB(); setSectionNum(n => n - 1); }
     else { setScreen('welcome'); }
   }
 

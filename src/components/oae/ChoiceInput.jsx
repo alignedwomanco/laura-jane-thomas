@@ -1,5 +1,8 @@
+import { useId } from 'react';
+
 export default function ChoiceInput({ type, value, onChange, options, allowOther = false, otherValue, onOtherChange, exclusiveOption, optionLabels }) {
   const isMulti = type === 'multi';
+  const groupName = useId();
 
   const handleSingle = (val) => {
     onChange(val === value ? null : val);
@@ -37,7 +40,7 @@ export default function ChoiceInput({ type, value, onChange, options, allowOther
           >
             <input
               type={isMulti ? 'checkbox' : 'radio'}
-              name={isMulti ? undefined : 'choice'}
+              name={isMulti ? undefined : groupName}
               checked={checked}
               disabled={disabled}
               onChange={() => isMulti ? handleMulti(val) : handleSingle(val)}

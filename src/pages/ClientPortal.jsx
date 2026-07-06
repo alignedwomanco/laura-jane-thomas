@@ -33,15 +33,10 @@ export default function ClientPortal() {
       const me = await base44.auth.me();
       setUser(me);
 
-      // Admin preview: fetch data for the specified client email
-      const lookupEmail = (adminEmail && me.role === "admin") ? adminEmail : me.email;
-      if (adminEmail && me.role === "admin") setIsAdminPreview(true);
-
-      // Fetch data matching the user's email
-      const [subs, engs] = await Promise.all([
-        base44.entities.BrandStrategySubmission.filter({ email: lookupEmail }),
-        base44.entities.EngagementAcceptance.filter({ email: lookupEmail }),
-      ]);
+      // Fetch portal data via backend function (admin authorization enforced server-side)
+      const response = await base44.functions.invoke('getClientPortalData', { adminEmail });
+      const { submissions: subs, engagements: engs, isAdminPreview } = response.data;
+      setIsAdminPreview(isAdminPreview);
 
       // Most recent submission
       if (subs.length > 0) {

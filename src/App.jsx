@@ -28,6 +28,8 @@ import FindYourFit from './pages/FindYourFit.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import SubmissionsDashboard from './pages/SubmissionsDashboard.jsx';
 import ClientPortal from './pages/ClientPortal.jsx';
+import OAEDiagnostic from './pages/OAEDiagnostic.jsx';
+import OAEDiagnosticAdmin from './pages/OAEDiagnosticAdmin.jsx';
 
 // Allow all pages to be accessible
 const PublicOnlyRoute = ({ children }) => {
@@ -82,6 +84,8 @@ const AuthenticatedApp = () => {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/submissions-dashboard" element={<SubmissionsDashboard />} />
       <Route path="/portal" element={<ClientPortal />} />
+      <Route path="/oae-diagnostic" element={<OAEDiagnostic />} />
+      <Route path="/oae-diagnostic-admin" element={<OAEDiagnosticAdmin />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

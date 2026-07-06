@@ -1,0 +1,235 @@
+{
+  "name": "OAEDiagnosticSubmission",
+  "type": "object",
+  "properties": {
+    "respondent_name": {
+      "type": "string",
+      "description": "Q24 - Respondent name"
+    },
+    "respondent_role": {
+      "type": "string",
+      "description": "Q25 - Respondent role in own words"
+    },
+    "q1_join_reason": {
+      "type": "string",
+      "description": "Q1 - Why did you join OAE?"
+    },
+    "q2_customer_frequency": {
+      "type": "string",
+      "enum": [
+        "Most days",
+        "Weekly",
+        "Monthly, or at big moments (demos, negotiations, escalations)",
+        "Rarely or never"
+      ],
+      "description": "Q2 - How often do you speak with customers"
+    },
+    "q3_what_we_do": {
+      "type": "string",
+      "description": "Q3 - What does OAE do"
+    },
+    "q4_prospect_lift": {
+      "type": "string",
+      "description": "Q4 - Prospect lift conversation"
+    },
+    "q5_gerjo_sentence": {
+      "type": "string",
+      "description": "Q5a - What Gerjo would say OAE is"
+    },
+    "q5_you_sentence": {
+      "type": "string",
+      "description": "Q5b - What you would say OAE is"
+    },
+    "q6_today_type": {
+      "type": "string",
+      "description": "Q6 - What OAE is today"
+    },
+    "q6_today_other": {
+      "type": "string",
+      "description": "Q6 - Other (today)"
+    },
+    "q6a_future_type": {
+      "type": "string",
+      "description": "Q6a - What OAE should be in 3 years"
+    },
+    "q6a_future_other": {
+      "type": "string",
+      "description": "Q6a - Other (future)"
+    },
+    "q6a_change_required": {
+      "type": "string",
+      "description": "Q6a - What has to change"
+    },
+    "q7_three_words": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Q7 - Three words describing OAE"
+    },
+    "q8_buyer_description": {
+      "type": "string",
+      "description": "Q8 - Most important customer description"
+    },
+    "q9_main_obstacle": {
+      "type": "string",
+      "description": "Q9 - Main thing stopping buyer"
+    },
+    "q10_biggest_fear": {
+      "type": "string",
+      "description": "Q10 - Buyer biggest fear"
+    },
+    "q11_lost_deal_story": {
+      "type": "string",
+      "description": "Q11 - Last deal lost story"
+    },
+    "q11a_why_died": {
+      "type": "string",
+      "description": "Q11a - Why did it die"
+    },
+    "q12_customer_quote": {
+      "type": "string",
+      "description": "Q12 - Last customer quote that stuck"
+    },
+    "q13_why_choose": {
+      "type": "string",
+      "description": "Q13 - Why choose OAE"
+    },
+    "q14_strongest_proof": {
+      "type": "string",
+      "description": "Q14 - Strongest proof OAE works"
+    },
+    "q15a_most_true": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "description": "Q15a - Most true today"
+    },
+    "q15b_cfo_meeting": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "description": "Q15b - CFO would ask for meeting"
+    },
+    "q15c_better_sentence": {
+      "type": "string",
+      "description": "Q15c - Better sentence or same"
+    },
+    "q16_overclaimed": {
+      "type": "string",
+      "description": "Q16 - Overclaimed publicly"
+    },
+    "q17_lose_to_ranking": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Q17 - Ranked: who do we lose to"
+    },
+    "q17_other": {
+      "type": "string",
+      "description": "Q17 - Other (lose to)"
+    },
+    "q18_jargon_comfort": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Q18 - Jargon comfortable using"
+    },
+    "q19_if_disappeared": {
+      "type": "string",
+      "description": "Q19 - If OAE disappeared"
+    },
+    "q20_stress_test": {
+      "type": "string",
+      "description": "Q20 - 50 buyers stress test"
+    },
+    "q21_turn_away": {
+      "type": "string",
+      "description": "Q21 - Customer to turn away"
+    },
+    "q22_magic_wand": {
+      "type": "string",
+      "description": "Q22 - Magic wand 18 months"
+    },
+    "q23_anything_else": {
+      "type": "string",
+      "description": "Q23 - Anything else (optional)"
+    },
+    "s1_website_clarity": {
+      "type": "number",
+      "description": "S1 - Website clarity confidence 0-10"
+    },
+    "s2_buyer_picture": {
+      "type": "number",
+      "description": "S2 - Buyer picture clarity 0-10"
+    },
+    "s3_team_alignment": {
+      "type": "number",
+      "description": "S3 - Team alignment confidence 0-10"
+    },
+    "s4_proof_strength": {
+      "type": "number",
+      "description": "S4 - Proof strength 0-10"
+    },
+    "s5_cfo_safety": {
+      "type": "number",
+      "description": "S5 - CFO safety answer confidence 0-10"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted"
+      ],
+      "default": "draft",
+      "description": "Submission status"
+    },
+    "submitted_at": {
+      "type": "string",
+      "description": "ISO timestamp of submission"
+    }
+  },
+  "required": [],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

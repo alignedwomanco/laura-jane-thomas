@@ -34,6 +34,7 @@ export default function OAEDiagnostic() {
   const [errors, setErrors] = useState({});
   const [showConfirm, setShowConfirm] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [isAuthed, setIsAuthed] = useState(false);
 
   useEffect(() => { init(); }, []);
 
@@ -52,13 +53,17 @@ export default function OAEDiagnostic() {
   async function init() {
     try {
       const authed = await base44.auth.isAuthenticated();
-      if (!authed) { base44.auth.redirectToLogin('/oae-diagnostic'); return; }
-      const existing = await base44.entities.OAEDiagnosticSubmission.filter({});
-      if (existing.length > 0) {
-        const sub = existing[0];
-        setSubmissionId(sub.id);
-        if (sub.status === 'submitted') { setScreen('thankyou'); }
-        else { const { id, created_date, updated_date, created_by_id, status, submitted_at, ...rest } = sub; setValues({ ...rest, ...loadLocal() }); }
+      setIsAuthed(authed);
+      if (authed) {
+        const existing = await base44.entities.OAEDiagnosticSubmission.filter({});
+        if (existing.length > 0) {
+          const sub = existing[0];
+          setSubmissionId(sub.id);
+          if (sub.status === 'submitted') { setScreen('thankyou'); }
+          else { const { id, created_date, updated_date, created_by_id, status, submitted_at, ...rest } = sub; setValues({ ...rest, ...loadLocal() }); }
+        } else {
+          setValues(loadLocal());
+        }
       } else {
         setValues(loadLocal());
       }
@@ -67,6 +72,7 @@ export default function OAEDiagnostic() {
   }
 
   async function saveToDB() {
+    if (!isAuthed) return;
     setSaving(true);
     try {
       if (submissionId) {

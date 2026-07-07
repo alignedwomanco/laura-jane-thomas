@@ -227,7 +227,7 @@ export default function Speaking() {
               That rebuild is what I speak about now. Not the polished version. The honest one.
             </p>
             <p className="text-[15px] text-ivory/75 leading-relaxed mb-5">
-              I speak about why female leadership keeps stalling between mid-level and senior, despite a decade of pipeline programmes. Why high-performing women keep arriving at the top exhausted rather than energised. Why the systems we work inside reward output and punish sustainability. And what it actually takes to build success that is honest, structured, and built to last.
+              Having now built The Aligned Woman Co. A company committed to ensuring women have access to vetted specialists, courses and content. I speak about why female leadership keeps stalling between mid-level and senior, despite a decade of pipeline programmes. Why ambitious women keep ending up exhausted rather than energised. Why the systems we work inside reward output and punish sustainability. And what it actually takes to build success that is honest, structured, and built to last.
             </p>
             <p className="font-serif italic text-xl text-ivory">
               I have stood on both sides of the conversation. The building, and the rebuild. That is what audiences hear.

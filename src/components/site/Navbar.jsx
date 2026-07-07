@@ -32,6 +32,18 @@ export default function Navbar() {
           </span>
         </a>
 
+        <nav className="hidden lg:flex items-center gap-8">
+          {links.map((l) => (
+            <Link
+              key={l.label}
+              to={l.to}
+              className={`text-[11px] tracking-editorial uppercase transition-all ${location.pathname === l.to ? "text-oxblood italic" : "text-foreground/70 hover:text-foreground"}`}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
@@ -67,7 +79,7 @@ export default function Navbar() {
             className="bg-oxblood border-t border-ivory/10"
           >
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-10 flex flex-col gap-6">
-              {links.slice(0, 2).map((l) => (
+              {links.slice(0, 3).map((l) => (
                 <Link
                   key={l.label}
                   to={l.to}

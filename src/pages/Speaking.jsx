@@ -251,9 +251,6 @@ export default function Speaking() {
       {/* In The Media */}
       <InTheMedia />
 
-      {/* Watch The Aligned Woman Podcast */}
-      <WatchPodcast />
-
       {/* Keynote Topics */}
       <section className="bg-ivory pt-24 md:pt-40 pb-24 md:pb-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -279,6 +276,9 @@ export default function Speaking() {
 
 
 
+
+      {/* Watch The Aligned Woman Podcast */}
+      <WatchPodcast />
 
       <CtaBanner headline={<>Book me<br /><span className="italic">to speak</span></>} cta="Book Me To Speak" href="/contact" />
       <Footer />

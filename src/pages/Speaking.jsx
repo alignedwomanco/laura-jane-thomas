@@ -51,7 +51,7 @@ export default function Speaking() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative bg-oxblood text-ivory pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden min-h-screen md:min-h-auto">
+      <section className="relative bg-oxblood text-ivory pt-28 pb-12 md:pt-36 md:pb-24 overflow-hidden">
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-10">
             — Speaking

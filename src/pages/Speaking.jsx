@@ -113,7 +113,7 @@ export default function Speaking() {
               className="w-full h-full object-cover"
               controls
             >
-              <source src="https://pub-a5b7b5d795624ffe98c7799d0aa110c1.r2.dev/laura-reduced.mp4" type="video/mp4" />
+              <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/UPDATED%20speaking%20video7june%20.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-oxblood/30 pointer-events-none" />
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

@@ -128,7 +128,7 @@ export default function Speaking() {
               <div className="mb-8">
                 <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">Guest Keynote</p>
                 <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">Big5Digital</p>
-                <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">2024</p>
+                <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">2026</p>
               </div>
               <p className="font-serif italic text-lg text-foreground mb-6 leading-relaxed">
                 "Laura's talk on The Hidden Tax on Female Leadership made me think differently about where I am in my life and my work. It gave me real insight, real confidence, and I wish it had been longer."

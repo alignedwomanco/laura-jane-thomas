@@ -10,6 +10,7 @@ import SpeakingAccordion from "@/components/speaking/SpeakingAccordion";
 import KeynoteTopic from "@/components/speaking/KeynoteTopic";
 import InTheMedia from "@/components/speaking/InTheMedia";
 import WatchPodcast from "@/components/speaking/WatchPodcast";
+import IntroVideo from "@/components/speaking/IntroVideo";
 
 const speakingTopics = [
   {
@@ -108,20 +109,7 @@ export default function Speaking() {
               A two-minute introduction to the work, the talks, and what audiences walk away with.
             </p>
           </div>
-          <div className="relative aspect-video bg-gradient-to-b from-[#6B3E4D] to-[#3A1E2A] rounded-lg overflow-hidden group cursor-pointer">
-            <video
-              className="w-full h-full object-cover"
-              controls
-            >
-              <source src="https://pub-7ae774d14f7545f5867330470de2d758.r2.dev/UPDATED%20speaking%20video7june%20.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-oxblood/30 pointer-events-none" />
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <button className="w-16 h-16 rounded-full bg-ivory flex items-center justify-center hover:scale-110 transition-transform duration-300 pointer-events-auto" onClick={(e) => e.currentTarget.closest('video')?.play()}>
-                <Play className="w-6 h-6 text-oxblood fill-oxblood ml-1" />
-              </button>
-            </div>
-          </div>
+          <IntroVideo />
         </div>
       </section>
 

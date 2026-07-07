@@ -9,6 +9,7 @@ import CtaBanner from "@/components/shared/CtaBanner";
 import SpeakingAccordion from "@/components/speaking/SpeakingAccordion";
 import KeynoteTopic from "@/components/speaking/KeynoteTopic";
 import InTheMedia from "@/components/speaking/InTheMedia";
+import WatchPodcast from "@/components/speaking/WatchPodcast";
 
 const speakingTopics = [
   {
@@ -241,6 +242,9 @@ export default function Speaking() {
 
       {/* In The Media */}
       <InTheMedia />
+
+      {/* Watch The Aligned Woman Podcast */}
+      <WatchPodcast />
 
       {/* Keynote Topics */}
       <section className="bg-ivory pt-24 md:pt-40 pb-24 md:pb-36">

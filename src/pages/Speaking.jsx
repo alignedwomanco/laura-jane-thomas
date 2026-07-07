@@ -255,38 +255,7 @@ export default function Speaking() {
         </div>
       </section>
 
-      {/* Podcast */}
-      <section className="bg-oxblood text-ivory py-16 md:py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div>
-              <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-8">— The Aligned Woman Podcast</p>
-              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[0.92] tracking-tight mb-8">
-                The Aligned Woman Podcast
-              </h2>
-              <p className="text-ivory/80 text-lg leading-relaxed mb-10">
-                The Aligned Woman Podcast is where ambition meets alignment. Hosted by Laura Thomas, this show brings together extraordinary women to explore leadership, burnout, identity, wealth and joy. These are the conversations women are craving but rarely given space to have.
-              </p>
-              <div className="flex justify-center lg:justify-start">
-                <a href="https://open.spotify.com/show/0TdHPtBVdT9setqlPZUimi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-ivory/70 px-6 py-3 text-[11px] tracking-editorial uppercase hover:bg-ivory hover:text-oxblood transition-all btn-pulse">
-                  Listen on Spotify
-                </a>
-              </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <iframe
-                src="https://open.spotify.com/embed/show/0TdHPtBVdT9setqlPZUimi"
-                width="100%"
-                height="352"
-                frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                className="rounded-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+
 
 
 

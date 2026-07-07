@@ -116,7 +116,7 @@ export default function Speaking() {
       {/* Speaking Testimonials */}
       <section className="bg-ivory py-24 md:py-36">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16">
             {/* Testimonial 1 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -174,6 +174,26 @@ export default function Speaking() {
               </p>
               <p className="text-sm font-semibold text-foreground">Cathy Stadler</p>
               <p className="text-xs text-muted-foreground">Director of Marketing, Oracle</p>
+            </motion.div>
+
+            {/* Testimonial 4 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="mb-8">
+                <p className="text-[8px] tracking-editorial uppercase font-bold text-oxblood mb-1">Keynote</p>
+                <p className="text-[9px] tracking-editorial uppercase font-semibold text-oxblood">That Brunch Club</p>
+                <p className="text-[8px] tracking-editorial uppercase text-oxblood/70">Guest Speaker</p>
+              </div>
+              <p className="font-serif italic text-lg text-foreground mb-6 leading-relaxed">
+                "Laura was incredible. No one has ever explained money to me the way she did. Her stories were so real, you could hear a pin drop in the room. She really touched people."
+              </p>
+              <p className="text-sm font-semibold text-foreground">Mpho Gumede</p>
+              <p className="text-xs text-muted-foreground">That Brunch Club</p>
             </motion.div>
           </div>
 

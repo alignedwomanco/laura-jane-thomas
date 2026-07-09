@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { base44 } from "@/api/base44Client";
+import { isEmailBlocked } from "@/lib/blocklist";
 import QuizEntry from "@/components/quiz/QuizEntry";
 import QuizQuestion from "@/components/quiz/QuizQuestion";
 import QuizEmailCapture from "@/components/quiz/QuizEmailCapture";
@@ -66,6 +67,11 @@ export default function Quiz() {
   };
 
   const handleEmailSubmit = async ({ firstName, email }) => {
+    const blocked = await isEmailBlocked(email);
+    if (blocked) {
+      alert("We're unable to process your submission at this time.");
+      return;
+    }
     setUserData({ firstName, email });
     const computed = calculateScores(answers);
     setScores(computed.scores);

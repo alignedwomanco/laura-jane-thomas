@@ -123,6 +123,16 @@ Deno.serve(async (req) => {
     const contact = formData[0] || {};
     const firstName = (contact.fullName || "").split(" ")[0] || "";
 
+    // Check blocklist
+    if (contact.email) {
+      const blockedEmails = await base44.asServiceRole.entities.BlockedEmail.filter({
+        email: contact.email.trim().toLowerCase()
+      });
+      if (blockedEmails.length > 0) {
+        return Response.json({ error: "This email address has been blocked." }, { status: 403 });
+      }
+    }
+
     const record = {
       firstName,
       fullName: contact.fullName || "",

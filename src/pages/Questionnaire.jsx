@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft, Check, Plus, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
+import { isEmailBlocked } from "@/lib/blocklist";
 import Navbar from "@/components/site/NavbarMinimal";
 import Footer from "@/components/site/FooterMinimal";
 
@@ -568,6 +569,12 @@ export default function Questionnaire() {
 
   const handleSubmit = async () => {
     setProcessing(true);
+    const blocked = await isEmailBlocked(formData[0]?.email || "");
+    if (blocked) {
+      setProcessing(false);
+      alert("We're unable to process your submission at this time.");
+      return;
+    }
     try {
       const response = await base44.functions.invoke("processBrandStrategy", { formData });
       try { localStorage.removeItem("bsd_form"); } catch {}

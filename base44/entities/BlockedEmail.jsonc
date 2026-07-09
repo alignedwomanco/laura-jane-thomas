@@ -1,0 +1,43 @@
+{
+  "name": "BlockedEmail",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "Blocked email address (lowercase)"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Optional reason for blocking"
+    },
+    "blockedAt": {
+      "type": "string",
+      "description": "ISO timestamp when email was blocked"
+    }
+  },
+  "required": [
+    "email"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

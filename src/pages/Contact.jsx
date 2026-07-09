@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
+import { isEmailBlocked } from "@/lib/blocklist";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 
@@ -47,6 +48,13 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target));
+
+    const blocked = await isEmailBlocked(data.email);
+    if (blocked) {
+      setLoading(false);
+      alert("We're unable to process your submission at this time.");
+      return;
+    }
 
     // Save to ContactSubmission entity
     const nameParts = (data.name || "").trim().split(" ");

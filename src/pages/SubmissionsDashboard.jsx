@@ -3,6 +3,7 @@ import { base44 } from "@/api/base44Client";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp, Download, ArrowLeft } from "lucide-react";
+import OAECard from "@/components/dashboard/OAECard";
 
 const BURGUNDY = "#5C1F2E";
 const CREAM = "#F5EDE0";
@@ -360,6 +361,7 @@ export default function SubmissionsDashboard() {
   const [quizSubs, setQuizSubs] = useState([]);
   const [brandSubs, setBrandSubs] = useState([]);
   const [contactSubs, setContactSubs] = useState([]);
+  const [oaeSubs, setOaeSubs] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -367,10 +369,12 @@ export default function SubmissionsDashboard() {
       base44.entities.QuizSubmission.list("-created_date", 200),
       base44.entities.BrandStrategySubmission.list("-created_date", 200),
       base44.entities.ContactSubmission.list("-created_date", 200),
-    ]).then(([quiz, brand, contacts]) => {
+      base44.entities.OAEDiagnosticSubmission.list("-created_date", 200),
+    ]).then(([quiz, brand, contacts, oae]) => {
       setQuizSubs(quiz);
       setBrandSubs(brand);
       setContactSubs(contacts);
+      setOaeSubs(oae);
       setLoading(false);
     });
   }, []);
@@ -384,7 +388,7 @@ export default function SubmissionsDashboard() {
     );
   }
 
-  const TABS = [`Quiz Submissions (${quizSubs.length})`, `Brand Strategy Questionnaires (${brandSubs.length})`, `Contact Messages (${contactSubs.length})`];
+  const TABS = [`Quiz Submissions (${quizSubs.length})`, `Brand Strategy Questionnaires (${brandSubs.length})`, `Contact Messages (${contactSubs.length})`, `OAE Diagnostic (${oaeSubs.length})`];
 
   return (
     <div style={{ backgroundColor: CREAM, minHeight: "100vh", fontFamily: "'Inter',sans-serif", color: DARK }}>
@@ -437,6 +441,7 @@ export default function SubmissionsDashboard() {
             { label: "Quiz Primary CTA Clicks", value: quizSubs.filter(s => s.primaryCtaClicked).length },
             { label: "Discovery Call Clicks", value: quizSubs.filter(s => s.discoveryCallCtaClicked).length },
             { label: "Contact Messages", value: contactSubs.length },
+            { label: "OAE Diagnostic Submissions", value: oaeSubs.length },
           ].map(({ label, value }) => (
             <div key={label} style={{ backgroundColor: "rgba(92,31,46,0.05)", border: `1px solid ${BORDER}`, padding: "24px 28px" }}>
               <p style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(44,44,44,0.45)", marginBottom: 8, fontFamily: "'Inter',sans-serif" }}>{label}</p>
@@ -500,6 +505,17 @@ export default function SubmissionsDashboard() {
               <p style={{ textAlign: "center", color: "rgba(44,44,44,0.35)", fontSize: 13, padding: "60px 0" }}>No contact submissions yet.</p>
             ) : (
               contactSubs.map(s => <ContactCard key={s.id} sub={s} />)
+            )}
+          </motion.div>
+        )}
+
+        {/* OAE Diagnostic tab */}
+        {activeTab === 3 && (
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
+            {oaeSubs.length === 0 ? (
+              <p style={{ textAlign: "center", color: "rgba(44,44,44,0.35)", fontSize: 13, padding: "60px 0" }}>No OAE diagnostic submissions yet.</p>
+            ) : (
+              oaeSubs.map(s => <OAECard key={s.id} sub={s} />)
             )}
           </motion.div>
         )}

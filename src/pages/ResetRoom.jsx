@@ -258,7 +258,7 @@ export default function ResetRoom() {
               </p>
               <div className="space-y-3 mb-7">
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
-                  Not slowly. Completely.
+                  Slowly. Then all at once. Completely!
                 </p>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.60)" }}>
                   The kind of burnout that takes the version of you who built it and makes it impossible to keep going. The kind that forces you to stop, question everything, and rebuild from the ground up.

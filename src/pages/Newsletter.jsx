@@ -56,7 +56,7 @@ export default function Newsletter() {
                 Letters from <span className="italic">Laura.</span>
               </h1>
               <p className="text-[15px] text-muted-foreground leading-relaxed mb-10">
-                Honest, unfiltered notes on building a life and business that actually feels like yours. No fluff, no formulas. Just the things I wish someone had told me sooner.
+                Honest, unfiltered notes on building a life and business that actually feels like yours. The products, places, tools and people I actually rate. Nothing polished, nothing recycled. Just the things I wish I'd been told sooner.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4 text-left">

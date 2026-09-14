@@ -30,6 +30,7 @@ import SubmissionsDashboard from './pages/SubmissionsDashboard.jsx';
 import ClientPortal from './pages/ClientPortal.jsx';
 import OAEDiagnostic from './pages/OAEDiagnostic.jsx';
 import OAEDiagnosticAdmin from './pages/OAEDiagnosticAdmin.jsx';
+import Newsletter from './pages/Newsletter.jsx';
 
 // Allow all pages to be accessible
 const PublicOnlyRoute = ({ children }) => {
@@ -86,6 +87,7 @@ const AuthenticatedApp = () => {
       <Route path="/portal" element={<ClientPortal />} />
       <Route path="/oae-diagnostic" element={<OAEDiagnostic />} />
       <Route path="/oae-diagnostic-admin" element={<OAEDiagnosticAdmin />} />
+      <Route path="/newsletter" element={<Newsletter />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

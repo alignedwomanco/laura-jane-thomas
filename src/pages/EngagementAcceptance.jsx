@@ -80,8 +80,8 @@ export default function EngagementAcceptance() {
     const acceptanceDetails = `Full Name: ${form.full_name}\nBusiness Name: ${form.company_name}\nRegistration Number: ${form.registration_number || "N/A"}\nEmail: ${form.email}\nPlace of Acceptance: ${form.place_of_acceptance || "N/A"}\nTime of Acceptance: ${new Date(accepted_at).toLocaleString("en-ZA", { timeZone: "Africa/Johannesburg", weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", timeZoneName: "short" })}`;
 
     const pkgTitle = engagement?.package_title || "Engagement";
-    const total = engagement?.total_investment || "—";
-    const deposit = engagement?.deposit_amount || "—";
+    const total = engagement?.total_investment || "TBC";
+    const deposit = engagement?.deposit_amount || "TBC";
 
     // Emails are best-effort: the acceptance and invoice are already saved, so a
     // failed email must never stop the client seeing their confirmation.
@@ -101,8 +101,8 @@ export default function EngagementAcceptance() {
     await base44.integrations.Core.SendEmail({
       to: form.email,
       from_name: "Laura Jane Thomas",
-      subject: "Your Engagement Acceptance — Laura Jane Thomas",
-      body: `Dear ${form.full_name},\n\nThank you for accepting the terms of your engagement with Laura Jane Thomas.\n\nYour acceptance has been recorded with the following details:\n\n${acceptanceDetails}\n\nINVOICE ${invoice_number}\nSubtotal: R78 000 + VAT\nTotal: R89 700\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the deposit of ${deposit} using the banking details below. Use your brand name as the payment reference.\n\n${bankingDetails}\n\nIf you have any questions, please don't hesitate to reach out.\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`,
+      subject: "Your Engagement Acceptance | Laura Jane Thomas",
+      body: `Dear ${form.full_name},\n\nThank you for accepting the terms of your engagement with Laura Jane Thomas.\n\nYour acceptance has been recorded with the following details:\n\n${acceptanceDetails}\n\nINVOICE ${invoice_number}\nSubtotal: R78 000 + VAT\nTotal: R89 700\n\nNEXT STEP: DEPOSIT PAYMENT\nPlease proceed with the deposit of ${deposit} using the banking details below. Use your brand name as the payment reference.\n\n${bankingDetails}\n\nIf you have any questions, please don't hesitate to reach out.\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`,
     });
     } catch (err) {
       console.error("Acceptance confirmation to client failed", err);
@@ -293,7 +293,7 @@ export default function EngagementAcceptance() {
               Thank you. Your acceptance has been recorded.
             </h2>
             <p style={{ fontSize: 14, color: "#666", marginBottom: 8 }}>
-              <strong style={{ color: DARK }}>{confirmation.full_name}</strong> — {confirmation.company_name}
+              <strong style={{ color: DARK }}>{confirmation.full_name}</strong>, {confirmation.company_name}
             </p>
             <p style={{ fontSize: 13, color: "#888", marginBottom: 40 }}>Accepted on {formatDate(confirmation.accepted_at)}</p>
 
@@ -329,7 +329,7 @@ export default function EngagementAcceptance() {
             )}
 
             <div style={{ backgroundColor: "#fff", border: `1px solid ${BORDER}`, padding: "28px 32px", textAlign: "left", borderLeft: `4px solid ${DUSTY_ROSE}` }}>
-              <p style={{ fontSize: 13, fontWeight: 600, color: BURGUNDY, marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.1em" }}>Next Step — Deposit Payment</p>
+              <p style={{ fontSize: 13, fontWeight: 600, color: BURGUNDY, marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.1em" }}>Next Step: Deposit Payment</p>
               <p style={{ fontSize: 14, color: DARK, lineHeight: 1.7, marginBottom: 16 }}>
                 Please proceed with the deposit of <strong>{deposit}</strong> using the banking details below. Use your brand name as the payment reference.
               </p>
@@ -366,7 +366,7 @@ export default function EngagementAcceptance() {
                 onClick={() => {
                   const subject = encodeURIComponent("Engagement Acceptance – Laura Jane Thomas");
                   const body = encodeURIComponent(
-                    `Dear ${confirmation.full_name},\n\nThank you for accepting the engagement terms.\n\nYour acceptance was recorded on ${formatDate(confirmation.accepted_at)}.\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the deposit of ${deposit} using the banking details below. Use your brand name as the payment reference.\n\nAccount holder: Miss LJ Thomas\nAccount number: 10012596596\nBank: Investec Bank Limited\nBranch name: Investec Bank Grayston Drive\nSWIFT code: IVESZAJJXXX\nBranch code: 580105\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`
+                    `Dear ${confirmation.full_name},\n\nThank you for accepting the engagement terms.\n\nYour acceptance was recorded on ${formatDate(confirmation.accepted_at)}.\n\nNEXT STEP: DEPOSIT PAYMENT\nPlease proceed with the deposit of ${deposit} using the banking details below. Use your brand name as the payment reference.\n\nAccount holder: Miss LJ Thomas\nAccount number: 10012596596\nBank: Investec Bank Limited\nBranch name: Investec Bank Grayston Drive\nSWIFT code: IVESZAJJXXX\nBranch code: 580105\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`
                   );
                   window.location.href = `mailto:${confirmation.email}?subject=${subject}&body=${body}`;
                 }}
@@ -476,9 +476,9 @@ export default function EngagementAcceptance() {
         <Section title="Investment">
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
             <tbody>
-              <InvestmentRow label="Total Investment" value={engagement.total_investment || "—"} />
-              <InvestmentRow label={`Deposit due on signature${engagement.deposit_percent ? ` (${engagement.deposit_percent})` : ""}`} value={engagement.deposit_amount || "—"} highlight />
-              <InvestmentRow label="Balance due on delivery" value={engagement.balance_amount || "—"} last />
+              <InvestmentRow label="Total Investment" value={engagement.total_investment || "TBC"} />
+              <InvestmentRow label={`Deposit due on signature${engagement.deposit_percent ? ` (${engagement.deposit_percent})` : ""}`} value={engagement.deposit_amount || "TBC"} highlight />
+              <InvestmentRow label="Balance due on delivery" value={engagement.balance_amount || "TBC"} last />
             </tbody>
           </table>
         </Section>

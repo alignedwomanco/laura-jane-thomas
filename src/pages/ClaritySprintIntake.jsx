@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
+import { isEmailBlocked } from "@/lib/blocklist";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 
@@ -15,6 +16,7 @@ export default function ClaritySprintIntake() {
     situation: "",
     clarityGoal: "",
     anythingElse: "",
+    website: "", // honeypot: hidden from people, bots fill it in
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -28,6 +30,21 @@ export default function ClaritySprintIntake() {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    // Bot trap: real people never see this field, so a filled value means spam.
+    if (form.website) {
+      setSubmitted(true);
+      setLoading(false);
+      return;
+    }
+
+    try {
+      if (await isEmailBlocked(form.email)) {
+        setError("We're unable to process your submission at this time.");
+        setLoading(false);
+        return;
+      }
+    } catch (_) { /* blocklist check is best-effort */ }
 
     const body = `
 New Clarity Sprint Intake
@@ -44,11 +61,37 @@ Anything else:
 ${form.anythingElse || "Nothing added"}
     `.trim();
 
-    await base44.integrations.Core.SendEmail({
-      to: "hello@laurajanethomas.biz",
-      subject: `Clarity Sprint Intake: ${form.name}`,
-      body,
-    });
+    // 1. Save the intake first so the lead is never lost, even if email fails.
+    const nameParts = form.name.trim().split(" ");
+    try {
+      await base44.entities.ContactSubmission.create({
+        firstName: nameParts[0] || "",
+        lastName: nameParts.slice(1).join(" "),
+        email: form.email,
+        phone: form.phone || "",
+        subject: "Business Sprint Intake",
+        message: body,
+        source: "businesssprint_intake",
+        status: "new",
+        submittedAt: new Date().toISOString(),
+      });
+    } catch (err) {
+      console.error("Intake save failed", err);
+      setError("Something went wrong sending your intake. Please try again, or email hello@laurajanethomas.biz directly.");
+      setLoading(false);
+      return;
+    }
+
+    // 2. Notify Laura. A failure here should not block the applicant.
+    try {
+      await base44.integrations.Core.SendEmail({
+        to: "hello@laurajanethomas.biz",
+        subject: `Business Sprint Intake: ${form.name}`,
+        body,
+      });
+    } catch (err) {
+      console.error("Intake notification email failed", err);
+    }
 
     setSubmitted(true);
     setLoading(false);
@@ -78,6 +121,12 @@ ${form.anythingElse || "Nothing added"}
               </motion.div>
 
               <form onSubmit={handleSubmit} className="space-y-8">
+                <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+                  <label>
+                    Website
+                    <input name="website" tabIndex={-1} autoComplete="off" value={form.website} onChange={handleChange} />
+                  </label>
+                </div>
                 <div>
                   <label className="block text-[10px] tracking-editorial uppercase text-muted-foreground mb-2">Name *</label>
                   <input

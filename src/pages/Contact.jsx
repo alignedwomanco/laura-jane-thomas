@@ -60,6 +60,7 @@ export default function Contact() {
     const nameParts = (data.name || "").trim().split(" ");
     const firstName = nameParts[0] || "";
     const lastName = nameParts.slice(1).join(" ") || "";
+    try {
     await base44.entities.ContactSubmission.create({
       firstName,
       lastName,
@@ -71,14 +72,25 @@ export default function Contact() {
       status: "new",
       submittedAt: new Date().toISOString(),
     });
+    } catch (err) {
+      console.error("Contact submission save failed", err);
+      setLoading(false);
+      alert("Something went wrong sending your message. Please try again, or email hello@laurajanethomas.biz directly.");
+      return;
+    }
 
-    // Also send email notification
+    // Also send email notification. A failure here must not block the visitor:
+    // the submission is already saved and the confirmation workflow still runs.
     const lines = Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n");
-    await base44.integrations.Core.SendEmail({
-      to: "hello@laurajanethomas.biz",
-      subject: `New Contact Form Submission: ${data.name || "Unknown"} — ${enquiry}`,
-      body: `New contact form submission received.\n\nEnquiry type: ${enquiry}\n\n${lines}`,
-    });
+    try {
+      await base44.integrations.Core.SendEmail({
+        to: "hello@laurajanethomas.biz",
+        subject: `New Contact Form Submission: ${data.name || "Unknown"} — ${enquiry}`,
+        body: `New contact form submission received.\n\nEnquiry type: ${enquiry}\n\n${lines}`,
+      });
+    } catch (err) {
+      console.error("Contact notification email failed", err);
+    }
     setLoading(false);
 
     // Meta Pixel: track Contact event on successful submission

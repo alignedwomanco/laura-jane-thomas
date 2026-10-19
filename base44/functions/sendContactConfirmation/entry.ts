@@ -97,6 +97,24 @@ Laura`,
   },
 };
 
+// UTF-8 safe base64 (plain btoa throws on characters outside Latin-1, e.g. curly quotes).
+function utf8ToBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = "";
+  for (const b of bytes) bin += String.fromCharCode(b);
+  return btoa(bin);
+}
+
+// RFC 2047 header encoding so names with accents show correctly in subjects.
+function encodeHeader(value) {
+  return /^[\x00-\x7F]*$/.test(value) ? value : `=?UTF-8?B?${utf8ToBase64(value)}?=`;
+}
+
+// Strip line breaks so a submitted value can never inject extra email headers.
+function cleanHeader(value) {
+  return String(value || "").replace(/[\r\n]+/g, " ").trim();
+}
+
 function fillTemplate(template, firstName, messageData) {
   const name = firstName || "there";
   let result = template.replace(/\[First Name\]/g, name);
@@ -127,7 +145,11 @@ Deno.serve(async (req) => {
       return Response.json({ skipped: true, reason: `Unknown enquiry type: ${enquiryType}` });
     }
 
-    const firstName = submission.firstName || "";
+    const firstName = cleanHeader(submission.firstName);
+    const toEmail = cleanHeader(submission.email);
+    if (!toEmail) {
+      return Response.json({ skipped: true, reason: "No email address on submission" });
+    }
     let messageData = {};
     try {
       messageData = JSON.parse(submission.message || "{}");
@@ -138,15 +160,19 @@ Deno.serve(async (req) => {
 
     const { accessToken } = await base44.asServiceRole.connectors.getConnection('gmail');
 
-    const mimeMessage = `From: hello@laurajanethomas.biz
-To: ${submission.email}
-Bcc: hello@laurajanethomas.biz
-Subject: ${subject}
-Content-Type: text/plain; charset="UTF-8"
+    const mimeMessage = [
+      `From: Laura Jane Thomas <hello@laurajanethomas.biz>`,
+      `To: ${toEmail}`,
+      `Bcc: hello@laurajanethomas.biz`,
+      `Subject: ${encodeHeader(subject)}`,
+      `MIME-Version: 1.0`,
+      `Content-Type: text/plain; charset="UTF-8"`,
+      `Content-Transfer-Encoding: base64`,
+      ``,
+      utf8ToBase64(body),
+    ].join("\r\n");
 
-${body}`;
-
-    const base64Message = btoa(mimeMessage).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+    const base64Message = utf8ToBase64(mimeMessage).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 
     const gmailRes = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
       method: 'POST',
@@ -162,7 +188,7 @@ ${body}`;
       throw new Error(`Gmail API error: ${err}`);
     }
 
-    console.log(`[sendContactConfirmation] Confirmation email sent to ${submission.email} for "${enquiryType}"`);
+    console.log(`[sendContactConfirmation] Confirmation email sent to ${toEmail} for "${enquiryType}"`);
     return Response.json({ success: true });
   } catch (error) {
     console.error("[sendContactConfirmation] Error:", error.message);

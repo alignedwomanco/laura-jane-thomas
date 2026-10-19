@@ -1,64 +1,69 @@
 {
   "name": "ScheduledEmail",
-  "type": "object",
   "properties": {
-    "submissionId": {
-      "type": "string",
-      "description": "ID of the QuizSubmission this email belongs to"
-    },
-    "toEmail": {
-      "type": "string",
-      "description": "Recipient email address"
-    },
-    "firstName": {
-      "type": "string",
-      "description": "Recipient first name"
-    },
-    "sequence": {
-      "type": "string",
-      "description": "Which nurture sequence this belongs to (e.g. clarity_sprint)"
+    "attempts": {
+      "default": 0,
+      "description": "Number of failed send attempts so far",
+      "type": "number"
     },
     "emailNumber": {
-      "type": "number",
-      "description": "Email number in the sequence (1, 2, 3, 4)"
+      "description": "Email number in the sequence (1, 2, 3, 4)",
+      "type": "number"
     },
-    "subject": {
-      "type": "string",
-      "description": "Email subject line"
+    "errorMessage": {
+      "description": "Error message if sending failed",
+      "type": "string"
+    },
+    "firstName": {
+      "description": "Recipient first name",
+      "type": "string"
     },
     "htmlBody": {
-      "type": "string",
-      "description": "Full HTML body of the email"
+      "description": "Full HTML body of the email",
+      "type": "string"
+    },
+    "primaryResult": {
+      "description": "Primary result of the quiz submission",
+      "type": "string"
     },
     "scheduledAt": {
-      "type": "string",
-      "description": "ISO timestamp when this email should be sent"
+      "description": "ISO timestamp when this email should be sent",
+      "type": "string"
+    },
+    "secondaryResult": {
+      "description": "Secondary result of the quiz submission",
+      "type": "string"
     },
     "sentAt": {
-      "type": "string",
-      "description": "ISO timestamp when this email was actually sent"
+      "description": "ISO timestamp when this email was actually sent",
+      "type": "string"
+    },
+    "sequence": {
+      "description": "Which nurture sequence this belongs to (e.g. clarity_sprint)",
+      "type": "string"
     },
     "status": {
-      "type": "string",
+      "default": "scheduled",
+      "description": "Current status of the scheduled email. skipped = too overdue to send",
       "enum": [
         "scheduled",
         "sent",
-        "failed"
+        "failed",
+        "skipped"
       ],
-      "default": "scheduled",
-      "description": "Current status of the scheduled email"
+      "type": "string"
     },
-    "errorMessage": {
-      "type": "string",
-      "description": "Error message if sending failed"
+    "subject": {
+      "description": "Email subject line",
+      "type": "string"
     },
-    "primaryResult": {
-      "type": "string",
-      "description": "Primary result of the quiz submission"
+    "submissionId": {
+      "description": "ID of the QuizSubmission this email belongs to",
+      "type": "string"
     },
-    "secondaryResult": {
-      "type": "string",
-      "description": "Secondary result of the quiz submission"
+    "toEmail": {
+      "description": "Recipient email address",
+      "type": "string"
     }
   },
   "required": [
@@ -72,6 +77,7 @@
     "scheduledAt",
     "status"
   ],
+  "type": "object",
   "rls": {
     "create": {
       "user_condition": {

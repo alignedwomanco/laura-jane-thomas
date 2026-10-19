@@ -11,6 +11,7 @@ const STATUS_STYLES = {
   scheduled: { bg: "rgba(194,133,139,0.15)", color: DUSTY_ROSE, label: "Scheduled" },
   sent: { bg: "rgba(34,100,54,0.1)", color: "#226436", label: "Sent" },
   failed: { bg: "rgba(180,30,30,0.1)", color: "#b41e1e", label: "Failed" },
+  skipped: { bg: "rgba(120,110,100,0.12)", color: "#6b625a", label: "Skipped" },
 };
 
 function StatusBadge({ status }) {

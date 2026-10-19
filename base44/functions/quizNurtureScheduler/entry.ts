@@ -490,6 +490,13 @@ const EMAIL_DELAYS_DAYS = [0, 2, 4, 7];
 
 // ─── Send via Gmail connector ─────────────────────────────────────────────────
 
+// RFC 2047 header encoding so subjects with accents or curly quotes render correctly.
+function encodeHeader(value) {
+  return /^[\x00-\x7F]*$/.test(value)
+    ? value
+    : `=?UTF-8?B?${btoa(unescape(encodeURIComponent(value)))}?=`;
+}
+
 async function sendViaGmail(base44, toEmail, subject, htmlBody) {
   const { accessToken } = await base44.asServiceRole.connectors.getConnection("gmail");
 
@@ -498,7 +505,7 @@ async function sendViaGmail(base44, toEmail, subject, htmlBody) {
   const mimeMessage = [
     `From: ${FROM_NAME} <${FROM_EMAIL}>`,
     `To: ${toEmail}`,
-    `Subject: ${subject}`,
+    `Subject: ${encodeHeader(subject)}`,
     `MIME-Version: 1.0`,
     `Content-Type: multipart/alternative; boundary="${boundary}"`,
     ``,
@@ -573,8 +580,31 @@ Deno.serve(async (req) => {
       if (!built) continue;
 
       if (emailNum === 1) {
-        // Send Email 1 immediately via Gmail
-        await sendViaGmail(base44, email, built.subject, built.html);
+        // Send Email 1 immediately via Gmail. If that fails, queue it instead of
+        // aborting, so the processor retries it and the rest of the sequence survives.
+        try {
+          await sendViaGmail(base44, email, built.subject, built.html);
+        } catch (sendError) {
+          console.error("[quizNurtureScheduler] Email 1 failed, queued for retry:", sendError.message);
+          await base44.asServiceRole.entities.ScheduledEmail.create({
+            submissionId,
+            toEmail: email,
+            firstName,
+            sequence: seqConfig.key,
+            emailNumber: 1,
+            subject: built.subject,
+            htmlBody: built.html,
+            scheduledAt: new Date().toISOString(),
+            status: "scheduled",
+            errorMessage: sendError.message,
+            primaryResult,
+            secondaryResult: secondaryResult || null,
+          });
+          // Mark as handled so a re-run of this workflow does not duplicate the sequence.
+          await base44.asServiceRole.entities.QuizSubmission.update(submissionId, { emailSent: true });
+          scheduled.push({ emailNum: 1, status: "queued_after_failure" });
+          continue;
+        }
 
         // Save it as sent in ScheduledEmail
         await base44.asServiceRole.entities.ScheduledEmail.create({

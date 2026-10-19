@@ -69,7 +69,7 @@ ${form.anythingElse || "Nothing added"}
         lastName: nameParts.slice(1).join(" "),
         email: form.email,
         phone: form.phone || "",
-        subject: "Business Sprint Intake",
+        subject: "Clarity Sprint Intake",
         message: body,
         source: "businesssprint_intake",
         status: "new",
@@ -86,7 +86,7 @@ ${form.anythingElse || "Nothing added"}
     try {
       await base44.integrations.Core.SendEmail({
         to: "hello@laurajanethomas.biz",
-        subject: `Business Sprint Intake: ${form.name}`,
+        subject: `Clarity Sprint Intake: ${form.name}`,
         body,
       });
     } catch (err) {

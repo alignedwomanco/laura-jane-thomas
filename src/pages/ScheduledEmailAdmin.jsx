@@ -49,6 +49,7 @@ export default function ScheduledEmailAdmin() {
         scheduledAt: new Date().toISOString(),
         errorMessage: null,
         sentAt: null,
+        attempts: 0,
       });
       await load();
     } catch (err) {
@@ -61,7 +62,7 @@ export default function ScheduledEmailAdmin() {
     total: emails.length,
     scheduled: emails.filter(e => e.status === "scheduled").length,
     sent: emails.filter(e => e.status === "sent").length,
-    failed: emails.filter(e => e.status === "failed").length,
+    failed: emails.filter(e => e.status === "failed" || e.status === "skipped").length,
   };
 
   return (
@@ -83,7 +84,7 @@ export default function ScheduledEmailAdmin() {
             { label: "Total", value: stats.total, color: "#1A0A0E" },
             { label: "Scheduled", value: stats.scheduled, color: DUSTY_ROSE },
             { label: "Sent", value: stats.sent, color: "#226436" },
-            { label: "Failed", value: stats.failed, color: "#b41e1e" },
+            { label: "Failed / Skipped", value: stats.failed, color: "#b41e1e" },
           ].map(s => (
             <div key={s.label} style={{ border: "1px solid rgba(92,31,46,0.15)", padding: "20px 24px" }}>
               <p style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(26,10,14,0.4)", margin: "0 0 8px" }}>{s.label}</p>
@@ -94,7 +95,7 @@ export default function ScheduledEmailAdmin() {
 
         {/* Filter + refresh */}
         <div style={{ display: "flex", gap: 12, marginBottom: 24, alignItems: "center", flexWrap: "wrap" }}>
-          {["all", "scheduled", "sent", "failed"].map(f => (
+          {["all", "scheduled", "sent", "failed", "skipped"].map(f => (
             <button key={f} onClick={() => setFilter(f)}
               style={{
                 padding: "8px 18px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase",
@@ -162,7 +163,7 @@ export default function ScheduledEmailAdmin() {
                       >
                         Preview
                       </button>
-                      {email.status === "failed" && (
+                      {(email.status === "failed" || email.status === "skipped") && (
                         <button
                           onClick={() => handleResend(email)}
                           disabled={resending === email.id}

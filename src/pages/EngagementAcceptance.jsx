@@ -83,20 +83,38 @@ export default function EngagementAcceptance() {
     const total = engagement?.total_investment || "—";
     const deposit = engagement?.deposit_amount || "—";
 
+    // Emails are best-effort: the acceptance and invoice are already saved, so a
+    // failed email must never stop the client seeing their confirmation.
     // Email to Laura
+    try {
     await base44.integrations.Core.SendEmail({
       to: "hello@laurajanethomas.biz",
       subject: `New Engagement Acceptance — ${form.full_name} (${form.company_name})`,
       body: `A new engagement has been accepted.\n\n${acceptanceDetails}\n\n---\n${pkgTitle}\nTotal: ${total} | Deposit due: ${deposit}\n\nInvoice ${invoice_number} has been generated.\nSubtotal: R78 000 + VAT\nTotal: R89 700`,
     });
+    } catch (err) {
+      console.error("Acceptance notification to Laura failed", err);
+    }
 
     // Email to client
+    try {
     await base44.integrations.Core.SendEmail({
       to: form.email,
       from_name: "Laura Jane Thomas",
       subject: "Your Engagement Acceptance — Laura Jane Thomas",
       body: `Dear ${form.full_name},\n\nThank you for accepting the terms of your engagement with Laura Jane Thomas.\n\nYour acceptance has been recorded with the following details:\n\n${acceptanceDetails}\n\nINVOICE ${invoice_number}\nSubtotal: R78 000 + VAT\nTotal: R89 700\n\nNEXT STEP — DEPOSIT PAYMENT\nPlease proceed with the deposit of ${deposit} using the banking details below. Use your brand name as the payment reference.\n\n${bankingDetails}\n\nIf you have any questions, please don't hesitate to reach out.\n\nKind regards,\nLaura Jane Thomas\nlaurajanethomas.biz`,
     });
+    } catch (err) {
+      console.error("Acceptance confirmation to client failed", err);
+      // Tell Laura so she can send the banking details by hand.
+      try {
+        await base44.integrations.Core.SendEmail({
+          to: "hello@laurajanethomas.biz",
+          subject: `ACTION NEEDED: client confirmation email failed for ${form.full_name}`,
+          body: `The engagement was accepted and invoice ${invoice_number} was created, but the confirmation email to ${form.email} did not send.\n\nPlease send them the invoice and banking details manually.\n\nError: ${err?.message || err}`,
+        });
+      } catch (_) { /* nothing more we can do from the browser */ }
+    }
 
     setConfirmation({ ...form, accepted_at, invoice });
     setSubmitting(false);

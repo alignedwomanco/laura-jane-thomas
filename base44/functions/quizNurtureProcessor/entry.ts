@@ -16,12 +16,26 @@ const SEQUENCE_LENGTHS = {
   business_consulting: 4,
 };
 
+// Retry a failed send this many times, waiting RETRY_DELAY_MINUTES between tries.
+const MAX_ATTEMPTS = 3;
+const RETRY_DELAY_MINUTES = 30;
+// Never send a nurture email more than this late. Stops stale sequences going out
+// in a burst after an outage (e.g. a lead who has since become a client).
+const MAX_OVERDUE_HOURS = 48;
+
+// RFC 2047 header encoding so subjects with accents or curly quotes render correctly.
+function encodeHeader(value) {
+  return /^[\x00-\x7F]*$/.test(value)
+    ? value
+    : `=?UTF-8?B?${btoa(unescape(encodeURIComponent(value)))}?=`;
+}
+
 async function sendViaGmail(accessToken, toEmail, subject, htmlBody) {
   const boundary = "boundary_" + Date.now();
   const mimeMessage = [
     `From: ${FROM_NAME} <${FROM_EMAIL}>`,
     `To: ${toEmail}`,
-    `Subject: ${subject}`,
+    `Subject: ${encodeHeader(subject)}`,
     `MIME-Version: 1.0`,
     `Content-Type: multipart/alternative; boundary="${boundary}"`,
     ``,
@@ -77,7 +91,19 @@ Deno.serve(async (req) => {
     let sent = 0;
     let failed = 0;
 
+    let skipped = 0;
+
     for (const emailRecord of due) {
+      const hoursOverdue = (now.getTime() - new Date(emailRecord.scheduledAt).getTime()) / 3600000;
+      if (hoursOverdue > MAX_OVERDUE_HOURS) {
+        await base44.asServiceRole.entities.ScheduledEmail.update(emailRecord.id, {
+          status: "skipped",
+          errorMessage: `Not sent: ${Math.round(hoursOverdue)} hours overdue (limit ${MAX_OVERDUE_HOURS}). Use Retry in the admin page to send anyway.`,
+        });
+        skipped++;
+        continue;
+      }
+
       try {
         await sendViaGmail(accessToken, emailRecord.toEmail, emailRecord.subject, emailRecord.htmlBody);
 
@@ -122,15 +148,27 @@ Deno.serve(async (req) => {
         }
 
       } catch (sendError) {
-        await base44.asServiceRole.entities.ScheduledEmail.update(emailRecord.id, {
-          status: "failed",
-          errorMessage: sendError.message,
-        });
+        const attempts = (emailRecord.attempts || 0) + 1;
+        if (attempts >= MAX_ATTEMPTS) {
+          await base44.asServiceRole.entities.ScheduledEmail.update(emailRecord.id, {
+            status: "failed",
+            attempts,
+            errorMessage: sendError.message,
+          });
+        } else {
+          // Keep it queued and try again later. Shifting scheduledAt also resets the overdue clock.
+          await base44.asServiceRole.entities.ScheduledEmail.update(emailRecord.id, {
+            status: "scheduled",
+            attempts,
+            scheduledAt: new Date(now.getTime() + RETRY_DELAY_MINUTES * 60000).toISOString(),
+            errorMessage: `Attempt ${attempts} failed: ${sendError.message}`,
+          });
+        }
         failed++;
       }
     }
 
-    return Response.json({ success: true, processed: due.length, sent, failed });
+    return Response.json({ success: true, processed: due.length, sent, failed, skipped });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }

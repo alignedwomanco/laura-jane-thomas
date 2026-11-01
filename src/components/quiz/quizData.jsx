@@ -86,7 +86,7 @@ export const QUESTIONS = [
     id: "q7",
     question: "What outcome would make this work feel worth it?",
     options: [
-      { letter: "A", text: "A clear plan I can execute, in four weeks" },
+      { letter: "A", text: "A clear plan I can act on, in six weeks" },
       { letter: "B", text: "Diagnosed clarity on what is actually happening, fast" },
       { letter: "C", text: "One concentrated day that breaks me out of where I am stuck" },
       { letter: "D", text: "Sustained senior partnership through a real chapter transition" },

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { BLUEPRINT_URL } from "./quizData";
+import { STRIPE_AUDIT_LINK } from "@/lib/offerLinks";
 
 const BURGUNDY = "#5C1F2E";
 const CREAM = "#F5EDE0";
@@ -12,7 +13,7 @@ const RESULTS = {
     headline: "You need clarity, fast.",
     body: `Your answers tell me you are stuck and ready for a structured plan, not a long engagement. You are starting something, building something, or repositioning what's next, and you need someone to help you think clearly enough to make your next move.
 
-The Clarity Sprint is built for this exact moment. Four weeks. Four strategic coaching calls. One clear plan forward. You leave with a written diagnostic of where you actually are, a 30-day action plan calibrated to your capacity, a vision document, and one full year of access to The Aligned Woman Blueprint to keep the work alive long after we finish.`,
+The Clarity Sprint is built for this exact moment. Six weeks. Four one to one strategy sessions, for your business or your career. You write up every decision and I sharpen it. At the end I write your Clarity Playbook: a map of how you operate, where you trip yourself up and the practical steps from here. It also comes with one full year of access to The Aligned Woman Blueprint, to keep the work going long after we finish.`,
     ctaLabel: "Learn More About The Clarity Sprint",
     ctaHref: "https://laurajanethomas.biz/claritysprint",
     secondaryCtas: {
@@ -79,9 +80,9 @@ The Aligned Woman Blueprint is built for this. The complete A.L.I.V.E. Method, t
     headline: "You need a senior diagnosis before you decide anything.",
     body: `Your answers tell me you are not sure exactly what is happening underneath your current situation, and you want a senior look before you commit to deeper work.
 
-The Alignment Audit is built for this. A 60-minute structured diagnostic session where I look at where you actually are, identify the specific misalignments costing you, and give you a clear written diagnostic and a recommended path forward, delivered within 72 hours. This is the senior advisory equivalent of a strategic consultation. You leave knowing exactly what you are working with and what to do next, with no obligation to continue.`,
-    ctaLabel: "Book The Alignment Audit",
-    ctaHref: "https://laurajanethomas.biz/services",
+The Alignment Audit is built for this. You answer a set of questions online, in your own time. Within five days I send you a written diagnostic of where you actually are, the specific misalignments costing you and a recommended path forward. Then we go through it together on one call. The investment is R5,997. This is the senior advisory equivalent of a strategic consultation. You leave knowing exactly what you are working with and what to do next, with no obligation to continue.`,
+    ctaLabel: "Buy The Alignment Audit",
+    ctaHref: STRIPE_AUDIT_LINK || "https://laurajanethomas.biz/services",
     secondaryCtas: {
       "The Senior Advisory": {
         body: "Many women begin with the Audit and then continue into the Senior Advisory. Your Audit fee is credited toward the Advisory if you upgrade within 60 days, so this becomes the diagnostic phase of a longer journey.",
@@ -94,7 +95,7 @@ The Alignment Audit is built for this. A 60-minute structured diagnostic session
         href: "https://laurajanethomas.biz/services",
       },
       "The Clarity Sprint": {
-        body: "If your situation calls for structured coaching over four weeks rather than a single diagnostic, the Clarity Sprint may be the better fit.",
+        body: "If your situation calls for structured coaching over six weeks rather than a single diagnostic, the Clarity Sprint may be the better fit.",
         label: "See The Clarity Sprint",
         href: "https://laurajanethomas.biz/claritysprint",
       },
@@ -125,7 +126,7 @@ The Recalibration Intensive is built for this. A one-day deep dive where we move
         href: "https://laurajanethomas.biz/services",
       },
       "The Clarity Sprint": {
-        body: "If you want structured work spread over four weeks instead of one concentrated day, the Clarity Sprint is the alternative.",
+        body: "If you want structured work spread over six weeks instead of one concentrated day, the Clarity Sprint is the alternative.",
         label: "See The Clarity Sprint",
         href: "https://laurajanethomas.biz/claritysprint",
       },

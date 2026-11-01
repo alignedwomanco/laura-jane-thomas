@@ -8,6 +8,8 @@ const BLUEPRINT_URL = "https://alignedwomanco.com/blueprint";
 const SERVICES_URL = "https://laurajanethomas.biz/services";
 const CONSULTING_URL = "https://laurajanethomas.biz/consulting";
 const SPRINT_URL = "https://laurajanethomas.biz/claritysprint";
+// Where Audit buttons point. Swap for the Stripe Payment Link once it exists.
+const AUDIT_URL = SERVICES_URL;
 const FROM_EMAIL = "hello@laurajanethomas.biz";
 const FROM_NAME = "Laura Jane Thomas";
 
@@ -67,8 +69,8 @@ const SECONDARY_BLOCKS = {
   "The Clarity Sprint": {
     "The Senior Advisory": { body: "After the Clarity Sprint, many women move into the Senior Advisory for sustained partnership through their next chapter. Your Sprint investment is credited toward any Senior Advisory engagement booked within 60 days.", label: "SEE THE SENIOR ADVISORY", href: SERVICES_URL },
     "The Aligned Woman Blueprint": { body: "The Sprint includes one year of Blueprint access, but if you want to start the self-paced methodology immediately, the Blueprint is available now.", label: "JOIN THE BLUEPRINT", href: BLUEPRINT_URL },
-    "The Alignment Audit": { body: "If you want a senior diagnostic before committing to the four-week Sprint, the Alignment Audit gives you that look first.", label: "SEE THE ALIGNMENT AUDIT", href: SERVICES_URL },
-    "The Recalibration Intensive": { body: "If you want concentrated work in one day instead of structured coaching over four weeks, the Recalibration Intensive is the alternative format.", label: "SEE THE RECALIBRATION INTENSIVE", href: SERVICES_URL },
+    "The Alignment Audit": { body: "If you want a senior diagnostic before committing to the six-week Sprint, the Alignment Audit gives you that look first.", label: "SEE THE ALIGNMENT AUDIT", href: SERVICES_URL },
+    "The Recalibration Intensive": { body: "If you want concentrated work in one day instead of structured coaching over six weeks, the Recalibration Intensive is the alternative format.", label: "SEE THE RECALIBRATION INTENSIVE", href: SERVICES_URL },
     "Business Consulting": { body: "If the business side of your situation needs senior strategic work alongside the personal coaching, business consulting is the second path.", label: "EXPLORE BUSINESS CONSULTING", href: CONSULTING_URL },
   },
   "The Aligned Woman Blueprint": {
@@ -79,21 +81,21 @@ const SECONDARY_BLOCKS = {
     "Business Consulting": { body: "If you are also running a business alongside this personal work, business consulting is the second path.", label: "EXPLORE BUSINESS CONSULTING", href: CONSULTING_URL },
   },
   "The Alignment Audit": {
-    "The Clarity Sprint": { body: "If your situation calls for structured coaching over four weeks rather than a single diagnostic, the Clarity Sprint may be the better fit.", label: "SEE THE CLARITY SPRINT", href: SPRINT_URL },
-    "The Aligned Woman Blueprint": { body: "If you want the methodology to start working with in your own time while you wait for the Audit session, the Blueprint is the self-paced path.", label: "JOIN THE BLUEPRINT", href: BLUEPRINT_URL },
+    "The Clarity Sprint": { body: "If your situation calls for structured coaching over six weeks rather than a single diagnostic, the Clarity Sprint may be the better fit.", label: "SEE THE CLARITY SPRINT", href: SPRINT_URL },
+    "The Aligned Woman Blueprint": { body: "If you want the methodology to start working with in your own time while you wait for your Audit diagnostic, the Blueprint is the self-paced path.", label: "JOIN THE BLUEPRINT", href: BLUEPRINT_URL },
     "The Recalibration Intensive": { body: "Some women follow the Audit with a Recalibration Intensive for concentrated work on what the Audit reveals.", label: "SEE THE RECALIBRATION INTENSIVE", href: SERVICES_URL },
     "The Senior Advisory": { body: "Many women begin with the Audit and then continue into the Senior Advisory. Your Audit fee is credited toward the Advisory if you upgrade within 60 days, so this becomes the diagnostic phase of a longer journey.", label: "SEE THE SENIOR ADVISORY", href: SERVICES_URL },
     "Business Consulting": { body: "If your situation involves both personal and business questions, the Audit can give you a senior diagnostic and business consulting can address the strategic side.", label: "EXPLORE BUSINESS CONSULTING", href: CONSULTING_URL },
   },
   "The Recalibration Intensive": {
-    "The Clarity Sprint": { body: "If you want structured work spread over four weeks instead of one concentrated day, the Clarity Sprint is the alternative.", label: "SEE THE CLARITY SPRINT", href: SPRINT_URL },
+    "The Clarity Sprint": { body: "If you want structured work spread over six weeks instead of one concentrated day, the Clarity Sprint is the alternative.", label: "SEE THE CLARITY SPRINT", href: SPRINT_URL },
     "The Aligned Woman Blueprint": { body: "The Intensive gives you one focused day. The Blueprint gives you the methodology to continue the work in your own time after the day ends.", label: "JOIN THE BLUEPRINT", href: BLUEPRINT_URL },
     "The Alignment Audit": { body: "If you want a diagnostic before committing to the full Intensive, the Alignment Audit gives you that look first.", label: "SEE THE ALIGNMENT AUDIT", href: SERVICES_URL },
     "The Senior Advisory": { body: "Some women begin with the Intensive and move into the Senior Advisory afterwards to sustain the work over 90 days. The Intensive can stand alone or become the launch point for a longer engagement.", label: "SEE THE SENIOR ADVISORY", href: SERVICES_URL },
     "Business Consulting": { body: "If your situation has a business dimension as well as a personal one, business consulting is the second path.", label: "EXPLORE BUSINESS CONSULTING", href: CONSULTING_URL },
   },
   "The Senior Advisory": {
-    "The Clarity Sprint": { body: "If 90 days feels like too long a commitment for where you are, the Clarity Sprint is a four-week alternative that often precedes the Advisory.", label: "SEE THE CLARITY SPRINT", href: SPRINT_URL },
+    "The Clarity Sprint": { body: "If 90 days feels like too long a commitment for where you are, the Clarity Sprint is a six-week alternative that often precedes the Advisory.", label: "SEE THE CLARITY SPRINT", href: SPRINT_URL },
     "The Aligned Woman Blueprint": { body: "The Senior Advisory includes three Blueprint seats. If you want to start the self-paced methodology immediately while you decide on the Advisory, the Blueprint is the entry point.", label: "JOIN THE BLUEPRINT", href: BLUEPRINT_URL },
     "The Alignment Audit": { body: "If you want to test the working relationship before committing to 90 days, the Alignment Audit is the senior diagnostic that often precedes the Senior Advisory. Your Audit fee is credited toward the Advisory if you upgrade within 60 days.", label: "START WITH THE ALIGNMENT AUDIT", href: SERVICES_URL },
     "The Recalibration Intensive": { body: "The Intensive can be a one-day launch point into the longer engagement. Some clients book it first and continue into the Advisory afterwards.", label: "SEE THE RECALIBRATION INTENSIVE", href: SERVICES_URL },
@@ -101,7 +103,7 @@ const SECONDARY_BLOCKS = {
   },
   "Business Consulting": {
     "The Senior Advisory": { body: "Some women founders run both the personal work and the business work in parallel. If you want strategic partnership for both the company and the woman building it, the Senior Advisory can run alongside business consulting.", label: "SEE THE SENIOR ADVISORY", href: SERVICES_URL },
-    "The Clarity Sprint": { body: "If the personal side of your situation needs structured coaching in four weeks alongside the business work, the Clarity Sprint is the second path.", label: "SEE THE CLARITY SPRINT", href: SPRINT_URL },
+    "The Clarity Sprint": { body: "If the personal side of your situation needs structured coaching over six weeks alongside the business work, the Clarity Sprint is the second path.", label: "SEE THE CLARITY SPRINT", href: SPRINT_URL },
     "The Aligned Woman Blueprint": { body: "If you want the methodology to integrate into your life while the business work happens, the Blueprint is the self-paced path.", label: "JOIN THE BLUEPRINT", href: BLUEPRINT_URL },
     "The Alignment Audit": { body: "If you are not sure whether the work is the business or you, the Alignment Audit is the senior diagnostic that helps clarify.", label: "SEE THE ALIGNMENT AUDIT", href: SERVICES_URL },
     "The Recalibration Intensive": { body: "If you want one focused day of senior attention on the personal side while the business consulting addresses the strategic side, the Recalibration Intensive is the second path.", label: "SEE THE RECALIBRATION INTENSIVE", href: SERVICES_URL },
@@ -131,7 +133,7 @@ function buildClaritySprint(emailNum, firstName, primaryResult, secondaryResult)
       html: wrap(`
         ${p(`Hi ${firstName},`)}
         ${p("Based on your answers, your aligned path is the Clarity Sprint. You told me you are stuck and ready for a structured plan, not a long engagement. You are starting something, building something, or repositioning what's next, and you need someone to help you think clearly enough to make your next move.")}
-        ${p("The Clarity Sprint is built for exactly this. Four weeks. Four strategic coaching calls. One clear plan forward. You leave with a written diagnostic of where you actually are, a 30-day action plan calibrated to your capacity, a vision document, and one full year of access to The Aligned Woman Blueprint to keep the work alive long after we finish.")}
+        ${p("The Clarity Sprint is built for exactly this. Six weeks. Four one to one strategy sessions, for your business or your career. You write up every decision and I sharpen it. At the end I write your Clarity Playbook: a map of how you operate, where you trip yourself up and the practical steps from here. It also comes with one full year of access to The Aligned Woman Blueprint, to keep the work going long after we finish.")}
         ${p("It is limited to three women at a time. Currently open.")}
         ${btn("LEARN MORE ABOUT THE CLARITY SPRINT", SPRINT_URL)}
         ${buildSecondaryBlock(primaryResult, secondaryResult)}
@@ -143,26 +145,26 @@ function buildClaritySprint(emailNum, firstName, primaryResult, secondaryResult)
       subject: "Why I built the Clarity Sprint",
       html: wrap(`
         ${p(`Hi ${firstName},`)}
-        ${p("Most coaching promises transformation and delivers conversation. Weeks of open-ended sessions with no structure, no written outputs, and no plan you can hold in your hands at the end.")}
+        ${p("Most coaching promises change and delivers conversation. Weeks of open-ended sessions with no structure, no written outputs, and no plan you can hold in your hands at the end.")}
         ${p("I built the Clarity Sprint differently because I knew that what high-functioning women actually need is not more conversation. It is a structured plan built by someone who can see what they cannot see.")}
-        ${p("The Sprint is time-boxed at four weeks because clarity does not require a six-month engagement. It requires the right questions in the right sequence, with someone senior enough to know which questions matter.")}
-        ${p("It produces written outputs because a plan that lives only in your head is not really a plan. You leave with a written diagnostic of where you actually are, a 30-day action plan calibrated to your capacity, and a vision document that names who you are becoming, not just what you are doing.")}
-        ${p("It bridges into the methodology because the work does not stop when our four weeks end. One full year of access to The Aligned Woman Blueprint means you have the framework to carry forward long after the Sprint closes.")}
+        ${p("The Sprint is time-boxed at six weeks because clarity does not require a six-month engagement. It requires the right questions in the right sequence, with someone senior enough to know which questions matter.")}
+        ${p("It produces written outputs because a plan that lives only in your head is not really a plan. You write up every decision as we go and I sharpen it, because a plan you wrote yourself is one you trust. Then I write your Clarity Playbook: who you are at your best, the patterns that trip you up and how to get past them, and the practical steps for your business or career.")}
+        ${p("It bridges into the methodology because the work does not stop when our six weeks end. One full year of access to The Aligned Woman Blueprint means you have the framework to carry forward long after the Sprint closes.")}
         ${p("If that sounds like you, you can read the full details here.")}
         ${btn("SEE THE FULL SPRINT DETAILS", SPRINT_URL)}
         ${signOff("I will be in touch again in a few days with a client story. Laura")}
       `)
     };
     case 3: return {
-      subject: "What four weeks actually looks like",
+      subject: "What six weeks actually looks like",
       html: wrap(`
         ${p(`Hi ${firstName},`)}
         ${p("She had been in financial services for fourteen years. Senior enough that leaving felt like losing an identity. Tired enough that staying felt like slow erosion.")}
         ${p("She had read every book. Spoken to her therapist. Had conversations with three coaches, two mentors, her closest friends. She had built three exit plans, none of which moved her closer to leaving.")}
-        ${p("When she came to the Sprint, she came with the polished version of her situation. Week 1 mapped where she actually was. Not the polished version. The honest one. The professional identity she had outgrown. The financial fear running her decisions in the background. The relationships built around an older version of herself.")}
-        ${p("Week 2 identified what was costing her. Not abstractly. Specifically, structurally, operationally. What the drift was taking from her every month.")}
-        ${p("Week 3 built the vision with architecture instead of aspiration. What the next chapter actually looked like, sequenced, resourced, real.")}
-        ${p("Week 4 built the 30-day action plan. Not a list of intentions. A plan with owners, dates, and decisions already made.")}
+        ${p("When she came to the Sprint, she came with the polished version of her situation. Our first session mapped where she actually was. Not the polished version. The honest one. The professional identity she had outgrown. The financial fear running her decisions in the background. The relationships built around an older version of herself.")}
+        ${p("The second named what was costing her. Not abstractly. Specifically, structurally, operationally. What the drift was taking from her every month.")}
+        ${p("The third built the vision with architecture instead of aspiration. What the next chapter actually looked like, sequenced, resourced, real.")}
+        ${p("The fourth built her 30-day plan. Not a list of intentions. A plan with owners, dates, and decisions already made.")}
         ${p("She left her job three months later. Not impulsively. Not in fear. Methodically, with a plan she had built herself and a coach who had helped her see what she could not see alone.")}
         ${btn("BOOK YOUR CLARITY SPRINT", SPRINT_URL)}
         ${signOff("Laura")}
@@ -241,9 +243,9 @@ function buildAlignmentAudit(emailNum, firstName, primaryResult, secondaryResult
       html: wrap(`
         ${p(`Hi ${firstName},`)}
         ${p("Based on your answers, your aligned path is the Alignment Audit. You told me you are not sure exactly what is happening underneath your current situation, and you want a senior look before you commit to deeper work.")}
-        ${p("The Alignment Audit is built for exactly this. It is a 60-minute structured diagnostic session where I look at where you actually are, identify the specific misalignments costing you, and give you a clear written diagnostic and a recommended path forward, delivered within 72 hours.")}
+        ${p("The Alignment Audit is built for exactly this. You answer a set of questions online, in your own time. Within five days I send you a written diagnostic of where you actually are, the specific misalignments costing you and a recommended path forward. Then we go through it together on one call. The investment is R5,997.")}
         ${p("This is the senior advisory equivalent of a strategic consultation. You leave knowing exactly what you are working with and what to do next, with no obligation to continue.")}
-        ${btn("BOOK THE ALIGNMENT AUDIT", SERVICES_URL)}
+        ${btn("BUY THE ALIGNMENT AUDIT", AUDIT_URL)}
         ${buildSecondaryBlock(primaryResult, secondaryResult)}
         ${p('Not quite sure? <a href="' + DISCOVERY_URL + '" style="color:#5C1F2E;">Book a free discovery call.</a>')}
         ${signOff("Warmly, Laura")}
@@ -254,14 +256,14 @@ function buildAlignmentAudit(emailNum, firstName, primaryResult, secondaryResult
       html: wrap(`
         ${p(`Hi ${firstName},`)}
         ${p("Most coaching starts with a discovery call that is really a sales conversation. You come in with a real problem, you leave with a proposal.")}
-        ${p("The Alignment Audit is different. It is a paid structured diagnostic, not a sales call. In 60 minutes, I look at where you actually are. Then I deliver a written Alignment Diagnostic within 72 hours, naming the misalignments specifically, structurally, and operationally.")}
+        ${p("The Alignment Audit is different. It is a paid diagnostic, not a sales call. You answer my questions online, in your own time. Within five days I deliver a written Alignment Diagnostic that names the misalignments specifically, and then we go through it together on one call.")}
         ${p("If the Senior Advisory is the right path after the Audit, your Audit fee is credited toward the Advisory if booked within 60 days. If a different path is right, I will tell you. If no further engagement is needed at all, I will tell you that too.")}
-        ${btn("BOOK THE AUDIT", SERVICES_URL)}
+        ${btn("BUY THE AUDIT", AUDIT_URL)}
         ${signOff("Laura")}
       `)
     };
     case 3: return {
-      subject: "What gets revealed in 60 minutes",
+      subject: "What a written diagnostic reveals",
       html: wrap(`
         ${p(`Hi ${firstName},`)}
         ${p("She ran a wellness business doing about R2 million in revenue. Successful externally. Exhausted underneath. She did not know whether to pivot, scale, sell, or step back.")}
@@ -270,7 +272,7 @@ function buildAlignmentAudit(emailNum, firstName, primaryResult, secondaryResult
         ${p("The cost of staying was not financial but structural. She was paying it in opportunity cost, not revenue. What she could not build while running the business as it was was the real number.")}
         ${p("She did not need to sell or pivot. She needed to restructure. The same business, different positioning, different client tier, different operating model.")}
         ${p("The written diagnostic gave her the language to act. She booked the Senior Advisory. Restructured over 90 days.")}
-        ${btn("BOOK THE AUDIT", SERVICES_URL)}
+        ${btn("BUY THE AUDIT", AUDIT_URL)}
         ${signOff("Laura")}
       `)
     };
@@ -281,9 +283,9 @@ function buildAlignmentAudit(emailNum, firstName, primaryResult, secondaryResult
         ${p("This is the last email I will send you about the Audit specifically.")}
         ${p("Most women avoid a senior diagnostic because they are afraid of what it might reveal. But the cost of not knowing is almost always higher than the cost of knowing.")}
         ${p("Months of slow drift. Expensive workarounds for a problem you have not named. Quiet erosion of what you are building. That is the cost of not looking.")}
-        ${p("The cost of looking is 60 minutes and a written document.")}
+        ${p("The cost of looking is R5,997, an online questionnaire and one call.")}
         ${p("If you have been sitting on questions for months, book the Audit. If you would prefer a no-pressure conversation first, book a discovery call. Either way, the work starts with looking.")}
-        ${btn("BOOK THE AUDIT", SERVICES_URL)}
+        ${btn("BUY THE AUDIT", AUDIT_URL)}
         ${btn("BOOK A FREE DISCOVERY CALL", DISCOVERY_URL, "#C2858B", "#F5EDE0")}
         ${signOff("Laura")}
       `)

@@ -8,8 +8,8 @@ const BLUEPRINT_URL = "https://alignedwomanco.com/blueprint";
 const SERVICES_URL = "https://laurajanethomas.biz/services";
 const CONSULTING_URL = "https://laurajanethomas.biz/consulting";
 const SPRINT_URL = "https://laurajanethomas.biz/claritysprint";
-// Where Audit buttons point. Swap for the Stripe Payment Link once it exists.
-const AUDIT_URL = SERVICES_URL;
+// Where Audit buttons point: the Stripe Payment Link for the Alignment Audit.
+const AUDIT_URL = "https://buy.stripe.com/bJe9AV8Zo7BT6WJ3gZeME07";
 const FROM_EMAIL = "hello@laurajanethomas.biz";
 const FROM_NAME = "Laura Jane Thomas";
 

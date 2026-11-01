@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
+import { STRIPE_AUDIT_LINK } from "@/lib/offerLinks";
 
 const offerings = [
   {
@@ -12,18 +13,41 @@ const offerings = [
     textColor: "rgba(242,235,224,1)",
     subtitle: "You do not need another program. You need to see what is actually going on.",
     body: [
-      "A 60-minute structured diagnostic session for the woman who needs to know exactly what is costing her, before she decides what to do about it.",
+      "An online diagnostic for the woman who needs to know exactly what is costing her, before she decides what to do about it. You answer the questions in your own time, and I do the reading.",
       "Most women at this threshold do not need more inspiration. They need a senior set of eyes on the actual situation, named clearly and held without judgement. The Alignment Audit is the lowest-commitment way to start.",
     ],
     includedItems: [
-      "A pre-audit intake so we are in the diagnostic from the first minute, not the fifteenth.",
-      "A 60-minute audit session, structured and direct.",
-      "A written Alignment Diagnostic delivered within 72 hours, capturing what is actually happening and what the next move is.",
-      "A Senior Advisory path-forward conversation, so you leave knowing whether the deeper work is right for you.",
+      "An online intake you complete in your own time.",
+      "A written Alignment Diagnostic within five days of you submitting it, capturing what is actually happening and what the next move is.",
+      "One call with me to go through it together, so you leave knowing whether the deeper work is right for you.",
     ],
-    closingLine: "This is the diagnostic that decides whether the rest of the work is for you. It is also a complete piece of work in itself.",
-    ctaText: "Book Your Alignment Audit",
+    closingLine: "R5,997. This is the diagnostic that decides whether the rest of the work is for you. It is also a complete piece of work in itself.",
+    ctaText: "Buy The Alignment Audit",
+    ctaHref: STRIPE_AUDIT_LINK || "/contact",
     ctaBg: "#4A2730",
+  },
+  {
+    id: "sprint",
+    label: "The Clarity Sprint",
+    title: "The Clarity",
+    titleItalic: "Sprint",
+    color: "#4A0E2E",
+    textColor: "rgba(242,235,224,1)",
+    subtitle: "You don't need another motivational quote. You need a plan.",
+    body: [
+      "A six-week, one to one engagement for women building a business or a career, who need a clear next move and the self-trust to make it.",
+      "Four sessions with me, and the work in between, where you write up every decision and I sharpen it. Built on the A.L.I.V.E. Method, so the plan fits the woman who has to carry it out.",
+    ],
+    includedItems: [
+      "Four one-hour strategic sessions across six weeks: Position, Value, Visibility, and Pace and Next Move.",
+      "Your Clarity Workbook, with my mark-up on every decision you make.",
+      "Your Clarity Playbook, written by me. A map of how you operate and where you trip yourself up, with your I am statements, your mantra and the practical steps for your business or career.",
+      "Voxer access between sessions, a 30-Day Recalibration Call, and a year inside The Aligned Woman Blueprint.",
+    ],
+    closingLine: "R34,997. Limited to three places a month.",
+    ctaText: "See The Clarity Sprint",
+    ctaHref: "/claritysprint",
+    ctaBg: "#4A0E2E",
   },
   {
     id: "intensive",
@@ -79,6 +103,13 @@ const offerings = [
     ctaBg: "#935170",
   },
 ];
+
+function CtaLink({ href, children, ...rest }) {
+  if (href.startsWith("http")) {
+    return <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>{children}</a>;
+  }
+  return <Link to={href} {...rest}>{children}</Link>;
+}
 
 export default function OfferingsAccordion() {
   const [expanded, setExpanded] = useState(null);
@@ -381,8 +412,8 @@ export default function OfferingsAccordion() {
                 </p>
 
                 {/* CTA */}
-                <Link
-                  to="/contact"
+                <CtaLink
+                  href={offering.ctaHref || "/contact"}
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -409,7 +440,7 @@ export default function OfferingsAccordion() {
                   }}
                 >
                   {offering.ctaText} <span>→</span>
-                </Link>
+                </CtaLink>
               </div>
             </div>
           </div>

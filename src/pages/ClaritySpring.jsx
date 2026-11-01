@@ -16,50 +16,95 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 1.0, delay, ease: [0.22, 1, 0.36, 1] }
 });
 
+// Paste the Stripe Payment Link for the Alignment Audit here, e.g. "https://buy.stripe.com/..."
+const STRIPE_AUDIT_LINK = "";
+
 const weeks = [
 {
   letter: "1",
   week: "SESSION 1",
   label: "POSITION",
-  sub: "What you are really building, and who it is for.",
-  body: "The gap only you can own, and the message that makes you the obvious choice. If you are established, we pressure-test a position that may have gone fuzzy.",
-  leave: "a written positioning and opportunity diagnostic."
+  business: {
+    sub: "What you are really building, and who it is for.",
+    body: "The gap only you can own, and the message that makes you the obvious choice. If you are established, we pressure-test a position that may have gone fuzzy."
+  },
+  career: {
+    sub: "What you want to be known for, and whether your role is building it.",
+    body: "We get clear on the value you bring and the reputation you want. Then we look honestly at whether your current role is getting you there, or just keeping you busy."
+  },
+  leave: "your positioning, written by you and sharpened by me.",
+  shift: "You stop measuring yourself against someone else's version of success and name your own."
 },
 {
   letter: "2",
   week: "SESSION 2",
-  label: "OFFER AND MODEL",
-  sub: "How it actually makes money, and where it is leaking.",
-  body: "Your core offer, your pricing, where the revenue comes from. If you are starting, we build the model. If you are established, we find the money you are leaving on the table.",
-  leave: "your offer and revenue model on a page."
+  label: "VALUE",
+  business: {
+    sub: "How it actually makes money, and where it is leaking.",
+    body: "Your core offer, your pricing, where the revenue comes from. If you are starting, we build the model. If you are established, we find the money you are leaving on the table."
+  },
+  career: {
+    sub: "What you are worth, and how you ask for it.",
+    body: "What your work is actually worth to the business, and how to make the case for it. Whether that means a raise or a new role entirely."
+  },
+  leave: "your offer and pricing, or your value case, on a page.",
+  shift: "You price for what you are worth and stop apologising for it."
 },
 {
   letter: "3",
   week: "SESSION 3",
-  label: "BRAND AND MARKET",
-  sub: "Why people choose you, and how they find you.",
-  body: "We sharpen the story and the way you show up, then build how you reach your people, on terms you can live with.",
-  leave: "your brand and messaging direction, and a go-to-market plan built around you."
+  label: "VISIBILITY",
+  business: {
+    sub: "Why people choose you, and how they find you.",
+    body: "We sharpen the story and the way you show up, then build how you reach your people, on terms you can live with."
+  },
+  career: {
+    sub: "How the right people see your work.",
+    body: "Good work nobody sees does not get rewarded. We decide who needs to know what you do, and how you show up for them without performing."
+  },
+  leave: "your visibility plan, written by you and sharpened by me.",
+  shift: "You show up as yourself, because performing a version of yourself is half of what is exhausting you."
 },
 {
   letter: "4",
   week: "SESSION 4",
-  label: "ENGINE AND PLAN",
-  sub: "How it grows without consuming you, and what you do next.",
-  body: "What to systemise, simplify, or hand off, then everything pulled into a sequenced 90-day plan.",
-  leave: "a simple operating model, and a written 90-day growth plan you can run without me."
+  label: "PACE AND NEXT MOVE",
+  business: {
+    sub: "What you keep, what you drop, and the move you make next.",
+    body: "What to hand off or stop, and the systems and tools to put in place. Then your next move, written up as a 30-day plan."
+  },
+  career: {
+    sub: "What you keep, what you drop, and the move you make next.",
+    body: "Where your energy is going and where it should go. Then your next move, the conversation or the application, written up as a 30-day plan."
+  },
+  leave: "a 30-day plan you wrote, pressure-tested by me, and a weekly rhythm you can keep.",
+  shift: "A pace you can hold, so growth stops costing you your health."
 }];
 
 
 const coreItems = [
-{ title: "4 Strategic Sessions", value: "R20,000", desc: "Four one-hour sessions with me directly, across the six weeks. Online, recorded so you can revisit them." },
-{ title: "Your Written Strategy Documents", value: "R32,000", desc: "Your positioning diagnostic, offer and revenue model, brand and messaging direction, and go-to-market plan, written up as working documents you keep." },
-{ title: "90-Day Growth Plan", value: "R5,000", desc: "A written 90-day growth plan and the rhythm to run it, so you keep moving after the six weeks." }];
+{ title: "4 Strategic Sessions", desc: "Four one-hour sessions with me directly, across the six weeks. Online, recorded so you can revisit them." },
+{ title: "Your Clarity Workbook", desc: "Where you write up every decision between sessions. I mark up each one, so what you walk away with is yours, and it has been pressure-tested." },
+{ title: "A Direct Line on Voxer", desc: "Message me between sessions whenever you want a steer, for the full six weeks." }];
 
 
 const bonuses = [
-{ title: "30-Day Recalibration Call", value: "R5,000", desc: "A call thirty days after we finish, to check traction and adjust." },
-{ title: "The Aligned Blueprint", value: "R116,000", desc: "One full year of access to the complete course built on my A.L.I.V.E. Method, so the way you build is something you can keep up." }];
+{ title: "30-Day Recalibration Call", desc: "A call thirty days after we finish, to check how your plan is holding up and adjust." },
+{ title: "The Aligned Woman Blueprint", desc: "One full year of access to the complete course built on my A.L.I.V.E. Method, so the way you build is something you can keep up." }];
+
+const playbookSelf = [
+{ label: "Who you are at your best:", text: "your strengths, and how you make your best decisions" },
+{ label: "Your pitfalls:", text: "the patterns you fall into under pressure, and what sets them off" },
+{ label: "How you get past them:", text: "the specific move for each one, for the moment it happens" },
+{ label: "Your I am statements:", text: "written in your own words, for the days you need reminding" },
+{ label: "Your mantra:", text: "one line to come back to" }];
+
+const playbookPlan = [
+{ label: "Your position:", text: "what you are known for, and exactly how to say it" },
+{ label: "Your offer and pricing:", text: "what you sell and what you charge for it, plus what to stop doing" },
+{ label: "Your visibility:", text: "where your people are, and what you do each week to reach them" },
+{ label: "Your setup:", text: "the systems and tools to put in place, and what to hand off or stop" },
+{ label: "Your first 30 days:", text: "the next steps in order, up to your recalibration call" }];
 
 
 const objections = [
@@ -73,15 +118,23 @@ const objections = [
 },
 {
   q: '"R34,997 is a lot for me right now."',
-  a: "It is a serious investment, calibrated well below advisory or CMO rates. If it is genuinely out of reach, start with my free resources and come back when the timing is right."
+  a: "It is a serious investment, calibrated well below advisory or CMO rates. If your employer has a learning and development budget, I can invoice the company directly. If it is genuinely out of reach right now, start with the Alignment Audit and come back when the timing is right."
+},
+{
+  q: '"I don\'t think I need a business strategist. I think I need confidence."',
+  a: "Most of the women who say this to me have plenty of confidence in other people's ideas. What they have lost is trust in their own. We rebuild that by making real decisions about your business or career, together, and letting you see them work. That is slower than a pep talk. It also lasts."
+},
+{
+  q: '"I don\'t own a business. Is this for me?"',
+  a: "Yes. The career track runs the same four sessions on your role, your value and your next move. You get the same senior thinking and the same Playbook, at the same price."
 },
 {
   q: '"I am already flat out. I do not have time for this."',
-  a: "You are already spending the time, on research, second-guessing, and starting things you do not finish. The Business Sprint takes that scattered effort and gives it structure and a clear direction to move in. An hour at a time, four times, with a plan that means you stop spinning and start moving. It is built to fit a real life and a real job."
+  a: "You are already spending the time, on research, second-guessing, and starting things you do not finish. The Clarity Sprint takes that scattered effort and gives it structure and a clear direction to move in. An hour at a time, four times, with a plan that means you stop spinning and start moving. It is built to fit a real life and a real job."
 },
 {
   q: '"What if I want to keep working with you after the six weeks?"',
-  a: "Many founders do. There is a clear path into ongoing advisory if it is the right fit, discussed only if and when you want it."
+  a: "Many women do. There is a clear path into ongoing advisory if it is the right fit, discussed only if and when you want it."
 }];
 
 

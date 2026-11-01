@@ -351,7 +351,7 @@ export default function ClaritySpring() {
             <DiscoveryBtn />
           </div>
           <div className="mt-8 max-w-xl mx-auto space-y-2">
-            <p className="text-white/55 text-[13px] md:text-[15px] tracking-wide">Limited to 3 places per month. Online. Starts within 7 days of booking.</p>
+            <p className="text-white/55 text-[13px] md:text-[15px] tracking-wide">Only two places this year. Online. Starts within 7 days of booking.</p>
             <p className="font-serif italic text-[13px] md:text-[15px]" style={{ color: "rgba(255,200,180,0.70)" }}>
               Usually I work at fractional CMO and advisory rates. The Clarity Sprint is a defined six-week engagement, calibrated below those rates, because doing this work one to one with women is what I love most.
             </p>
@@ -617,7 +617,7 @@ export default function ClaritySpring() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <DiscoveryBtn />
                 </div>
-                <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-4">Limited to 3 places per month. Online only. Starts within 7 days of booking.</p>
+                <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-4">Only two places this year. Online only. Starts within 7 days of booking.</p>
               </motion.div>
 
               {/* ALIGNMENT AUDIT */}
@@ -772,7 +772,7 @@ export default function ClaritySpring() {
             <div className="border border-foreground/20 p-8" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
               <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Set up a free discovery call.</p>
               <ul className="space-y-1 text-[13px] text-muted-foreground mb-6">
-                <li>Only three places per month.</li>
+                <li>Only two places this year.</li>
                 <li>Four one-hour sessions across six weeks.</li>
                 <li>Online, scheduled around your real life.</li>
                 <li>Starts within 7 days of booking confirmation.</li>

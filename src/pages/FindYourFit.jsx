@@ -5,7 +5,7 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 
 const CALENDLY_15MIN_LINK = "https://calendly.com/hello-laurajanethomas/15min";
-const BUSINESS_SPRINT_LINK = "/claritysprint";
+const CLARITY_SPRINT_LINK = "/claritysprint";
 
 const questions = [
   {
@@ -83,7 +83,7 @@ const results = {
     ctaLabel: "Book your 15-minute call",
     ctaLine: "15 minutes, no pitch. You will leave knowing your next move.",
     secondaryLabel: "See the full Clarity Sprint",
-    secondaryLink: BUSINESS_SPRINT_LINK,
+    secondaryLink: CLARITY_SPRINT_LINK,
   },
   ADVISORY: {
     heading: "What your answers reveal",

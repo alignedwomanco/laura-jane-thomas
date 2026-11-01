@@ -6,6 +6,7 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import ResourcesSection from "@/components/shared/ResourcesSection";
 import PressMarquee from "@/components/home/PressMarquee";
+import { STRIPE_AUDIT_LINK } from "@/lib/offerLinks";
 
 const BRAND = "#26030F";
 
@@ -16,8 +17,6 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 1.0, delay, ease: [0.22, 1, 0.36, 1] }
 });
 
-// Paste the Stripe Payment Link for the Alignment Audit here, e.g. "https://buy.stripe.com/..."
-const STRIPE_AUDIT_LINK = "";
 
 const weeks = [
 {

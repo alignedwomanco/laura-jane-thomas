@@ -9,7 +9,7 @@ const SERVICES_URL = "https://laurajanethomas.biz/services";
 const CONSULTING_URL = "https://laurajanethomas.biz/consulting";
 const SPRINT_URL = "https://laurajanethomas.biz/claritysprint";
 // Where Audit buttons point: the Stripe Payment Link for the Alignment Audit.
-const AUDIT_URL = "https://buy.stripe.com/bJe9AV8Zo7BT6WJ3gZeME07";
+const AUDIT_URL = "https://buy.stripe.com/dRmeVf5Nc7BT4OB18ReME08";
 const FROM_EMAIL = "hello@laurajanethomas.biz";
 const FROM_NAME = "Laura Jane Thomas";
 
@@ -243,7 +243,7 @@ function buildAlignmentAudit(emailNum, firstName, primaryResult, secondaryResult
       html: wrap(`
         ${p(`Hi ${firstName},`)}
         ${p("Based on your answers, your aligned path is the Alignment Audit. You told me you are not sure exactly what is happening underneath your current situation, and you want a senior look before you commit to deeper work.")}
-        ${p("The Alignment Audit is built for exactly this. You answer a set of questions online, in your own time. Within five days I send you a written diagnostic of where you actually are, the specific misalignments costing you and a recommended path forward. Then we go through it together on one call. The investment is R5,997.")}
+        ${p("The Alignment Audit is built for exactly this. You answer a set of questions online, in your own time. Within five days I send you a written diagnostic of where you actually are, the specific misalignments costing you and a recommended path forward. Then we go through it together on one call. The investment is R2,997.")}
         ${p("This is the senior advisory equivalent of a strategic consultation. You leave knowing exactly what you are working with and what to do next, with no obligation to continue.")}
         ${btn("BUY THE ALIGNMENT AUDIT", AUDIT_URL)}
         ${buildSecondaryBlock(primaryResult, secondaryResult)}
@@ -283,7 +283,7 @@ function buildAlignmentAudit(emailNum, firstName, primaryResult, secondaryResult
         ${p("This is the last email I will send you about the Audit specifically.")}
         ${p("Most women avoid a senior diagnostic because they are afraid of what it might reveal. But the cost of not knowing is almost always higher than the cost of knowing.")}
         ${p("Months of slow drift. Expensive workarounds for a problem you have not named. Quiet erosion of what you are building. That is the cost of not looking.")}
-        ${p("The cost of looking is R5,997, an online questionnaire and one call.")}
+        ${p("The cost of looking is R2,997, an online questionnaire and one call.")}
         ${p("If you have been sitting on questions for months, book the Audit. If you would prefer a no-pressure conversation first, book a discovery call. Either way, the work starts with looking.")}
         ${btn("BUY THE AUDIT", AUDIT_URL)}
         ${btn("BOOK A FREE DISCOVERY CALL", DISCOVERY_URL, "#C2858B", "#F5EDE0")}

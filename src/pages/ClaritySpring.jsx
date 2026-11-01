@@ -302,7 +302,7 @@ function AuditButton() {
       className="inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group"
       style={{ backgroundColor: "#C4847A", color: "#26030F" }}>
       
-      Buy the Alignment Audit
+      Get my Alignment Audit
       <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
     </a>);
 
@@ -622,16 +622,17 @@ export default function ClaritySpring() {
 
               {/* ALIGNMENT AUDIT */}
               <motion.div {...fadeUp(0.2)} className="p-8 md:p-12 text-center max-w-2xl mx-auto mt-16" style={{ backgroundColor: "rgba(38,3,15,0.95)" }}>
-                <p className="text-[10px] tracking-editorial uppercase mb-6 text-white/60">Not ready for six weeks?</p>
+                <p className="text-[10px] tracking-editorial uppercase mb-6 text-white/60">Start here</p>
                 <h3 className="font-serif text-3xl md:text-5xl leading-[0.95] tracking-tight mb-6 text-white">
-                  Start with <span className="italic" style={{ color: "#E8B4AE" }}>The Alignment Audit.</span>
+                  You've asked everyone else. <span className="italic" style={{ color: "#E8B4AE" }}>Now get an answer about you.</span>
                 </h3>
                 <div className="space-y-4 text-[14px] leading-relaxed text-white/75 mb-8">
-                  <p>You answer a set of questions online, in your own time. Within five days of you submitting them, I send you a written diagnostic of where you actually are, the patterns holding you back and the move I would make next.</p>
-                  <p>Then we get on one call to go through it together.</p>
-                  <p className="font-serif italic" style={{ color: "#E8B4AE" }}>It is the lowest-commitment way to get my eyes on your situation.</p>
+                  <p className="font-serif italic text-lg md:text-xl" style={{ color: "#E8B4AE" }}>ChatGPT gives you the most likely answer. Your friends give you the kindest one. The Alignment Audit gives you yours.</p>
+                  <p>It's built on 17 years of strategy work for some of the biggest brands in the world. I'm a certified director, coach, business mentor and NLP practitioner, and the diagnostic draws on neuroscience and psychology as much as business strategy. So it reads your business and the woman running it.</p>
+                  <p>You answer my questions online, in your own time. Within five days you get a written diagnostic of where you actually are, the pattern holding you back and the move I'd make next. Then we go through it together on one call.</p>
                 </div>
-                <p className="font-serif text-5xl md:text-6xl font-bold mb-8 text-white">R5,997</p>
+                <p className="font-serif text-5xl md:text-6xl font-bold mb-3 text-white">R5,997</p>
+                <p className="text-[13px] text-white/65 mb-8">If you go on to do the Clarity Sprint with me, R4,000 of it comes off the Sprint.</p>
                 <AuditButton />
               </motion.div>
             </div>

@@ -21,7 +21,7 @@ const offerings = [
       "A written Alignment Diagnostic within five days of you submitting it, capturing what is actually happening and what the next move is.",
       "One call with me to go through it together, so you leave knowing whether the deeper work is right for you.",
     ],
-    closingLine: "R5,997. If you go on to do the Clarity Sprint with me within 12 months, R4,000 of it comes off the Sprint. This is the diagnostic that decides whether the rest of the work is for you. It is also a complete piece of work in itself.",
+    closingLine: "R2,997. If you go on to do the Clarity Sprint with me within 12 months, the full R2,997 comes off the Sprint. This is the diagnostic that decides whether the rest of the work is for you. It is also a complete piece of work in itself.",
     ctaText: "Buy The Alignment Audit",
     ctaHref: STRIPE_AUDIT_LINK || "/contact",
     ctaBg: "#4A2730",

@@ -16,6 +16,7 @@ export default function ClaritySprintIntake() {
     situation: "",
     clarityGoal: "",
     anythingElse: "",
+    recordingConsent: false,
     website: "", // honeypot: hidden from people, bots fill it in
   });
   const [submitted, setSubmitted] = useState(false);
@@ -23,7 +24,8 @@ export default function ClaritySprintIntake() {
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, type, checked, value } = e.target;
+    setForm({ ...form, [name]: type === "checkbox" ? checked : value });
   };
 
   const handleSubmit = async (e) => {
@@ -53,6 +55,7 @@ Name: ${form.name}
 Email: ${form.email}
 Phone: ${form.phone || "Not provided"}
 Primary Situation: ${form.situation}
+Consents to recording and AI transcription: ${form.recordingConsent ? "Yes" : "No"}
 
 What are you hoping to get clarity on?
 ${form.clarityGoal}
@@ -111,7 +114,7 @@ ${form.anythingElse || "Nothing added"}
                 transition={{ duration: 1 }}
                 className="mb-12"
               >
-                <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-6">— The Clarity Sprint</p>
+                <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-6">The Clarity Sprint</p>
                 <h1 className="font-serif text-4xl md:text-5xl leading-[0.95] tracking-tight mb-4" style={{ color: "#1A1A1A" }}>
                   Your Clarity Sprint Intake
                 </h1>
@@ -176,6 +179,7 @@ ${form.anythingElse || "Nothing added"}
                     <option value="Starting a business">Starting a business</option>
                     <option value="Repositioning">Repositioning</option>
                     <option value="Building">Building</option>
+                    <option value="Making a career move">Making a career move</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
@@ -205,6 +209,20 @@ ${form.anythingElse || "Nothing added"}
                   />
                 </div>
 
+                <label className="flex items-start gap-3 text-[13px] leading-relaxed text-muted-foreground cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="recordingConsent"
+                    required
+                    checked={form.recordingConsent}
+                    onChange={handleChange}
+                    className="mt-1"
+                  />
+                  <span>
+                    I understand our sessions are recorded and transcribed using AI tools so Laura can prepare my Clarity Playbook, and I consent to this. *
+                  </span>
+                </label>
+
                 {error && <p className="text-red-600 text-sm">{error}</p>}
 
                 <button
@@ -223,7 +241,7 @@ ${form.anythingElse || "Nothing added"}
               transition={{ duration: 0.8 }}
               className="text-center py-20"
             >
-              <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Received</p>
+              <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">Received</p>
               <h2 className="font-serif text-4xl md:text-5xl leading-[0.95] tracking-tight mb-6" style={{ color: "#1A1A1A" }}>
                 Thank you.
               </h2>

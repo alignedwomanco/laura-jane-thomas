@@ -44,7 +44,7 @@ const offerings = [
       "Your Clarity Playbook, written by me. A map of how you operate and where you trip yourself up, with your I am statements, your mantra and the practical steps for your business or career.",
       "Voxer access between sessions, a 30-Day Recalibration Call, and a year inside The Aligned Woman Blueprint.",
     ],
-    closingLine: "R34,997 paid in full, or R38,000 on a payment plan: R19,000 upfront, then R9,500 a month for two months. Limited to three places a month.",
+    closingLine: "R34,997 paid in full. Prefer to spread it? Pay R19,000 to start, then two monthly payments of R9,500. R38,000 in total. Limited to three places a month.",
     ctaText: "See The Clarity Sprint",
     ctaHref: "/claritysprint",
     ctaBg: "#4A0E2E",

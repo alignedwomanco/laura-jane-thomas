@@ -74,7 +74,7 @@ ${form.anythingElse || "Nothing added"}
         phone: form.phone || "",
         subject: "Clarity Sprint Intake",
         message: body,
-        source: "businesssprint_intake",
+        source: "claritysprint_intake",
         status: "new",
         submittedAt: new Date().toISOString(),
       });

@@ -117,7 +117,7 @@ const objections = [
 },
 {
   q: '"R34,997 is a lot for me right now."',
-  a: "It is a serious investment, calibrated well below advisory or CMO rates. If your employer has a learning and development budget, I can invoice the company directly. If it is genuinely out of reach right now, start with the Alignment Audit and come back when the timing is right."
+  a: "It is a serious investment, calibrated well below advisory or CMO rates. If paying in one go is the hard part, there is a payment plan: R19,000 upfront, then R9,500 a month for two months, R38,000 in total. If your employer has a learning and development budget, I can invoice the company directly. If it is genuinely out of reach right now, start with the Alignment Audit and come back when the timing is right."
 },
 {
   q: '"I don\'t think I need a business strategist. I think I need confidence."',
@@ -600,7 +600,13 @@ export default function ClaritySpring() {
               {/* Total */}
               <motion.div {...fadeUp(0.2)} className="border border-foreground/20 p-8 md:p-12 text-center max-w-2xl mx-auto mb-10" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
                 <p className="text-[14px] text-muted-foreground mb-6">The Clarity Sprint is a defined six-week engagement, at</p>
+                <p className="text-[10px] tracking-editorial uppercase font-semibold mb-2" style={{ color: BRAND }}>Paid in full</p>
                 <p className="font-serif text-6xl md:text-7xl font-bold mb-6" style={{ color: BRAND }}>R34,997</p>
+                <div className="border-t border-b border-foreground/15 py-5 mb-6">
+                  <p className="text-[10px] tracking-editorial uppercase font-semibold mb-2" style={{ color: BRAND }}>Or on a payment plan</p>
+                  <p className="text-[14px] text-foreground leading-relaxed">R19,000 upfront, then R9,500 a month for two months.</p>
+                  <p className="text-[13px] text-muted-foreground">R38,000 in total.</p>
+                </div>
                 <p className="font-serif italic text-[14px] mb-2" style={{ color: BRAND }}>
                   That is under R5,900 a week, for senior strategy and a plan you keep for good. Less than a single month of most marketing retainers, paid once.
                 </p>

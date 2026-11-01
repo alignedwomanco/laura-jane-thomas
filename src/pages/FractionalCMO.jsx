@@ -259,16 +259,16 @@ export default function FractionalCMO() {
             {/* Box 1 */}
             <div className="border border-ivory/20 p-8 flex flex-col" style={{backgroundColor: '#26030F'}}>
               <p className="text-[10px] tracking-editorial uppercase text-ivory/40 mb-4">01</p>
-              <h3 className="font-serif text-xl md:text-2xl leading-tight mb-5 text-ivory">The Business Sprint</h3>
+              <h3 className="font-serif text-xl md:text-2xl leading-tight mb-5 text-ivory">The Clarity Sprint</h3>
               <p className="text-[14px] text-ivory/70 leading-relaxed mb-6 flex-1">
                 For founders who need a clear plan, fast.<br /><br />
-                Six weeks, four sessions, a fixed price. You leave with your positioning, your offer and model, your brand and message, and a 90-day plan you can run. You do the building, I do the guiding. The fastest way to get a senior strategic look at your business.
+                Six weeks, four sessions, a fixed price. You leave with your positioning, your offer, a way to reach your people and a 30-day plan you can run, plus a Playbook on how you operate. You do the building, I do the guiding. The fastest way to get a senior strategic look at your business.
               </p>
               <a
-                href="/businesssprint"
+                href="/claritysprint"
                 className="inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase border border-ivory/40 px-5 py-3 hover:bg-ivory hover:text-foreground transition-all duration-300 group self-start mt-auto text-ivory"
               >
-                See the Business Sprint
+                See the Clarity Sprint
                 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
               </a>
             </div>

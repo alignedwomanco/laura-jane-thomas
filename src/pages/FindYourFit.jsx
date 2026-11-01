@@ -78,11 +78,11 @@ const results = {
   SPRINT: {
     heading: "What your answers reveal",
     body: "At your stage the problem is almost never effort, it is clarity. You are not yet certain what you stand for or who it is really for, so everything downstream, the content, the offers, the selling, costs you more than it should. That is the fastest thing there is to fix.",
-    subheading: "Your best fit: The Business Sprint.",
-    recommendation: "Six weeks, four sessions, and you come out with your positioning, your offer, your message, and a 90-day plan you can run yourself. You do the building, I do the guiding. The fastest and most affordable way to get a senior strategic look at your business.",
+    subheading: "Your best fit: The Clarity Sprint.",
+    recommendation: "Six weeks, four sessions, and you come out with your positioning, your offer, a way to reach your people and a 30-day plan you wrote yourself, plus a Playbook I write on how you operate. You do the building, I do the guiding. The fastest way to get a senior strategic look at your business.",
     ctaLabel: "Book your 15-minute call",
     ctaLine: "15 minutes, no pitch. You will leave knowing your next move.",
-    secondaryLabel: "See the full Business Sprint",
+    secondaryLabel: "See the full Clarity Sprint",
     secondaryLink: BUSINESS_SPRINT_LINK,
   },
   ADVISORY: {

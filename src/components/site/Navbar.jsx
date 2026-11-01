@@ -12,7 +12,7 @@ const links = [
 
 
 const fractionalDropdown = [
-  { label: "The Business Sprint", to: "/businesssprint" },
+  { label: "The Clarity Sprint", to: "/claritysprint" },
 ];
 
 
@@ -21,7 +21,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [mobileFractionalOpen, setMobileFractionalOpen] = useState(false);
   const location = useLocation();
-  const isFractionalActive = location.pathname === "/fractional-cmo" || location.pathname === "/businesssprint";
+  const isFractionalActive = location.pathname === "/fractional-cmo" || location.pathname === "/claritysprint";
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-foreground/10">

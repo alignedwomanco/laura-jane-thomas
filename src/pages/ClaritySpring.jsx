@@ -72,7 +72,7 @@ const objections = [
   a: "Yes, because the sessions are not the whole of it. Each one ends with a clear, structured plan and a defined next move, so between calls you always know exactly what you are working toward. The sessions are where the senior decisions get made, and the structured plan in between is what keeps you moving. You are not paying for four hours of my time. You are paying for that judgement on every call that matters, the documents you keep, and a plan that actually works."
 },
 {
-  q: '"R24,997 is a lot for me right now."',
+  q: '"R34,997 is a lot for me right now."',
   a: "It is a serious investment, calibrated well below advisory or CMO rates. If it is genuinely out of reach, start with my free resources and come back when the timing is right."
 },
 {
@@ -474,9 +474,9 @@ export default function ClaritySpring() {
                 <p className="text-[14px] text-muted-foreground mb-2">If you booked each element separately at standard rates:</p>
                 <p className="font-serif text-4xl font-bold mb-4 line-through text-muted-foreground">R178,000</p>
                 <p className="text-[14px] text-muted-foreground mb-6">The Business Sprint is a defined six-week engagement, at</p>
-                <p className="font-serif text-6xl md:text-7xl font-bold mb-6" style={{ color: BRAND }}>R24,997</p>
+                <p className="font-serif text-6xl md:text-7xl font-bold mb-6" style={{ color: BRAND }}>R34,997</p>
                 <p className="font-serif italic text-[14px] mb-2" style={{ color: BRAND }}>
-                  That is under R4,200 a week, for senior strategy and a plan you keep for good. Less than a single month of most marketing retainers, paid once.
+                  That is under R5,900 a week, for senior strategy and a plan you keep for good. Less than a single month of most marketing retainers, paid once.
                 </p>
                 <p className="font-serif italic text-[14px] mb-8" style={{ color: BRAND }}>
                   That is not a discount. It is a calibrated rate, because this is focused, six-week work rather than an ongoing retainer, and because doing this work with founders on their own businesses is what I love most.

@@ -289,7 +289,28 @@ const DiscoveryBtn = ({ dark = false, className = "" }) =>
 
 
 
+function AuditButton() {
+  if (!STRIPE_AUDIT_LINK) {
+    return (
+      <p className="text-[10px] tracking-editorial uppercase text-muted-foreground">Online booking opens shortly</p>);
+
+  }
+  return (
+    <a
+      href={STRIPE_AUDIT_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-all duration-300 group"
+      style={{ backgroundColor: "#C4847A", color: "#26030F" }}>
+      
+      Buy the Alignment Audit
+      <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+    </a>);
+
+}
+
 export default function ClaritySpring() {
+  const [track, setTrack] = useState("business");
   return (
     <div style={{ fontFamily: "var(--font-sans)" }}>
       <title>The Clarity Sprint | Senior Strategic Coaching for Women Building What's Next | Laura Thomas</title>
@@ -317,7 +338,7 @@ export default function ClaritySpring() {
           className="relative z-10 max-w-4xl mx-auto">
           
           <p className="text-[10px] tracking-editorial uppercase text-white/50 mb-8">
-            A limited engagement for anyone starting, growing, or repositioning a business.
+            A limited engagement for women building a business or a career.
           </p>
           <h1 className="font-serif text-white leading-[1.0] tracking-tight mb-8" style={{ fontSize: "clamp(2.4rem, 6vw, 6.5rem)" }}>
             <span className="block">You don't need another</span>
@@ -325,7 +346,7 @@ export default function ClaritySpring() {
             <span className="block font-serif italic" style={{ color: "rgba(255,200,180,0.85)" }}>You need a plan.</span>
           </h1>
           <p className="text-white/75 text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            Six weeks. Four strategic sessions. One clear plan to build a business that actually works, with a senior brain to guide you.
+            Six weeks. Four strategic sessions. One clear plan for your business or your career, with a senior brain to guide you, and a way of running it that doesn't cost you yourself.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <DiscoveryBtn />
@@ -333,7 +354,7 @@ export default function ClaritySpring() {
           <div className="mt-8 max-w-xl mx-auto space-y-2">
             <p className="text-white/55 text-[13px] md:text-[15px] tracking-wide">Limited to 3 places per month. Online. Starts within 7 days of booking.</p>
             <p className="font-serif italic text-[13px] md:text-[15px]" style={{ color: "rgba(255,200,180,0.70)" }}>
-              Usually I work at fractional CMO and advisory rates. The Business Sprint is a defined six-week engagement, calibrated below those rates, because doing this work with founders on their own businesses is what I love most.
+              Usually I work at fractional CMO and advisory rates. The Clarity Sprint is a defined six-week engagement, calibrated below those rates, because doing this work one to one with women is what I love most.
             </p>
           </div>
         </motion.div>
@@ -362,10 +383,12 @@ export default function ClaritySpring() {
             <motion.div {...fadeUp(0.1)} className="space-y-5 text-[15px] leading-relaxed">
               <p className="text-foreground">Maybe you are at the start. You have the idea, maybe a name, maybe a domain you registered at 11pm to prove to yourself you were serious, maybe stock already sitting in a cupboard. And then you stalled, because you do not actually know how to begin.</p>
               <p className="text-foreground">Or maybe you are further along. You built something real. It works, more or less. But it has plateaued, or lost the thread of what made it different, or started running you instead of the other way around. You are busier than ever and the growth does not match the effort.</p>
-              <p className="text-foreground">Either way, the problem is the same. You are capable. You are not short on drive, you have built and carried things most people would not attempt. What you are missing is a clear next move, and a senior set of eyes on the actual situation.</p>
+              <p className="text-foreground">Or maybe you do not own a business at all. You are good at your job, and you have outgrown it, or it has outgrown you. You know there is a next move. You just cannot see it clearly from where you are standing.</p>
+              <p className="text-foreground">Whichever one you are, the problem is the same. You are capable. You are not short on drive, you have built and carried things most people would not attempt. What you are missing is a clear next move, and a senior set of eyes on the actual situation.</p>
               <p className="text-foreground">So you research. You take the free course. You ask ChatGPT. You end up with more information and somehow less clarity. <span className="font-serif italic" style={{ color: BRAND }}>(Yes, close the tab.)</span></p>
+              <p className="text-foreground">And every time you hand the decision to someone else, you trust yourself a little less with the next one. That is what most confidence problems are. You have not lost your nerve. You have built up a backlog of calls you let other people make.</p>
               <p className="text-foreground text-base md:text-lg leading-relaxed pt-2">
-                  Information is not what is missing. A plan is. And someone who has actually built the thing, not just talked about building it, to help you make the calls that only experience can make.
+                  Information is not what is missing. A plan is, and the self-trust to back it. And someone who has built the thing, not talked about building it, to help you make the calls that only experience can make.
                 </p>
               </motion.div>
               <div className="flex justify-center mt-10">
@@ -406,7 +429,7 @@ export default function ClaritySpring() {
               <p className="text-muted-foreground text-[14px] leading-relaxed">Before I advised anyone, I built and ran my own marketing agency for over a decade and led brand and marketing work for some of the biggest names in the market.</p>
               <p className="text-muted-foreground text-[14px] leading-relaxed">I have built a business from nothing, and I have been the strategist brought in to fix and grow ones that were already established. I have sat on both sides of the problem you are bringing me.</p>
               <p className="text-muted-foreground text-[14px] leading-relaxed">So when we work on your positioning, your offer, and your plan, you are not getting theory or a borrowed framework off the internet. You are getting someone who has made these exact decisions with real money on the line, many times over.</p>
-              <p className="text-muted-foreground text-[14px] leading-relaxed">I also learned the hard way what it costs to build something while running yourself into the ground. After a decade at full tilt, my body called it. I rebuilt, and I changed how I work and how I help the people I work with. So we get the business right, the position, the offer, the plan, and we do it in a way you can actually sustain.</p>
+              <p className="text-muted-foreground text-[14px] leading-relaxed">I also learned the hard way what it costs to build something while running yourself into the ground. After a decade at full tilt, I had every answer and no idea who I was. My body called it before I did. I rebuilt, and I changed how I work and how I help the people I work with. So we get the business right, the position, the offer, the plan, and we do it in a way you can actually sustain.</p>
               <p className="text-foreground text-[14px] leading-relaxed font-medium font-serif italic" style={{ color: BRAND }}>That is the difference. Operator experience, without the burnout most business advice runs on.</p>
             </motion.div>
           </div>
@@ -430,24 +453,40 @@ export default function ClaritySpring() {
               <motion.div {...fadeUp(0)} className="mb-12 text-center max-w-3xl mx-auto">
                 <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— The Offer</p>
                 <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-6" style={{ color: "#1A1A1A" }}>
-                  Introducing <span className="italic" style={{ color: BRAND }}>The Business Sprint.</span>
+                  Introducing <span className="italic" style={{ color: BRAND }}>The Clarity Sprint.</span>
                 </h2>
                 <p className="text-base md:text-lg leading-relaxed text-muted-foreground mb-6">
-                  A six-week engagement that takes you from stuck on your next move to clear, with a position, an offer, a brand, a way to reach people, and a plan you can run. Whether that means building the first version or fixing the version you already have.
+                  A six-week engagement that takes you from stuck on your next move to clear. For a business, that means a position, an offer, a way to reach people and a plan you can run. For a career, it means knowing your value, making it visible and making your next move.
                 </p>
                 <p className="font-serif italic text-lg md:text-xl" style={{ color: BRAND }}>
-                  This is not a course. It is not generic business coaching. It is senior strategy, one to one, from someone who has built businesses and brands at the top end.
+                  This is not a course. It is not generic coaching. It is senior strategy, one to one, from someone who has built businesses and brands at the top end.
                 </p>
                 <p className="text-base md:text-lg leading-relaxed text-muted-foreground mt-6">
-                  You bring the business. I bring the plan.
+                  You make the calls. I bring the senior thinking behind them.
                 </p>
               </motion.div>
 
               <motion.div {...fadeUp(0.1)} className="text-center text-[14px] text-muted-foreground mb-16 max-w-2xl mx-auto space-y-4">
-                <p>We meet four times across the six weeks, an hour at a time. In each session I do the senior thinking with you, the positioning calls, the offer and pricing decisions, the strategy that usually takes years and expensive mistakes to work out alone. You leave each one knowing exactly what your next move is and why.</p>
-                <p>By the end you do not have a folder of advice. You have a positioned business, a clear offer, a way to reach the right people, and a 90-day plan you are already running. The workbook keeps it structured between sessions, and I am on Voxer whenever you want a steer.</p>
-                <p>And because we build it on your actual business, it is genuinely yours. You walk out with the thing built and the ability to keep building it, not a dependency on me or anyone else. It runs on my A.L.I.V.E. Method underneath.</p>
+                <p>We meet four times across the six weeks, an hour at a time. In each session I do the senior thinking with you on the calls that usually take years and expensive mistakes to work out alone. You leave each one knowing exactly what your next move is and why.</p>
+                <p>Between sessions, you write up the decisions in your Clarity Workbook and I mark them up. That part matters. A plan you wrote yourself is one you trust, and confidence comes back when you make big calls and watch them hold. I am on Voxer whenever you want a steer.</p>
+                <p>You walk out with the thing built and the ability to keep building it, not a dependency on me or anyone else. It runs on my A.L.I.V.E. Method underneath: Awareness, Liberation, Intention, Vision, Embodiment. The plan is what you can see. The method is what holds it up.</p>
               </motion.div>
+
+              <div className="flex flex-col items-center mb-10">
+                <p className="text-[10px] tracking-editorial uppercase mb-4 text-muted-foreground">Choose your track</p>
+                <div className="inline-flex border" style={{ borderColor: BRAND }}>
+                  {[{ key: "business", label: "I run a business" }, { key: "career", label: "I have a career" }].map((t) =>
+                  <button
+                    key={t.key}
+                    onClick={() => setTrack(t.key)}
+                    className="px-6 md:px-10 py-3 text-[10px] md:text-[11px] tracking-editorial uppercase font-semibold transition-colors duration-300"
+                    style={track === t.key ? { backgroundColor: BRAND, color: "#F5F1EC" } : { backgroundColor: "transparent", color: BRAND }}>
+                    
+                      {t.label}
+                    </button>
+                  )}
+                </div>
+              </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px" style={{ backgroundColor: "rgba(26,26,26,0.10)" }}>
                 {weeks.map((item, i) =>
@@ -462,12 +501,12 @@ export default function ClaritySpring() {
                       <span className="text-[9px] tracking-editorial uppercase text-muted-foreground mt-2">{item.week}</span>
                     </div>
                     <p className="text-lg font-serif font-bold mb-2" style={{ color: "#1A1A1A" }}>{item.label}</p>
-                    <p className="text-sm italic leading-snug mb-3 font-serif" style={{ color: BRAND }}>{item.sub}</p>
-                    {item.body.split("\n\n").map((p, j) =>
-                  <p key={j} className="text-xs leading-relaxed mb-3" style={{ color: "rgba(26,26,26,0.55)" }}>{p}</p>
-                  )}
+                    <p className="text-sm italic leading-snug mb-3 font-serif" style={{ color: BRAND }}>{item[track].sub}</p>
+                    <p className="text-xs leading-relaxed mb-3" style={{ color: "rgba(26,26,26,0.55)" }}>{item[track].body}</p>
                     <p className="text-xs font-semibold mt-3" style={{ color: "#1A1A1A" }}>You leave with:</p>
                     <p className="text-xs leading-relaxed italic" style={{ color: "rgba(26,26,26,0.60)" }}>{item.leave}</p>
+                    <p className="text-xs font-semibold mt-3" style={{ color: "#1A1A1A" }}>What shifts in you:</p>
+                    <p className="text-xs leading-relaxed italic" style={{ color: BRAND }}>{item.shift}</p>
                   </motion.div>
                 )}
               </div>
@@ -484,10 +523,10 @@ export default function ClaritySpring() {
               <motion.div {...fadeUp(0)} className="text-center mb-16">
                 <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— What You Get</p>
                 <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-4" style={{ color: "#1A1A1A" }}>
-                  What you get inside <span className="italic" style={{ color: BRAND }}>The Business Sprint.</span>
+                  What you get inside <span className="italic" style={{ color: BRAND }}>The Clarity Sprint.</span>
                 </h2>
                 <p className="text-muted-foreground text-[15px] max-w-2xl mx-auto">
-                  A complete senior engagement, structured for founders who need clarity fast and a plan they can execute.
+                  A complete senior engagement, for women who need clarity fast and a plan they can act on.
                 </p>
               </motion.div>
 
@@ -501,11 +540,49 @@ export default function ClaritySpring() {
                     <div className="flex items-start justify-between mb-3">
                       <p className="font-serif font-bold text-sm md:text-base leading-tight" style={{ color: "#1A1A1A" }}>{item.title}</p>
                     </div>
-                    <p className="text-[10px] tracking-editorial uppercase mb-3 font-semibold" style={{ color: BRAND }}>{item.value}</p>
                     <p className="text-xs leading-relaxed" style={{ color: "rgba(26,26,26,0.55)" }}>{item.desc}</p>
                   </motion.div>
                 )}
               </div>
+
+              {/* THE CLARITY PLAYBOOK */}
+              <motion.div {...fadeUp(0.1)} className="mt-4 p-8 md:p-14" style={{ backgroundColor: "rgba(245,238,228,0.97)", border: `1px solid ${BRAND}` }}>
+                <p className="text-[10px] tracking-editorial uppercase mb-4 font-semibold" style={{ color: BRAND }}>Included: written by me</p>
+                <h3 className="font-serif text-3xl md:text-5xl leading-[0.95] tracking-tight mb-6" style={{ color: "#1A1A1A" }}>
+                  Your <span className="italic" style={{ color: BRAND }}>Clarity Playbook.</span>
+                </h3>
+                <div className="max-w-3xl space-y-4 text-[14px] leading-relaxed text-muted-foreground mb-10">
+                  <p>Your plan tells you what to do next. Your Playbook tells you how you, specifically, will get in your own way, and how to get past it.</p>
+                  <p>I build it from everything you say across our four sessions. It is yours to keep, and it comes in two parts.</p>
+                </div>
+                <div className="grid md:grid-cols-2 gap-10 md:gap-16">
+                  <div>
+                    <p className="font-serif text-xl mb-5" style={{ color: BRAND }}>Part one: how you operate</p>
+                    <ul className="space-y-4">
+                      {playbookSelf.map((p, i) =>
+                      <li key={i} className="text-[13px] leading-relaxed text-foreground">
+                          <span className="font-semibold">{p.label}</span> {p.text}
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-serif text-xl mb-2" style={{ color: BRAND }}>Part two: how your business runs from here</p>
+                    <p className="text-[13px] italic text-muted-foreground mb-5">Every decision we made in the sessions, turned into practical steps.</p>
+                    <ul className="space-y-4">
+                      {playbookPlan.map((p, i) =>
+                      <li key={i} className="text-[13px] leading-relaxed text-foreground">
+                          <span className="font-semibold">{p.label}</span> {p.text}
+                        </li>
+                      )}
+                    </ul>
+                    <p className="text-[13px] italic text-muted-foreground mt-5">If you are on the career track, part two covers your role, your value and your next move instead.</p>
+                  </div>
+                </div>
+                <p className="font-serif italic text-lg md:text-2xl mt-12 text-center" style={{ color: BRAND }}>
+                  Most business plans assume you will run like a machine. This one is built around the woman who has to carry it out.
+                </p>
+              </motion.div>
 
               <motion.div {...fadeUp(0.1)} className="mt-12 mb-6">
                 <p className="text-[10px] tracking-editorial uppercase font-semibold" style={{ color: BRAND }}>Plus These Bonuses</p>
@@ -516,7 +593,6 @@ export default function ClaritySpring() {
                 <motion.div key={i} {...fadeUp(i * 0.08)} className={`p-6 md:p-8 relative ${i === 1 ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''}`} style={{ backgroundColor: "rgba(38,3,15,0.95)" }} onClick={i === 1 ? () => window.open('https://www.alignedwomanco.com/blueprint', '_blank') : undefined}>
                     <span className="inline-block mb-4 px-3 py-1 text-[9px] tracking-editorial uppercase font-bold border border-white/30 text-white/70">BONUS {i + 1}</span>
                     <p className="font-serif font-bold text-sm md:text-base mb-2 text-white">{item.title}</p>
-                    <p className="text-[10px] tracking-editorial uppercase mb-3 line-through text-white/40">Value: {item.value}</p>
                     <p className="text-xs leading-relaxed text-white/65">{item.desc}</p>
                   </motion.div>
                 )}
@@ -524,20 +600,36 @@ export default function ClaritySpring() {
 
               {/* Total */}
               <motion.div {...fadeUp(0.2)} className="border border-foreground/20 p-8 md:p-12 text-center max-w-2xl mx-auto mb-10" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
-                <p className="text-[14px] text-muted-foreground mb-2">If you booked each element separately at standard rates:</p>
-                <p className="font-serif text-4xl font-bold mb-4 line-through text-muted-foreground">R178,000</p>
-                <p className="text-[14px] text-muted-foreground mb-6">The Business Sprint is a defined six-week engagement, at</p>
+                <p className="text-[14px] text-muted-foreground mb-6">The Clarity Sprint is a defined six-week engagement, at</p>
                 <p className="font-serif text-6xl md:text-7xl font-bold mb-6" style={{ color: BRAND }}>R34,997</p>
                 <p className="font-serif italic text-[14px] mb-2" style={{ color: BRAND }}>
                   That is under R5,900 a week, for senior strategy and a plan you keep for good. Less than a single month of most marketing retainers, paid once.
                 </p>
                 <p className="font-serif italic text-[14px] mb-8" style={{ color: BRAND }}>
-                  That is not a discount. It is a calibrated rate, because this is focused, six-week work rather than an ongoing retainer, and because doing this work with founders on their own businesses is what I love most.
+                  It is a calibrated rate, because this is focused, six-week work rather than an ongoing retainer, and because doing this work one to one with women is what I love most.
+                </p>
+                <p className="text-[13px] text-muted-foreground mb-8">
+                  Employed? If your company has a learning and development budget, I can invoice it directly.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <DiscoveryBtn />
                 </div>
                 <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-4">Limited to 3 places per month. Online only. Starts within 7 days of booking.</p>
+              </motion.div>
+
+              {/* ALIGNMENT AUDIT */}
+              <motion.div {...fadeUp(0.2)} className="p-8 md:p-12 text-center max-w-2xl mx-auto mt-16" style={{ backgroundColor: "rgba(38,3,15,0.95)" }}>
+                <p className="text-[10px] tracking-editorial uppercase mb-6 text-white/60">— Not ready for six weeks?</p>
+                <h3 className="font-serif text-3xl md:text-5xl leading-[0.95] tracking-tight mb-6 text-white">
+                  Start with <span className="italic" style={{ color: "#E8B4AE" }}>The Alignment Audit.</span>
+                </h3>
+                <div className="space-y-4 text-[14px] leading-relaxed text-white/75 mb-8">
+                  <p>You answer a set of questions online, in your own time. Within five days of you submitting them, I send you a written diagnostic of where you actually are, the patterns holding you back and the move I would make next.</p>
+                  <p>Then we get on one call to go through it together.</p>
+                  <p className="font-serif italic" style={{ color: "#E8B4AE" }}>It is the lowest-commitment way to get my eyes on your situation.</p>
+                </div>
+                <p className="font-serif text-5xl md:text-6xl font-bold mb-8 text-white">R5,997</p>
+                <AuditButton />
               </motion.div>
             </div>
           </section>
@@ -599,7 +691,8 @@ export default function ClaritySpring() {
               <p className="text-[10px] tracking-editorial uppercase font-bold text-foreground mb-8">This is for you if:</p>
               <ul className="space-y-5">
                 {[
-                "You are starting, growing, or repositioning a business, and you need clarity on the actual next move.",
+                "You are starting, growing, or repositioning a business, or working out your next career move, and you need clarity on the actual next step.",
+                "You look completely capable from the outside and second-guess every big call on the inside.",
                 "You are capable and have done hard things, and what you are missing is the plan, not the drive.",
                 "You have an idea you cannot seem to start, or an established business that has stalled, plateaued, or lost its edge.",
                 "You want to stay hands-on and own the result, with a senior brain guiding the calls, rather than handing it over and hoping.",
@@ -617,7 +710,7 @@ export default function ClaritySpring() {
               <p className="text-[10px] tracking-editorial uppercase font-bold text-foreground mb-8">This is not for you if:</p>
               <ul className="space-y-5">
                 {[
-                "You want it fully done for you while you step back. This is collaborative. I bring the senior thinking, you bring your business, and you own what we build.",
+                "You want it fully done for you while you step back. This is collaborative. I bring the senior thinking, you bring your business or career, and you own what we build.",
                 "You want reassurance more than the truth. I will tell you when something needs work.",
                 "You are looking for the cheapest business coaching on the internet. This is calibrated, not discounted.",
                 "You are not actually ready to act."].
@@ -673,7 +766,7 @@ export default function ClaritySpring() {
 
           <div className="mb-12 text-center max-w-2xl mx-auto">
             <div className="border border-foreground/20 p-8" style={{ backgroundColor: "rgba(245,238,228,0.95)" }}>
-              <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Setup a free discovery call.</p>
+              <p className="font-serif text-xl mb-3" style={{ color: "#1A1A1A" }}>Set up a free discovery call.</p>
               <ul className="space-y-1 text-[13px] text-muted-foreground mb-6">
                 <li>Only three places per month.</li>
                 <li>Four one-hour sessions across six weeks.</li>

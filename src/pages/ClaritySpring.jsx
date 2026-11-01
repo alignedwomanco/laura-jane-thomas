@@ -451,7 +451,7 @@ export default function ClaritySpring() {
           <section className="py-16 md:py-28 px-6">
             <div className="max-w-[1200px] mx-auto">
               <motion.div {...fadeUp(0)} className="mb-12 text-center max-w-3xl mx-auto">
-                <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— The Offer</p>
+                <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>The Offer</p>
                 <h2 className="font-serif text-5xl md:text-7xl leading-[0.92] tracking-tight mb-6" style={{ color: "#1A1A1A" }}>
                   Introducing <span className="italic" style={{ color: BRAND }}>The Clarity Sprint.</span>
                 </h2>
@@ -521,7 +521,7 @@ export default function ClaritySpring() {
           <section className="py-16 md:py-24 px-6">
             <div className="max-w-[1400px] mx-auto">
               <motion.div {...fadeUp(0)} className="text-center mb-16">
-                <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>— What You Get</p>
+                <p className="text-[10px] tracking-editorial uppercase mb-6" style={{ color: BRAND }}>What You Get</p>
                 <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-4" style={{ color: "#1A1A1A" }}>
                   What you get inside <span className="italic" style={{ color: BRAND }}>The Clarity Sprint.</span>
                 </h2>
@@ -619,7 +619,7 @@ export default function ClaritySpring() {
 
               {/* ALIGNMENT AUDIT */}
               <motion.div {...fadeUp(0.2)} className="p-8 md:p-12 text-center max-w-2xl mx-auto mt-16" style={{ backgroundColor: "rgba(38,3,15,0.95)" }}>
-                <p className="text-[10px] tracking-editorial uppercase mb-6 text-white/60">— Not ready for six weeks?</p>
+                <p className="text-[10px] tracking-editorial uppercase mb-6 text-white/60">Not ready for six weeks?</p>
                 <h3 className="font-serif text-3xl md:text-5xl leading-[0.95] tracking-tight mb-6 text-white">
                   Start with <span className="italic" style={{ color: "#E8B4AE" }}>The Alignment Audit.</span>
                 </h3>
@@ -680,7 +680,7 @@ export default function ClaritySpring() {
       <section className="py-16 md:py-28" style={{ backgroundColor: BRAND }}>
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <motion.div {...fadeUp(0)} className="text-center mb-16 text-ivory">
-            <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-8">— Is This Right For You?</p>
+            <p className="text-[10px] tracking-editorial uppercase text-ivory/60 mb-8">Is This Right For You?</p>
             <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-4">
               Is this the right offer for you?
             </h2>
@@ -755,7 +755,7 @@ export default function ClaritySpring() {
           transition={{ duration: 1.2 }}
           className="relative z-10 max-w-3xl mx-auto">
           
-          <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">— Let's begin </p>
+          <p className="text-[10px] tracking-editorial uppercase text-muted-foreground mb-8">Let's begin </p>
           <h2 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-tight mb-8" style={{ color: "#1A1A1A" }}>
             This is the moment.
           </h2>

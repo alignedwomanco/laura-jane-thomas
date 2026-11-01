@@ -632,7 +632,7 @@ export default function ClaritySpring() {
                   <p>You answer my questions online, in your own time. Within five days you get a written diagnostic of where you actually are, the pattern holding you back and the move I'd make next. Then we go through it together on one call.</p>
                 </div>
                 <p className="font-serif text-5xl md:text-6xl font-bold mb-3 text-white">R5,997</p>
-                <p className="text-[13px] text-white/65 mb-8">If you go on to do the Clarity Sprint with me, R4,000 of it comes off the Sprint.</p>
+                <p className="text-[13px] text-white/65 mb-8">If you go on to do the Clarity Sprint with me within 12 months, R4,000 of it comes off the Sprint.</p>
                 <AuditButton />
               </motion.div>
             </div>

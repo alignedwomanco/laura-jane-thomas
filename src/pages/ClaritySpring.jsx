@@ -629,10 +629,10 @@ export default function ClaritySpring() {
                 <div className="space-y-4 text-[14px] leading-relaxed text-white/75 mb-8">
                   <p className="font-serif italic text-lg md:text-xl" style={{ color: "#E8B4AE" }}>ChatGPT gives you the most likely answer. Your friends give you the kindest one. The Alignment Audit gives you yours.</p>
                   <p>It's built on 17 years of strategy work for some of the biggest brands in the world. I'm a certified director, coach, business mentor and NLP practitioner, and the diagnostic draws on neuroscience and psychology as much as business strategy. So it reads your business and the woman running it.</p>
-                  <p>You answer my questions online, in your own time. Within five days you get a written diagnostic of where you actually are, the pattern holding you back and the move I'd make next. Then we go through it together on one call.</p>
+                  <p>You answer my questions online, in your own time. Within seven working days you get a written blueprint of where you actually are, the pattern holding you back and the move I'd make next. Then we go through it together on one call.</p>
                 </div>
-                <p className="font-serif text-5xl md:text-6xl font-bold mb-3 text-white">R2,997</p>
-                <p className="text-[13px] text-white/65 mb-8">If you go on to do the Clarity Sprint with me within 12 months, the full R2,997 comes off the Sprint.</p>
+                <p className="font-serif text-5xl md:text-6xl font-bold mb-3 text-white">$280</p>
+                <p className="text-[13px] text-white/65 mb-8">If you go on to do the Clarity Sprint with me within 12 months, the full audit fee comes off the Sprint.</p>
                 <AuditButton />
               </motion.div>
             </div>

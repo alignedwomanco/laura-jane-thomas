@@ -243,7 +243,7 @@ function buildAlignmentAudit(emailNum, firstName, primaryResult, secondaryResult
       html: wrap(`
         ${p(`Hi ${firstName},`)}
         ${p("Based on your answers, your aligned path is the Alignment Audit. You told me you are not sure exactly what is happening underneath your current situation, and you want a senior look before you commit to deeper work.")}
-        ${p("The Alignment Audit is built for exactly this. You answer a set of questions online, in your own time. Within five days I send you a written diagnostic of where you actually are, the specific misalignments costing you and a recommended path forward. Then we go through it together on one call. The investment is R2,997.")}
+        ${p("The Alignment Audit is built for exactly this. You answer a set of questions online, in your own time. Within seven working days I send you a written diagnostic of where you actually are, the specific misalignments costing you and a recommended path forward. Then we go through it together on one call. The investment is R2,997.")}
         ${p("This is the senior advisory equivalent of a strategic consultation. You leave knowing exactly what you are working with and what to do next, with no obligation to continue.")}
         ${btn("BUY THE ALIGNMENT AUDIT", AUDIT_URL)}
         ${buildSecondaryBlock(primaryResult, secondaryResult)}
@@ -256,7 +256,7 @@ function buildAlignmentAudit(emailNum, firstName, primaryResult, secondaryResult
       html: wrap(`
         ${p(`Hi ${firstName},`)}
         ${p("Most coaching starts with a discovery call that is really a sales conversation. You come in with a real problem, you leave with a proposal.")}
-        ${p("The Alignment Audit is different. It is a paid diagnostic, not a sales call. You answer my questions online, in your own time. Within five days I deliver a written Alignment Diagnostic that names the misalignments specifically, and then we go through it together on one call.")}
+        ${p("The Alignment Audit is different. It is a paid diagnostic, not a sales call. You answer my questions online, in your own time. Within seven working days I deliver a written Alignment Diagnostic that names the misalignments specifically, and then we go through it together on one call.")}
         ${p("If the Senior Advisory is the right path after the Audit, your Audit fee is credited toward the Advisory if booked within 60 days. If a different path is right, I will tell you. If no further engagement is needed at all, I will tell you that too.")}
         ${btn("BUY THE AUDIT", AUDIT_URL)}
         ${signOff("Laura")}

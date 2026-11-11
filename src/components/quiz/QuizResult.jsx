@@ -80,7 +80,7 @@ The Aligned Woman Blueprint is built for this. The complete A.L.I.V.E. Method, t
     headline: "You need a senior diagnosis before you decide anything.",
     body: `Your answers tell me you are not sure exactly what is happening underneath your current situation, and you want a senior look before you commit to deeper work.
 
-The Alignment Audit is built for this. You answer a set of questions online, in your own time. Within five days I send you a written diagnostic of where you actually are, the specific misalignments costing you and a recommended path forward. Then we go through it together on one call. The investment is R2,997. This is the senior advisory equivalent of a strategic consultation. You leave knowing exactly what you are working with and what to do next, with no obligation to continue.`,
+The Alignment Audit is built for this. You answer a set of questions online, in your own time. Within seven working days I send you a written diagnostic of where you actually are, the specific misalignments costing you and a recommended path forward. Then we go through it together on one call. The investment is R2,997. This is the senior advisory equivalent of a strategic consultation. You leave knowing exactly what you are working with and what to do next, with no obligation to continue.`,
     ctaLabel: "Buy The Alignment Audit",
     ctaHref: STRIPE_AUDIT_LINK || "https://laurajanethomas.biz/services",
     secondaryCtas: {

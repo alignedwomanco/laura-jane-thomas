@@ -20,6 +20,7 @@ const offerings = [
       "An online intake you complete in your own time.",
       "A written blueprint within seven working days of you submitting it, capturing what is actually happening and what the next move is.",
       "One call with me to go through it together, so you leave knowing whether the deeper work is right for you.",
+      "Your AI script after the call: custom instructions for your ChatGPT or Claude, so your AI knows who you are and what you want.",
     ],
     closingLine: "$280. If you go on to do the Clarity Sprint with me within 12 months, the full audit fee comes off the Sprint. This is the diagnostic that decides whether the rest of the work is for you. It is also a complete piece of work in itself.",
     ctaText: "Buy The Alignment Audit",
